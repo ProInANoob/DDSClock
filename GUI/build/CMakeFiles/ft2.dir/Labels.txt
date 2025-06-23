@@ -1,0 +1,13 @@
+# Target labels
+ ft2
+# Source files and their labels
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2-complete.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-build.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-configure.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-download.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-install.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-mkdir.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-patch.rule
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-update.rule

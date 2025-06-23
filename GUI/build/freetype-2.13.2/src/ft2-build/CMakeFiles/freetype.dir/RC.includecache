@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/base/ftver.rc
+windows.h
+-
+

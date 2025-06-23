@@ -1,0 +1,8 @@
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/freetype.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/package.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/package_source.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/edit_cache.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/rebuild_cache.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/list_install_components.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/install.dir
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/CMakeFiles/install/local.dir

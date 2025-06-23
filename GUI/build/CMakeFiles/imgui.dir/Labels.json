@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui-complete.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-build.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-configure.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-download.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-install.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-patch.rule"
+		},
+		{
+			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"imgui"
+		],
+		"name" : "imgui"
+	}
+}

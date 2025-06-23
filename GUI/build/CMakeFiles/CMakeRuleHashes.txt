@@ -1,0 +1,19 @@
+# Hashes of file build rules.
+37ac1359e73ad730fd3fe63ce6a508e5 CMakeFiles/ft2
+c30df1f6597cf7d35da2103912f045b0 CMakeFiles/ft2-complete
+37ac1359e73ad730fd3fe63ce6a508e5 CMakeFiles/imgui
+6af6b89544ec2256f2f42d5e9553ca7c CMakeFiles/imgui-complete
+34b85220860a8aeb387868faa798cc7b freetype-2.13.2/src/ft2-stamp/ft2-build
+ecdf7ae321e4c7be36f660e3751dd011 freetype-2.13.2/src/ft2-stamp/ft2-configure
+5cc62ff7f4e45b9d01f43ed1e923534f freetype-2.13.2/src/ft2-stamp/ft2-download
+1db0240105c37959fb5a2f042fcf959b freetype-2.13.2/src/ft2-stamp/ft2-install
+6b7acb6d43dbe52390d338f95f308ddd freetype-2.13.2/src/ft2-stamp/ft2-mkdir
+6036371a16dfabc73c9cde760259acd2 freetype-2.13.2/src/ft2-stamp/ft2-patch
+71beb4044ba87b9e94bba5242ebc0c7a freetype-2.13.2/src/ft2-stamp/ft2-update
+b5f5fe61c105e6acfad9b90f7bc9c69b imgui-1.90.9/src/imgui-stamp/imgui-build
+5fa4d919fce02c256a711c2768cd2a09 imgui-1.90.9/src/imgui-stamp/imgui-configure
+c5ef98834d432cd0047df051f0af7f85 imgui-1.90.9/src/imgui-stamp/imgui-download
+85ca595f63be79d1086c864b8003a7fb imgui-1.90.9/src/imgui-stamp/imgui-install
+a0aa5ed92fd7bfafa6e48f6ce9bee769 imgui-1.90.9/src/imgui-stamp/imgui-mkdir
+0e458970936cd92c850bee25695ceb21 imgui-1.90.9/src/imgui-stamp/imgui-patch
+f1f7788088e91804fb015371754b4437 imgui-1.90.9/src/imgui-stamp/imgui-update

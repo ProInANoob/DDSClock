@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include <thread>
-
+#include "types.hh"
 #include "md.hh"
 #include "gui.hh"
 #include "discovery.hh" 
@@ -18,6 +18,14 @@ bool MD::done = false;
 DDS_DomainParticipant dp;
 int domain_id = 0; // think ill just pull em all in this...
 DDS_InstanceHandle_t     my_handle = DDS_HANDLE_NIL; 
+
+// so a clock list probably... Id like to orginize the buttons a little more than just a list, but idk how
+
+std::vector<ClockInfo*> clocks;
+
+std::map<std::array<unsigned char, 12>, std::vector<ButtonInfo*>*> matchedButtons; // this IG? keyed by clock key 
+//and 
+std::vector<ButtonInfo*> unknownButtons;
 
 
 #if defined(_WIN32)
@@ -69,6 +77,8 @@ int parse_commandline(int argc, char *argv[])
     return 0;
 }
 
+
+#pragma region GUI
 // ---------------------------------------------------------------
 void MD::init(int argc, char *argv[])
 {
@@ -83,6 +93,7 @@ void MD::init(int argc, char *argv[])
     DDS_DomainParticipantQos dp_qos;
     DDS_DomainParticipantFactory_get_default_participant_qos(&dp_qos);
     dp = DDS_DomainParticipantFactory_create_participant(domain_id, &dp_qos, NULL, 0);
+    
     my_handle = DDS_DomainParticipant_get_instance_handle(dp); 
     add_discovery_listeners(dp);
 
@@ -109,6 +120,11 @@ void MD::main_loop()
 void MD::cleanup()
 {
 }
+
+#pragma endregion
+
+
+
 
 // ---------------------------------------------------------------
 int main(int argc, char *argv[])

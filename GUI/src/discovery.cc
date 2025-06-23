@@ -6,11 +6,14 @@
 #include <iostream>
 #include <map>
 #include <string>
-#include <sstream> // For std::stringstream
+#include <vector> // For std::stringstream
 #include <array>
+#include <cstring>
 
 #include "extended_discovery_types.h"
+#include "types.hh"
 // #include "gui.hh"
+
 
 
 /*****************************************************************
@@ -19,6 +22,16 @@
 
 
 extern DDS_InstanceHandle_t my_handle;
+
+
+extern std::vector<ClockInfo*> clocks;
+
+extern std::map<std::array<unsigned char, 12>, std::vector<ButtonInfo*>*> matchedButtons; // this IG? keyed by clock key 
+//and 
+extern std::vector<ButtonInfo*> unknownButtons;
+
+
+
 
 void bi_dpd_data_available(DDS_DataReader dr)
 {
@@ -300,6 +313,56 @@ void bi_dwd_data_available( DDS_DataReader dr){
                     key = (unsigned char *)&dwd->key;
                     topic = dwd->topic_name;
                     type = dwd->type_name;
+
+
+                    // soo here we find the buttons... I think ... well idk. I coul dlook for one that matches name and 
+                    if(topic[0] == "B"[0]){
+                        //es un buttontont
+                        ButtonInfo * bi = new ButtonInfo;
+
+                        memcpy(&bi->dpKey, participantKey, sizeof(unsigned char) * 12);
+
+                        // BUTTON_DATA_***** <- clock name. sooo button name = what? 
+                        strcpy(bi->dataTopicName, topic); 
+
+                        bi->buttonName =  &bi->dataTopicName[12];// ill want to append _orange, or _blue when I gui it, but for now... 
+
+                        //can I do others?. 
+                        if(!strcmp(bi->buttonName, "UNKNOWN")){
+                            //should have a clock for it.. 
+                            //look in the clocks first, then in the map with the dpKey we get.. if in map add to vec in map, else make map entry. 
+                            bool matched = 0;
+                            for(std::vector<ClockInfo*>::iterator it = clocks.begin(); it != clocks.end(); it++){
+                                if(strcmp((*it)->clockName, bi->buttonName )){
+                                    //has clock with same name
+                                    bool foundInMap = 0;
+                                    for (const auto& pair : matchedButtons) {
+                                        if(pair.first == (*it)->dpKey){
+                                            foundInMap = 1;
+                                            pair.second->push_back(bi);
+                                            matched = 1;
+                                            continue;
+                                        }
+                                    }
+                                    if(!foundInMap){
+                                        //add to map
+                                        std::vector<ButtonInfo*> * temp = new std::vector<ButtonInfo*>;
+                                        temp->push_back(bi);
+                                        matched = 1;
+                                        matchedButtons[(*it)->dpKey] = temp; 
+                                    }
+                                }
+                            }
+                            if(! matched){
+                                unknownButtons.push_back(bi);
+                            }
+                        }
+                        else {
+                            unknownButtons.push_back(bi);
+                        }
+
+
+                    }
                     
                    
 
@@ -310,9 +373,6 @@ void bi_dwd_data_available( DDS_DataReader dr){
                            participantKey[0], participantKey[1], participantKey[2], participantKey[3],
                            participantKey[4], participantKey[5], participantKey[6], participantKey[7],
                            participantKey[8], participantKey[9], participantKey[10], participantKey[11]);
-                    printf(" KEY              : %.2x%.2x%.2x%.2x\n",
-                           key[0], key[1], key[2], key[3]
-                           );
                     printf(" TOPIC NAME       : %s \n", topic);
                     printf(" TYPE NAME        : %s \n", type);
 
@@ -389,7 +449,35 @@ void bi_drd_data_available( DDS_DataReader dr){
                     type = drd->type_name;
 
 
-              
+                    // soo here we look for the clock, need a CLOCK_STATE or ajacent topic, to tell clock what time and whatever to display, work on truct in a sec, take care of timeing in here, not on esp
+                    // do I need to specify, oh its on robobrawl_clock_state, opposed to dpd_clock_state.... I might. I think I will. 
+                    // orrrr cool thing, make it incredably dynamic, have a writer on "awaiting instruction" topic, witch this then sends hey your a button for this clock, get on these topics. 
+                    //will be hard to figure out witch buttons go to witch clocks and stuff... could do a matching system, turn a clock bright color, b elike touch the orange button for this one, then the blue one. and we just do that.... 
+                    //get the message on button press and attach that kay to a message that says "hey go over to this/these topics". 
+                    // or I put a bit_idle, dpd_idle and stuff for the buttond to go into auto, then asign those once I have a clock. becuase I can make the clocks hardcoded rorbo clock and dpd clock. 
+
+                    // could add a unknown clock topuic for expandabiliy, have user input what kind of clock it is, and asign that topic, might be a nice feature to have even when the clocks are 'locked' ( put a go to this topic in the clcok contol type ).
+                    // i could do the matching system(once I have some buttons on the network), tehat then writes it into memory of the esp, to not have to do it on every startup, only when its nessisary. 
+
+                    // I thnk I like ^^^ that one. 
+                    //use default qos fro all of these. the types will just be copied for every button / clcok network. 
+                    // NOTE: I need asignable times for the clocks, not all the 5 or wahteer robobrawl is.  
+
+                    // need a consistaint style for these: CLOCK_STATE_*******, *** -> UNKNOWN, ROBOBRAWL, ect.
+                    //buttons will be some kind of BUTTON_CLOCKNAME_STATES or something( not starting with a C)
+
+                    //sooo
+                    if(drd->topic_name[0] == 'C'){
+                        // then its a clock
+                        ClockInfo* cd = new ClockInfo;
+
+                        memcpy(&(cd->dpKey), participantKey, sizeof(unsigned char) * 12); // copy the dpKey, probably. 
+                        cd->topicName = topic;
+                        cd->clockName = &(drd->topic_name[12]);// fetch the end of the topic name ( if I can count)
+
+                        clocks.push_back(cd);
+                        
+                    }
 
 
                     printf("------------------------------------------------------------------\n");
@@ -398,8 +486,7 @@ void bi_drd_data_available( DDS_DataReader dr){
                         participantKey[0], participantKey[1], participantKey[2], participantKey[3],
                         participantKey[4], participantKey[5], participantKey[6], participantKey[7],
                         participantKey[8], participantKey[9], participantKey[10], participantKey[11]);
-                    printf(" KEY              : %.2x%.2x%.2x%.2x\n",
-                           key[0], key[1], key[2], key[3]);
+                    
                     printf(" TOPIC NAME       : %s \n", topic);
                     printf(" TYPE NAME        : %s \n", type);
 
@@ -465,7 +552,7 @@ void add_discovery_listeners(DDS_DomainParticipant dp)
     DDS_DataReader bi_dr_dwd = DDS_Subscriber_lookup_datareader(bi_sub, "DCPSPublication");
     DDS_DataReader bi_dr_drd = DDS_Subscriber_lookup_datareader(bi_sub, "DCPSSubscription");
 
-    DDS_DataReader_set_listener(bi_dr_dpd, &bi_dpd_listener, DDS_DATA_AVAILABLE_STATUS);
+    //DDS_DataReader_set_listener(bi_dr_dpd, &bi_dpd_listener, DDS_DATA_AVAILABLE_STATUS);
     DDS_DataReader_set_listener(bi_dr_dwd, &bi_dwd_listener, DDS_DATA_AVAILABLE_STATUS);
     DDS_DataReader_set_listener(bi_dr_drd, &bi_drd_listener, DDS_DATA_AVAILABLE_STATUS);
 }

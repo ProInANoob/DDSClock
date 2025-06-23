@@ -354,10 +354,12 @@ C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.3412
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/xtree
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/xnode_handle.h
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/string
-C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/sstream
+C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/vector
+C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/__msvc_bit_utils.hpp
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/array
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/extended_discovery_types.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/list.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/rtps.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/rtps_base.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/rtps_submsgs.h
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/types.hh

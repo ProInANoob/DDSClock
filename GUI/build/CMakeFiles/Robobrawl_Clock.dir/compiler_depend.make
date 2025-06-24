@@ -807,11 +807,76 @@ CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSCl
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: imgui-1.90.9\src\imgui\backends\imgui_impl_win32.h
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: imgui-1.90.9\src\imgui\backends\imgui_impl_dx11.h
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlInit.hh
-CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\d3d11.h"
-CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\rpc.h"
-CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\windows.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlInit.hh
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\context.hh
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\mutex"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\thread"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\process.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_startup.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\math.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime_startup.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\ddspub.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\ddsdomain.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\ddscore.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\conformance.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\types.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\inttypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\macros.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\macros.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\codecvt"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\locale"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xlocbuf"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xlocmes"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xlocmon"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xloctime"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Time.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Duration.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\InstanceHandle.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\InstanceHandle.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\TInstanceHandleImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\InstanceHandle.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\TInstanceHandle.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Value.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\array.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\array.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Optional.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\Optional.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Exception.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\cassert"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\assert.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Entity.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\Entity.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\TEntityImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\TEntity.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\Reference.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\refmacros.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\ref_traits.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\ref_traits.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\status\Status.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\status\detail\Status.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\status\detail\TStatusImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\status\TStatus.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\CorePolicy.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\PolicyKind.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\SafeEnumeration.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\detail\CorePolicy.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\policy\CorePolicy.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\LengthUnlimited.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_consts.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_types.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_seq.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_inttypes.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\inttypes.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\toc_util.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_seq.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\winsock2.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\winapifamily.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\winpackagefamily.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\windows.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\sdkddkver.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\excpt.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\windef.h"
@@ -981,7 +1046,7 @@ CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\poppack.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\pshpack1.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\poppack.h"
-CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\winsmcrd.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\winsmcrd.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\winspool.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\prsht.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\pshpack8.h"
@@ -1019,6 +1084,287 @@ CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\mcx.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\imm.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\ime_cmodes.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\ws2def.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\inaddr.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\qos.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\ws2tcpip.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\ws2ipdef.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\in6addr.h"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_map.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\coredx_logging.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_builtin.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xcdr_codec.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xcdr.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_marsh.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xcdr1.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xcdr_base.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_type.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xcdr2.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_builtin_basic.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_stats.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\coredx_version.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\policy\ExtPolicy.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\TCorePolicy.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\ValueImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\detail\TCorePolicyImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\detail\QosPolicyCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\detail\TQosPolicyCountImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\TQosPolicyCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\policy\QosPolicyCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\policy\QosPolicyCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\status\State.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\bitset"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\status\Status.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\ReferenceImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\EntityDelegate.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\Mutex.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\ObjectDelegate.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\GuardCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\GuardCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\TGuardConditionImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\TGuardCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\Condition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\Condition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\TConditionImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\TCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\StatusCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\cond\StatusCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\cond\Condition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\detail\ReadCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\detail\QueryCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\cond\GuardCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\StatusCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\TStatusConditionImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\TStatusCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\WaitSet.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\WaitSet.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\detail\TWaitSetImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\cond\TWaitSet.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\cond\WaitSet.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\DomainParticipant.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\detail\DomainParticipant.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\detail\TDomainParticipantImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\TDomainParticipant.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\qos\DomainParticipantQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\qos\detail\DomainParticipantQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\TEntityQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\TEntityQosImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\domain\qos\DomainParticipantQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\qos\DomainParticipantFactoryQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\qos\detail\DomainParticipantFactoryQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\domain\qos\DomainParticipantFactoryQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\qos\TopicQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\qos\detail\TopicQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\qos\TopicQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\qos\PublisherQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\qos\detail\PublisherQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\pub\qos\PublisherQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\qos\SubscriberQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\qos\detail\SubscriberQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\qos\SubscriberQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\domain\DomainParticipant.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\EntitySet.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\set"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\discovery.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\Subscriber.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\Subscriber.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\TSubscriberImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TSubscriber.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\qos\DataReaderQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\qos\detail\DataReaderQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\qos\DataReaderQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\Subscriber.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\DomainId.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\detail\DomainId.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\TDomainId.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\domain\DomainParticipantListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\PublisherListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\AnyDataWriterListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\AnyDataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\AnyDataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\TAnyDataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\TAnyDataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\Publisher.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\Publisher.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\TPublisherImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\TPublisher.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\qos\DataWriterQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\qos\detail\DataWriterQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\pub\qos\DataWriterQos.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\pub\Publisher.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TopicDescription.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TopicDescription.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\TopicDescription.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TTopicDescription.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TopicTraits.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\pub\AnyDataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\AnyTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\AnyTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TAnyTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TAnyTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\conformance.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\AnyTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\dds_builtin_basic.hh
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\iomanip"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\TopicTraits.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\SubscriberListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\AnyDataReaderListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\AnyDataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\AnyDataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\TAnyDataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TAnyDataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\AnyDataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\status\DataState.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\status\detail\DataStateImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\status\DataState.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\AnyTopicListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\ddstopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\Topic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\Topic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TopicInstanceImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TopicInstance.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\config.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\Topic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_typesupport.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\xtypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\StructType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TStructType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\DynamicType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\DynamicTypeVisitor.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TDynamicType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\Annotations.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TAnnotation.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TypeKind.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\Annotation.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\DynamicType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\MemberType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TMemberType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\MemberType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\PrimitiveTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\PrimitiveTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\StructType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\algorithm"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\__msvc_minmax.hpp"
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\UnionType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TUnionType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\UnionMember.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TUnionMember.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\UnionMember.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\UnionType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\EnumType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TEnumType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\EnumMember.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TEnumMember.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\EnumMember.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\EnumType.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\CollectionTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TCollectionTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\CollectionTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\DynamicData.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\TDynamicData.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\xtypes\detail\DynamicData.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xtypes.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xtypes_typeobject.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xtypes_dtype.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TTopicImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TopicListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\ContentFilteredTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\ContentFilteredTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\Filter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TFilter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\Filter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TFilterImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\Filter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TContentFilteredTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\BuiltinTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\BuiltinTopicKey.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\BuiltinTopicKey.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\BuiltinTopicKey.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TBuiltinTopicKey.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\BuiltinTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\topic\BuiltinTopicImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\TBuiltinTopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\discovery.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\DataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\DataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\LoanedSamples.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\Sample.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\Sample.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TSample.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\SampleInfo.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TSampleInfo.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\GenerationCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\GenerationCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TGenerationCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\GenerationCount.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\Rank.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\Rank.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TRank.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\Rank.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\SampleInfo.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\SampleInfo.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\TSampleImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\Sample.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\LoanedSamples.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\LoanedSample.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\LoanedSamplesImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\Query.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\Query.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TQuery.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\Query.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\TQueryImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TDataReader.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\TDataReaderImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\DataReaderListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\ddstopic.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TTopicDescription.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\topic\detail\TContentFilteredTopicImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\BuiltinTopicTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\TBuiltinTopicTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\BuiltinTopicTypes.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\DataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\DataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\TDataWriterImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\DataWriterListener.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\DataWriter.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\pub\detail\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\coredx_udp_transport.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\coredx_transport.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawl.hh
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\dds.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\ddssub.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\CoherentAccess.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\CoherentAccess.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\CoherentAccess.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\TCoherentAccess.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\ReadCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\TReadCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\ReadCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\detail\TReadConditionImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\QueryCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\detail\TQueryConditionImpl.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\cond\TQueryCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\sub\QueryCondition.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\sub\detail\find.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\QosProvider.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\TQosProvider.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\QosProvider.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\org\toc\coredx\core\QosProvider.hpp
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\qos_provider.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xml_api.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_seq.hh
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\d3d11.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um\ocidl.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared\dxgi.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\dxgicommon.h"
@@ -2546,6 +2892,7 @@ CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: "C:\Program Files (x86)\Windows Kits
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime_startup.h"
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\types.hh
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlinit.hh
+CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlInit.hh
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\gui.hh
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: imgui-1.90.9\src\imgui\imgui.h
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: imgui-1.90.9\src\imgui\imconfig.h
@@ -3896,6 +4243,7 @@ CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: "C:\Program Files (x86)\Win
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_startup.h"
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\math.h"
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime_startup.h"
+CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlInit.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlInit.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\gui.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: imgui-1.90.9\src\imgui\imgui.h

@@ -1,6 +1,11 @@
 #ifndef RB_HH
 #define RB_HH
 
+#include "robobrawlInit.hh"
+#include "gui.hh"
+#include "context.hh"
+
+
 
 namespace roboClock
 {

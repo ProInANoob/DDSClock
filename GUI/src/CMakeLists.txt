@@ -194,7 +194,7 @@ if (WIN32)
 endif()
 
 target_link_libraries( Robobrawl_Clock
-  PRIVATE  ${DDS_C_LIBS}
+  PRIVATE  ${DDS_CXX_LIBS}
   PRIVATE  ${LINUX_LIBS}
   PRIVATE  ${FT2_LIBS}
   PRIVATE  ${IMGUI_BE_LIBS}

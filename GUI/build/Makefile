@@ -144,29 +144,29 @@ Robobrawl_Clock\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\build
 .PHONY : Robobrawl_Clock\fast
 
-discovery.obj: discovery.cc.obj
-.PHONY : discovery.obj
+controller.obj: controller.cc.obj
+.PHONY : controller.obj
 
 # target to build an object file
-discovery.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\discovery.cc.obj
-.PHONY : discovery.cc.obj
+controller.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\controller.cc.obj
+.PHONY : controller.cc.obj
 
-discovery.i: discovery.cc.i
-.PHONY : discovery.i
+controller.i: controller.cc.i
+.PHONY : controller.i
 
 # target to preprocess a source file
-discovery.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\discovery.cc.i
-.PHONY : discovery.cc.i
+controller.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\controller.cc.i
+.PHONY : controller.cc.i
 
-discovery.s: discovery.cc.s
-.PHONY : discovery.s
+controller.s: controller.cc.s
+.PHONY : controller.s
 
 # target to generate assembly for a file
-discovery.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\discovery.cc.s
-.PHONY : discovery.cc.s
+controller.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\controller.cc.s
+.PHONY : controller.cc.s
 
 gui.obj: gui.cc.obj
 .PHONY : gui.obj
@@ -408,6 +408,78 @@ main.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\main.cc.s
 .PHONY : main.cc.s
 
+robobrawl.obj: robobrawl.cc.obj
+.PHONY : robobrawl.obj
+
+# target to build an object file
+robobrawl.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj
+.PHONY : robobrawl.cc.obj
+
+robobrawl.i: robobrawl.cc.i
+.PHONY : robobrawl.i
+
+# target to preprocess a source file
+robobrawl.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.i
+.PHONY : robobrawl.cc.i
+
+robobrawl.s: robobrawl.cc.s
+.PHONY : robobrawl.s
+
+# target to generate assembly for a file
+robobrawl.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.s
+.PHONY : robobrawl.cc.s
+
+robobrawlInit.obj: robobrawlInit.cc.obj
+.PHONY : robobrawlInit.obj
+
+# target to build an object file
+robobrawlInit.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj
+.PHONY : robobrawlInit.cc.obj
+
+robobrawlInit.i: robobrawlInit.cc.i
+.PHONY : robobrawlInit.i
+
+# target to preprocess a source file
+robobrawlInit.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.i
+.PHONY : robobrawlInit.cc.i
+
+robobrawlInit.s: robobrawlInit.cc.s
+.PHONY : robobrawlInit.s
+
+# target to generate assembly for a file
+robobrawlInit.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.s
+.PHONY : robobrawlInit.cc.s
+
+robobrawlTypeSupport.obj: robobrawlTypeSupport.cc.obj
+.PHONY : robobrawlTypeSupport.obj
+
+# target to build an object file
+robobrawlTypeSupport.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlTypeSupport.cc.obj
+.PHONY : robobrawlTypeSupport.cc.obj
+
+robobrawlTypeSupport.i: robobrawlTypeSupport.cc.i
+.PHONY : robobrawlTypeSupport.i
+
+# target to preprocess a source file
+robobrawlTypeSupport.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlTypeSupport.cc.i
+.PHONY : robobrawlTypeSupport.cc.i
+
+robobrawlTypeSupport.s: robobrawlTypeSupport.cc.s
+.PHONY : robobrawlTypeSupport.s
+
+# target to generate assembly for a file
+robobrawlTypeSupport.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlTypeSupport.cc.s
+.PHONY : robobrawlTypeSupport.cc.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -419,9 +491,9 @@ help:
 	@echo ... ft2
 	@echo ... imgui
 	@echo ... Robobrawl_Clock
-	@echo ... discovery.obj
-	@echo ... discovery.i
-	@echo ... discovery.s
+	@echo ... controller.obj
+	@echo ... controller.i
+	@echo ... controller.s
 	@echo ... gui.obj
 	@echo ... gui.i
 	@echo ... gui.s
@@ -452,6 +524,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... robobrawl.obj
+	@echo ... robobrawl.i
+	@echo ... robobrawl.s
+	@echo ... robobrawlInit.obj
+	@echo ... robobrawlInit.i
+	@echo ... robobrawlInit.s
+	@echo ... robobrawlTypeSupport.obj
+	@echo ... robobrawlTypeSupport.i
+	@echo ... robobrawlTypeSupport.s
 .PHONY : help
 
 

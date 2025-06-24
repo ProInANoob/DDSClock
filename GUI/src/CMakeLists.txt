@@ -119,15 +119,33 @@ set_source_files_properties( ${IMGUI_SRCS} ${IMGUI_BACKEND_SRCS}
 
 
 #######################################################################
+#  IDL -> c++ 
+set( IDL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/idl )
+set( IDL_OPTIONS -Wno-1093 -F -s )
+set( IDL_GEN_DIR ${CMAKE_CURRENT_BINARY_DIR} )
+
+set( IDL_FILE ../src/idl/robobrawl.idl )
+
+
+IDL_GEN_CXX_IN_DIR( ${CMAKE_CURRENT_SOURCE_DIR}
+  ${IDL_FILE}
+  ${IDL_GEN_DIR}
+  "${IDL_OPTIONS}"
+  GEN_CXX_SRCS
+  GEN_CXX_HDRS )
+
+#######################################################################
 add_executable ( Robobrawl_Clock
 main.cc
 gui.cc
-discovery.cc
+robobrawlInit.cc
+controller.cc
+
 
 ${IMGUI_SRCS}
 ${IMGUI_BACKEND_SRCS}
  
-#  ${GEN_CXX_SRCS}
+${GEN_CXX_SRCS}
   )
 add_dependencies( Robobrawl_Clock imgui ft2 )
 

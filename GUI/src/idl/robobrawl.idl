@@ -1,0 +1,36 @@
+//aight
+
+
+struct ClockInfo{
+
+    string topicName;
+
+    long digits;
+
+    long hasGears; 
+};
+
+
+struct ButtonInfo{
+    
+    string topicName;
+    
+    //keyed, -1 = no color, 0 = blue, 1 = orange, more appended as needed. 
+    long color;
+};
+
+
+struct DeviceInfo{
+    @key string DeviceId;
+
+    string role;
+
+    string sysName;
+
+    string displayName;
+
+    @optional ClockInfo clockInfo;
+
+    @optional ButtonInfo buttonInfo;
+
+};

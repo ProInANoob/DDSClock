@@ -4,7 +4,7 @@
 # compile CXX with C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe
 CXX_DEFINES = 
 
-CXX_INCLUDES = -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build -IC:\Users\Ethan\Desktop\Workspace\coredx-6.1.0-Windows_x86_64_vs2019-Evaluation\coredx-6.1.0-Evaluation\scripts\..\target\include\dds_cxx -IC:\Users\Ethan\Desktop\Workspace\coredx-6.1.0-Windows_x86_64_vs2019-Evaluation\coredx-6.1.0-Evaluation\scripts\..\target\include -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\imgui-1.90.9\src\imgui -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\imgui-1.90.9\src\imgui\backends -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\freetype-2.13.2\include\freetype2
+CXX_INCLUDES = -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build -IC:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx -IC:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\imgui-1.90.9\src\imgui -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\imgui-1.90.9\src\imgui\backends -IC:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\freetype-2.13.2\include\freetype2
 
 CXX_FLAGS = /std:c++17 /O2 /Ob2 /DNDEBUG -std:c++17 -MT -DUSE_DX11 /EHsc /D_WINSOCKAPI_= /wd4820 /wd5219 /wd4514 /wd4365 /wd4244
 

@@ -3,6 +3,7 @@
 
 //okay soo o
 
+/*
 
 struct ClockInfo
 {
@@ -45,3 +46,4 @@ struct ButtonInfo
 
 
 };
+*/

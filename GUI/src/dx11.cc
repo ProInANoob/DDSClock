@@ -10,9 +10,12 @@
 
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
+#include "robobrawlInit.hh"
 #include <stdio.h>
 #include <cstdint>
 #include <d3d11.h>
+
+extern bool roboClock::done;
 
 // Forward declare message handler from imgui_impl_win32.cpp
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -195,7 +198,7 @@ namespace backend {
         ::TranslateMessage(&msg);
         ::DispatchMessage(&msg);
         if (msg.message == WM_QUIT)
-          MD::done = true;
+          roboClock::done = true;
       }
 
     // Handle window resize (we don't resize directly in the WM_SIZE handler)

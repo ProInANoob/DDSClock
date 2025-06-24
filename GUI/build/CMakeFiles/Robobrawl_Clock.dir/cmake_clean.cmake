@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Robobrawl_Clock.dir/discovery.cc.obj"
-  "CMakeFiles/Robobrawl_Clock.dir/discovery.cc.obj.d"
+  "CMakeFiles/Robobrawl_Clock.dir/controller.cc.obj"
+  "CMakeFiles/Robobrawl_Clock.dir/controller.cc.obj.d"
   "CMakeFiles/Robobrawl_Clock.dir/gui.cc.obj"
   "CMakeFiles/Robobrawl_Clock.dir/gui.cc.obj.d"
   "CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_dx11.cpp.obj"
@@ -21,10 +21,20 @@ file(REMOVE_RECURSE
   "CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.obj.d"
   "CMakeFiles/Robobrawl_Clock.dir/main.cc.obj"
   "CMakeFiles/Robobrawl_Clock.dir/main.cc.obj.d"
+  "CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.obj"
+  "CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.obj.d"
+  "CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.obj"
+  "CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.obj.d"
+  "CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.obj"
+  "CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.obj.d"
   "Robobrawl_Clock.exe"
   "Robobrawl_Clock.exe.manifest"
   "Robobrawl_Clock.lib"
   "Robobrawl_Clock.pdb"
+  "robobrawl.cc"
+  "robobrawl.hh"
+  "robobrawlTypeSupport.cc"
+  "robobrawlTypeSupport.hh"
 )
 
 # Per-language clean rules from dependency scanning.

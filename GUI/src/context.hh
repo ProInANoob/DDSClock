@@ -66,6 +66,10 @@
     
       publisher_   = dds::pub::Publisher( this->participant_ );
       subscriber_  = dds::sub::Subscriber( this->participant_ );
+
+      publisher_.enable();
+      subscriber_.enable();
+
     }
 
     // ---------------------------------------------------------------

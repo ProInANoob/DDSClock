@@ -683,5 +683,4 @@ C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_data.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_command.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/clock_command.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/heartbeat.hh
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/system.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/known_devices.hh

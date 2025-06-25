@@ -35,7 +35,7 @@
       Heartbeat();
       ~Heartbeat();
       Heartbeat( const std::string __deviceId,
-                 const int32_t __sequenceNumber ) :
+                 const uint32_t __sequenceNumber ) :
         _deviceId( __deviceId ),
         _sequenceNumber( __sequenceNumber ){ }
       Heartbeat( const Heartbeat & other );
@@ -44,7 +44,7 @@
       bool operator==( const Heartbeat & other) const;
       bool operator!=( const Heartbeat & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_48eea2d1edd744293804cdd321ad :: M_6068a8b975da326029cce28c679d ] */
+      /* TypeId: [ C_f56e211b842800a0948d08042a3b :: M_c6d337445831b20a726a3b3bf616 ] */
       void   init();
       void   clear();
       int    copy( const Heartbeat * instance );
@@ -75,16 +75,16 @@
                                          CoreDX_FieldDef_t * field_def);
     protected:
       std::string  _deviceId;    /* ID: 0x00000000 */
-      int32_t  _sequenceNumber;    /* ID: 0x00000001 */
+      uint32_t  _sequenceNumber;    /* ID: 0x00000001 */
 
     public:
       const std::string & deviceId( ) const { return _deviceId; }
             std::string & deviceId( )       { return _deviceId; }
       void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
       void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
-            int32_t   sequenceNumber( ) const { return _sequenceNumber; }
-            int32_t & sequenceNumber( )       { return _sequenceNumber; }
-      void sequenceNumber( const int32_t __sequenceNumber ) { _sequenceNumber = __sequenceNumber; }
+            uint32_t   sequenceNumber( ) const { return _sequenceNumber; }
+            uint32_t & sequenceNumber( )       { return _sequenceNumber; }
+      void sequenceNumber( const uint32_t __sequenceNumber ) { _sequenceNumber = __sequenceNumber; }
 
       typedef dds::sub::DataReader<Heartbeat>  DataReader;
       typedef dds::pub::DataWriter<Heartbeat>  DataWriter;
@@ -163,8 +163,7 @@
     public:
       ClockCommand();
       ~ClockCommand();
-      ClockCommand( const std::string __deviceId,
-                    const std::string __sysName,
+      ClockCommand( const std::string __sysName,
                     const int32_t __doDisplayTime,
                     const int32_t __turnOff,
                     const int32_t __solidColor,
@@ -172,7 +171,6 @@
                     const std::string __mainColor,
                     const std::string __blueGearColor,
                     const std::string __orangeGearColor ) :
-        _deviceId( __deviceId ),
         _sysName( __sysName ),
         _doDisplayTime( __doDisplayTime ),
         _turnOff( __turnOff ),
@@ -187,7 +185,7 @@
       bool operator==( const ClockCommand & other) const;
       bool operator!=( const ClockCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_9613e8b43c7dcff73e90f20b4e5f :: M_839590131653dbe812d9bb91a37d ] */
+      /* TypeId: [ C_f953d217a18df2f3363deab391de :: M_49c7f728eb69269708f4179b97d9 ] */
       void   init();
       void   clear();
       int    copy( const ClockCommand * instance );
@@ -217,21 +215,16 @@
       static unsigned char get_field_def(const char  * fieldname, 
                                          CoreDX_FieldDef_t * field_def);
     protected:
-      std::string  _deviceId;    /* ID: 0x00000000 */
-      std::string  _sysName;    /* ID: 0x00000001 */
-      int32_t  _doDisplayTime;    /* ID: 0x00000002 */
-      int32_t  _turnOff;    /* ID: 0x00000003 */
-      int32_t  _solidColor;    /* ID: 0x00000004 */
-      struct timeValue  _time;    /* ID: 0x00000005 */
-      std::string  _mainColor;    /* ID: 0x00000006 */
-      std::string  _blueGearColor;    /* ID: 0x00000007 */
-      std::string  _orangeGearColor;    /* ID: 0x00000008 */
+      std::string  _sysName;    /* ID: 0x00000000 */
+      int32_t  _doDisplayTime;    /* ID: 0x00000001 */
+      int32_t  _turnOff;    /* ID: 0x00000002 */
+      int32_t  _solidColor;    /* ID: 0x00000003 */
+      struct timeValue  _time;    /* ID: 0x00000004 */
+      std::string  _mainColor;    /* ID: 0x00000005 */
+      std::string  _blueGearColor;    /* ID: 0x00000006 */
+      std::string  _orangeGearColor;    /* ID: 0x00000007 */
 
     public:
-      const std::string & deviceId( ) const { return _deviceId; }
-            std::string & deviceId( )       { return _deviceId; }
-      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
-      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
       const std::string & sysName( ) const { return _sysName; }
             std::string & sysName( )       { return _sysName; }
       void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
@@ -275,11 +268,9 @@
     public:
       ButtonCommand();
       ~ButtonCommand();
-      ButtonCommand( const std::string __deviceId,
-                     const std::string __sysName,
+      ButtonCommand( const std::string __sysName,
                      const int32_t __orangeState,
                      const int32_t __blueState ) :
-        _deviceId( __deviceId ),
         _sysName( __sysName ),
         _orangeState( __orangeState ),
         _blueState( __blueState ){ }
@@ -289,7 +280,7 @@
       bool operator==( const ButtonCommand & other) const;
       bool operator!=( const ButtonCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_11632af6a29113fd2d216dd9ccb8 :: M_12c690a2c88801f9c347b2c259e6 ] */
+      /* TypeId: [ C_1b4700b7c738f8cfe82cfc6402ff :: M_8611c646fe0cd6dcf9852e2d6b31 ] */
       void   init();
       void   clear();
       int    copy( const ButtonCommand * instance );
@@ -319,16 +310,11 @@
       static unsigned char get_field_def(const char  * fieldname, 
                                          CoreDX_FieldDef_t * field_def);
     protected:
-      std::string  _deviceId;    /* ID: 0x00000000 */
-      std::string  _sysName;    /* ID: 0x00000001 */
-      int32_t  _orangeState;    /* ID: 0x00000002 */
-      int32_t  _blueState;    /* ID: 0x00000003 */
+      std::string  _sysName;    /* ID: 0x00000000 */
+      int32_t  _orangeState;    /* ID: 0x00000001 */
+      int32_t  _blueState;    /* ID: 0x00000002 */
 
     public:
-      const std::string & deviceId( ) const { return _deviceId; }
-            std::string & deviceId( )       { return _deviceId; }
-      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
-      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
       const std::string & sysName( ) const { return _sysName; }
             std::string & sysName( )       { return _sysName; }
       void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
@@ -712,9 +698,6 @@ REGISTER_TOPIC_TYPE( timeValue );
 
 inline std::ostream & operator<< (std::ostream &out, ClockCommand const& data ) {
   (void)data;
-  out << "deviceId: ";
-  out << "\"" << data.deviceId() << "\"";
-  out << std::endl;
   out << "sysName: ";
   out << "\"" << data.sysName() << "\"";
   out << std::endl;
@@ -749,9 +732,6 @@ REGISTER_TOPIC_TYPE( ClockCommand );
 
 inline std::ostream & operator<< (std::ostream &out, ButtonCommand const& data ) {
   (void)data;
-  out << "deviceId: ";
-  out << "\"" << data.deviceId() << "\"";
-  out << std::endl;
   out << "sysName: ";
   out << "\"" << data.sysName() << "\"";
   out << std::endl;

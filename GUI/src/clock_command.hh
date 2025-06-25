@@ -26,6 +26,7 @@ public:
       dds::pub::qos::DataWriterQos dw_qos = dw.qos();
       dw_qos <<  dds::core::policy::UserData(dds::core::ByteSeq( deviceId.begin(), deviceId.end() ) );
       dw.qos( dw_qos );
+
     }
 
     // -------------------------------------------------------

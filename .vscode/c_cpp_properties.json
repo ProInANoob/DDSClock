@@ -6,7 +6,8 @@
                 "${default}",
                 "${workspaceFolder}/GUI/build/imgui-1.90.9/src/imgui",
                 "C:/Users/Ethan/Downloads/coredx-6.5.0-Windows_x86_64_vs2019-Release/coredx-6.5.0/target/include/**",
-                "C:/Users/Ethan/Downloads/coredx-6.5.0-Windows_x86_64_vs2019-Release/coredx-6.5.0/target/include"
+                "C:/Users/Ethan/Downloads/coredx-6.5.0-Windows_x86_64_vs2019-Release/coredx-6.5.0/target/include",
+                "${workspaceFolder}/GUI/build/imgui-1.90.9/src/imgui/backends"
             ],
             "defines": [
                 "_DEBUG",

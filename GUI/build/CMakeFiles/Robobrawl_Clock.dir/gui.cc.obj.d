@@ -686,7 +686,6 @@ C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_data.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_command.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/clock_command.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/heartbeat.hh
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/system.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/known_devices.hh
 C:/Program Files (x86)/Windows Kits/10//include/10.0.22621.0//um/d3d11.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/um/ocidl.h

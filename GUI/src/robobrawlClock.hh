@@ -17,6 +17,7 @@ namespace roboClock
     extern KnownDevices known_devices;
     extern std::string deviceId; 
     extern int domain_id; 
+    extern std::vector<std::string> systems;
 
 
     void init(int argc, char * argv[]);

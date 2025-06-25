@@ -11,7 +11,7 @@ enum DeviceRole {
 
 struct Heartbeat{
     string deviceId;
-    long sequenceNumber;
+    uint32 sequenceNumber;
 };
 
 
@@ -21,7 +21,6 @@ struct timeValue{
 };
 
 struct ClockCommand{
-    string deviceId;
 
     string sysName;
 
@@ -42,7 +41,6 @@ struct ClockCommand{
 };
 
 struct ButtonCommand{
-    string deviceId;
 
     string sysName;
 

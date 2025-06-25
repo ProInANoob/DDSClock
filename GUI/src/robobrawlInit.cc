@@ -6,11 +6,11 @@
 #include <thread>
 #include "robobrawlClock.hh"
 
-extern int domain_id;
+extern int roboClock::domain_id;
 extern dds::domain::DomainParticipant dp;
 extern dds::pub::Publisher pub;
 extern dds::sub::Subscriber sub;
-extern std::string deviceId;
+extern std::string roboClock::deviceId;
 
 #if defined(_WIN32)
 // ---------------------------------------------------------------
@@ -54,10 +54,10 @@ int parse_commandline(int argc, char *argv[])
         {
 
         case 'd': /* domain id */
-            domain_id = atoi(toc_optarg);
+            roboClock::domain_id = atoi(toc_optarg);
             break;
         case 'i':
-            deviceId = atoi(toc_optarg);
+            roboClock::deviceId = atoi(toc_optarg);
             break;
 
 

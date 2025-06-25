@@ -41,7 +41,6 @@ class HeartbeatWriter : public dds::sub::NoOpDataReaderListener<Heartbeat>
       dds::pub::qos::DataWriterQos dw_qos = dw.qos();
       dw_qos <<  dds::core::policy::UserData(dds::core::ByteSeq( deviceId.begin(), deviceId.end() ) );
       dw.qos( dw_qos );
-
       dds::sub::qos::DataReaderQos dr_qos;
 
       dr = dds::sub::DataReader(context.subscriber(), topic, dr_qos);
@@ -51,14 +50,13 @@ class HeartbeatWriter : public dds::sub::NoOpDataReaderListener<Heartbeat>
     // -------------------------------------------------------
     void clear() {
       dw    = dds::core::null;
+      dr    = dds::core::null;
     }
   
     // -------------------------------------------------------
     void publish() {
       this->dw.write( hb );
-
       hb.sequenceNumber( hb.sequenceNumber() + 1 );
-      
     }
 
     // -------------------------------------------------------
@@ -71,7 +69,6 @@ class HeartbeatWriter : public dds::sub::NoOpDataReaderListener<Heartbeat>
         {
           if (hb_client)
           {
-            
             hb_client->handle_heartbeat(sample.data());
           }
         }

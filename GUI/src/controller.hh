@@ -6,7 +6,6 @@
 #include "button_command.hh"
 #include "clock_command.hh"
 #include "heartbeat.hh"
-#include "system.hh"
 
 class Controller : 
         public ButtonDataClient,
@@ -49,6 +48,10 @@ public:
 
     void writeToButton( ButtonCommand & command ){
         buttonWriter.publish( command );
+    }
+
+    void writeHeartbeat( ){
+        heartbeat.publish( );
     }
 
     

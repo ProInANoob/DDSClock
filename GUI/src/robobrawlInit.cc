@@ -4,16 +4,13 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <thread>
-
-#include "robobrawlInit.hh"
-#include "gui.hh"
-#include "context.hh"
+#include "robobrawlClock.hh"
 
 extern int domain_id;
 extern dds::domain::DomainParticipant dp;
 extern dds::pub::Publisher pub;
 extern dds::sub::Subscriber sub;
-extern Context context;
+extern std::string deviceId;
 
 #if defined(_WIN32)
 // ---------------------------------------------------------------
@@ -51,7 +48,7 @@ int parse_commandline(int argc, char *argv[])
 {
     int opt;
     while ((opt = toc_getopt(argc, argv,
-                             "d")) != -1)
+                             "d:i:-")) != -1)
     {
         switch (opt)
         {
@@ -59,7 +56,13 @@ int parse_commandline(int argc, char *argv[])
         case 'd': /* domain id */
             domain_id = atoi(toc_optarg);
             break;
+        case 'i':
+            deviceId = atoi(toc_optarg);
+            break;
+
+
         }
+
     }
     return 0;
 }
@@ -85,7 +88,11 @@ void roboClock::init(int argc, char *argv[]){
     context.init(domain_id);
     
     // reader/writer innits
-
+    if(deviceId == ""){
+        //no deviceId set so do default
+        deviceId = "Control-001";
+    }
+    control.init(context, deviceId);
 
 
     gui::init_backend("MLS TMG Dashboard");
@@ -95,18 +102,4 @@ void roboClock::init(int argc, char *argv[]){
     gui::set_icon();
 }
 
-
-void roboClock::main_loop(){
-    while (!done)
-    {
-        gui::loop(domain_id);
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    }
-}
-
-
-void roboClock::cleanup(){
-
-}
 

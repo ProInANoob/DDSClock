@@ -138,8 +138,13 @@ IDL_GEN_CXX_IN_DIR( ${CMAKE_CURRENT_SOURCE_DIR}
 add_executable ( Robobrawl_Clock
 main.cc
 gui.cc
-robobrawlInit.cc
 controller.cc
+
+robobrawlInit.cc
+robobrawlStartup.cc
+robobrawlMainLoop.cc
+robobrawlCleanup.cc
+
 
 
 ${IMGUI_SRCS}

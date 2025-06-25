@@ -432,6 +432,30 @@ robobrawl.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.s
 .PHONY : robobrawl.cc.s
 
+robobrawlCleanup.obj: robobrawlCleanup.cc.obj
+.PHONY : robobrawlCleanup.obj
+
+# target to build an object file
+robobrawlCleanup.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj
+.PHONY : robobrawlCleanup.cc.obj
+
+robobrawlCleanup.i: robobrawlCleanup.cc.i
+.PHONY : robobrawlCleanup.i
+
+# target to preprocess a source file
+robobrawlCleanup.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.i
+.PHONY : robobrawlCleanup.cc.i
+
+robobrawlCleanup.s: robobrawlCleanup.cc.s
+.PHONY : robobrawlCleanup.s
+
+# target to generate assembly for a file
+robobrawlCleanup.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.s
+.PHONY : robobrawlCleanup.cc.s
+
 robobrawlInit.obj: robobrawlInit.cc.obj
 .PHONY : robobrawlInit.obj
 
@@ -455,6 +479,54 @@ robobrawlInit.s: robobrawlInit.cc.s
 robobrawlInit.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.s
 .PHONY : robobrawlInit.cc.s
+
+robobrawlMainLoop.obj: robobrawlMainLoop.cc.obj
+.PHONY : robobrawlMainLoop.obj
+
+# target to build an object file
+robobrawlMainLoop.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj
+.PHONY : robobrawlMainLoop.cc.obj
+
+robobrawlMainLoop.i: robobrawlMainLoop.cc.i
+.PHONY : robobrawlMainLoop.i
+
+# target to preprocess a source file
+robobrawlMainLoop.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.i
+.PHONY : robobrawlMainLoop.cc.i
+
+robobrawlMainLoop.s: robobrawlMainLoop.cc.s
+.PHONY : robobrawlMainLoop.s
+
+# target to generate assembly for a file
+robobrawlMainLoop.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.s
+.PHONY : robobrawlMainLoop.cc.s
+
+robobrawlStartup.obj: robobrawlStartup.cc.obj
+.PHONY : robobrawlStartup.obj
+
+# target to build an object file
+robobrawlStartup.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj
+.PHONY : robobrawlStartup.cc.obj
+
+robobrawlStartup.i: robobrawlStartup.cc.i
+.PHONY : robobrawlStartup.i
+
+# target to preprocess a source file
+robobrawlStartup.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.i
+.PHONY : robobrawlStartup.cc.i
+
+robobrawlStartup.s: robobrawlStartup.cc.s
+.PHONY : robobrawlStartup.s
+
+# target to generate assembly for a file
+robobrawlStartup.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.s
+.PHONY : robobrawlStartup.cc.s
 
 robobrawlTypeSupport.obj: robobrawlTypeSupport.cc.obj
 .PHONY : robobrawlTypeSupport.obj
@@ -527,9 +599,18 @@ help:
 	@echo ... robobrawl.obj
 	@echo ... robobrawl.i
 	@echo ... robobrawl.s
+	@echo ... robobrawlCleanup.obj
+	@echo ... robobrawlCleanup.i
+	@echo ... robobrawlCleanup.s
 	@echo ... robobrawlInit.obj
 	@echo ... robobrawlInit.i
 	@echo ... robobrawlInit.s
+	@echo ... robobrawlMainLoop.obj
+	@echo ... robobrawlMainLoop.i
+	@echo ... robobrawlMainLoop.s
+	@echo ... robobrawlStartup.obj
+	@echo ... robobrawlStartup.i
+	@echo ... robobrawlStartup.s
 	@echo ... robobrawlTypeSupport.obj
 	@echo ... robobrawlTypeSupport.i
 	@echo ... robobrawlTypeSupport.s

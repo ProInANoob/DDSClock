@@ -20,7 +20,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp" "CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.obj.d"
   "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/main.cc" "CMakeFiles/Robobrawl_Clock.dir/main.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/main.cc.obj.d"
   "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/robobrawl.cc" "CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.obj.d"
+  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlCleanup.cc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.obj.d"
   "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlInit.cc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.obj.d"
+  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlMainLoop.cc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.obj.d"
+  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlStartup.cc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.obj.d"
   "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/robobrawlTypeSupport.cc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.obj" "msvc" "CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.obj.d"
   )
 

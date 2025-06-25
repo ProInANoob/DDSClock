@@ -673,4 +673,8 @@ C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/c
 C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/coredx-6.0.5-Evaluation/target/include/dds/xml_api.h
 C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/coredx-6.0.5-Evaluation/target/include/dds/dds_export.h
 C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/coredx-6.0.5-Evaluation/target/include/dds/dds_seq.hh
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/device_info.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_data.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_command.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/clock_command.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/heartbeat.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/system.hh

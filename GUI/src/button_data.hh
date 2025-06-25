@@ -1,5 +1,5 @@
-#ifndef DEVICEINFO_HH
-#define DEVICEINFO_HH
+#ifndef BD_HH
+#define BD_HH
 
 #include <map>
 #include <utility>
@@ -8,36 +8,37 @@
 #include "context.hh"
 // -------------------------------------------------------
 // -------------------------------------------------------
-class DeviceInfoClient{
+class ButtonDataClient{
 public:
-  virtual void handle_device_info(const DeviceInfo & data) = 0;
+  virtual void handle_button_data(const ButtonData & data) = 0;
 };
 
 
-class DeviceInfoReader : public dds::sub::NoOpDataReaderListener<DeviceInfo>
+class ButtonDataReader : public dds::sub::NoOpDataReaderListener<ButtonData>
 {
 
 public:
   // -------------------------------------------------------
-  DeviceInfoReader() : topic(dds::core::null),
+  ButtonDataReader() : topic(dds::core::null),
                        dr(dds::core::null) {}
 
   // -------------------------------------------------------
-  ~DeviceInfoReader()
+  ~ButtonDataReader()
   {
   }
 
   // -------------------------------------------------------
   void
-  init( DeviceInfoClient * di_client,
+  init( ButtonDataClient * bd_client,
         Context &context)
   {
-    this->di_client = di_client;
+    this->bd_client = bd_client;
 
-    topic = dds::topic::Topic<DeviceInfo>(context.participant(), "device_info");
+    topic = dds::topic::Topic<ButtonData>(context.participant(), "ButtonData");
     dds::sub::qos::DataReaderQos dr_qos;
 
     dr = dds::sub::DataReader(context.subscriber(), topic, dr_qos /*, listener, DDS_DATA_AVAILABLE_STATUS */);
+    dr.listener(this, dds::core::status::StatusMask::all());
   }
 
   // -------------------------------------------------------
@@ -48,16 +49,17 @@ public:
   }
 
   // -------------------------------------------------------
-    void on_data_available(dds::sub::DataReader<DeviceInfo> &reader)
+    void on_data_available(dds::sub::DataReader<ButtonData> &reader)
     {
-      dds::sub::LoanedSamples<DeviceInfo> samples = reader.take();
+      dds::sub::LoanedSamples<ButtonData> samples = reader.take();
       for (const auto &sample : samples)
       {
         if (sample.info().valid())
         {
-          if (di_client)
+          if (bd_client)
           {
-            di_client->handle_device_info(sample.data());
+            
+            bd_client->handle_button_data(sample.data());
           }
         }
       }
@@ -66,9 +68,9 @@ public:
   // -------------------------------------------------------
 
 protected:
-  dds::topic::Topic<DeviceInfo>    topic;
-  dds::sub::DataReader<DeviceInfo> dr;
-  DeviceInfoClient               * di_client;
+  dds::topic::Topic<ButtonData>    topic;
+  dds::sub::DataReader<ButtonData> dr;
+  ButtonDataClient               * bd_client;
 };
 
 #endif

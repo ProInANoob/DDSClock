@@ -12,6 +12,2709 @@
 #define s_offsetof(TYPE,field) ((size_t)((char *)&(((TYPE *)0x10)->field) - (char*)0x10))
 
 /******************************************************************
+ * Heartbeat Default Constructor
+ ******************************************************************/
+Heartbeat::Heartbeat()
+{
+  init();
+}
+
+/******************************************************************
+ * Heartbeat Copy Constructor
+ ******************************************************************/
+Heartbeat::Heartbeat( const Heartbeat & other )
+{
+  init();
+  copy( &other );
+}
+
+/******************************************************************
+ * Heartbeat Destructor
+ ******************************************************************/
+Heartbeat::~Heartbeat()
+{
+  clear();
+}
+
+/******************************************************************
+ * Heartbeat Assignment Operator
+ ******************************************************************/
+Heartbeat& Heartbeat::operator=( const Heartbeat & other )
+{
+  if (this == &other)
+      return *this;
+  /* Free any allocated memory */
+  clear();
+
+  /* Perform the copy */
+
+  copy( &other );
+  return *this;
+}
+
+bool
+Heartbeat::Heartbeat::operator==( const Heartbeat & other) const {
+  return (_deviceId == other._deviceId) &&
+    (_sequenceNumber == other._sequenceNumber);
+}
+/******************************************************************
+ * ::Heartbeat Ops
+ *****************************************************************/
+
+
+/******************************************************************
+ * Heartbeat init()
+ ******************************************************************/
+void Heartbeat::init()
+{
+  _deviceId = std::string();
+  this->_sequenceNumber = 0;
+}
+
+/******************************************************************
+ * Heartbeat clear()
+ ******************************************************************/
+void Heartbeat::clear()
+{
+  _deviceId = std::string();
+  /* clear basic type: this->_sequenceNumber NOOP */
+}
+
+/******************************************************************
+ *  Heartbeat copy()
+ ******************************************************************/
+int Heartbeat::copy( const Heartbeat * copy_from )
+{
+  Heartbeat * copy_to = this;
+  if ( ! copy_from ) return -1;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
+
+  /* copy sequenceNumber */
+  copy_to->_sequenceNumber = copy_from->_sequenceNumber;
+
+  return 0;
+}
+
+/******************************************************************
+ *  Heartbeat::marshal_cdr()
+ ******************************************************************/
+int Heartbeat::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+                   int             _just_keys) const 
+{
+  int32_t _rval = 0;
+  CDX_XcdrEncoder_aggregate_pre( cdr, XCDR_APPENDABLE );
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_sequenceNumber),
+        1,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position( cdr );
+}
+
+int Heartbeat::get_marshal_size( int   offset,
+                   int   _just_keys) const
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_Xcdr1Encoder_init( &xcdr1, 0x00, NULL, 0 );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+int Heartbeat::marshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             _just_keys) const 
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Encoder_init( &xcdr1, e, buf, stream_len );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+/******************************************************************
+ *  Heartbeat::marshal_key_hash()
+ ******************************************************************/
+int Heartbeat::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+{
+  int32_t _rval      = 0;
+  int32_t _just_keys = 1;
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_sequenceNumber),
+        1,
+        XCDR_IS_PRESENT
+        );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position(cdr);
+}
+
+/******************************************************************
+ *  Heartbeat::unmarshal_cdr()
+ ******************************************************************/
+int Heartbeat::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+                   int             _just_keys)
+{
+  int32_t _rval = 0;
+  this->init( );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "Heartbeat" );
+  if ( _rval < 0 ) return _rval;
+  if (_just_keys)
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_sequenceNumber),
+                  1,
+                  0
+                  );
+      }
+    }
+  else
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_sequenceNumber),
+                  1,
+                  0
+                  );
+      }
+    }
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "Heartbeat" );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+int Heartbeat::unmarshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             just_keys)
+{
+  int _rval;
+  CDX_Xcdr1Decoder_t  xcdr1;
+  CDX_XcdrDecoder_t * cdr = (CDX_XcdrDecoder_t*)&xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Decoder_init( &xcdr1, e, buf, stream_len );
+  cdr->xcdr_buffer.origin = offset;
+  cdr->xcdr_buffer.offset = offset;
+  _rval = this->unmarshal_cdr( cdr, just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  CDX_XcdrDecoder_clear( cdr );
+  return _rval;
+}
+/******************************************************************
+ *  Heartbeat::unmarshal_key_hash()
+ ******************************************************************/
+int Heartbeat::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+{
+  int32_t _rval = 0;
+  uint32_t _just_keys = 1;
+  CDX_UNUSED(_just_keys);
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            0,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_sequenceNumber),
+              1,
+              0
+              );
+  }
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+void Heartbeat::gen_typeid_v2( unsigned char * buf,
+                   int            * buf_len )
+{
+  static unsigned char data[15] = { 
+    0xf2, 0x48, 0xee, 0xa2, 0xd1, 0xed, 0xd7, 0x44, 0x29, 0x38, 0x04, 0xcd, 0xd3, 0x21, 0xad  }; 
+  if (buf && buf_len && (*buf_len >= 15))
+    {
+       memcpy(buf, data, 15);
+    }
+  if (buf_len) *buf_len = 15;
+}
+int Heartbeat::gen_typeobj_v2( unsigned char * buf,
+                                 int            * buf_len )
+{
+  static unsigned char data[197] = { 
+    0xc1, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x60, 0x68, 0xa8, 0xb9, 0x75, 0xda, 0x32, 
+    0x60, 0x29, 0xcc, 0xe2, 0x8c, 0x67, 0x9d, 0x00, 0x33, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x1c, 0x02, 0x1a, 0xdf, 0xf2, 
+    0x48, 0xee, 0xa2, 0xd1, 0xed, 0xd7, 0x44, 0x29, 0x38, 0x04, 0xcd, 0xd3, 0x21, 0xad, 0x00, 0x00, 
+    0x61, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0a, 0x00, 0x00, 0x00, 0x48, 0x65, 0x61, 0x72, 0x74, 0x62, 0x65, 0x61, 0x74, 0x00, 0x00, 0x00, 
+    0x41, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 
+    0x00, 0x00, 0x00, 0x00, 0x1d, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
+    0x0f, 0x00, 0x00, 0x00, 0x73, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x65, 0x4e, 0x75, 0x6d, 0x62, 
+    0x65, 0x72, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 197;
+  if ( buf_len == NULL )                return -1;
+  if ( buf && ( *buf_len < _rlen + 4) ) return -1;
+  *buf_len = _rlen + 4;
+  if ( buf ) {
+    buf[0] = 0;
+    buf[1] = XCDR_PLAIN_CDR2 | 1;
+    buf[2] = 0;
+    buf[3] = 0;
+    memcpy( buf+4, data, _rlen );
+  }
+  return 0;
+}
+/******************************************************************
+ *  Heartbeat get_field_def()
+ ******************************************************************/
+unsigned char
+Heartbeat::get_field_def( const char        * fieldname,
+                       CoreDX_FieldDef_t * field_def)
+{
+  CDX_UNUSED(fieldname);
+  CDX_UNUSED(field_def);
+  if ( field_def == NULL) return 0;
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct Heartbeat,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct Heartbeat,_deviceId);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("sequenceNumber", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct Heartbeat,_sequenceNumber);
+    } else
+      field_def->offset  += s_offsetof(struct Heartbeat,_sequenceNumber);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  return 0;
+}
+
+/******************************************************************
+ * timeValue Default Constructor
+ ******************************************************************/
+timeValue::timeValue()
+{
+  init();
+}
+
+/******************************************************************
+ * timeValue Copy Constructor
+ ******************************************************************/
+timeValue::timeValue( const timeValue & other )
+{
+  init();
+  copy( &other );
+}
+
+/******************************************************************
+ * timeValue Destructor
+ ******************************************************************/
+timeValue::~timeValue()
+{
+  clear();
+}
+
+/******************************************************************
+ * timeValue Assignment Operator
+ ******************************************************************/
+timeValue& timeValue::operator=( const timeValue & other )
+{
+  if (this == &other)
+      return *this;
+  /* Free any allocated memory */
+  clear();
+
+  /* Perform the copy */
+
+  copy( &other );
+  return *this;
+}
+
+bool
+timeValue::timeValue::operator==( const timeValue & other) const {
+  return (_seconds == other._seconds) &&
+    (_minutes == other._minutes);
+}
+/******************************************************************
+ * ::timeValue Ops
+ *****************************************************************/
+
+
+/******************************************************************
+ * timeValue init()
+ ******************************************************************/
+void timeValue::init()
+{
+  this->_seconds = 0;
+  this->_minutes = 0;
+}
+
+/******************************************************************
+ * timeValue clear()
+ ******************************************************************/
+void timeValue::clear()
+{
+  /* clear basic type: this->_seconds NOOP */
+  /* clear basic type: this->_minutes NOOP */
+}
+
+/******************************************************************
+ *  timeValue copy()
+ ******************************************************************/
+int timeValue::copy( const timeValue * copy_from )
+{
+  timeValue * copy_to = this;
+  if ( ! copy_from ) return -1;
+
+  /* copy seconds */
+  copy_to->_seconds = copy_from->_seconds;
+
+  /* copy minutes */
+  copy_to->_minutes = copy_from->_minutes;
+
+  return 0;
+}
+
+/******************************************************************
+ *  timeValue::marshal_cdr()
+ ******************************************************************/
+int timeValue::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+                   int             _just_keys) const 
+{
+  int32_t _rval = 0;
+  CDX_XcdrEncoder_aggregate_pre( cdr, XCDR_APPENDABLE );
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_seconds),
+        0,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_minutes),
+        1,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position( cdr );
+}
+
+int timeValue::get_marshal_size( int   offset,
+                   int   _just_keys) const
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_Xcdr1Encoder_init( &xcdr1, 0x00, NULL, 0 );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+int timeValue::marshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             _just_keys) const 
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Encoder_init( &xcdr1, e, buf, stream_len );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+/******************************************************************
+ *  timeValue::marshal_key_hash()
+ ******************************************************************/
+int timeValue::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+{
+  int32_t _rval      = 0;
+  int32_t _just_keys = 1;
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_seconds),
+        0,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_minutes),
+        1,
+        XCDR_IS_PRESENT
+        );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position(cdr);
+}
+
+/******************************************************************
+ *  timeValue::unmarshal_cdr()
+ ******************************************************************/
+int timeValue::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+                   int             _just_keys)
+{
+  int32_t _rval = 0;
+  this->init( );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "timeValue" );
+  if ( _rval < 0 ) return _rval;
+  if (_just_keys)
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_seconds),
+                  0,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_minutes),
+                  1,
+                  0
+                  );
+      }
+    }
+  else
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_seconds),
+                  0,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_minutes),
+                  1,
+                  0
+                  );
+      }
+    }
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "timeValue" );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+int timeValue::unmarshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             just_keys)
+{
+  int _rval;
+  CDX_Xcdr1Decoder_t  xcdr1;
+  CDX_XcdrDecoder_t * cdr = (CDX_XcdrDecoder_t*)&xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Decoder_init( &xcdr1, e, buf, stream_len );
+  cdr->xcdr_buffer.origin = offset;
+  cdr->xcdr_buffer.offset = offset;
+  _rval = this->unmarshal_cdr( cdr, just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  CDX_XcdrDecoder_clear( cdr );
+  return _rval;
+}
+/******************************************************************
+ *  timeValue::unmarshal_key_hash()
+ ******************************************************************/
+int timeValue::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+{
+  int32_t _rval = 0;
+  uint32_t _just_keys = 1;
+  CDX_UNUSED(_just_keys);
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_seconds),
+              0,
+              0
+              );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_minutes),
+              1,
+              0
+              );
+  }
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+void timeValue::gen_typeid_v2( unsigned char * buf,
+                   int            * buf_len )
+{
+  static unsigned char data[15] = { 
+    0xf2, 0x05, 0xe4, 0x3b, 0x72, 0x10, 0xbd, 0xf9, 0x7e, 0x7d, 0xde, 0x06, 0xc0, 0xf1, 0xd6  }; 
+  if (buf && buf_len && (*buf_len >= 15))
+    {
+       memcpy(buf, data, 15);
+    }
+  if (buf_len) *buf_len = 15;
+}
+int timeValue::gen_typeobj_v2( unsigned char * buf,
+                                 int            * buf_len )
+{
+  static unsigned char data[190] = { 
+    0xba, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x00, 0xe7, 0xd0, 0xb9, 0x8e, 0x8b, 0x5f, 
+    0x76, 0xd9, 0xf6, 0x93, 0x7d, 0xad, 0x7c, 0x00, 0x33, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x78, 0x3e, 0x8e, 0x29, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x64, 0x0f, 0xd0, 0xcc, 0xf2, 
+    0x05, 0xe4, 0x3b, 0x72, 0x10, 0xbd, 0xf9, 0x7e, 0x7d, 0xde, 0x06, 0xc0, 0xf1, 0xd6, 0x00, 0x00, 
+    0x5a, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0a, 0x00, 0x00, 0x00, 0x74, 0x69, 0x6d, 0x65, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x00, 0x00, 0x00, 
+    0x3a, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00, 0x00, 0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x73, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
+    0x08, 0x00, 0x00, 0x00, 0x6d, 0x69, 0x6e, 0x75, 0x74, 0x65, 0x73, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 190;
+  if ( buf_len == NULL )                return -1;
+  if ( buf && ( *buf_len < _rlen + 4) ) return -1;
+  *buf_len = _rlen + 4;
+  if ( buf ) {
+    buf[0] = 0;
+    buf[1] = XCDR_PLAIN_CDR2 | 1;
+    buf[2] = 0;
+    buf[3] = 0;
+    memcpy( buf+4, data, _rlen );
+  }
+  return 0;
+}
+/******************************************************************
+ *  timeValue get_field_def()
+ ******************************************************************/
+unsigned char
+timeValue::get_field_def( const char        * fieldname,
+                       CoreDX_FieldDef_t * field_def)
+{
+  CDX_UNUSED(fieldname);
+  CDX_UNUSED(field_def);
+  if ( field_def == NULL) return 0;
+  if (strcmp("seconds", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct timeValue,_seconds);
+    } else
+      field_def->offset  += s_offsetof(struct timeValue,_seconds);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("minutes", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct timeValue,_minutes);
+    } else
+      field_def->offset  += s_offsetof(struct timeValue,_minutes);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  return 0;
+}
+
+/******************************************************************
+ * ClockCommand Default Constructor
+ ******************************************************************/
+ClockCommand::ClockCommand()
+{
+  init();
+}
+
+/******************************************************************
+ * ClockCommand Copy Constructor
+ ******************************************************************/
+ClockCommand::ClockCommand( const ClockCommand & other )
+{
+  init();
+  copy( &other );
+}
+
+/******************************************************************
+ * ClockCommand Destructor
+ ******************************************************************/
+ClockCommand::~ClockCommand()
+{
+  clear();
+}
+
+/******************************************************************
+ * ClockCommand Assignment Operator
+ ******************************************************************/
+ClockCommand& ClockCommand::operator=( const ClockCommand & other )
+{
+  if (this == &other)
+      return *this;
+  /* Free any allocated memory */
+  clear();
+
+  /* Perform the copy */
+
+  copy( &other );
+  return *this;
+}
+
+bool
+ClockCommand::ClockCommand::operator==( const ClockCommand & other) const {
+  return (_deviceId == other._deviceId) &&
+    (_sysName == other._sysName) &&
+    (_doDisplayTime == other._doDisplayTime) &&
+    (_turnOff == other._turnOff) &&
+    (_solidColor == other._solidColor) &&
+    (_time == other._time) &&
+    (_mainColor == other._mainColor) &&
+    (_blueGearColor == other._blueGearColor) &&
+    (_orangeGearColor == other._orangeGearColor);
+}
+/******************************************************************
+ * ::ClockCommand Ops
+ *****************************************************************/
+
+
+/******************************************************************
+ * ClockCommand init()
+ ******************************************************************/
+void ClockCommand::init()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+  this->_doDisplayTime = 0;
+  this->_turnOff = 0;
+  this->_solidColor = 0;
+  _mainColor = std::string();
+  _blueGearColor = std::string();
+  _orangeGearColor = std::string();
+}
+
+/******************************************************************
+ * ClockCommand clear()
+ ******************************************************************/
+void ClockCommand::clear()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+  /* clear basic type: this->_doDisplayTime NOOP */
+  /* clear basic type: this->_turnOff NOOP */
+  /* clear basic type: this->_solidColor NOOP */
+  /* clear struct: this->_time */
+  this->_time.clear( );
+  _mainColor = std::string();
+  _blueGearColor = std::string();
+  _orangeGearColor = std::string();
+}
+
+/******************************************************************
+ *  ClockCommand copy()
+ ******************************************************************/
+int ClockCommand::copy( const ClockCommand * copy_from )
+{
+  ClockCommand * copy_to = this;
+  if ( ! copy_from ) return -1;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
+
+  /* copy sysName */
+  copy_to->_sysName = copy_from->_sysName;
+
+  /* copy doDisplayTime */
+  copy_to->_doDisplayTime = copy_from->_doDisplayTime;
+
+  /* copy turnOff */
+  copy_to->_turnOff = copy_from->_turnOff;
+
+  /* copy solidColor */
+  copy_to->_solidColor = copy_from->_solidColor;
+
+  /* copy time */
+  copy_to->_time = copy_from->_time;
+
+  /* copy mainColor */
+  copy_to->_mainColor = copy_from->_mainColor;
+
+  /* copy blueGearColor */
+  copy_to->_blueGearColor = copy_from->_blueGearColor;
+
+  /* copy orangeGearColor */
+  copy_to->_orangeGearColor = copy_from->_orangeGearColor;
+
+  return 0;
+}
+
+/******************************************************************
+ *  ClockCommand::marshal_cdr()
+ ******************************************************************/
+int ClockCommand::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+                   int             _just_keys) const 
+{
+  int32_t _rval = 0;
+  CDX_XcdrEncoder_aggregate_pre( cdr, XCDR_APPENDABLE );
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_doDisplayTime),
+        2,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_turnOff),
+        3,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_solidColor),
+        4,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_complex( cdr,
+        &((this->_time)),
+        (DDS_Type_marshal_func)timeValue::marshal_cdr,
+        5,
+        XCDR_IS_PRESENT,
+        _just_keys);
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_mainColor).c_str(),
+        6,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_blueGearColor).c_str(),
+        7,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_orangeGearColor).c_str(),
+        8,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position( cdr );
+}
+
+int ClockCommand::get_marshal_size( int   offset,
+                   int   _just_keys) const
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_Xcdr1Encoder_init( &xcdr1, 0x00, NULL, 0 );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+int ClockCommand::marshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             _just_keys) const 
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Encoder_init( &xcdr1, e, buf, stream_len );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+/******************************************************************
+ *  ClockCommand::marshal_key_hash()
+ ******************************************************************/
+int ClockCommand::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+{
+  int32_t _rval      = 0;
+  int32_t _just_keys = 1;
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_doDisplayTime),
+        2,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_turnOff),
+        3,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_solidColor),
+        4,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_keyhash( cdr,
+        &((this->_time)),
+        (DDS_Type_marshal_keyhash_func)timeValue::marshal_key_hash );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_mainColor).c_str(),
+        6,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_blueGearColor).c_str(),
+        7,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_orangeGearColor).c_str(),
+        8,
+        XCDR_IS_PRESENT,
+        0 );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position(cdr);
+}
+
+/******************************************************************
+ *  ClockCommand::unmarshal_cdr()
+ ******************************************************************/
+int ClockCommand::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+                   int             _just_keys)
+{
+  int32_t _rval = 0;
+  this->init( );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "ClockCommand" );
+  if ( _rval < 0 ) return _rval;
+  if (_just_keys)
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_doDisplayTime),
+                  2,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_turnOff),
+                  3,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_solidColor),
+                  4,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_complex( cdr,
+              (void*)&(this->_time),
+              (DDS_Type_unmarshal_func)timeValue::unmarshal_cdr,
+              5,
+              0,
+              _just_keys );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                6,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_mainColor = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                7,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_blueGearColor = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                8,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_orangeGearColor = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+      }
+    }
+  else
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_doDisplayTime),
+                  2,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_turnOff),
+                  3,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_solidColor),
+                  4,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_complex( cdr,
+              (void*)&(this->_time),
+              (DDS_Type_unmarshal_func)timeValue::unmarshal_cdr,
+              5,
+              0,
+              _just_keys );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                6,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_mainColor = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                7,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_blueGearColor = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                8,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_orangeGearColor = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+      }
+    }
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "ClockCommand" );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+int ClockCommand::unmarshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             just_keys)
+{
+  int _rval;
+  CDX_Xcdr1Decoder_t  xcdr1;
+  CDX_XcdrDecoder_t * cdr = (CDX_XcdrDecoder_t*)&xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Decoder_init( &xcdr1, e, buf, stream_len );
+  cdr->xcdr_buffer.origin = offset;
+  cdr->xcdr_buffer.offset = offset;
+  _rval = this->unmarshal_cdr( cdr, just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  CDX_XcdrDecoder_clear( cdr );
+  return _rval;
+}
+/******************************************************************
+ *  ClockCommand::unmarshal_key_hash()
+ ******************************************************************/
+int ClockCommand::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+{
+  int32_t _rval = 0;
+  uint32_t _just_keys = 1;
+  CDX_UNUSED(_just_keys);
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            0,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            1,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_sysName = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_doDisplayTime),
+              2,
+              0
+              );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_turnOff),
+              3,
+              0
+              );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_solidColor),
+              4,
+              0
+              );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    timeValue::unmarshal_key_hash( &(this->_time), cdr );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            6,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_mainColor = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            7,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_blueGearColor = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            8,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_orangeGearColor = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+  }
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+void ClockCommand::gen_typeid_v2( unsigned char * buf,
+                   int            * buf_len )
+{
+  static unsigned char data[15] = { 
+    0xf2, 0x96, 0x13, 0xe8, 0xb4, 0x3c, 0x7d, 0xcf, 0xf7, 0x3e, 0x90, 0xf2, 0x0b, 0x4e, 0x5f  }; 
+  if (buf && buf_len && (*buf_len >= 15))
+    {
+       memcpy(buf, data, 15);
+    }
+  if (buf_len) *buf_len = 15;
+}
+int ClockCommand::gen_typeobj_v2( unsigned char * buf,
+                                    int            * buf_len )
+{
+  static unsigned char data[734] = { 
+    0xda, 0x02, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0xf1, 0x00, 0xe7, 0xd0, 0xb9, 0x8e, 0x8b, 0x5f, 
+    0x76, 0xd9, 0xf6, 0x93, 0x7d, 0xad, 0x7c, 0x00, 0x33, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x78, 0x3e, 0x8e, 0x29, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x64, 0x0f, 0xd0, 0xcc, 0xf1, 
+    0x83, 0x95, 0x90, 0x13, 0x16, 0x53, 0xdb, 0xe8, 0x12, 0xd9, 0xbb, 0x91, 0xa3, 0x7d, 0x00, 0x00, 
+    0xb4, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0xa4, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0xf2, 0x6e, 0x94, 0x5d, 0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0x16, 0x06, 0x30, 0x0a, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0xfa, 0x0f, 0x10, 0x8f, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0x82, 0xd3, 0x34, 0xd9, 0x00, 0x19, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0xf1, 0x00, 0xe7, 0xd0, 0xb9, 0x8e, 0x8b, 0x5f, 0x76, 0xd9, 0xf6, 0x93, 0x7d, 0xad, 
+    0x7c, 0x07, 0xcc, 0x69, 0x4b, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0xc9, 0xa4, 0x61, 0xe3, 0x0c, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x75, 0x52, 0x09, 0x07, 0x0c, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x1c, 0xaf, 0x72, 0x42, 0xf2, 0x05, 0xe4, 0x3b, 0x72, 0x10, 0xbd, 0xf9, 
+    0x7e, 0x7d, 0xde, 0x06, 0xc0, 0xf1, 0xd6, 0x00, 0x5a, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 
+    0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x74, 0x69, 0x6d, 0x65, 
+    0x56, 0x61, 0x6c, 0x75, 0x65, 0x00, 0x00, 0x00, 0x3a, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x16, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00, 0x00, 
+    0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x73, 0x00, 0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00, 0x00, 0x6d, 0x69, 0x6e, 0x75, 
+    0x74, 0x65, 0x73, 0x00, 0x00, 0x00, 0xf2, 0x96, 0x13, 0xe8, 0xb4, 0x3c, 0x7d, 0xcf, 0xf7, 0x3e, 
+    0x90, 0xf2, 0x0b, 0x4e, 0x5f, 0x00, 0x00, 0x00, 0x42, 0x01, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 
+    0x15, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0d, 0x00, 0x00, 0x00, 0x43, 0x6c, 0x6f, 0x63, 
+    0x6b, 0x43, 0x6f, 0x6d, 0x6d, 0x61, 0x6e, 0x64, 0x00, 0x00, 0x00, 0x00, 0x1e, 0x01, 0x00, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 
+    0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x08, 0x00, 0x00, 0x00, 
+    0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1c, 0x00, 0x00, 0x00, 
+    0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x0e, 0x00, 0x00, 0x00, 0x64, 0x6f, 0x44, 0x69, 
+    0x73, 0x70, 0x6c, 0x61, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 
+    0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x08, 0x00, 0x00, 0x00, 0x74, 0x75, 0x72, 0x6e, 
+    0x4f, 0x66, 0x66, 0x00, 0x00, 0x00, 0x00, 0x00, 0x19, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x73, 0x6f, 0x6c, 0x69, 0x64, 0x43, 0x6f, 0x6c, 
+    0x6f, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0xf2, 0x05, 0xe4, 0x3b, 0x72, 0x10, 0xbd, 0xf9, 0x7e, 0x7d, 0xde, 0x06, 0xc0, 0xf1, 
+    0xd6, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x74, 0x69, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 
+    0x18, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x0a, 0x00, 0x00, 0x00, 
+    0x6d, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00, 0x1c, 0x00, 0x00, 0x00, 
+    0x07, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x0e, 0x00, 0x00, 0x00, 0x62, 0x6c, 0x75, 0x65, 
+    0x47, 0x65, 0x61, 0x72, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00, 0x1e, 0x00, 0x00, 0x00, 
+    0x08, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x10, 0x00, 0x00, 0x00, 0x6f, 0x72, 0x61, 0x6e, 
+    0x67, 0x65, 0x47, 0x65, 0x61, 0x72, 0x43, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 734;
+  if ( buf_len == NULL )                return -1;
+  if ( buf && ( *buf_len < _rlen + 4) ) return -1;
+  *buf_len = _rlen + 4;
+  if ( buf ) {
+    buf[0] = 0;
+    buf[1] = XCDR_PLAIN_CDR2 | 1;
+    buf[2] = 0;
+    buf[3] = 0;
+    memcpy( buf+4, data, _rlen );
+  }
+  return 0;
+}
+/******************************************************************
+ *  ClockCommand get_field_def()
+ ******************************************************************/
+unsigned char
+ClockCommand::get_field_def( const char        * fieldname,
+                       CoreDX_FieldDef_t * field_def)
+{
+  CDX_UNUSED(fieldname);
+  CDX_UNUSED(field_def);
+  if ( field_def == NULL) return 0;
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_deviceId);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("sysName", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_sysName);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_sysName);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("doDisplayTime", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_doDisplayTime);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_doDisplayTime);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("turnOff", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_turnOff);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_turnOff);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("solidColor", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_solidColor);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_solidColor);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if ( (strncmp("time", fieldname, 4) == 0) && 
+       (fieldname[4] == '.') ) {
+    uint32_t _field_offset = s_offsetof(struct ClockCommand, _time);
+    if (!field_def->user) 
+      field_def->offset += _field_offset;
+    else {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += _field_offset;
+    }
+    return timeValue::get_field_def(&fieldname[5], field_def);
+  }
+  if (strcmp("mainColor", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_mainColor);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_mainColor);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("blueGearColor", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_blueGearColor);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_blueGearColor);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("orangeGearColor", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockCommand,_orangeGearColor);
+    } else
+      field_def->offset  += s_offsetof(struct ClockCommand,_orangeGearColor);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  return 0;
+}
+
+/******************************************************************
+ * ButtonCommand Default Constructor
+ ******************************************************************/
+ButtonCommand::ButtonCommand()
+{
+  init();
+}
+
+/******************************************************************
+ * ButtonCommand Copy Constructor
+ ******************************************************************/
+ButtonCommand::ButtonCommand( const ButtonCommand & other )
+{
+  init();
+  copy( &other );
+}
+
+/******************************************************************
+ * ButtonCommand Destructor
+ ******************************************************************/
+ButtonCommand::~ButtonCommand()
+{
+  clear();
+}
+
+/******************************************************************
+ * ButtonCommand Assignment Operator
+ ******************************************************************/
+ButtonCommand& ButtonCommand::operator=( const ButtonCommand & other )
+{
+  if (this == &other)
+      return *this;
+  /* Free any allocated memory */
+  clear();
+
+  /* Perform the copy */
+
+  copy( &other );
+  return *this;
+}
+
+bool
+ButtonCommand::ButtonCommand::operator==( const ButtonCommand & other) const {
+  return (_deviceId == other._deviceId) &&
+    (_sysName == other._sysName) &&
+    (_orangeState == other._orangeState) &&
+    (_blueState == other._blueState);
+}
+/******************************************************************
+ * ::ButtonCommand Ops
+ *****************************************************************/
+
+
+/******************************************************************
+ * ButtonCommand init()
+ ******************************************************************/
+void ButtonCommand::init()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+  this->_orangeState = 0;
+  this->_blueState = 0;
+}
+
+/******************************************************************
+ * ButtonCommand clear()
+ ******************************************************************/
+void ButtonCommand::clear()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+  /* clear basic type: this->_orangeState NOOP */
+  /* clear basic type: this->_blueState NOOP */
+}
+
+/******************************************************************
+ *  ButtonCommand copy()
+ ******************************************************************/
+int ButtonCommand::copy( const ButtonCommand * copy_from )
+{
+  ButtonCommand * copy_to = this;
+  if ( ! copy_from ) return -1;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
+
+  /* copy sysName */
+  copy_to->_sysName = copy_from->_sysName;
+
+  /* copy orangeState */
+  copy_to->_orangeState = copy_from->_orangeState;
+
+  /* copy blueState */
+  copy_to->_blueState = copy_from->_blueState;
+
+  return 0;
+}
+
+/******************************************************************
+ *  ButtonCommand::marshal_cdr()
+ ******************************************************************/
+int ButtonCommand::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+                   int             _just_keys) const 
+{
+  int32_t _rval = 0;
+  CDX_XcdrEncoder_aggregate_pre( cdr, XCDR_APPENDABLE );
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_orangeState),
+        2,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_blueState),
+        3,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position( cdr );
+}
+
+int ButtonCommand::get_marshal_size( int   offset,
+                   int   _just_keys) const
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_Xcdr1Encoder_init( &xcdr1, 0x00, NULL, 0 );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+int ButtonCommand::marshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             _just_keys) const 
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Encoder_init( &xcdr1, e, buf, stream_len );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+/******************************************************************
+ *  ButtonCommand::marshal_key_hash()
+ ******************************************************************/
+int ButtonCommand::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+{
+  int32_t _rval      = 0;
+  int32_t _just_keys = 1;
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_orangeState),
+        2,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_blueState),
+        3,
+        XCDR_IS_PRESENT
+        );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position(cdr);
+}
+
+/******************************************************************
+ *  ButtonCommand::unmarshal_cdr()
+ ******************************************************************/
+int ButtonCommand::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+                   int             _just_keys)
+{
+  int32_t _rval = 0;
+  this->init( );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "ButtonCommand" );
+  if ( _rval < 0 ) return _rval;
+  if (_just_keys)
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_orangeState),
+                  2,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_blueState),
+                  3,
+                  0
+                  );
+      }
+    }
+  else
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_orangeState),
+                  2,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_blueState),
+                  3,
+                  0
+                  );
+      }
+    }
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "ButtonCommand" );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+int ButtonCommand::unmarshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             just_keys)
+{
+  int _rval;
+  CDX_Xcdr1Decoder_t  xcdr1;
+  CDX_XcdrDecoder_t * cdr = (CDX_XcdrDecoder_t*)&xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Decoder_init( &xcdr1, e, buf, stream_len );
+  cdr->xcdr_buffer.origin = offset;
+  cdr->xcdr_buffer.offset = offset;
+  _rval = this->unmarshal_cdr( cdr, just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  CDX_XcdrDecoder_clear( cdr );
+  return _rval;
+}
+/******************************************************************
+ *  ButtonCommand::unmarshal_key_hash()
+ ******************************************************************/
+int ButtonCommand::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+{
+  int32_t _rval = 0;
+  uint32_t _just_keys = 1;
+  CDX_UNUSED(_just_keys);
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            0,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            1,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_sysName = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_orangeState),
+              2,
+              0
+              );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_blueState),
+              3,
+              0
+              );
+  }
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+void ButtonCommand::gen_typeid_v2( unsigned char * buf,
+                   int            * buf_len )
+{
+  static unsigned char data[15] = { 
+    0xf2, 0x11, 0x63, 0x2a, 0xf6, 0xa2, 0x91, 0x13, 0xfd, 0x2d, 0x21, 0x6d, 0xd9, 0xcc, 0xb8  }; 
+  if (buf && buf_len && (*buf_len >= 15))
+    {
+       memcpy(buf, data, 15);
+    }
+  if (buf_len) *buf_len = 15;
+}
+int ButtonCommand::gen_typeobj_v2( unsigned char * buf,
+                                     int            * buf_len )
+{
+  static unsigned char data[288] = { 
+    0x1c, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x12, 0xc6, 0x90, 0xa2, 0xc8, 0x88, 0x01, 
+    0xf9, 0xc3, 0x47, 0xb2, 0xc2, 0x59, 0xe6, 0x00, 0x53, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0xf2, 0x6e, 0x94, 0x5d, 
+    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x9e, 0x44, 0x9b, 0xe2, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x0a, 0xa8, 0xf7, 0x6b, 0xf2, 
+    0x11, 0x63, 0x2a, 0xf6, 0xa2, 0x91, 0x13, 0xfd, 0x2d, 0x21, 0x6d, 0xd9, 0xcc, 0xb8, 0x00, 0x00, 
+    0x9c, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x16, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0e, 0x00, 0x00, 0x00, 0x42, 0x75, 0x74, 0x74, 0x6f, 0x6e, 0x43, 0x6f, 0x6d, 0x6d, 0x61, 0x6e, 
+    0x64, 0x00, 0x00, 0x00, 0x78, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 
+    0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x08, 0x00, 0x00, 0x00, 0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x1a, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x6f, 0x72, 0x61, 0x6e, 0x67, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
+    0x0a, 0x00, 0x00, 0x00, 0x62, 0x6c, 0x75, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 288;
+  if ( buf_len == NULL )                return -1;
+  if ( buf && ( *buf_len < _rlen + 4) ) return -1;
+  *buf_len = _rlen + 4;
+  if ( buf ) {
+    buf[0] = 0;
+    buf[1] = XCDR_PLAIN_CDR2 | 1;
+    buf[2] = 0;
+    buf[3] = 0;
+    memcpy( buf+4, data, _rlen );
+  }
+  return 0;
+}
+/******************************************************************
+ *  ButtonCommand get_field_def()
+ ******************************************************************/
+unsigned char
+ButtonCommand::get_field_def( const char        * fieldname,
+                       CoreDX_FieldDef_t * field_def)
+{
+  CDX_UNUSED(fieldname);
+  CDX_UNUSED(field_def);
+  if ( field_def == NULL) return 0;
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonCommand,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonCommand,_deviceId);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("sysName", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonCommand,_sysName);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonCommand,_sysName);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("orangeState", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonCommand,_orangeState);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonCommand,_orangeState);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("blueState", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonCommand,_blueState);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonCommand,_blueState);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  return 0;
+}
+
+/******************************************************************
+ * ButtonData Default Constructor
+ ******************************************************************/
+ButtonData::ButtonData()
+{
+  init();
+}
+
+/******************************************************************
+ * ButtonData Copy Constructor
+ ******************************************************************/
+ButtonData::ButtonData( const ButtonData & other )
+{
+  init();
+  copy( &other );
+}
+
+/******************************************************************
+ * ButtonData Destructor
+ ******************************************************************/
+ButtonData::~ButtonData()
+{
+  clear();
+}
+
+/******************************************************************
+ * ButtonData Assignment Operator
+ ******************************************************************/
+ButtonData& ButtonData::operator=( const ButtonData & other )
+{
+  if (this == &other)
+      return *this;
+  /* Free any allocated memory */
+  clear();
+
+  /* Perform the copy */
+
+  copy( &other );
+  return *this;
+}
+
+bool
+ButtonData::ButtonData::operator==( const ButtonData & other) const {
+  return (_deviceId == other._deviceId) &&
+    (_sysName == other._sysName) &&
+    (_mainPressed == other._mainPressed) &&
+    (_tapoutPressed == other._tapoutPressed);
+}
+/******************************************************************
+ * ::ButtonData Ops
+ *****************************************************************/
+
+
+/******************************************************************
+ * ButtonData init()
+ ******************************************************************/
+void ButtonData::init()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+  this->_mainPressed = 0;
+  this->_tapoutPressed = 0;
+}
+
+/******************************************************************
+ * ButtonData clear()
+ ******************************************************************/
+void ButtonData::clear()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+  /* clear basic type: this->_mainPressed NOOP */
+  /* clear basic type: this->_tapoutPressed NOOP */
+}
+
+/******************************************************************
+ *  ButtonData copy()
+ ******************************************************************/
+int ButtonData::copy( const ButtonData * copy_from )
+{
+  ButtonData * copy_to = this;
+  if ( ! copy_from ) return -1;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
+
+  /* copy sysName */
+  copy_to->_sysName = copy_from->_sysName;
+
+  /* copy mainPressed */
+  copy_to->_mainPressed = copy_from->_mainPressed;
+
+  /* copy tapoutPressed */
+  copy_to->_tapoutPressed = copy_from->_tapoutPressed;
+
+  return 0;
+}
+
+/******************************************************************
+ *  ButtonData::marshal_cdr()
+ ******************************************************************/
+int ButtonData::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+                   int             _just_keys) const 
+{
+  int32_t _rval = 0;
+  CDX_XcdrEncoder_aggregate_pre( cdr, XCDR_APPENDABLE );
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_mainPressed),
+        2,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_tapoutPressed),
+        3,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position( cdr );
+}
+
+int ButtonData::get_marshal_size( int   offset,
+                   int   _just_keys) const
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_Xcdr1Encoder_init( &xcdr1, 0x00, NULL, 0 );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+int ButtonData::marshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             _just_keys) const 
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Encoder_init( &xcdr1, e, buf, stream_len );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+/******************************************************************
+ *  ButtonData::marshal_key_hash()
+ ******************************************************************/
+int ButtonData::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+{
+  int32_t _rval      = 0;
+  int32_t _just_keys = 1;
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_mainPressed),
+        2,
+        XCDR_IS_PRESENT
+        );
+  CDX_XcdrEncoder_put_member_int32( cdr,
+        (this->_tapoutPressed),
+        3,
+        XCDR_IS_PRESENT
+        );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position(cdr);
+}
+
+/******************************************************************
+ *  ButtonData::unmarshal_cdr()
+ ******************************************************************/
+int ButtonData::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+                   int             _just_keys)
+{
+  int32_t _rval = 0;
+  this->init( );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "ButtonData" );
+  if ( _rval < 0 ) return _rval;
+  if (_just_keys)
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_mainPressed),
+                  2,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_tapoutPressed),
+                  3,
+                  0
+                  );
+      }
+    }
+  else
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_mainPressed),
+                  2,
+                  0
+                  );
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                  &(this->_tapoutPressed),
+                  3,
+                  0
+                  );
+      }
+    }
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "ButtonData" );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+int ButtonData::unmarshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             just_keys)
+{
+  int _rval;
+  CDX_Xcdr1Decoder_t  xcdr1;
+  CDX_XcdrDecoder_t * cdr = (CDX_XcdrDecoder_t*)&xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Decoder_init( &xcdr1, e, buf, stream_len );
+  cdr->xcdr_buffer.origin = offset;
+  cdr->xcdr_buffer.offset = offset;
+  _rval = this->unmarshal_cdr( cdr, just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  CDX_XcdrDecoder_clear( cdr );
+  return _rval;
+}
+/******************************************************************
+ *  ButtonData::unmarshal_key_hash()
+ ******************************************************************/
+int ButtonData::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+{
+  int32_t _rval = 0;
+  uint32_t _just_keys = 1;
+  CDX_UNUSED(_just_keys);
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            0,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            1,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_sysName = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_mainPressed),
+              2,
+              0
+              );
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+              &(this->_tapoutPressed),
+              3,
+              0
+              );
+  }
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+void ButtonData::gen_typeid_v2( unsigned char * buf,
+                   int            * buf_len )
+{
+  static unsigned char data[15] = { 
+    0xf2, 0x06, 0x21, 0x88, 0x34, 0x3c, 0x9f, 0x1f, 0x36, 0x73, 0x3b, 0x2b, 0x58, 0xb0, 0x18  }; 
+  if (buf && buf_len && (*buf_len >= 15))
+    {
+       memcpy(buf, data, 15);
+    }
+  if (buf_len) *buf_len = 15;
+}
+int ButtonData::gen_typeobj_v2( unsigned char * buf,
+                                  int            * buf_len )
+{
+  static unsigned char data[288] = { 
+    0x1c, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x3b, 0xa1, 0x60, 0x28, 0x86, 0xc6, 0x84, 
+    0x7f, 0xc2, 0x21, 0xbc, 0xf1, 0x18, 0x9a, 0x00, 0x53, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0xf2, 0x6e, 0x94, 0x5d, 
+    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0xbb, 0x2f, 0xf9, 0xb4, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x47, 0x4a, 0xd4, 0xfe, 0xf2, 
+    0x06, 0x21, 0x88, 0x34, 0x3c, 0x9f, 0x1f, 0x36, 0x73, 0x3b, 0x2b, 0x58, 0xb0, 0x18, 0x00, 0x00, 
+    0x9c, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x42, 0x75, 0x74, 0x74, 0x6f, 0x6e, 0x44, 0x61, 0x74, 0x61, 0x00, 0x00, 
+    0x7c, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 
+    0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x08, 0x00, 0x00, 0x00, 0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x1a, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x0c, 0x00, 0x00, 0x00, 
+    0x6d, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x65, 0x73, 0x73, 0x65, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x1c, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x0e, 0x00, 0x00, 0x00, 
+    0x74, 0x61, 0x70, 0x6f, 0x75, 0x74, 0x50, 0x72, 0x65, 0x73, 0x73, 0x65, 0x64, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 288;
+  if ( buf_len == NULL )                return -1;
+  if ( buf && ( *buf_len < _rlen + 4) ) return -1;
+  *buf_len = _rlen + 4;
+  if ( buf ) {
+    buf[0] = 0;
+    buf[1] = XCDR_PLAIN_CDR2 | 1;
+    buf[2] = 0;
+    buf[3] = 0;
+    memcpy( buf+4, data, _rlen );
+  }
+  return 0;
+}
+/******************************************************************
+ *  ButtonData get_field_def()
+ ******************************************************************/
+unsigned char
+ButtonData::get_field_def( const char        * fieldname,
+                       CoreDX_FieldDef_t * field_def)
+{
+  CDX_UNUSED(fieldname);
+  CDX_UNUSED(field_def);
+  if ( field_def == NULL) return 0;
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonData,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonData,_deviceId);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("sysName", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonData,_sysName);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonData,_sysName);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("mainPressed", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonData,_mainPressed);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonData,_mainPressed);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("tapoutPressed", fieldname)==0) {
+    field_def->kind       = 2;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonData,_tapoutPressed);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonData,_tapoutPressed);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  return 0;
+}
+
+/******************************************************************
  * ClockInfo Default Constructor
  ******************************************************************/
 ClockInfo::ClockInfo()
@@ -55,6 +2758,7 @@ ClockInfo& ClockInfo::operator=( const ClockInfo & other )
 bool
 ClockInfo::ClockInfo::operator==( const ClockInfo & other) const {
   return (_topicName == other._topicName) &&
+    (_deviceId == other._deviceId) &&
     (_digits == other._digits) &&
     (_hasGears == other._hasGears);
 }
@@ -69,6 +2773,7 @@ ClockInfo::ClockInfo::operator==( const ClockInfo & other) const {
 void ClockInfo::init()
 {
   _topicName = std::string();
+  _deviceId = std::string();
   this->_digits = 0;
   this->_hasGears = 0;
 }
@@ -79,6 +2784,7 @@ void ClockInfo::init()
 void ClockInfo::clear()
 {
   _topicName = std::string();
+  _deviceId = std::string();
   /* clear basic type: this->_digits NOOP */
   /* clear basic type: this->_hasGears NOOP */
 }
@@ -93,6 +2799,9 @@ int ClockInfo::copy( const ClockInfo * copy_from )
 
   /* copy topicName */
   copy_to->_topicName = copy_from->_topicName;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
 
   /* copy digits */
   copy_to->_digits = copy_from->_digits;
@@ -117,14 +2826,19 @@ int ClockInfo::marshal_cdr( CDX_XcdrEncoder_t * cdr,
         0,
         XCDR_IS_PRESENT,
         0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
   CDX_XcdrEncoder_put_member_int32( cdr,
         (this->_digits),
-        1,
+        2,
         XCDR_IS_PRESENT
         );
   CDX_XcdrEncoder_put_member_int32( cdr,
         (this->_hasGears),
-        2,
+        3,
         XCDR_IS_PRESENT
         );
   CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
@@ -181,14 +2895,19 @@ int ClockInfo::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const
         0,
         XCDR_IS_PRESENT,
         0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
   CDX_XcdrEncoder_put_member_int32( cdr,
         (this->_digits),
-        1,
+        2,
         XCDR_IS_PRESENT
         );
   CDX_XcdrEncoder_put_member_int32( cdr,
         (this->_hasGears),
-        2,
+        3,
         XCDR_IS_PRESENT
         );
   if ( _rval < 0 )
@@ -227,9 +2946,27 @@ int ClockInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
           return _rval;
       }
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         _rval = CDX_XcdrDecoder_get_member_int32( cdr,
                   &(this->_digits),
-                  1,
+                  2,
                   0
                   );
         if ( _rval < 0 )
@@ -238,7 +2975,7 @@ int ClockInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         _rval = CDX_XcdrDecoder_get_member_int32( cdr,
                   &(this->_hasGears),
-                  2,
+                  3,
                   0
                   );
       }
@@ -264,9 +3001,27 @@ int ClockInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
           return _rval;
       }
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         _rval = CDX_XcdrDecoder_get_member_int32( cdr,
                   &(this->_digits),
-                  1,
+                  2,
                   0
                   );
         if ( _rval < 0 )
@@ -275,7 +3030,7 @@ int ClockInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         _rval = CDX_XcdrDecoder_get_member_int32( cdr,
                   &(this->_hasGears),
-                  2,
+                  3,
                   0
                   );
       }
@@ -333,9 +3088,27 @@ int ClockInfo::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
       return _rval;
   }
   if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            1,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
     _rval = CDX_XcdrDecoder_get_member_int32( cdr,
               &(this->_digits),
-              1,
+              2,
               0
               );
     if ( _rval < 0 )
@@ -344,7 +3117,7 @@ int ClockInfo::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
   if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
     _rval = CDX_XcdrDecoder_get_member_int32( cdr,
               &(this->_hasGears),
-              2,
+              3,
               0
               );
   }
@@ -357,7 +3130,7 @@ void ClockInfo::gen_typeid_v2( unsigned char * buf,
                    int            * buf_len )
 {
   static unsigned char data[15] = { 
-    0xf2, 0xf9, 0x6e, 0x19, 0x08, 0xed, 0xd6, 0x18, 0xa6, 0x05, 0x97, 0x7a, 0x01, 0x9d, 0x88  }; 
+    0xf2, 0x53, 0xe6, 0x0d, 0x38, 0xf6, 0xe7, 0x15, 0xb6, 0xe4, 0x87, 0x03, 0x86, 0xf3, 0x05  }; 
   if (buf && buf_len && (*buf_len >= 15))
     {
        memcpy(buf, data, 15);
@@ -367,23 +3140,26 @@ void ClockInfo::gen_typeid_v2( unsigned char * buf,
 int ClockInfo::gen_typeobj_v2( unsigned char * buf,
                                  int            * buf_len )
 {
-  static unsigned char data[235] = { 
-    0xe7, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0xa9, 0x8f, 0x7e, 0xea, 0xab, 0x6c, 0x20, 
-    0x86, 0xad, 0x01, 0xeb, 0x93, 0xac, 0x45, 0x00, 0x43, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
+  static unsigned char data[279] = { 
+    0x13, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x18, 0x89, 0xdf, 0x4c, 0x03, 0x2b, 0x60, 
+    0x02, 0x08, 0x84, 0xfa, 0x10, 0x93, 0x45, 0x00, 0x53, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
     0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x2f, 0x13, 0x1b, 0x4d, 
-    0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0xa2, 0xaa, 0xcb, 0xd1, 0x00, 
-    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x79, 0x92, 0xa4, 0x12, 0xf2, 
-    0xf9, 0x6e, 0x19, 0x08, 0xed, 0xd6, 0x18, 0xa6, 0x05, 0x97, 0x7a, 0x01, 0x9d, 0x88, 0x00, 0x00, 
-    0x77, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0xa2, 0xaa, 0xcb, 0xd1, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x79, 0x92, 0xa4, 0x12, 0xf2, 
+    0x53, 0xe6, 0x0d, 0x38, 0xf6, 0xe7, 0x15, 0xb6, 0xe4, 0x87, 0x03, 0x86, 0xf3, 0x05, 0x00, 0x00, 
+    0x93, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
     0x0a, 0x00, 0x00, 0x00, 0x43, 0x6c, 0x6f, 0x63, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x00, 
-    0x57, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x73, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
     0x01, 0x00, 0x70, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x74, 0x6f, 0x70, 0x69, 0x63, 0x4e, 0x61, 0x6d, 
-    0x65, 0x00, 0x00, 0x00, 0x15, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
-    0x07, 0x00, 0x00, 0x00, 0x64, 0x69, 0x67, 0x69, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-    0x17, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x09, 0x00, 0x00, 0x00, 
-    0x68, 0x61, 0x73, 0x47, 0x65, 0x61, 0x72, 0x73, 0x00, 0x00, 0x00  }; 
-  int32_t _rlen    = 235;
+    0x65, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 
+    0x15, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x07, 0x00, 0x00, 0x00, 
+    0x64, 0x69, 0x67, 0x69, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 
+    0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x09, 0x00, 0x00, 0x00, 0x68, 0x61, 0x73, 0x47, 
+    0x65, 0x61, 0x72, 0x73, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 279;
   if ( buf_len == NULL )                return -1;
   if ( buf && ( *buf_len < _rlen + 4) ) return -1;
   *buf_len = _rlen + 4;
@@ -415,6 +3191,20 @@ ClockInfo::get_field_def( const char        * fieldname,
       _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockInfo,_topicName);
     } else
       field_def->offset  += s_offsetof(struct ClockInfo,_topicName);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ClockInfo,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct ClockInfo,_deviceId);
     field_def->key        = 0;
     field_def->access     = CoreDX_fielddef_access;
     field_def->clear      = CoreDX_fielddef_clear;
@@ -495,6 +3285,7 @@ ButtonInfo& ButtonInfo::operator=( const ButtonInfo & other )
 bool
 ButtonInfo::ButtonInfo::operator==( const ButtonInfo & other) const {
   return (_topicName == other._topicName) &&
+    (_deviceId == other._deviceId) &&
     (_color == other._color);
 }
 /******************************************************************
@@ -508,6 +3299,7 @@ ButtonInfo::ButtonInfo::operator==( const ButtonInfo & other) const {
 void ButtonInfo::init()
 {
   _topicName = std::string();
+  _deviceId = std::string();
   this->_color = 0;
 }
 
@@ -517,6 +3309,7 @@ void ButtonInfo::init()
 void ButtonInfo::clear()
 {
   _topicName = std::string();
+  _deviceId = std::string();
   /* clear basic type: this->_color NOOP */
 }
 
@@ -530,6 +3323,9 @@ int ButtonInfo::copy( const ButtonInfo * copy_from )
 
   /* copy topicName */
   copy_to->_topicName = copy_from->_topicName;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
 
   /* copy color */
   copy_to->_color = copy_from->_color;
@@ -551,9 +3347,14 @@ int ButtonInfo::marshal_cdr( CDX_XcdrEncoder_t * cdr,
         0,
         XCDR_IS_PRESENT,
         0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
   CDX_XcdrEncoder_put_member_int32( cdr,
         (this->_color),
-        1,
+        2,
         XCDR_IS_PRESENT
         );
   CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
@@ -610,9 +3411,14 @@ int ButtonInfo::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const
         0,
         XCDR_IS_PRESENT,
         0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
   CDX_XcdrEncoder_put_member_int32( cdr,
         (this->_color),
-        1,
+        2,
         XCDR_IS_PRESENT
         );
   if ( _rval < 0 )
@@ -651,9 +3457,27 @@ int ButtonInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
           return _rval;
       }
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         _rval = CDX_XcdrDecoder_get_member_int32( cdr,
                   &(this->_color),
-                  1,
+                  2,
                   0
                   );
       }
@@ -679,9 +3503,27 @@ int ButtonInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
           return _rval;
       }
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         _rval = CDX_XcdrDecoder_get_member_int32( cdr,
                   &(this->_color),
-                  1,
+                  2,
                   0
                   );
       }
@@ -739,9 +3581,27 @@ int ButtonInfo::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
       return _rval;
   }
   if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            1,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
     _rval = CDX_XcdrDecoder_get_member_int32( cdr,
               &(this->_color),
-              1,
+              2,
               0
               );
   }
@@ -754,7 +3614,7 @@ void ButtonInfo::gen_typeid_v2( unsigned char * buf,
                    int            * buf_len )
 {
   static unsigned char data[15] = { 
-    0xf2, 0x56, 0xac, 0xcd, 0xe9, 0xb1, 0xf7, 0x9b, 0x9e, 0x17, 0xb5, 0x3e, 0x19, 0xf0, 0x89  }; 
+    0xf2, 0xa1, 0xa9, 0x6b, 0x3f, 0x54, 0xd8, 0x93, 0x7e, 0xd7, 0x2b, 0xa3, 0xaa, 0xe1, 0x99  }; 
   if (buf && buf_len && (*buf_len >= 15))
     {
        memcpy(buf, data, 15);
@@ -764,20 +3624,23 @@ void ButtonInfo::gen_typeid_v2( unsigned char * buf,
 int ButtonInfo::gen_typeobj_v2( unsigned char * buf,
                                   int            * buf_len )
 {
-  static unsigned char data[188] = { 
-    0xb8, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x97, 0x73, 0xb6, 0x31, 0xad, 0xea, 0x74, 
-    0x33, 0x31, 0xb4, 0x59, 0x8a, 0x96, 0x78, 0x00, 0x33, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+  static unsigned char data[232] = { 
+    0xe4, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x8e, 0xef, 0xda, 0x3d, 0x91, 0xb6, 0x93, 
+    0xee, 0x94, 0xd1, 0x76, 0xfc, 0x6e, 0x15, 0x00, 0x43, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
     0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x2f, 0x13, 0x1b, 0x4d, 
-    0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x70, 0xdd, 0xa5, 0xdf, 0xf2, 
-    0x56, 0xac, 0xcd, 0xe9, 0xb1, 0xf7, 0x9b, 0x9e, 0x17, 0xb5, 0x3e, 0x19, 0xf0, 0x89, 0x00, 0x00, 
-    0x58, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x70, 0xdd, 0xa5, 0xdf, 0xf2, 
+    0xa1, 0xa9, 0x6b, 0x3f, 0x54, 0xd8, 0x93, 0x7e, 0xd7, 0x2b, 0xa3, 0xaa, 0xe1, 0x99, 0x00, 0x00, 
+    0x74, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
     0x0b, 0x00, 0x00, 0x00, 0x42, 0x75, 0x74, 0x74, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 
-    0x38, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x54, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
     0x01, 0x00, 0x70, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x74, 0x6f, 0x70, 0x69, 0x63, 0x4e, 0x61, 0x6d, 
-    0x65, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
-    0x06, 0x00, 0x00, 0x00, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00  }; 
-  int32_t _rlen    = 188;
+    0x65, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 
+    0x14, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x06, 0x00, 0x00, 0x00, 
+    0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 232;
   if ( buf_len == NULL )                return -1;
   if ( buf && ( *buf_len < _rlen + 4) ) return -1;
   *buf_len = _rlen + 4;
@@ -809,6 +3672,20 @@ ButtonInfo::get_field_def( const char        * fieldname,
       _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonInfo,_topicName);
     } else
       field_def->offset  += s_offsetof(struct ButtonInfo,_topicName);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ButtonInfo,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct ButtonInfo,_deviceId);
     field_def->key        = 0;
     field_def->access     = CoreDX_fielddef_access;
     field_def->clear      = CoreDX_fielddef_clear;
@@ -874,7 +3751,7 @@ DeviceInfo& DeviceInfo::operator=( const DeviceInfo & other )
 
 bool
 DeviceInfo::DeviceInfo::operator==( const DeviceInfo & other) const {
-  return (_DeviceId == other._DeviceId) &&
+  return (_deviceId == other._deviceId) &&
     (_role == other._role) &&
     (_sysName == other._sysName) &&
     (_displayName == other._displayName) &&
@@ -891,8 +3768,8 @@ DeviceInfo::DeviceInfo::operator==( const DeviceInfo & other) const {
  ******************************************************************/
 void DeviceInfo::init()
 {
-  _DeviceId = std::string();
-  _role = std::string();
+  _deviceId = std::string();
+  _role = DeviceRole::ROLE_UNKNOWN;
   _sysName = std::string();
   _displayName = std::string();
   // optional left empty: this->_clockInfo
@@ -904,8 +3781,8 @@ void DeviceInfo::init()
  ******************************************************************/
 void DeviceInfo::clear()
 {
-  _DeviceId = std::string();
-  _role = std::string();
+  _deviceId = std::string();
+  /* clear enum: this->_role */
   _sysName = std::string();
   _displayName = std::string();
   this->_clockInfo.reset();
@@ -920,8 +3797,8 @@ int DeviceInfo::copy( const DeviceInfo * copy_from )
   DeviceInfo * copy_to = this;
   if ( ! copy_from ) return -1;
 
-  /* copy DeviceId */
-  copy_to->_DeviceId = copy_from->_DeviceId;
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
 
   /* copy role */
   copy_to->_role = copy_from->_role;
@@ -952,7 +3829,7 @@ int DeviceInfo::marshal_cdr( CDX_XcdrEncoder_t * cdr,
   if (_just_keys)
     {
       CDX_XcdrEncoder_put_member_string( cdr,
-            (this->_DeviceId).c_str(),
+            (this->_deviceId).c_str(),
             0,
             XCDR_IS_PRESENT,
             0 );
@@ -960,15 +3837,15 @@ int DeviceInfo::marshal_cdr( CDX_XcdrEncoder_t * cdr,
   else
     {
       CDX_XcdrEncoder_put_member_string( cdr,
-            (this->_DeviceId).c_str(),
+            (this->_deviceId).c_str(),
             0,
             XCDR_IS_PRESENT,
             0 );
-      CDX_XcdrEncoder_put_member_string( cdr,
-            (this->_role).c_str(),
+      CDX_XcdrEncoder_put_member_int32( cdr,
+            (int32_t)((this->_role)),
             1,
-            XCDR_IS_PRESENT,
-            0 );
+            XCDR_IS_PRESENT
+            );
       CDX_XcdrEncoder_put_member_string( cdr,
             (this->_sysName).c_str(),
             2,
@@ -1042,7 +3919,7 @@ int DeviceInfo::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const
   int32_t _just_keys = 1;
   CDX_UNUSED( _just_keys );
   CDX_XcdrEncoder_put_member_string( cdr,
-        (this->_DeviceId).c_str(),
+        (this->_deviceId).c_str(),
         0,
         XCDR_IS_PRESENT,
         0 );
@@ -1074,7 +3951,7 @@ int DeviceInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
                 0
                 );
           if (_tmpstr) {
-            this->_DeviceId = std::string( _tmpstr );
+            this->_deviceId = std::string( _tmpstr );
             CoreDX_DDS_free( _tmpstr );
           }
         }
@@ -1093,7 +3970,7 @@ int DeviceInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
                 0
                 );
           if (_tmpstr) {
-            this->_DeviceId = std::string( _tmpstr );
+            this->_deviceId = std::string( _tmpstr );
             CoreDX_DDS_free( _tmpstr );
           }
         }
@@ -1102,18 +3979,13 @@ int DeviceInfo::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
       }
       if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
         {
-          char * _tmpstr = NULL;
-          _rval = CDX_XcdrDecoder_get_member_string( cdr,
-                &_tmpstr,
-                CoreDX_DDS_calloc,
-                1,
-                0,
-                0
-                );
-          if (_tmpstr) {
-            this->_role = std::string( _tmpstr );
-            CoreDX_DDS_free( _tmpstr );
-          }
+          int32_t _tmp = 0;
+          _rval = CDX_XcdrDecoder_get_member_int32( cdr,
+                    &_tmp,
+                    1,
+                    0
+                    );
+          this->_role = static_cast<DeviceRole>(_tmp);
         }
         if ( _rval < 0 )
           return _rval;
@@ -1234,7 +4106,7 @@ int DeviceInfo::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
             0
             );
       if (_tmpstr) {
-        this->_DeviceId = std::string( _tmpstr );
+        this->_deviceId = std::string( _tmpstr );
         CoreDX_DDS_free( _tmpstr );
       }
     }
@@ -1248,7 +4120,7 @@ void DeviceInfo::gen_typeid_v2( unsigned char * buf,
                    int            * buf_len )
 {
   static unsigned char data[15] = { 
-    0xf2, 0x99, 0x4d, 0x16, 0xd3, 0xe9, 0x5f, 0xce, 0x5a, 0x61, 0x84, 0x9b, 0x62, 0xa5, 0x4b  }; 
+    0xf2, 0x34, 0x39, 0xdc, 0x3e, 0x0f, 0x8f, 0x4d, 0xeb, 0x14, 0xfc, 0x60, 0x9b, 0x15, 0x27  }; 
   if (buf && buf_len && (*buf_len >= 15))
     {
        memcpy(buf, data, 15);
@@ -1258,61 +4130,88 @@ void DeviceInfo::gen_typeid_v2( unsigned char * buf,
 int DeviceInfo::gen_typeobj_v2( unsigned char * buf,
                                   int            * buf_len )
 {
-  static unsigned char data[837] = { 
-    0x41, 0x03, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0xf1, 0xa9, 0x8f, 0x7e, 0xea, 0xab, 0x6c, 0x20, 
-    0x86, 0xad, 0x01, 0xeb, 0x93, 0xac, 0x45, 0x00, 0x43, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+  static unsigned char data[1273] = { 
+    0xf5, 0x04, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0xf1, 0xb3, 0x07, 0x32, 0x47, 0xef, 0x61, 0x84, 
+    0xcf, 0x1c, 0x16, 0x56, 0xd5, 0xb0, 0x65, 0x00, 0x62, 0x00, 0x00, 0x00, 0xf1, 0x40, 0x02, 0x00, 
+    0x02, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x52, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
+    0x0e, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x02, 0xbc, 
+    0x45, 0x9f, 0x00, 0x00, 0x0e, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x8a, 0x7d, 0xb5, 0xfa, 0x00, 0x00, 0x0e, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 
+    0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2c, 0x64, 0x83, 0xb8, 0x00, 0x00, 0x0e, 0x00, 0x00, 0x00, 
+    0x06, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x70, 0x8b, 0x0e, 0xc2, 0xf1, 0x18, 
+    0x89, 0xdf, 0x4c, 0x03, 0x2b, 0x60, 0x02, 0x08, 0x84, 0xfa, 0x10, 0x93, 0x45, 0x00, 0x00, 0x00, 
+    0x53, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x43, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x2f, 0x13, 0x1b, 0x4d, 0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0xa2, 0xaa, 0xcb, 0xd1, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0x79, 0x92, 0xa4, 0x12, 0xf1, 0x8e, 0xef, 0xda, 0x3d, 0x91, 0xb6, 0x93, 0xee, 
+    0x94, 0xd1, 0x76, 0xfc, 0x6e, 0x15, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
     0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
     0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x2f, 0x13, 0x1b, 0x4d, 
-    0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0xa2, 0xaa, 0xcb, 0xd1, 0x00, 
-    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x79, 0x92, 0xa4, 0x12, 0xf1, 
-    0x97, 0x73, 0xb6, 0x31, 0xad, 0xea, 0x74, 0x33, 0x31, 0xb4, 0x59, 0x8a, 0x96, 0x78, 0x00, 0x00, 
-    0x33, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-    0x23, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-    0x01, 0x00, 0x70, 0x00, 0x2f, 0x13, 0x1b, 0x4d, 0x0b, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
-    0x01, 0x00, 0x04, 0x70, 0xdd, 0xa5, 0xdf, 0xf1, 0xec, 0x7f, 0x5e, 0x48, 0xb3, 0xbf, 0x2a, 0x34, 
-    0x9b, 0x84, 0x01, 0x84, 0xd0, 0x42, 0x00, 0x00, 0x91, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x81, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 
-    0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x31, 0x00, 0x70, 0x00, 0xd0, 0x26, 0x3c, 0x6c, 
-    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x29, 0xa7, 0xe9, 0x64, 
-    0x0c, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0xf2, 0x6e, 0x94, 0x5d, 
-    0x0c, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x44, 0x98, 0xe8, 0x26, 
-    0x19, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x09, 0x00, 0xf1, 0xa9, 0x8f, 0x7e, 0xea, 0xab, 
-    0x6c, 0x20, 0x86, 0xad, 0x01, 0xeb, 0x93, 0xac, 0x45, 0xb0, 0xa8, 0xa3, 0xec, 0x00, 0x00, 0x00, 
-    0x19, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x09, 0x00, 0xf1, 0x97, 0x73, 0xb6, 0x31, 0xad, 
-    0xea, 0x74, 0x33, 0x31, 0xb4, 0x59, 0x8a, 0x96, 0x78, 0xd2, 0x9e, 0xb5, 0xa6, 0xf2, 0xf9, 0x6e, 
-    0x19, 0x08, 0xed, 0xd6, 0x18, 0xa6, 0x05, 0x97, 0x7a, 0x01, 0x9d, 0x88, 0x77, 0x00, 0x00, 0x00, 
-    0xf2, 0x51, 0x02, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 
-    0x43, 0x6c, 0x6f, 0x63, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x00, 0x57, 0x00, 0x00, 0x00, 
-    0x03, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
-    0x0a, 0x00, 0x00, 0x00, 0x74, 0x6f, 0x70, 0x69, 0x63, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 
-    0x15, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x07, 0x00, 0x00, 0x00, 
-    0x64, 0x69, 0x67, 0x69, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 
-    0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x09, 0x00, 0x00, 0x00, 0x68, 0x61, 0x73, 0x47, 
-    0x65, 0x61, 0x72, 0x73, 0x00, 0x00, 0x00, 0xf2, 0x56, 0xac, 0xcd, 0xe9, 0xb1, 0xf7, 0x9b, 0x9e, 
-    0x17, 0xb5, 0x3e, 0x19, 0xf0, 0x89, 0x00, 0x00, 0x58, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 
-    0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x42, 0x75, 0x74, 0x74, 
-    0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x38, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0b, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x70, 0xdd, 0xa5, 0xdf, 0xf1, 
+    0x42, 0xde, 0x03, 0xeb, 0x5f, 0x40, 0xe4, 0xe0, 0x29, 0x3d, 0x7b, 0xe2, 0x5e, 0xc1, 0x00, 0x00, 
+    0xa1, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x91, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x31, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 0x19, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0xf1, 0xb3, 0x07, 0x32, 0x47, 0xef, 0x61, 0x84, 0xcf, 0x1c, 0x16, 0x56, 0xd5, 0xb0, 
+    0x65, 0x29, 0xa7, 0xe9, 0x64, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0xf2, 0x6e, 0x94, 0x5d, 0x0c, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x44, 0x98, 0xe8, 0x26, 0x19, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
+    0x09, 0x00, 0xf1, 0x18, 0x89, 0xdf, 0x4c, 0x03, 0x2b, 0x60, 0x02, 0x08, 0x84, 0xfa, 0x10, 0x93, 
+    0x45, 0xb0, 0xa8, 0xa3, 0xec, 0x00, 0x00, 0x00, 0x19, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 
+    0x09, 0x00, 0xf1, 0x8e, 0xef, 0xda, 0x3d, 0x91, 0xb6, 0x93, 0xee, 0x94, 0xd1, 0x76, 0xfc, 0x6e, 
+    0x15, 0xd2, 0x9e, 0xb5, 0xa6, 0xf2, 0xd9, 0xcd, 0x8c, 0x50, 0x49, 0x5c, 0xf8, 0x66, 0x93, 0x34, 
+    0xd4, 0x29, 0xc5, 0xe6, 0xb1, 0x00, 0x00, 0x00, 0xf2, 0x40, 0x02, 0x00, 0x13, 0x00, 0x00, 0x00, 
+    0x20, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x52, 0x6f, 
+    0x6c, 0x65, 0x00, 0x00, 0x91, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x1f, 0x00, 0x00, 0x00, 
+    0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x0d, 0x00, 0x00, 0x00, 
+    0x52, 0x4f, 0x4c, 0x45, 0x5f, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x00, 0x00, 0x00, 0x00, 
+    0x1f, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0d, 0x00, 0x00, 0x00, 0x52, 0x4f, 0x4c, 0x45, 0x5f, 0x43, 0x4f, 0x4e, 0x54, 0x52, 0x4f, 0x4c, 
+    0x00, 0x00, 0x00, 0x00, 0x1e, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x52, 0x4f, 0x4c, 0x45, 0x5f, 0x42, 0x55, 0x54, 
+    0x54, 0x4f, 0x4e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1d, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 
+    0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x52, 0x4f, 0x4c, 0x45, 
+    0x5f, 0x43, 0x4c, 0x4f, 0x43, 0x4b, 0x00, 0x00, 0x00, 0xf2, 0x53, 0xe6, 0x0d, 0x38, 0xf6, 0xe7, 
+    0x15, 0xb6, 0xe4, 0x87, 0x03, 0x86, 0xf3, 0x05, 0x93, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 
+    0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x43, 0x6c, 0x6f, 0x63, 
+    0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x00, 0x73, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 
     0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x0a, 0x00, 0x00, 0x00, 
-    0x74, 0x6f, 0x70, 0x69, 0x63, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 
-    0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x06, 0x00, 0x00, 0x00, 0x63, 0x6f, 0x6c, 0x6f, 
-    0x72, 0x00, 0x00, 0x00, 0xf2, 0x99, 0x4d, 0x16, 0xd3, 0xe9, 0x5f, 0xce, 0x5a, 0x61, 0x84, 0x9b, 
-    0x62, 0xa5, 0x4b, 0x00, 0xed, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x13, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x6e, 
-    0x66, 0x6f, 0x00, 0x00, 0xcd, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x31, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 0x44, 0x65, 0x76, 0x69, 
-    0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
-    0x01, 0x00, 0x70, 0x00, 0x05, 0x00, 0x00, 0x00, 0x72, 0x6f, 0x6c, 0x65, 0x00, 0x00, 0x00, 0x00, 
-    0x16, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x08, 0x00, 0x00, 0x00, 
-    0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x00, 0x00, 0x00, 
-    0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x64, 0x69, 0x73, 0x70, 
-    0x6c, 0x61, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 0x28, 0x00, 0x00, 0x00, 
-    0x04, 0x00, 0x00, 0x00, 0x09, 0x00, 0xf2, 0xf9, 0x6e, 0x19, 0x08, 0xed, 0xd6, 0x18, 0xa6, 0x05, 
-    0x97, 0x7a, 0x01, 0x9d, 0x88, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x63, 0x6c, 0x6f, 0x63, 
-    0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x00, 0x29, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 
-    0x09, 0x00, 0xf2, 0x56, 0xac, 0xcd, 0xe9, 0xb1, 0xf7, 0x9b, 0x9e, 0x17, 0xb5, 0x3e, 0x19, 0xf0, 
-    0x89, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x62, 0x75, 0x74, 0x74, 0x6f, 0x6e, 0x49, 0x6e, 
-    0x66, 0x6f, 0x00, 0x00, 0x00  }; 
-  int32_t _rlen    = 837;
+    0x74, 0x6f, 0x70, 0x69, 0x63, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 
+    0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 0x15, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x04, 0x00, 0x07, 0x00, 0x00, 0x00, 0x64, 0x69, 0x67, 0x69, 0x74, 0x73, 0x00, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x68, 0x61, 0x73, 0x47, 0x65, 0x61, 0x72, 0x73, 0x00, 0x00, 0x00, 0xf2, 
+    0xa1, 0xa9, 0x6b, 0x3f, 0x54, 0xd8, 0x93, 0x7e, 0xd7, 0x2b, 0xa3, 0xaa, 0xe1, 0x99, 0x00, 0x00, 
+    0x74, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x0b, 0x00, 0x00, 0x00, 0x42, 0x75, 0x74, 0x74, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 
+    0x54, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x70, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x74, 0x6f, 0x70, 0x69, 0x63, 0x4e, 0x61, 0x6d, 
+    0x65, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 
+    0x14, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x00, 0x06, 0x00, 0x00, 0x00, 
+    0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00, 0xf2, 0x34, 0x39, 0xdc, 0x3e, 0x0f, 0x8f, 0x4d, 
+    0xeb, 0x14, 0xfc, 0x60, 0x9b, 0x15, 0x27, 0x00, 0xfd, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 
+    0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x44, 0x65, 0x76, 0x69, 
+    0x63, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0xdd, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 
+    0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x31, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 
+    0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0xf2, 0xd9, 0xcd, 0x8c, 0x50, 0x49, 0x5c, 0xf8, 0x66, 0x93, 
+    0x34, 0xd4, 0x29, 0xc5, 0xe6, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x72, 0x6f, 0x6c, 0x65, 
+    0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x08, 0x00, 0x00, 0x00, 0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x1a, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x0c, 0x00, 0x00, 0x00, 
+    0x64, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x28, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x09, 0x00, 0xf2, 0x53, 0xe6, 0x0d, 0x38, 0xf6, 
+    0xe7, 0x15, 0xb6, 0xe4, 0x87, 0x03, 0x86, 0xf3, 0x05, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 
+    0x63, 0x6c, 0x6f, 0x63, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x00, 0x29, 0x00, 0x00, 0x00, 
+    0x05, 0x00, 0x00, 0x00, 0x09, 0x00, 0xf2, 0xa1, 0xa9, 0x6b, 0x3f, 0x54, 0xd8, 0x93, 0x7e, 0xd7, 
+    0x2b, 0xa3, 0xaa, 0xe1, 0x99, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00, 0x62, 0x75, 0x74, 0x74, 
+    0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 1273;
   if ( buf_len == NULL )                return -1;
   if ( buf && ( *buf_len < _rlen + 4) ) return -1;
   *buf_len = _rlen + 4;
@@ -1335,22 +4234,22 @@ DeviceInfo::get_field_def( const char        * fieldname,
   CDX_UNUSED(fieldname);
   CDX_UNUSED(field_def);
   if ( field_def == NULL) return 0;
-  if (strcmp("DeviceId", fieldname)==0) {
+  if (strcmp("deviceId", fieldname)==0) {
     field_def->kind       = 13;
     field_def->elem_kind  = 0;
     field_def->elem_count = 0;
     if (field_def->user) {
       CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
-      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct DeviceInfo,_DeviceId);
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct DeviceInfo,_deviceId);
     } else
-      field_def->offset  += s_offsetof(struct DeviceInfo,_DeviceId);
+      field_def->offset  += s_offsetof(struct DeviceInfo,_deviceId);
     field_def->key        = 1;
     field_def->access     = CoreDX_fielddef_access;
     field_def->clear      = CoreDX_fielddef_clear;
     return 1;
   }
   if (strcmp("role", fieldname)==0) {
-    field_def->kind       = 13;
+    field_def->kind       = 12;
     field_def->elem_kind  = 0;
     field_def->elem_count = 0;
     if (field_def->user) {

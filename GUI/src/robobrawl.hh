@@ -21,14 +21,422 @@
 #ifdef _MSC_VER
 #  pragma warning(push)
 #endif
+
+  enum class DeviceRole  {
+  /* enum TypeId: [ C_d9cd8c50495cf8669334d429c5e6 :: M_b3073247ef6184cf1c1656d5b065 ] */
+    ROLE_UNKNOWN = 0, 
+    ROLE_CONTROL = 1, 
+    ROLE_BUTTON = 2, 
+    ROLE_CLOCK = 3
+  };
+
+  struct COREDX_TS_STRUCT_EXPORT Heartbeat {
+    public:
+      Heartbeat();
+      ~Heartbeat();
+      Heartbeat( const std::string __deviceId,
+                 const int32_t __sequenceNumber ) :
+        _deviceId( __deviceId ),
+        _sequenceNumber( __sequenceNumber ){ }
+      Heartbeat( const Heartbeat & other );
+      Heartbeat& operator=( const Heartbeat & other);
+
+      bool operator==( const Heartbeat & other) const;
+      bool operator!=( const Heartbeat & other) const { return !operator==(other); }
+
+      /* TypeId: [ C_48eea2d1edd744293804cdd321ad :: M_6068a8b975da326029cce28c679d ] */
+      void   init();
+      void   clear();
+      int    copy( const Heartbeat * instance );
+
+      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
+      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
+      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
+      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
+      // deprecated api:
+      int  get_marshal_size( int offset, int just_keys ) const;
+      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
+      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
+
+      static void * alloc() { return new Heartbeat; }
+      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
+                         { return ((Heartbeat*)instance)->marshal_cdr( cdr, just_keys ); }
+      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
+                         { return ((Heartbeat*)instance)->marshal_key_hash( cdr ); }
+      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
+                         { return ((Heartbeat*)instance)->unmarshal_cdr( cdr, just_keys ); }
+      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
+                         { return ((Heartbeat*)instance)->unmarshal_key_hash( cdr ); }
+
+      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
+      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
+
+      static unsigned char get_field_def(const char  * fieldname, 
+                                         CoreDX_FieldDef_t * field_def);
+    protected:
+      std::string  _deviceId;    /* ID: 0x00000000 */
+      int32_t  _sequenceNumber;    /* ID: 0x00000001 */
+
+    public:
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+            int32_t   sequenceNumber( ) const { return _sequenceNumber; }
+            int32_t & sequenceNumber( )       { return _sequenceNumber; }
+      void sequenceNumber( const int32_t __sequenceNumber ) { _sequenceNumber = __sequenceNumber; }
+
+      typedef dds::sub::DataReader<Heartbeat>  DataReader;
+      typedef dds::pub::DataWriter<Heartbeat>  DataWriter;
+
+    private:
+
+  }; //Heartbeat
+  typedef dds::sub::DataReader<Heartbeat>  HeartbeatDataReader;
+  typedef dds::pub::DataWriter<Heartbeat>  HeartbeatDataWriter;
+
+  struct COREDX_TS_STRUCT_EXPORT timeValue {
+    public:
+      timeValue();
+      ~timeValue();
+      timeValue( const int32_t __seconds,
+                 const int32_t __minutes ) :
+        _seconds( __seconds ),
+        _minutes( __minutes ){ }
+      timeValue( const timeValue & other );
+      timeValue& operator=( const timeValue & other);
+
+      bool operator==( const timeValue & other) const;
+      bool operator!=( const timeValue & other) const { return !operator==(other); }
+
+      /* TypeId: [ C_05e43b7210bdf97e7dde06c0f1d6 :: M_00e7d0b98e8b5f76d9f6937dad7c ] */
+      void   init();
+      void   clear();
+      int    copy( const timeValue * instance );
+
+      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
+      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
+      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
+      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
+      // deprecated api:
+      int  get_marshal_size( int offset, int just_keys ) const;
+      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
+      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
+
+      static void * alloc() { return new timeValue; }
+      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
+                         { return ((timeValue*)instance)->marshal_cdr( cdr, just_keys ); }
+      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
+                         { return ((timeValue*)instance)->marshal_key_hash( cdr ); }
+      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
+                         { return ((timeValue*)instance)->unmarshal_cdr( cdr, just_keys ); }
+      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
+                         { return ((timeValue*)instance)->unmarshal_key_hash( cdr ); }
+
+      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
+      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
+
+      static unsigned char get_field_def(const char  * fieldname, 
+                                         CoreDX_FieldDef_t * field_def);
+    protected:
+      int32_t  _seconds;    /* ID: 0x00000000 */
+      int32_t  _minutes;    /* ID: 0x00000001 */
+
+    public:
+            int32_t   seconds( ) const { return _seconds; }
+            int32_t & seconds( )       { return _seconds; }
+      void seconds( const int32_t __seconds ) { _seconds = __seconds; }
+            int32_t   minutes( ) const { return _minutes; }
+            int32_t & minutes( )       { return _minutes; }
+      void minutes( const int32_t __minutes ) { _minutes = __minutes; }
+
+      typedef dds::sub::DataReader<timeValue>  DataReader;
+      typedef dds::pub::DataWriter<timeValue>  DataWriter;
+
+    private:
+
+  }; //timeValue
+  typedef dds::sub::DataReader<timeValue>  timeValueDataReader;
+  typedef dds::pub::DataWriter<timeValue>  timeValueDataWriter;
+
+  struct COREDX_TS_STRUCT_EXPORT ClockCommand {
+    public:
+      ClockCommand();
+      ~ClockCommand();
+      ClockCommand( const std::string __deviceId,
+                    const std::string __sysName,
+                    const int32_t __doDisplayTime,
+                    const int32_t __turnOff,
+                    const int32_t __solidColor,
+                    const struct timeValue __time,
+                    const std::string __mainColor,
+                    const std::string __blueGearColor,
+                    const std::string __orangeGearColor ) :
+        _deviceId( __deviceId ),
+        _sysName( __sysName ),
+        _doDisplayTime( __doDisplayTime ),
+        _turnOff( __turnOff ),
+        _solidColor( __solidColor ),
+        _time( __time ),
+        _mainColor( __mainColor ),
+        _blueGearColor( __blueGearColor ),
+        _orangeGearColor( __orangeGearColor ){ }
+      ClockCommand( const ClockCommand & other );
+      ClockCommand& operator=( const ClockCommand & other);
+
+      bool operator==( const ClockCommand & other) const;
+      bool operator!=( const ClockCommand & other) const { return !operator==(other); }
+
+      /* TypeId: [ C_9613e8b43c7dcff73e90f20b4e5f :: M_839590131653dbe812d9bb91a37d ] */
+      void   init();
+      void   clear();
+      int    copy( const ClockCommand * instance );
+
+      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
+      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
+      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
+      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
+      // deprecated api:
+      int  get_marshal_size( int offset, int just_keys ) const;
+      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
+      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
+
+      static void * alloc() { return new ClockCommand; }
+      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
+                         { return ((ClockCommand*)instance)->marshal_cdr( cdr, just_keys ); }
+      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
+                         { return ((ClockCommand*)instance)->marshal_key_hash( cdr ); }
+      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
+                         { return ((ClockCommand*)instance)->unmarshal_cdr( cdr, just_keys ); }
+      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
+                         { return ((ClockCommand*)instance)->unmarshal_key_hash( cdr ); }
+
+      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
+      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
+
+      static unsigned char get_field_def(const char  * fieldname, 
+                                         CoreDX_FieldDef_t * field_def);
+    protected:
+      std::string  _deviceId;    /* ID: 0x00000000 */
+      std::string  _sysName;    /* ID: 0x00000001 */
+      int32_t  _doDisplayTime;    /* ID: 0x00000002 */
+      int32_t  _turnOff;    /* ID: 0x00000003 */
+      int32_t  _solidColor;    /* ID: 0x00000004 */
+      struct timeValue  _time;    /* ID: 0x00000005 */
+      std::string  _mainColor;    /* ID: 0x00000006 */
+      std::string  _blueGearColor;    /* ID: 0x00000007 */
+      std::string  _orangeGearColor;    /* ID: 0x00000008 */
+
+    public:
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+      const std::string & sysName( ) const { return _sysName; }
+            std::string & sysName( )       { return _sysName; }
+      void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
+      void  sysName( const std::string && __sysName ) {  _sysName = __sysName; }
+            int32_t   doDisplayTime( ) const { return _doDisplayTime; }
+            int32_t & doDisplayTime( )       { return _doDisplayTime; }
+      void doDisplayTime( const int32_t __doDisplayTime ) { _doDisplayTime = __doDisplayTime; }
+            int32_t   turnOff( ) const { return _turnOff; }
+            int32_t & turnOff( )       { return _turnOff; }
+      void turnOff( const int32_t __turnOff ) { _turnOff = __turnOff; }
+            int32_t   solidColor( ) const { return _solidColor; }
+            int32_t & solidColor( )       { return _solidColor; }
+      void solidColor( const int32_t __solidColor ) { _solidColor = __solidColor; }
+      const struct timeValue & time( ) const { return _time; }
+            struct timeValue & time( )       { return _time; }
+      void  time( const struct timeValue &  __time ) {  _time = __time; }
+      void  time( const struct timeValue && __time ) {  _time = __time; }
+      const std::string & mainColor( ) const { return _mainColor; }
+            std::string & mainColor( )       { return _mainColor; }
+      void  mainColor( const std::string &  __mainColor ) {  _mainColor = __mainColor; }
+      void  mainColor( const std::string && __mainColor ) {  _mainColor = __mainColor; }
+      const std::string & blueGearColor( ) const { return _blueGearColor; }
+            std::string & blueGearColor( )       { return _blueGearColor; }
+      void  blueGearColor( const std::string &  __blueGearColor ) {  _blueGearColor = __blueGearColor; }
+      void  blueGearColor( const std::string && __blueGearColor ) {  _blueGearColor = __blueGearColor; }
+      const std::string & orangeGearColor( ) const { return _orangeGearColor; }
+            std::string & orangeGearColor( )       { return _orangeGearColor; }
+      void  orangeGearColor( const std::string &  __orangeGearColor ) {  _orangeGearColor = __orangeGearColor; }
+      void  orangeGearColor( const std::string && __orangeGearColor ) {  _orangeGearColor = __orangeGearColor; }
+
+      typedef dds::sub::DataReader<ClockCommand>  DataReader;
+      typedef dds::pub::DataWriter<ClockCommand>  DataWriter;
+
+    private:
+
+  }; //ClockCommand
+  typedef dds::sub::DataReader<ClockCommand>  ClockCommandDataReader;
+  typedef dds::pub::DataWriter<ClockCommand>  ClockCommandDataWriter;
+
+  struct COREDX_TS_STRUCT_EXPORT ButtonCommand {
+    public:
+      ButtonCommand();
+      ~ButtonCommand();
+      ButtonCommand( const std::string __deviceId,
+                     const std::string __sysName,
+                     const int32_t __orangeState,
+                     const int32_t __blueState ) :
+        _deviceId( __deviceId ),
+        _sysName( __sysName ),
+        _orangeState( __orangeState ),
+        _blueState( __blueState ){ }
+      ButtonCommand( const ButtonCommand & other );
+      ButtonCommand& operator=( const ButtonCommand & other);
+
+      bool operator==( const ButtonCommand & other) const;
+      bool operator!=( const ButtonCommand & other) const { return !operator==(other); }
+
+      /* TypeId: [ C_11632af6a29113fd2d216dd9ccb8 :: M_12c690a2c88801f9c347b2c259e6 ] */
+      void   init();
+      void   clear();
+      int    copy( const ButtonCommand * instance );
+
+      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
+      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
+      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
+      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
+      // deprecated api:
+      int  get_marshal_size( int offset, int just_keys ) const;
+      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
+      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
+
+      static void * alloc() { return new ButtonCommand; }
+      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
+                         { return ((ButtonCommand*)instance)->marshal_cdr( cdr, just_keys ); }
+      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
+                         { return ((ButtonCommand*)instance)->marshal_key_hash( cdr ); }
+      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
+                         { return ((ButtonCommand*)instance)->unmarshal_cdr( cdr, just_keys ); }
+      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
+                         { return ((ButtonCommand*)instance)->unmarshal_key_hash( cdr ); }
+
+      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
+      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
+
+      static unsigned char get_field_def(const char  * fieldname, 
+                                         CoreDX_FieldDef_t * field_def);
+    protected:
+      std::string  _deviceId;    /* ID: 0x00000000 */
+      std::string  _sysName;    /* ID: 0x00000001 */
+      int32_t  _orangeState;    /* ID: 0x00000002 */
+      int32_t  _blueState;    /* ID: 0x00000003 */
+
+    public:
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+      const std::string & sysName( ) const { return _sysName; }
+            std::string & sysName( )       { return _sysName; }
+      void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
+      void  sysName( const std::string && __sysName ) {  _sysName = __sysName; }
+            int32_t   orangeState( ) const { return _orangeState; }
+            int32_t & orangeState( )       { return _orangeState; }
+      void orangeState( const int32_t __orangeState ) { _orangeState = __orangeState; }
+            int32_t   blueState( ) const { return _blueState; }
+            int32_t & blueState( )       { return _blueState; }
+      void blueState( const int32_t __blueState ) { _blueState = __blueState; }
+
+      typedef dds::sub::DataReader<ButtonCommand>  DataReader;
+      typedef dds::pub::DataWriter<ButtonCommand>  DataWriter;
+
+    private:
+
+  }; //ButtonCommand
+  typedef dds::sub::DataReader<ButtonCommand>  ButtonCommandDataReader;
+  typedef dds::pub::DataWriter<ButtonCommand>  ButtonCommandDataWriter;
+
+  struct COREDX_TS_STRUCT_EXPORT ButtonData {
+    public:
+      ButtonData();
+      ~ButtonData();
+      ButtonData( const std::string __deviceId,
+                  const std::string __sysName,
+                  const int32_t __mainPressed,
+                  const int32_t __tapoutPressed ) :
+        _deviceId( __deviceId ),
+        _sysName( __sysName ),
+        _mainPressed( __mainPressed ),
+        _tapoutPressed( __tapoutPressed ){ }
+      ButtonData( const ButtonData & other );
+      ButtonData& operator=( const ButtonData & other);
+
+      bool operator==( const ButtonData & other) const;
+      bool operator!=( const ButtonData & other) const { return !operator==(other); }
+
+      /* TypeId: [ C_062188343c9f1f36733b2b58b018 :: M_3ba1602886c6847fc221bcf1189a ] */
+      void   init();
+      void   clear();
+      int    copy( const ButtonData * instance );
+
+      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
+      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
+      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
+      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
+      // deprecated api:
+      int  get_marshal_size( int offset, int just_keys ) const;
+      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
+      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
+
+      static void * alloc() { return new ButtonData; }
+      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
+                         { return ((ButtonData*)instance)->marshal_cdr( cdr, just_keys ); }
+      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
+                         { return ((ButtonData*)instance)->marshal_key_hash( cdr ); }
+      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
+                         { return ((ButtonData*)instance)->unmarshal_cdr( cdr, just_keys ); }
+      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
+                         { return ((ButtonData*)instance)->unmarshal_key_hash( cdr ); }
+
+      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
+      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
+
+      static unsigned char get_field_def(const char  * fieldname, 
+                                         CoreDX_FieldDef_t * field_def);
+    protected:
+      std::string  _deviceId;    /* ID: 0x00000000 */
+      std::string  _sysName;    /* ID: 0x00000001 */
+      int32_t  _mainPressed;    /* ID: 0x00000002 */
+      int32_t  _tapoutPressed;    /* ID: 0x00000003 */
+
+    public:
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+      const std::string & sysName( ) const { return _sysName; }
+            std::string & sysName( )       { return _sysName; }
+      void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
+      void  sysName( const std::string && __sysName ) {  _sysName = __sysName; }
+            int32_t   mainPressed( ) const { return _mainPressed; }
+            int32_t & mainPressed( )       { return _mainPressed; }
+      void mainPressed( const int32_t __mainPressed ) { _mainPressed = __mainPressed; }
+            int32_t   tapoutPressed( ) const { return _tapoutPressed; }
+            int32_t & tapoutPressed( )       { return _tapoutPressed; }
+      void tapoutPressed( const int32_t __tapoutPressed ) { _tapoutPressed = __tapoutPressed; }
+
+      typedef dds::sub::DataReader<ButtonData>  DataReader;
+      typedef dds::pub::DataWriter<ButtonData>  DataWriter;
+
+    private:
+
+  }; //ButtonData
+  typedef dds::sub::DataReader<ButtonData>  ButtonDataDataReader;
+  typedef dds::pub::DataWriter<ButtonData>  ButtonDataDataWriter;
+
   struct COREDX_TS_STRUCT_EXPORT ClockInfo {
     public:
       ClockInfo();
       ~ClockInfo();
       ClockInfo( const std::string __topicName,
+                 const std::string __deviceId,
                  const int32_t __digits,
                  const int32_t __hasGears ) :
         _topicName( __topicName ),
+        _deviceId( __deviceId ),
         _digits( __digits ),
         _hasGears( __hasGears ){ }
       ClockInfo( const ClockInfo & other );
@@ -37,7 +445,7 @@
       bool operator==( const ClockInfo & other) const;
       bool operator!=( const ClockInfo & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_f96e1908edd618a605977a019d88 :: M_a98f7eeaab6c2086ad01eb93ac45 ] */
+      /* TypeId: [ C_53e60d38f6e715b6e4870386f305 :: M_1889df4c032b60020884fa109345 ] */
       void   init();
       void   clear();
       int    copy( const ClockInfo * instance );
@@ -68,14 +476,19 @@
                                          CoreDX_FieldDef_t * field_def);
     protected:
       std::string  _topicName;    /* ID: 0x00000000 */
-      int32_t  _digits;    /* ID: 0x00000001 */
-      int32_t  _hasGears;    /* ID: 0x00000002 */
+      std::string  _deviceId;    /* ID: 0x00000001 */
+      int32_t  _digits;    /* ID: 0x00000002 */
+      int32_t  _hasGears;    /* ID: 0x00000003 */
 
     public:
       const std::string & topicName( ) const { return _topicName; }
             std::string & topicName( )       { return _topicName; }
       void  topicName( const std::string &  __topicName ) {  _topicName = __topicName; }
       void  topicName( const std::string && __topicName ) {  _topicName = __topicName; }
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
             int32_t   digits( ) const { return _digits; }
             int32_t & digits( )       { return _digits; }
       void digits( const int32_t __digits ) { _digits = __digits; }
@@ -97,8 +510,10 @@
       ButtonInfo();
       ~ButtonInfo();
       ButtonInfo( const std::string __topicName,
+                  const std::string __deviceId,
                   const int32_t __color ) :
         _topicName( __topicName ),
+        _deviceId( __deviceId ),
         _color( __color ){ }
       ButtonInfo( const ButtonInfo & other );
       ButtonInfo& operator=( const ButtonInfo & other);
@@ -106,7 +521,7 @@
       bool operator==( const ButtonInfo & other) const;
       bool operator!=( const ButtonInfo & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_56accde9b1f79b9e17b53e19f089 :: M_9773b631adea743331b4598a9678 ] */
+      /* TypeId: [ C_a1a96b3f54d8937ed72ba3aae199 :: M_8eefda3d91b693ee94d176fc6e15 ] */
       void   init();
       void   clear();
       int    copy( const ButtonInfo * instance );
@@ -137,13 +552,18 @@
                                          CoreDX_FieldDef_t * field_def);
     protected:
       std::string  _topicName;    /* ID: 0x00000000 */
-      int32_t  _color;    /* ID: 0x00000001 */
+      std::string  _deviceId;    /* ID: 0x00000001 */
+      int32_t  _color;    /* ID: 0x00000002 */
 
     public:
       const std::string & topicName( ) const { return _topicName; }
             std::string & topicName( )       { return _topicName; }
       void  topicName( const std::string &  __topicName ) {  _topicName = __topicName; }
       void  topicName( const std::string && __topicName ) {  _topicName = __topicName; }
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
             int32_t   color( ) const { return _color; }
             int32_t & color( )       { return _color; }
       void color( const int32_t __color ) { _color = __color; }
@@ -161,13 +581,13 @@
     public:
       DeviceInfo();
       ~DeviceInfo();
-      DeviceInfo( const std::string __DeviceId,
-                  const std::string __role,
+      DeviceInfo( const std::string __deviceId,
+                  const DeviceRole __role,
                   const std::string __sysName,
                   const std::string __displayName,
                   const dds::core::optional<struct ClockInfo> __clockInfo,
                   const dds::core::optional<struct ButtonInfo> __buttonInfo ) :
-        _DeviceId( __DeviceId ),
+        _deviceId( __deviceId ),
         _role( __role ),
         _sysName( __sysName ),
         _displayName( __displayName ),
@@ -179,7 +599,7 @@
       bool operator==( const DeviceInfo & other) const;
       bool operator!=( const DeviceInfo & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_994d16d3e95fce5a61849b62a54b :: M_ec7f5e48b3bf2a349b840184d042 ] */
+      /* TypeId: [ C_3439dc3e0f8f4deb14fc609b1527 :: M_42de03eb5f40e4e0293d7be25ec1 ] */
       void   init();
       void   clear();
       int    copy( const DeviceInfo * instance );
@@ -209,22 +629,21 @@
       static unsigned char get_field_def(const char  * fieldname, 
                                          CoreDX_FieldDef_t * field_def);
     protected:
-      std::string  _DeviceId;    /* ID: 0x00000000 */    /* key */
-      std::string  _role;    /* ID: 0x00000001 */
+      std::string  _deviceId;    /* ID: 0x00000000 */    /* key */
+      DeviceRole  _role;    /* ID: 0x00000001 */
       std::string  _sysName;    /* ID: 0x00000002 */
       std::string  _displayName;    /* ID: 0x00000003 */
       dds::core::optional<  struct ClockInfo >  _clockInfo;    /* ID: 0x00000004 */
       dds::core::optional<  struct ButtonInfo >  _buttonInfo;    /* ID: 0x00000005 */
 
     public:
-      const std::string & DeviceId( ) const { return _DeviceId; }
-            std::string & DeviceId( )       { return _DeviceId; }
-      void  DeviceId( const std::string &  __DeviceId ) {  _DeviceId = __DeviceId; }
-      void  DeviceId( const std::string && __DeviceId ) {  _DeviceId = __DeviceId; }
-      const std::string & role( ) const { return _role; }
-            std::string & role( )       { return _role; }
-      void  role( const std::string &  __role ) {  _role = __role; }
-      void  role( const std::string && __role ) {  _role = __role; }
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+            DeviceRole   role( ) const { return _role; }
+            DeviceRole & role( )       { return _role; }
+      void role( const DeviceRole __role ) { _role = __role; }
       const std::string & sysName( ) const { return _sysName; }
             std::string & sysName( )       { return _sysName; }
       void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
@@ -252,10 +671,129 @@
 
 #include <dds/topic/TopicTraits.hpp>
 #include <org/toc/coredx/topic/TopicTraits.hpp>
+inline std::ostream & operator<< (std::ostream &out, DeviceRole const& data ) {
+  (void)data;
+  switch(data) { 
+    case DeviceRole::ROLE_UNKNOWN: out <<"ROLE_UNKNOWN"; break;
+    case DeviceRole::ROLE_CONTROL: out <<"ROLE_CONTROL"; break;
+    case DeviceRole::ROLE_BUTTON: out <<"ROLE_BUTTON"; break;
+    case DeviceRole::ROLE_CLOCK: out <<"ROLE_CLOCK"; break;
+    default: out << static_cast<int32_t>(data);
+  }
+  return out;
+}
+inline std::ostream & operator<< (std::ostream &out, Heartbeat const& data ) {
+  (void)data;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
+  out << std::endl;
+  out << "sequenceNumber: ";
+  out <<  data.sequenceNumber();
+  out << std::endl;
+  return out;
+}
+// Heartbeat support 
+CDX_TOPIC_TRAITS( Heartbeat );
+REGISTER_TOPIC_TYPE( Heartbeat );
+
+inline std::ostream & operator<< (std::ostream &out, timeValue const& data ) {
+  (void)data;
+  out << "seconds: ";
+  out <<  data.seconds();
+  out << std::endl;
+  out << "minutes: ";
+  out <<  data.minutes();
+  out << std::endl;
+  return out;
+}
+// timeValue support 
+CDX_TOPIC_TRAITS( timeValue );
+REGISTER_TOPIC_TYPE( timeValue );
+
+inline std::ostream & operator<< (std::ostream &out, ClockCommand const& data ) {
+  (void)data;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
+  out << std::endl;
+  out << "sysName: ";
+  out << "\"" << data.sysName() << "\"";
+  out << std::endl;
+  out << "doDisplayTime: ";
+  out <<  data.doDisplayTime();
+  out << std::endl;
+  out << "turnOff: ";
+  out <<  data.turnOff();
+  out << std::endl;
+  out << "solidColor: ";
+  out <<  data.solidColor();
+  out << std::endl;
+  out << "time: ";
+  out << std::endl << "/----------------------------" << std::endl;
+  out << data.time();
+  out << "\\----------------------------" << std::endl;
+  out << std::endl;
+  out << "mainColor: ";
+  out << "\"" << data.mainColor() << "\"";
+  out << std::endl;
+  out << "blueGearColor: ";
+  out << "\"" << data.blueGearColor() << "\"";
+  out << std::endl;
+  out << "orangeGearColor: ";
+  out << "\"" << data.orangeGearColor() << "\"";
+  out << std::endl;
+  return out;
+}
+// ClockCommand support 
+CDX_TOPIC_TRAITS( ClockCommand );
+REGISTER_TOPIC_TYPE( ClockCommand );
+
+inline std::ostream & operator<< (std::ostream &out, ButtonCommand const& data ) {
+  (void)data;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
+  out << std::endl;
+  out << "sysName: ";
+  out << "\"" << data.sysName() << "\"";
+  out << std::endl;
+  out << "orangeState: ";
+  out <<  data.orangeState();
+  out << std::endl;
+  out << "blueState: ";
+  out <<  data.blueState();
+  out << std::endl;
+  return out;
+}
+// ButtonCommand support 
+CDX_TOPIC_TRAITS( ButtonCommand );
+REGISTER_TOPIC_TYPE( ButtonCommand );
+
+inline std::ostream & operator<< (std::ostream &out, ButtonData const& data ) {
+  (void)data;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
+  out << std::endl;
+  out << "sysName: ";
+  out << "\"" << data.sysName() << "\"";
+  out << std::endl;
+  out << "mainPressed: ";
+  out <<  data.mainPressed();
+  out << std::endl;
+  out << "tapoutPressed: ";
+  out <<  data.tapoutPressed();
+  out << std::endl;
+  return out;
+}
+// ButtonData support 
+CDX_TOPIC_TRAITS( ButtonData );
+REGISTER_TOPIC_TYPE( ButtonData );
+
 inline std::ostream & operator<< (std::ostream &out, ClockInfo const& data ) {
   (void)data;
   out << "topicName: ";
   out << "\"" << data.topicName() << "\"";
+  out << std::endl;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
   out << std::endl;
   out << "digits: ";
   out <<  data.digits();
@@ -274,6 +812,9 @@ inline std::ostream & operator<< (std::ostream &out, ButtonInfo const& data ) {
   out << "topicName: ";
   out << "\"" << data.topicName() << "\"";
   out << std::endl;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
+  out << std::endl;
   out << "color: ";
   out <<  data.color();
   out << std::endl;
@@ -285,11 +826,11 @@ REGISTER_TOPIC_TYPE( ButtonInfo );
 
 inline std::ostream & operator<< (std::ostream &out, DeviceInfo const& data ) {
   (void)data;
-  out << "DeviceId: ";
-  out << "\"" << data.DeviceId() << "\"";
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
   out << std::endl;
   out << "role: ";
-  out << "\"" << data.role() << "\"";
+  out <<  data.role();
   out << std::endl;
   out << "sysName: ";
   out << "\"" << data.sysName() << "\"";

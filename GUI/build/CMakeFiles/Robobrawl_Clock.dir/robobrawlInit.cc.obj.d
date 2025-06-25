@@ -667,8 +667,8 @@ C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/process.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_startup.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/math.h
 C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include/vcruntime_startup.h
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlInit.hh
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlInit.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawlClock.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/timer.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/gui.hh
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h
@@ -679,3 +679,10 @@ C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/c
 C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/coredx-6.0.5-Evaluation/target/include/dds/coredx_transport.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawl.hh
 C:/Users/Ethan/Desktop/Workspace/coredx-6.0.5-Windows_x86_64_vs2019-Evaluation/coredx-6.0.5-Evaluation/target/include/dds/dds_seq.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/controller.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_data.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/button_command.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/clock_command.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/heartbeat.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/system.hh
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/known_devices.hh

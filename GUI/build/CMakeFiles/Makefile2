@@ -74,7 +74,7 @@ clean: CMakeFiles\Robobrawl_Clock.dir\clean
 CMakeFiles\imgui.dir\all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\imgui.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\imgui.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles --progress-num=25,26,27,28,29,30,31,32 "Built target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles --progress-num=28,29,30,31,32,33,34,35 "Built target imgui"
 .PHONY : CMakeFiles\imgui.dir\all
 
 # Build rule for subdir invocation for target.
@@ -100,7 +100,7 @@ CMakeFiles\imgui.dir\clean:
 CMakeFiles\ft2.dir\all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ft2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ft2.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ft2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ft2.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles --progress-num=17,18,19,20,21,22,23,24 "Built target ft2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles --progress-num=20,21,22,23,24,25,26,27 "Built target ft2"
 .PHONY : CMakeFiles\ft2.dir\all
 
 # Build rule for subdir invocation for target.
@@ -127,12 +127,12 @@ CMakeFiles\Robobrawl_Clock.dir\all: CMakeFiles\imgui.dir\all
 CMakeFiles\Robobrawl_Clock.dir\all: CMakeFiles\ft2.dir\all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robobrawl_Clock.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target Robobrawl_Clock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target Robobrawl_Clock"
 .PHONY : CMakeFiles\Robobrawl_Clock.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\Robobrawl_Clock.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\Robobrawl_Clock.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\build\CMakeFiles 0
 .PHONY : CMakeFiles\Robobrawl_Clock.dir\rule

@@ -1,9 +1,75 @@
 //aight
 
 
+enum DeviceRole {
+       ROLE_UNKNOWN, // Unknown value. This is a generic placeholder representing the case in which an appropriate value could not be determined.  Never transmitted in this version of the standard.
+       ROLE_CONTROL, // Microgrid controller, a control service.
+       ROLE_BUTTON, // Source power device.
+       ROLE_CLOCK, // Load power device.
+       
+   }; // enum DeviceRole
+
+struct Heartbeat{
+    string deviceId;
+    long sequenceNumber;
+};
+
+
+struct timeValue{
+    long seconds;
+    long minutes;
+};
+
+struct ClockCommand{
+    string deviceId;
+
+    string sysName;
+
+    long doDisplayTime;
+
+    long turnOff;
+
+    long solidColor;
+
+    timeValue time;
+
+    string mainColor;
+
+    string blueGearColor;
+
+    string orangeGearColor;
+
+};
+
+struct ButtonCommand{
+    string deviceId;
+
+    string sysName;
+
+    // need state vals for these
+    long orangeState;
+
+    long blueState;
+
+};
+
+struct ButtonData{
+    string deviceId;
+
+    string sysName;
+
+    long mainPressed;
+
+    long tapoutPressed;
+};
+
+
+
 struct ClockInfo{
 
     string topicName;
+
+    string deviceId;
 
     long digits;
 
@@ -14,16 +80,19 @@ struct ClockInfo{
 struct ButtonInfo{
     
     string topicName;
+
+    string deviceId;
     
     //keyed, -1 = no color, 0 = blue, 1 = orange, more appended as needed. 
     long color;
 };
 
 
-struct DeviceInfo{
-    @key string DeviceId;
 
-    string role;
+struct DeviceInfo{
+    @key string deviceId;
+
+    DeviceRole role;
 
     string sysName;
 

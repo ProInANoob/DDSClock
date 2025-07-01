@@ -9,14 +9,30 @@ enum DeviceRole {
        
    }; // enum DeviceRole
 
+
+enum Colors{
+    COLOR_GREEN,
+    COLOR_ORANGE,
+    COLOR_BLUE,
+    COLOR_YELLOW,
+    COLOR_RED,
+};
+
+
 struct Heartbeat{
     string deviceId;
     uint32 sequenceNumber;
 };
 
+struct SysName{
+    string deviceId;
+
+    string sysName;
+};
+
 
 struct timeValue{
-    long seconds;
+    float seconds;
     long minutes;
 };
 
@@ -24,19 +40,17 @@ struct ClockCommand{
 
     string sysName;
 
+    long isOff;
+
     long doDisplayTime;
-
-    long turnOff;
-
-    long solidColor;
 
     timeValue time;
 
-    string mainColor;
+    Colors mainColor;
 
-    string blueGearColor;
+    Colors blueGearColor;
 
-    string orangeGearColor;
+    Colors orangeGearColor;
 
 };
 

@@ -1,17 +1,17 @@
-#ifndef BC_HH
-#define BC_HH
+#ifndef SSN_HH
+#define SSN_HH
 
 
 #include "robobrawl.hh"
 #include "context.hh"
 
-class ButtonCommandWriter{
+class SetSysName{
 public:
-    ButtonCommandWriter() :
+    SetSysName() :
       dw( dds::core::null ) { }
 
     // -------------------------------------------------------
-    ~ButtonCommandWriter() {
+    ~SetSysName() {
     }
   
     // -------------------------------------------------------
@@ -19,8 +19,8 @@ public:
     init(   Context                          & context,
             const std::string                & deviceId )
     {
-      auto topic = dds::topic::Topic<ButtonCommand>( context.participant(), "ButtonCommand" );
-      dw = dds::pub::DataWriter<ButtonCommand>( context.publisher(), topic );
+      auto topic = dds::topic::Topic<SysName>( context.participant(), "SetSysName" );
+      dw = dds::pub::DataWriter<SysName>( context.publisher(), topic );
       devId = deviceId;
 
       dds::pub::qos::DataWriterQos dw_qos = dw.qos();
@@ -36,14 +36,14 @@ public:
   
   
     // -------------------------------------------------------
-    void publish(ButtonCommand & command) {
+    void publish(SysName & command) {
       this->dw.write( command );
     }
 
 
 
 protected:
-    dds::pub::DataWriter< ButtonCommand >      dw;
+    dds::pub::DataWriter< SysName >      dw;
     std::string                               devId;
 
 };

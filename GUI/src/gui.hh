@@ -29,6 +29,8 @@ namespace gui {
   void init_renderer( );
   void set_icon( );
 
+  void add_system( std::string sysName );
+
   void loop( int domain_id );
   
   void close_renderer( );

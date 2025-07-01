@@ -18,6 +18,9 @@ namespace roboClock
     extern std::string deviceId; 
     extern int domain_id; 
     extern std::vector<std::string> systems;
+    extern std::map<std::string, int> clockStates;
+    extern std::map<std::string, float> clockLengthSec;
+    extern std::map<std::string, NewTimer> clockTimers;
 
 
     void init(int argc, char * argv[]);

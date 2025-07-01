@@ -6,6 +6,7 @@
 #include "button_command.hh"
 #include "clock_command.hh"
 #include "heartbeat.hh"
+#include "set_sysName.hh"
 
 class Controller : 
         public ButtonDataClient,
@@ -18,6 +19,7 @@ protected:
     ButtonCommandWriter buttonWriter;
     ClockCommandWriter clockWriter;
     HeartbeatWriter heartbeat;
+    SetSysName setSysName;
 
     std::string devId;
 
@@ -34,6 +36,7 @@ public:
 
         buttonWriter.init( context, devId );
         clockWriter.init( context, devId );
+        setSysName.init( context, deviceId);
 
 
     };
@@ -48,6 +51,10 @@ public:
 
     void writeToButton( ButtonCommand & command ){
         buttonWriter.publish( command );
+    }
+
+    void writeSysName( SysName & command ){
+        setSysName.publish( command );
     }
 
     void writeHeartbeat( ){

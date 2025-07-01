@@ -71,6 +71,10 @@ namespace roboClock
         return DeviceRole::ROLE_UNKNOWN;
     }
 
+    std::map<std::string, std::map<DeviceRole, std::vector<std::string>*>> getOrg(){
+      return(org);
+    }
+
     // -------------------------------------------------------
     void handle_deviceinfo(const DeviceInfo &devinfo)
     {
@@ -86,6 +90,26 @@ namespace roboClock
       {
         fprintf(stderr, "ADD  DEVICE: '%s'\n", devinfo.deviceId().c_str());
       }
+      //okay add to our org... 
+      //look fro sys, 
+      //yes:: find lists and  addd the id
+      //NO:: make empty and add
+      if(org.find(devinfo.sysName()) != org.end()){
+        // has it ?? 
+        org[devinfo.sysName()][devinfo.role()]->push_back(devinfo.deviceId());
+      } else {
+        //no sysname of hta found
+        std::map<DeviceRole, std::vector<std::string>*> tempMap;
+        //inset vevctors into it?? 
+        tempMap[DeviceRole::ROLE_BUTTON] = new std::vector<std::string>;
+        tempMap[DeviceRole::ROLE_CLOCK]  = new std::vector<std::string>;
+        
+        tempMap[devinfo.role()]->push_back(devinfo.deviceId());
+
+        org.insert(std::make_pair(devinfo.sysName(), tempMap));
+      
+      }
+      
     }
 
     // -------------------------------------------------------
@@ -115,6 +139,10 @@ namespace roboClock
   protected:
     dds::sub::DataReader<DeviceInfo> dr;
     std::map<std::string, DeviceInfo> known_devices;
+    
+    std::map<std::string, std::map<DeviceRole, std::vector<std::string>*>> org;
+    // so org[sysName][deviceRole] -> list of those device's ids in that system to then look at known devices fro more info if needed;
+  
   };
 };
 

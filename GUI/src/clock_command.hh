@@ -1,5 +1,5 @@
 #ifndef CC_HH
-#define CC_HHH
+#define CC_HH
 
 
 #include "robobrawl.hh"

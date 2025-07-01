@@ -43,6 +43,8 @@ static uint8_t *iconPx;
 static int iconX;
 static int iconY;
 
+std::map<std::string, bool> controlWindows;
+
 // -----------------------------------------------------------------------------
 static void
 setup_dpi_scale(float scale)
@@ -107,6 +109,14 @@ void gui::set_icon()
   iconPx = stbi_load_from_memory((const stbi_uc *)Icon_data, Icon_size,
                                  &iconX, &iconY, nullptr, 4);
   backend::set_icon(iconPx, iconX, iconY);
+}
+
+// -----------------------------------------------------------------------------
+void gui::add_system(std::string sysName){
+  controlWindows.insert(std::make_pair(sysName, false));
+  // and hother things that I need to do I guess.. 
+
+
 }
 
 // -----------------------------------------------------------------------------
@@ -221,5 +231,49 @@ void gui::draw_dashboard(int domain_id)
   //  ImGui::Text((*it).c_str());
   //}
   //std::cout << "\n";
+
+  // I dont have any devices tooo test this against so imma start on the sesps.
+  // i Think im gonna do this wiht beins 
+  std::map<std::string, std::map<DeviceRole, std::vector<std::string>*>> org = roboClock::known_devices.getOrg();
+  ImGui::Begin("Systems");
+  {
+    
+    for(auto & pair : org){
+      ImGui::Text(pair.first.c_str());
+      ImGui::SameLine();
+      std::string buttonText = pair.first + " control";
+      if(ImGui::Button(buttonText.c_str())){
+        controlWindows[pair.first] = !controlWindows[pair.first];
+      }
+
+    }
+  }
+
+  for(auto & pair : controlWindows){
+    if(pair.second){
+      // window is open 
+      
+      //list items
+      ImGui::Text(" BUTTONS: ");
+      for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON]->begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON]->end(); it++){
+        ImGui::Text((*it).c_str());
+        // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
+      }
+
+      for(auto it = org[pair.first][DeviceRole::ROLE_CLOCK]->begin(); it != org[pair.first][DeviceRole::ROLE_CLOCK]->end(); it++){
+        ImGui::Text((*it).c_str());
+        // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
+      } 
+
+
+
+      if(ImGui::Button("Close")){
+        pair.second = false; // not sure this will stay in the map. 
+      }
+    }
+  }
+
+
+  
 
 }

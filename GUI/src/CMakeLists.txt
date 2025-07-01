@@ -122,7 +122,7 @@ set_source_files_properties( ${IMGUI_SRCS} ${IMGUI_BACKEND_SRCS}
 #  IDL -> c++ 
 set( IDL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/idl )
 set( IDL_OPTIONS -Wno-1093 -F -s )
-set( IDL_GEN_DIR ${CMAKE_CURRENT_BINARY_DIR} )
+set( IDL_GEN_DIR ${CMAKE_CURRENT_BINARY_DIR}/../src )
 
 set( IDL_FILE ../src/idl/robobrawl.idl )
 

@@ -23,11 +23,12 @@
 #endif
 
   enum class DeviceRole  {
-  /* enum TypeId: [ C_d9cd8c50495cf8669334d429c5e6 :: M_b3073247ef6184cf1c1656d5b065 ] */
+  /* enum TypeId: [ C_090e313d9d181f61030bf26562d9 :: M_e8c6f12669cf38d3f414a1a9d302 ] */
     ROLE_UNKNOWN = 0, 
     ROLE_CONTROL = 1, 
-    ROLE_BUTTON = 2, 
-    ROLE_CLOCK = 3
+    ROLE_BUTTON_ORANGE = 2, 
+    ROLE_BUTTON_BLUE = 3, 
+    ROLE_CLOCK = 4
   };
 
 
@@ -652,7 +653,7 @@
       bool operator==( const DeviceInfo & other) const;
       bool operator!=( const DeviceInfo & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_3439dc3e0f8f4deb14fc609b1527 :: M_42de03eb5f40e4e0293d7be25ec1 ] */
+      /* TypeId: [ C_33f6c3b100e2d67f0516e96efd1c :: M_22867396c6a7e4b7b914aba7d5f2 ] */
       void   init();
       void   clear();
       int    copy( const DeviceInfo * instance );
@@ -729,7 +730,8 @@ inline std::ostream & operator<< (std::ostream &out, DeviceRole const& data ) {
   switch(data) { 
     case DeviceRole::ROLE_UNKNOWN: out <<"ROLE_UNKNOWN"; break;
     case DeviceRole::ROLE_CONTROL: out <<"ROLE_CONTROL"; break;
-    case DeviceRole::ROLE_BUTTON: out <<"ROLE_BUTTON"; break;
+    case DeviceRole::ROLE_BUTTON_ORANGE: out <<"ROLE_BUTTON_ORANGE"; break;
+    case DeviceRole::ROLE_BUTTON_BLUE: out <<"ROLE_BUTTON_BLUE"; break;
     case DeviceRole::ROLE_CLOCK: out <<"ROLE_CLOCK"; break;
     default: out << static_cast<int32_t>(data);
   }

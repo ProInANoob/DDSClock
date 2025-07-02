@@ -11,10 +11,8 @@ bool roboClock::done = false;
 
 Controller roboClock::control;
 Context roboClock::context;
-roboClock::KnownDevices roboClock::known_devices;
 std::string roboClock::deviceId = "";
 int roboClock::domain_id = 0;
-std::vector<std::string> roboClock::systems;
 
 // state encoding : -1 retain whatever was going on before. 0 is off- nothing. 1 - to zeros, 2 - full time, 3 - start run, 4 running, 5 paused, 6 resume,- 7 orange win - 8 blue win - 9 red for just in case. 
 std::map<std::string, int> roboClock::clockStates;

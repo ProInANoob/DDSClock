@@ -234,7 +234,7 @@ void gui::draw_dashboard(int domain_id)
 
   // I dont have any devices tooo test this against so imma start on the sesps.
   // i Think im gonna do this wiht beins 
-  std::map<std::string, std::map<DeviceRole, std::vector<std::string>*>> org = roboClock::known_devices.getOrg();
+  std::map<std::string, std::map<DeviceRole, std::vector<std::string>*>> org = roboClock::control.known_devices.getOrg();
   ImGui::Begin("Systems");
   {
     

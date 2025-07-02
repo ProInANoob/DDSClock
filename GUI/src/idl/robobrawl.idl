@@ -3,9 +3,10 @@
 
 enum DeviceRole {
        ROLE_UNKNOWN, // Unknown value. This is a generic placeholder representing the case in which an appropriate value could not be determined.  Never transmitted in this version of the standard.
-       ROLE_CONTROL, // Microgrid controller, a control service.
-       ROLE_BUTTON, // Source power device.
-       ROLE_CLOCK, // Load power device.
+       ROLE_CONTROL, 
+       ROLE_BUTTON_ORANGE,
+       ROLE_BUTTON_BLUE,
+       ROLE_CLOCK, 
        
    }; // enum DeviceRole
 

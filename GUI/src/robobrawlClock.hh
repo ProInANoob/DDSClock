@@ -5,7 +5,6 @@
 #include "gui.hh"
 #include "context.hh"
 #include "controller.hh"
-#include "known_devices.hh"
 
 
 
@@ -14,10 +13,9 @@ namespace roboClock
     extern bool done;
     extern Controller control;
     extern Context context;
-    extern KnownDevices known_devices;
     extern std::string deviceId; 
     extern int domain_id; 
-    extern std::vector<std::string> systems;
+ // hmmm I get messges in roboCLock::controler::function, so put this in controler? and access it there ?, check sys stae against clock state in the main loop 
     extern std::map<std::string, int> clockStates;
     extern std::map<std::string, float> clockLengthSec;
     extern std::map<std::string, NewTimer> clockTimers;

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawl.cc"
+  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src/robobrawl.hh"
   "CMakeFiles/Robobrawl_Clock.dir/controller.cc.obj"
   "CMakeFiles/Robobrawl_Clock.dir/controller.cc.obj.d"
   "CMakeFiles/Robobrawl_Clock.dir/gui.cc.obj"
@@ -37,8 +39,6 @@ file(REMOVE_RECURSE
   "Robobrawl_Clock.exe.manifest"
   "Robobrawl_Clock.lib"
   "Robobrawl_Clock.pdb"
-  "robobrawl.cc"
-  "robobrawl.hh"
   "robobrawlTypeSupport.cc"
   "robobrawlTypeSupport.hh"
 )

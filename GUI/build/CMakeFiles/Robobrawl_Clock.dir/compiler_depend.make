@@ -681,6 +681,7 @@ CMakeFiles\Robobrawl_Clock.dir\controller.cc.obj: C:\Users\Ethan\Documents\GitHu
 CMakeFiles\Robobrawl_Clock.dir\controller.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\controller.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\controller.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\controller.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 
 
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\gui.cc
@@ -1372,6 +1373,7 @@ CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSCl
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\known_devices.hh
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\d3d11.h"
 CMakeFiles\Robobrawl_Clock.dir\gui.cc.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um\ocidl.h"
@@ -2916,10 +2918,11 @@ CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSC
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 CMakeFiles\Robobrawl_Clock.dir\main.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\known_devices.hh
 
 
-CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: robobrawl.cc
+CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawl.cc
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\dds.hpp
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\ddscore.hpp
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds_cxx\dds\core\detail\conformance.hpp
@@ -3583,7 +3586,7 @@ CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspac
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\qos_provider.h
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\xml_api.h
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h
-CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: robobrawl.hh
+CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawl.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawl.cc.obj: C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_seq.hh
 
 
@@ -4273,6 +4276,7 @@ CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj: C:\Users\Ethan\Documents
 CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlCleanup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\known_devices.hh
 
 
@@ -4963,6 +4967,7 @@ CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\Gi
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlInit.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\known_devices.hh
 
 
@@ -5652,6 +5657,7 @@ CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj: C:\Users\Ethan\Document
 CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlMainLoop.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\known_devices.hh
 
 
@@ -6341,6 +6347,7 @@ CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj: C:\Users\Ethan\Documents
 CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\button_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\clock_command.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\heartbeat.hh
+CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh
 CMakeFiles\Robobrawl_Clock.dir\robobrawlStartup.cc.obj: C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\known_devices.hh
 
 
@@ -7427,8 +7434,6 @@ C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\c
 
 C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_export.h:
 
-robobrawl.cc:
-
 C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_inttypes.h:
 
 "C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um\ncrypt.h":
@@ -8313,6 +8318,8 @@ C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\c
 
 C:\Users\Ethan\Desktop\Workspace\coredx-6.0.5-Windows_x86_64_vs2019-Evaluation\coredx-6.0.5-Evaluation\target\include\dds\dds_seq.hh:
 
+C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\set_sysName.hh:
+
 C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\gui.cc:
 
 imgui-1.90.9\src\imgui\imgui.h:
@@ -8399,8 +8406,10 @@ freetype-2.13.2\include\freetype2\freetype\ftmoderr.h:
 
 freetype-2.13.2\include\freetype2\freetype\ftglyph.h:
 
-robobrawl.hh:
+C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawl.cc:
 
 C:\Users\Ethan\Documents\GitHub\DDSClock\GUI\src\robobrawlCleanup.cc:
 
 robobrawlTypeSupport.cc:
+
+robobrawl.hh:

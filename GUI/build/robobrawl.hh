@@ -95,6 +95,72 @@
   typedef dds::sub::DataReader<Heartbeat>  HeartbeatDataReader;
   typedef dds::pub::DataWriter<Heartbeat>  HeartbeatDataWriter;
 
+  struct COREDX_TS_STRUCT_EXPORT SysName {
+    public:
+      SysName();
+      ~SysName();
+      SysName( const std::string __deviceId,
+               const std::string __sysName ) :
+        _deviceId( __deviceId ),
+        _sysName( __sysName ){ }
+      SysName( const SysName & other );
+      SysName& operator=( const SysName & other);
+
+      bool operator==( const SysName & other) const;
+      bool operator!=( const SysName & other) const { return !operator==(other); }
+
+      /* TypeId: [ C_e0ebc1a8e33f07b6696caeead4ca :: M_2217bcd38d15a47dd904139f51d4 ] */
+      void   init();
+      void   clear();
+      int    copy( const SysName * instance );
+
+      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
+      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
+      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
+      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
+      // deprecated api:
+      int  get_marshal_size( int offset, int just_keys ) const;
+      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
+      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
+
+      static void * alloc() { return new SysName; }
+      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
+                         { return ((SysName*)instance)->marshal_cdr( cdr, just_keys ); }
+      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
+                         { return ((SysName*)instance)->marshal_key_hash( cdr ); }
+      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
+                         { return ((SysName*)instance)->unmarshal_cdr( cdr, just_keys ); }
+      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
+                         { return ((SysName*)instance)->unmarshal_key_hash( cdr ); }
+
+      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
+      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
+
+      static unsigned char get_field_def(const char  * fieldname, 
+                                         CoreDX_FieldDef_t * field_def);
+    protected:
+      std::string  _deviceId;    /* ID: 0x00000000 */
+      std::string  _sysName;    /* ID: 0x00000001 */
+
+    public:
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+      const std::string & sysName( ) const { return _sysName; }
+            std::string & sysName( )       { return _sysName; }
+      void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
+      void  sysName( const std::string && __sysName ) {  _sysName = __sysName; }
+
+      typedef dds::sub::DataReader<SysName>  DataReader;
+      typedef dds::pub::DataWriter<SysName>  DataWriter;
+
+    private:
+
+  }; //SysName
+  typedef dds::sub::DataReader<SysName>  SysNameDataReader;
+  typedef dds::pub::DataWriter<SysName>  SysNameDataWriter;
+
   struct COREDX_TS_STRUCT_EXPORT timeValue {
     public:
       timeValue();
@@ -681,6 +747,20 @@ inline std::ostream & operator<< (std::ostream &out, Heartbeat const& data ) {
 // Heartbeat support 
 CDX_TOPIC_TRAITS( Heartbeat );
 REGISTER_TOPIC_TYPE( Heartbeat );
+
+inline std::ostream & operator<< (std::ostream &out, SysName const& data ) {
+  (void)data;
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
+  out << std::endl;
+  out << "sysName: ";
+  out << "\"" << data.sysName() << "\"";
+  out << std::endl;
+  return out;
+}
+// SysName support 
+CDX_TOPIC_TRAITS( SysName );
+REGISTER_TOPIC_TYPE( SysName );
 
 inline std::ostream & operator<< (std::ostream &out, timeValue const& data ) {
   (void)data;

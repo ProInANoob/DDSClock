@@ -393,6 +393,413 @@ Heartbeat::get_field_def( const char        * fieldname,
 }
 
 /******************************************************************
+ * SysName Default Constructor
+ ******************************************************************/
+SysName::SysName()
+{
+  init();
+}
+
+/******************************************************************
+ * SysName Copy Constructor
+ ******************************************************************/
+SysName::SysName( const SysName & other )
+{
+  init();
+  copy( &other );
+}
+
+/******************************************************************
+ * SysName Destructor
+ ******************************************************************/
+SysName::~SysName()
+{
+  clear();
+}
+
+/******************************************************************
+ * SysName Assignment Operator
+ ******************************************************************/
+SysName& SysName::operator=( const SysName & other )
+{
+  if (this == &other)
+      return *this;
+  /* Free any allocated memory */
+  clear();
+
+  /* Perform the copy */
+
+  copy( &other );
+  return *this;
+}
+
+bool
+SysName::SysName::operator==( const SysName & other) const {
+  return (_deviceId == other._deviceId) &&
+    (_sysName == other._sysName);
+}
+/******************************************************************
+ * ::SysName Ops
+ *****************************************************************/
+
+
+/******************************************************************
+ * SysName init()
+ ******************************************************************/
+void SysName::init()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+}
+
+/******************************************************************
+ * SysName clear()
+ ******************************************************************/
+void SysName::clear()
+{
+  _deviceId = std::string();
+  _sysName = std::string();
+}
+
+/******************************************************************
+ *  SysName copy()
+ ******************************************************************/
+int SysName::copy( const SysName * copy_from )
+{
+  SysName * copy_to = this;
+  if ( ! copy_from ) return -1;
+
+  /* copy deviceId */
+  copy_to->_deviceId = copy_from->_deviceId;
+
+  /* copy sysName */
+  copy_to->_sysName = copy_from->_sysName;
+
+  return 0;
+}
+
+/******************************************************************
+ *  SysName::marshal_cdr()
+ ******************************************************************/
+int SysName::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+                   int             _just_keys) const 
+{
+  int32_t _rval = 0;
+  CDX_XcdrEncoder_aggregate_pre( cdr, XCDR_APPENDABLE );
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_aggregate_post( cdr, XCDR_APPENDABLE );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position( cdr );
+}
+
+int SysName::get_marshal_size( int   offset,
+                   int   _just_keys) const
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_Xcdr1Encoder_init( &xcdr1, 0x00, NULL, 0 );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+int SysName::marshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             _just_keys) const 
+{
+  int _rval;
+  CDX_Xcdr1Encoder_t   xcdr1;
+  CDX_XcdrEncoder_t  * cdr = &xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Encoder_init( &xcdr1, e, buf, stream_len );
+  xcdr1.xcdr_buffer->origin = offset;
+  xcdr1.xcdr_buffer->offset = offset;
+  _rval = this->marshal_cdr( cdr, _just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrEncoder_get_position( cdr );
+  CDX_Xcdr1Encoder_clear( &xcdr1 );
+  return _rval;
+}
+/******************************************************************
+ *  SysName::marshal_key_hash()
+ ******************************************************************/
+int SysName::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+{
+  int32_t _rval      = 0;
+  int32_t _just_keys = 1;
+  CDX_UNUSED( _just_keys );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_deviceId).c_str(),
+        0,
+        XCDR_IS_PRESENT,
+        0 );
+  CDX_XcdrEncoder_put_member_string( cdr,
+        (this->_sysName).c_str(),
+        1,
+        XCDR_IS_PRESENT,
+        0 );
+  if ( _rval < 0 )
+    return _rval;
+  return CDX_XcdrEncoder_get_position(cdr);
+}
+
+/******************************************************************
+ *  SysName::unmarshal_cdr()
+ ******************************************************************/
+int SysName::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+                   int             _just_keys)
+{
+  int32_t _rval = 0;
+  this->init( );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "SysName" );
+  if ( _rval < 0 ) return _rval;
+  if (_just_keys)
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+      }
+    }
+  else
+    {
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                0,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_deviceId = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+        if ( _rval < 0 )
+          return _rval;
+      }
+      if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+        {
+          char * _tmpstr = NULL;
+          _rval = CDX_XcdrDecoder_get_member_string( cdr,
+                &_tmpstr,
+                CoreDX_DDS_calloc,
+                1,
+                0,
+                0
+                );
+          if (_tmpstr) {
+            this->_sysName = std::string( _tmpstr );
+            CoreDX_DDS_free( _tmpstr );
+          }
+        }
+      }
+    }
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "SysName" );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+int SysName::unmarshal_cdr( unsigned char * buf,
+                   int             offset,
+                   int             stream_len,
+                   unsigned char   swap,
+                   int             just_keys)
+{
+  int _rval;
+  CDX_Xcdr1Decoder_t  xcdr1;
+  CDX_XcdrDecoder_t * cdr = (CDX_XcdrDecoder_t*)&xcdr1.base;
+  CDX_XCDR_HOST_ENDIAN(e);
+  if (swap) e = (e?0:1);
+  CDX_Xcdr1Decoder_init( &xcdr1, e, buf, stream_len );
+  cdr->xcdr_buffer.origin = offset;
+  cdr->xcdr_buffer.offset = offset;
+  _rval = this->unmarshal_cdr( cdr, just_keys );
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  CDX_XcdrDecoder_clear( cdr );
+  return _rval;
+}
+/******************************************************************
+ *  SysName::unmarshal_key_hash()
+ ******************************************************************/
+int SysName::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+{
+  int32_t _rval = 0;
+  uint32_t _just_keys = 1;
+  CDX_UNUSED(_just_keys);
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            0,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_deviceId = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+    if ( _rval < 0 )
+      return _rval;
+  }
+  if ( CDX_XcdrDecoder_get_position(cdr) < CDX_XcdrDecoder_get_datalen(cdr) ) {
+    {
+      char * _tmpstr = NULL;
+      _rval = CDX_XcdrDecoder_get_member_string( cdr,
+            &_tmpstr,
+            CoreDX_DDS_calloc,
+            1,
+            0,
+            0
+            );
+      if (_tmpstr) {
+        this->_sysName = std::string( _tmpstr );
+        CoreDX_DDS_free( _tmpstr );
+      }
+    }
+  }
+  if ( _rval >= 0 ) 
+    _rval = CDX_XcdrDecoder_get_position( cdr );
+  return _rval;
+}
+
+void SysName::gen_typeid_v2( unsigned char * buf,
+                   int            * buf_len )
+{
+  static unsigned char data[15] = { 
+    0xf2, 0xe0, 0xeb, 0xc1, 0xa8, 0xe3, 0x3f, 0x07, 0xb6, 0x69, 0x6c, 0xae, 0xea, 0xd4, 0xca  }; 
+  if (buf && buf_len && (*buf_len >= 15))
+    {
+       memcpy(buf, data, 15);
+    }
+  if (buf_len) *buf_len = 15;
+}
+int SysName::gen_typeobj_v2( unsigned char * buf,
+                               int            * buf_len )
+{
+  static unsigned char data[186] = { 
+    0xb6, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xf1, 0x22, 0x17, 0xbc, 0xd3, 0x8d, 0x15, 0xa4, 
+    0x7d, 0xd9, 0x04, 0x13, 0x9f, 0x51, 0xd4, 0x00, 0x34, 0x00, 0x00, 0x00, 0xf1, 0x51, 0x02, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x24, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x67, 0x1b, 0x75, 0x0d, 
+    0x0c, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0xf2, 0x6e, 0x94, 0x5d, 
+    0xf2, 0xe0, 0xeb, 0xc1, 0xa8, 0xe3, 0x3f, 0x07, 0xb6, 0x69, 0x6c, 0xae, 0xea, 0xd4, 0xca, 0x00, 
+    0x56, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x08, 0x00, 0x00, 0x00, 0x53, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x3a, 0x00, 0x00, 0x00, 
+    0x02, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 
+    0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 
+    0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x08, 0x00, 0x00, 0x00, 
+    0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 186;
+  if ( buf_len == NULL )                return -1;
+  if ( buf && ( *buf_len < _rlen + 4) ) return -1;
+  *buf_len = _rlen + 4;
+  if ( buf ) {
+    buf[0] = 0;
+    buf[1] = XCDR_PLAIN_CDR2 | 1;
+    buf[2] = 0;
+    buf[3] = 0;
+    memcpy( buf+4, data, _rlen );
+  }
+  return 0;
+}
+/******************************************************************
+ *  SysName get_field_def()
+ ******************************************************************/
+unsigned char
+SysName::get_field_def( const char        * fieldname,
+                       CoreDX_FieldDef_t * field_def)
+{
+  CDX_UNUSED(fieldname);
+  CDX_UNUSED(field_def);
+  if ( field_def == NULL) return 0;
+  if (strcmp("deviceId", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct SysName,_deviceId);
+    } else
+      field_def->offset  += s_offsetof(struct SysName,_deviceId);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  if (strcmp("sysName", fieldname)==0) {
+    field_def->kind       = 13;
+    field_def->elem_kind  = 0;
+    field_def->elem_count = 0;
+    if (field_def->user) {
+      CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct SysName,_sysName);
+    } else
+      field_def->offset  += s_offsetof(struct SysName,_sysName);
+    field_def->key        = 0;
+    field_def->access     = CoreDX_fielddef_access;
+    field_def->clear      = CoreDX_fielddef_clear;
+    return 1;
+  }
+  return 0;
+}
+
+/******************************************************************
  * timeValue Default Constructor
  ******************************************************************/
 timeValue::timeValue()

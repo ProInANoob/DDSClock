@@ -29,6 +29,7 @@
 #include "exampleTypeSupport.h"
 #include "exampleDataWriter.h"
 
+
 static const char *TAG = "example";
 //static const char *payload = "Message from ESP32 ";
 
@@ -124,7 +125,7 @@ static void dds_example_task(void *pvParameters)
   DDS_DomainParticipantQos dp_qos;
   DDS_Publisher            pub = NULL;
   DDS_Topic                topic;
-  MessageDataWriter        dw = NULL;
+  DeviceInfoDataWriter     dw = NULL;
   DDS_DataWriterQos        dw_qos;
   
   ESP_LOGI(TAG, "TICK_RATE (Hz): %d", configTICK_RATE_HZ );
@@ -142,9 +143,9 @@ static void dds_example_task(void *pvParameters)
     {
       ESP_LOGI(TAG, "Created DomainParticipant..." );
 
-      MessageTypeSupport_register_type(dp, "Message" );
+      DeviceInfoTypeSupport_register_type(dp, "DeviceInfo" );
 
-      topic = DDS_DomainParticipant_create_topic( dp, "Message", "Message",
+      topic = DDS_DomainParticipant_create_topic( dp, "DeviceInfo", "DeviceInfo",
                                                   DDS_TOPIC_QOS_DEFAULT, NULL, 0 );
       pub   = DDS_DomainParticipant_create_publisher( dp,
                                                       DDS_PUBLISHER_QOS_DEFAULT, NULL, 0 );
@@ -156,14 +157,17 @@ static void dds_example_task(void *pvParameters)
         }
       if ( dw )
         {
-          Message msg;
-          Message_init( &msg );
-          msg.text = "Hello from ESP!";
+          DeviceInfo msg;
+          DeviceInfo_init( &msg );
+          msg.deviceId = "TEST_DEVICE";
+          msg.role = ROLE_UNKNOWN;
+          msg.displayName = "TEST_DEVICE";
+          msg.sysName = "TEST";
+          
           while ( 1 )
             {
               // write a message, every time through (roughly every 100ms)
-              MessageDataWriter_write( dw, &msg, DDS_HANDLE_NIL );
-              msg.counter ++;
+              DeviceInfoDataWriter_write( dw, &msg, DDS_HANDLE_NIL );
               dds_work( dp, 100 ); // do DDS work for 100ms -> ~10 per sec
             }
         }

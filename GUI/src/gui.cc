@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <array>
+
 #define USE_DX11 // remove befreo compileing ( cmake handles os specific backend, vs is ignorant of that )
 
 #if defined(USE_SDL2)
@@ -36,6 +37,7 @@ int gui::m_win_h = 0;
 ImVec4 gui::clear_color = ImVec4(0.0f, 0.0f, 0.0f, 1.00f);
 float gui::m_fixedH = 0.0f;
 float gui::m_fixedW = 0.0f;
+char newSys[256] = "  ";
 
 ImFont *font2;
 
@@ -254,7 +256,7 @@ void gui::draw_dashboard(int domain_id)
         // window is open 
         
         //list items
-        ImGui::Text(" BUTTONS: ");
+        ImGui::Text("\n - BUTTONS: ");
         int i = 0;
         for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].end(); it++){
           ImGui::Text((*it).c_str());
@@ -266,6 +268,14 @@ void gui::draw_dashboard(int domain_id)
           if (ImGui::BeginPopupModal((*it).c_str()))
           {
               ImGui::Text("some instruciton I gusss.");
+              ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+              if(ImGui::Button("send SysChange")){
+                SysName msg;
+                msg.init();
+                msg.deviceId(*it);
+                msg.sysName(newSys);
+                roboClock::control.writeSysName(msg);
+              }
               if (ImGui::Button("Close"))
                   ImGui::CloseCurrentPopup();
               ImGui::EndPopup();
@@ -298,15 +308,31 @@ void gui::draw_dashboard(int domain_id)
 
           i++;
         }
-
-
+        ImGui::Text("\n - CLOCKS:");
+        i = 0;
         for(auto it = org[pair.first][DeviceRole::ROLE_CLOCK].begin(); it != org[pair.first][DeviceRole::ROLE_CLOCK].end(); it++){
           ImGui::Text((*it).c_str());
+          ImGui::PushID( i );
+          if(ImGui::Button("Clock Settings")){
+                ImGui::OpenPopup("Modal window");
+          }
+          if (ImGui::BeginPopupModal("Modal window"))
+          {
+              ImGui::Text("some instruciton I gusss.");
+              if (ImGui::Button("Close"))
+                  ImGui::CloseCurrentPopup();
+              ImGui::EndPopup();
+          }
+          
+          ImGui::PopID();
           // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
+
+
+          i++;
         } 
 
 
-
+        ImGui::Text("\n\n");
         if(ImGui::Button("Close")){
           pair.second = false; // not sure this will stay in the map. 
         }

@@ -3,10 +3,10 @@
 # No other meaning or use of this file is supported.
 
 method=url
-command=C:/Program Files/CMake/bin/cmake.exe;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/download-ft2.cmake;COMMAND;C:/Program Files/CMake/bin/cmake.exe;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/verify-ft2.cmake;COMMAND;C:/Program Files/CMake/bin/cmake.exe;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/extract-ft2.cmake
+command=C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/download-ft2.cmake;COMMAND;C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/verify-ft2.cmake;COMMAND;C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/extract-ft2.cmake
 source_dir=C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2
 work_dir=C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src
 url(s)=https://sourceforge.net/projects/freetype/files/freetype2/2.13.2/freetype-2.13.2.tar.xz
 hash=
-      no_extract=
+no_extract=
 

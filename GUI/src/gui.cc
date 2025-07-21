@@ -234,7 +234,7 @@ void gui::draw_dashboard(int domain_id)
 
   // I dont have any devices tooo test this against so imma start on the sesps.
   // i Think im gonna do this wiht beins 
-  std::map<std::string, std::map<DeviceRole, std::vector<std::string>*>> org = roboClock::control.known_devices.getOrg();
+  std::map<std::string, std::map<DeviceRole, std::vector<std::string>>> org = roboClock::control.known_devices.getOrg();
   ImGui::Begin("Systems");
   {
     
@@ -247,31 +247,74 @@ void gui::draw_dashboard(int domain_id)
       }
 
     }
-  }
+  
 
-  for(auto & pair : controlWindows){
-    if(pair.second){
-      // window is open 
-      
-      //list items
-      ImGui::Text(" BUTTONS: ");
-      for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON]->begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON]->end(); it++){
-        ImGui::Text((*it).c_str());
-        // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
-      }
+    for(auto & pair : controlWindows){
+      if(pair.second){
+        // window is open 
+        
+        //list items
+        ImGui::Text(" BUTTONS: ");
+        int i = 0;
+        for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].end(); it++){
+          ImGui::Text((*it).c_str());
+          ImGui::SameLine();
+          ImGui::PushID( i );
+          if(ImGui::Button("Button Settings")){
+                ImGui::OpenPopup((*it).c_str());
+          }
+          if (ImGui::BeginPopupModal((*it).c_str()))
+          {
+              ImGui::Text("some instruciton I gusss.");
+              if (ImGui::Button("Close"))
+                  ImGui::CloseCurrentPopup();
+              ImGui::EndPopup();
+          }
+          
+          ImGui::PopID();
+          // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
 
-      for(auto it = org[pair.first][DeviceRole::ROLE_CLOCK]->begin(); it != org[pair.first][DeviceRole::ROLE_CLOCK]->end(); it++){
-        ImGui::Text((*it).c_str());
-        // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
-      } 
+
+          i++;
+        }
+        i = 0;
+        for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON_ORANGE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_ORANGE].end(); it++){
+          ImGui::Text((*it).c_str());
+          ImGui::PushID( i );
+          if(ImGui::Button("Button Settings")){
+                ImGui::OpenPopup("Modal window");
+          }
+          if (ImGui::BeginPopupModal("Modal window"))
+          {
+              ImGui::Text("some instruciton I gusss.");
+              if (ImGui::Button("Close"))
+                  ImGui::CloseCurrentPopup();
+              ImGui::EndPopup();
+          }
+          
+          ImGui::PopID();
+          // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
+
+
+          i++;
+        }
+
+
+        for(auto it = org[pair.first][DeviceRole::ROLE_CLOCK].begin(); it != org[pair.first][DeviceRole::ROLE_CLOCK].end(); it++){
+          ImGui::Text((*it).c_str());
+          // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
+        } 
 
 
 
-      if(ImGui::Button("Close")){
-        pair.second = false; // not sure this will stay in the map. 
+        if(ImGui::Button("Close")){
+          pair.second = false; // not sure this will stay in the map. 
+        }
       }
     }
+
   }
+  ImGui::End();
 
 
   

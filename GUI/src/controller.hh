@@ -49,7 +49,6 @@ public:
 
         heartbeat.init( this, context, deviceId);
 
-
         buttonWriter.init( context, devId );
         clockWriter.init( context, devId );
         setSysName.init( context, deviceId);

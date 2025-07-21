@@ -56,7 +56,7 @@ C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/include/freet
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftconfig.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftoption.h
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/pkgconfig/freetype2.pc
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/freetype.lib
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/freetyped.lib
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/cmake/freetype/freetype-config.cmake
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/cmake/freetype/freetype-config-release.cmake
+C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/cmake/freetype/freetype-config-debug.cmake
 C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/lib/cmake/freetype/freetype-config-version.cmake

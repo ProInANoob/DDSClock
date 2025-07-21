@@ -84,8 +84,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/freetype.dir/src/type42/type42.c.obj.d"
   "CMakeFiles/freetype.dir/src/winfonts/winfnt.c.obj"
   "CMakeFiles/freetype.dir/src/winfonts/winfnt.c.obj.d"
-  "freetype.lib"
-  "freetype.pdb"
+  "freetyped.lib"
+  "freetyped.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

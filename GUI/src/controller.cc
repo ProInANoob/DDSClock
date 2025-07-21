@@ -13,7 +13,7 @@ void Controller::handle_button_data(const ButtonData & data){
     {
         // I have system and devId - so look at blue / orange, need a system state I think... so I can change that and update the clock state
         
-        if(data.mainPressed != 0){
+        if(data.mainPressed() != 0){
             // switch over this system state..
             switch(systemStates[data.sysName()]){
                 // 0: idle, 1: orangReady, 2: blueReady, 3: goTime/Running, 4: doneIdle, 5: orangeWInn, 6: BlueWin
@@ -53,7 +53,7 @@ void Controller::handle_button_data(const ButtonData & data){
                     //unknown state???????? wth. 
                     break;
             } 
-        } else if( data.tapoutPressed != 0){
+        } else if( data.tapoutPressed() != 0){
             switch(systemStates[data.sysName()]){
                 // 0: idle, 1: orangReady, 2: blueReady, 3: goTime/Running, 4: doneIdle, 5: orangeWInn, 6: BlueWin
                 case 0:
@@ -92,4 +92,5 @@ void Controller::handle_button_data(const ButtonData & data){
 void Controller::handle_heartbeat( const Heartbeat & data ){
     // update livelinesss.
     std::cout << "wowsa\n";
+    // I will actualy need to make an alg for this.... huhhhhhhhhhh I dont wannnnnannnananannan ahhhhhh
 }

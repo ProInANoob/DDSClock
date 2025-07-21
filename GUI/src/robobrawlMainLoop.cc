@@ -67,6 +67,7 @@ void roboClock::main_loop()
       ClockCommand comm;
       timeValue time;
       float timeNum;
+      std::cout << "start\n";
       switch(pair.second){
           case -1: // do nothing 
             
@@ -226,8 +227,8 @@ void roboClock::main_loop()
             std::cout << "unknown Clock state in: " << pair.first << std::endl;
             break;
       }
-
-
+      
+      std::cout << "end\n";
 
 
 

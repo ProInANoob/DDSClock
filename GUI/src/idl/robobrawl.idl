@@ -78,28 +78,6 @@ struct ButtonData{
 
 
 
-struct ClockInfo{
-
-    string topicName;
-
-    string deviceId;
-
-    long digits;
-
-    long hasGears; 
-};
-
-
-struct ButtonInfo{
-    
-    string topicName;
-
-    string deviceId;
-    
-    //keyed, -1 = no color, 0 = blue, 1 = orange, more appended as needed. 
-    long color;
-};
-
 
 
 struct DeviceInfo{
@@ -111,8 +89,5 @@ struct DeviceInfo{
 
     string displayName;
 
-    @optional ClockInfo clockInfo;
-
-    @optional ButtonInfo buttonInfo;
 
 };

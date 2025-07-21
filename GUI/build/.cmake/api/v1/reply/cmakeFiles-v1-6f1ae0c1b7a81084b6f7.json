@@ -1,0 +1,206 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/3.29.4/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/3.29.4/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Platform/Windows.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Compiler/MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Compiler/MSVC.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Platform/Windows-MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/Platform/Windows-MSVC.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/3.29.4/CMakeRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeRCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/cmake/FindCoreDX.cmake"
+		},
+		{
+			"path" : "Macros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/shared_internal_commands.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/mkdirs.cmake.in"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/tmp/imgui-mkdirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/download.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/extractfile.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/RepositoryInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/UpdateInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/PatchInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/cfgcmd.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/mkdirs.cmake.in"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/tmp/ft2-mkdirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/download.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/extractfile.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/RepositoryInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/UpdateInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/PatchInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/share/cmake-3.29/Modules/ExternalProject/cfgcmd.txt.in"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build",
+		"source" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/src"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

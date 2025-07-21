@@ -28,6 +28,7 @@
 #include "example.h"
 #include "exampleTypeSupport.h"
 #include "exampleDataWriter.h"
+#include "exampleDataReader.h"
 
 
 static const char *TAG = "example";
@@ -41,6 +42,25 @@ static const char *TAG = "example";
 // unsigned char cdx_heap[CDX_HEAP_SIZE];
 
 /*************************************************************/
+
+
+DDS_DomainParticipant    dp = NULL;
+DDS_DomainParticipantQos dp_qos;
+DDS_Publisher            pub = NULL;
+DDS_Subscriber           sub = NULL;
+DDS_Topic                DeviceInfo_topic;      // discovery data
+DDS_Topic                SysName_topic;         // sub, for cheinging system allocaiton
+DDS_Topic                ButtonCommand_topic;   // sub, for commands, duh
+DDS_Topic                ButtonData_topic;      // pub, for button presses
+DeviceInfoDataWriter     di_dw = NULL;
+ButtonDataDataWriter     bd_dw = NULL;
+SysNameDataReader        sn_dr = NULL;
+ButtonCommandDataReader  bc_dr = NULL;
+DDS_DataWriterQos        dw_qos;
+DDS_DataReaderQos        dr_qos;
+
+
+
 static uint
 coredx_logio_routine(const char *cbuf, size_t size)
 {
@@ -121,12 +141,7 @@ static void dds_example_task(void *pvParameters)
 
   ESP_LOGI(TAG, "DDS example, here we go...");
 
-  DDS_DomainParticipant    dp = NULL;
-  DDS_DomainParticipantQos dp_qos;
-  DDS_Publisher            pub = NULL;
-  DDS_Topic                topic;
-  DeviceInfoDataWriter     dw = NULL;
-  DDS_DataWriterQos        dw_qos;
+
   
   ESP_LOGI(TAG, "TICK_RATE (Hz): %d", configTICK_RATE_HZ );
   ESP_LOGI(TAG, "TICK_PERIOD/MS: %ld", portTICK_PERIOD_MS );
@@ -144,30 +159,57 @@ static void dds_example_task(void *pvParameters)
       ESP_LOGI(TAG, "Created DomainParticipant..." );
 
       DeviceInfoTypeSupport_register_type(dp, "DeviceInfo" );
+      DeviceInfoTypeSupport_register_type(dp, "SysName" );
+      DeviceInfoTypeSupport_register_type(dp, "ButtonCommand" );
+      DeviceInfoTypeSupport_register_type(dp, "ButtonData" );
 
-      topic = DDS_DomainParticipant_create_topic( dp, "DeviceInfo", "DeviceInfo",
-                                                  DDS_TOPIC_QOS_DEFAULT, NULL, 0 );
-      pub   = DDS_DomainParticipant_create_publisher( dp,
-                                                      DDS_PUBLISHER_QOS_DEFAULT, NULL, 0 );
+      DeviceInfo_topic    = DDS_DomainParticipant_create_topic( dp, "DeviceInfo", "DeviceInfo", DDS_TOPIC_QOS_DEFAULT, NULL, 0 );
+      SysName_topic       = DDS_DomainParticipant_create_topic( dp, "SysName", "SysName", DDS_TOPIC_QOS_DEFAULT, NULL, 0 );
+      ButtonCommand_topic = DDS_DomainParticipant_create_topic( dp, "ButtonCommand", "ButtonCommand", DDS_TOPIC_QOS_DEFAULT, NULL, 0 );
+      ButtonData_topic    = DDS_DomainParticipant_create_topic( dp, "ButtonData", "ButtonData", DDS_TOPIC_QOS_DEFAULT, NULL, 0 );
+
+      pub   = DDS_DomainParticipant_create_publisher( dp, DDS_PUBLISHER_QOS_DEFAULT, NULL, 0 );
       if ( pub )
         {
           DDS_Publisher_get_default_datawriter_qos( pub, &dw_qos );
-          dw    = DDS_Publisher_create_datawriter( pub, topic, &dw_qos, NULL, 0 );
+          di_dw    = DDS_Publisher_create_datawriter( pub, DeviceInfo_topic, &dw_qos, NULL, 0 );
+          bd_dw    = DDS_Publisher_create_datawriter( pub, ButtonData_topic, &dw_qos, NULL, 0 );          
           DDS_DataWriterQos_clear( &dw_qos );
         }
-      if ( dw )
+      sub   = DDS_DomainParticipant_create_subscriber( dp, DDS_SUBSCRIBER_QOS_DEFAULT, NULL, 0 );
+      if( sub )
+        {
+          DDS_Subscriber_get_default_datareader_qos( sub, &dr_qos );
+          sn_dr    = DDS_Subscriber_create_datareader( sub, DDS_Topic_TopicDescription(SysName_topic), &dr_qos, NULL, 0);
+          bc_dr    = DDS_Subscriber_create_datareader( sub, DDS_Topic_TopicDescription(ButtonCommand_topic), &dr_qos, NULL, 0);
+          DDS_DataReaderQos_clear( &dr_qos );
+
+        }
+      if ( di_dw ) // probably made all of them.... 
         {
           DeviceInfo msg;
           DeviceInfo_init( &msg );
           msg.deviceId = "TEST_DEVICE";
-          msg.role = ROLE_UNKNOWN;
+          msg.role = ROLE_BUTTON_BLUE;
           msg.displayName = "TEST_DEVICE";
           msg.sysName = "TEST";
           
+          
+          
+          
+          
+          
           while ( 1 )
-            {
+          {
+              DeviceInfoDataWriter_write( di_dw, &msg, DDS_HANDLE_NIL ); // write inint message, would prefer nto to do this on loop but.. 
+              // so heres my const / loop for dds side, Ill have button polling and writing elsewhere... (main loop)
               // write a message, every time through (roughly every 100ms)
-              DeviceInfoDataWriter_write( dw, &msg, DDS_HANDLE_NIL );
+
+
+// reading polling - 
+
+              // write and increment hearbeat. 
+
               dds_work( dp, 100 ); // do DDS work for 100ms -> ~10 per sec
             }
         }

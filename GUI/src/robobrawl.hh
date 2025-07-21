@@ -481,156 +481,6 @@
   typedef dds::sub::DataReader<ButtonData>  ButtonDataDataReader;
   typedef dds::pub::DataWriter<ButtonData>  ButtonDataDataWriter;
 
-  struct COREDX_TS_STRUCT_EXPORT ClockInfo {
-    public:
-      ClockInfo();
-      ~ClockInfo();
-      ClockInfo( const std::string __topicName,
-                 const std::string __deviceId,
-                 const int32_t __digits,
-                 const int32_t __hasGears ) :
-        _topicName( __topicName ),
-        _deviceId( __deviceId ),
-        _digits( __digits ),
-        _hasGears( __hasGears ){ }
-      ClockInfo( const ClockInfo & other );
-      ClockInfo& operator=( const ClockInfo & other);
-
-      bool operator==( const ClockInfo & other) const;
-      bool operator!=( const ClockInfo & other) const { return !operator==(other); }
-
-      /* TypeId: [ C_53e60d38f6e715b6e4870386f305 :: M_1889df4c032b60020884fa109345 ] */
-      void   init();
-      void   clear();
-      int    copy( const ClockInfo * instance );
-
-      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
-      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
-      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
-      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
-      // deprecated api:
-      int  get_marshal_size( int offset, int just_keys ) const;
-      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
-      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
-
-      static void * alloc() { return new ClockInfo; }
-      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
-                         { return ((ClockInfo*)instance)->marshal_cdr( cdr, just_keys ); }
-      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
-                         { return ((ClockInfo*)instance)->marshal_key_hash( cdr ); }
-      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
-                         { return ((ClockInfo*)instance)->unmarshal_cdr( cdr, just_keys ); }
-      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
-                         { return ((ClockInfo*)instance)->unmarshal_key_hash( cdr ); }
-
-      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
-      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
-
-      static unsigned char get_field_def(const char  * fieldname, 
-                                         CoreDX_FieldDef_t * field_def);
-    protected:
-      std::string  _topicName;    /* ID: 0x00000000 */
-      std::string  _deviceId;    /* ID: 0x00000001 */
-      int32_t  _digits;    /* ID: 0x00000002 */
-      int32_t  _hasGears;    /* ID: 0x00000003 */
-
-    public:
-      const std::string & topicName( ) const { return _topicName; }
-            std::string & topicName( )       { return _topicName; }
-      void  topicName( const std::string &  __topicName ) {  _topicName = __topicName; }
-      void  topicName( const std::string && __topicName ) {  _topicName = __topicName; }
-      const std::string & deviceId( ) const { return _deviceId; }
-            std::string & deviceId( )       { return _deviceId; }
-      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
-      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
-            int32_t   digits( ) const { return _digits; }
-            int32_t & digits( )       { return _digits; }
-      void digits( const int32_t __digits ) { _digits = __digits; }
-            int32_t   hasGears( ) const { return _hasGears; }
-            int32_t & hasGears( )       { return _hasGears; }
-      void hasGears( const int32_t __hasGears ) { _hasGears = __hasGears; }
-
-      typedef dds::sub::DataReader<ClockInfo>  DataReader;
-      typedef dds::pub::DataWriter<ClockInfo>  DataWriter;
-
-    private:
-
-  }; //ClockInfo
-  typedef dds::sub::DataReader<ClockInfo>  ClockInfoDataReader;
-  typedef dds::pub::DataWriter<ClockInfo>  ClockInfoDataWriter;
-
-  struct COREDX_TS_STRUCT_EXPORT ButtonInfo {
-    public:
-      ButtonInfo();
-      ~ButtonInfo();
-      ButtonInfo( const std::string __topicName,
-                  const std::string __deviceId,
-                  const int32_t __color ) :
-        _topicName( __topicName ),
-        _deviceId( __deviceId ),
-        _color( __color ){ }
-      ButtonInfo( const ButtonInfo & other );
-      ButtonInfo& operator=( const ButtonInfo & other);
-
-      bool operator==( const ButtonInfo & other) const;
-      bool operator!=( const ButtonInfo & other) const { return !operator==(other); }
-
-      /* TypeId: [ C_a1a96b3f54d8937ed72ba3aae199 :: M_8eefda3d91b693ee94d176fc6e15 ] */
-      void   init();
-      void   clear();
-      int    copy( const ButtonInfo * instance );
-
-      int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
-      int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
-      int  unmarshal_cdr( CDX_XcdrDecoder_t * cdr, int just_keys);
-      int  unmarshal_key_hash( CDX_XcdrDecoder_t * cdr );
-      // deprecated api:
-      int  get_marshal_size( int offset, int just_keys ) const;
-      int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
-      int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
-
-      static void * alloc() { return new ButtonInfo; }
-      static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
-                         { return ((ButtonInfo*)instance)->marshal_cdr( cdr, just_keys ); }
-      static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
-                         { return ((ButtonInfo*)instance)->marshal_key_hash( cdr ); }
-      static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
-                         { return ((ButtonInfo*)instance)->unmarshal_cdr( cdr, just_keys ); }
-      static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
-                         { return ((ButtonInfo*)instance)->unmarshal_key_hash( cdr ); }
-
-      static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
-      static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
-
-      static unsigned char get_field_def(const char  * fieldname, 
-                                         CoreDX_FieldDef_t * field_def);
-    protected:
-      std::string  _topicName;    /* ID: 0x00000000 */
-      std::string  _deviceId;    /* ID: 0x00000001 */
-      int32_t  _color;    /* ID: 0x00000002 */
-
-    public:
-      const std::string & topicName( ) const { return _topicName; }
-            std::string & topicName( )       { return _topicName; }
-      void  topicName( const std::string &  __topicName ) {  _topicName = __topicName; }
-      void  topicName( const std::string && __topicName ) {  _topicName = __topicName; }
-      const std::string & deviceId( ) const { return _deviceId; }
-            std::string & deviceId( )       { return _deviceId; }
-      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
-      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
-            int32_t   color( ) const { return _color; }
-            int32_t & color( )       { return _color; }
-      void color( const int32_t __color ) { _color = __color; }
-
-      typedef dds::sub::DataReader<ButtonInfo>  DataReader;
-      typedef dds::pub::DataWriter<ButtonInfo>  DataWriter;
-
-    private:
-
-  }; //ButtonInfo
-  typedef dds::sub::DataReader<ButtonInfo>  ButtonInfoDataReader;
-  typedef dds::pub::DataWriter<ButtonInfo>  ButtonInfoDataWriter;
-
   struct COREDX_TS_STRUCT_EXPORT DeviceInfo {
     public:
       DeviceInfo();
@@ -638,22 +488,18 @@
       DeviceInfo( const std::string __deviceId,
                   const DeviceRole __role,
                   const std::string __sysName,
-                  const std::string __displayName,
-                  const dds::core::optional<struct ClockInfo> __clockInfo,
-                  const dds::core::optional<struct ButtonInfo> __buttonInfo ) :
+                  const std::string __displayName ) :
         _deviceId( __deviceId ),
         _role( __role ),
         _sysName( __sysName ),
-        _displayName( __displayName ),
-        _clockInfo( __clockInfo ),
-        _buttonInfo( __buttonInfo ){ }
+        _displayName( __displayName ){ }
       DeviceInfo( const DeviceInfo & other );
       DeviceInfo& operator=( const DeviceInfo & other);
 
       bool operator==( const DeviceInfo & other) const;
       bool operator!=( const DeviceInfo & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_33f6c3b100e2d67f0516e96efd1c :: M_22867396c6a7e4b7b914aba7d5f2 ] */
+      /* TypeId: [ C_ed5082b1ead2e14d515401697065 :: M_85fb939b864992997e91aeeff330 ] */
       void   init();
       void   clear();
       int    copy( const DeviceInfo * instance );
@@ -687,8 +533,6 @@
       DeviceRole  _role;    /* ID: 0x00000001 */
       std::string  _sysName;    /* ID: 0x00000002 */
       std::string  _displayName;    /* ID: 0x00000003 */
-      dds::core::optional<  struct ClockInfo >  _clockInfo;    /* ID: 0x00000004 */
-      dds::core::optional<  struct ButtonInfo >  _buttonInfo;    /* ID: 0x00000005 */
 
     public:
       const std::string & deviceId( ) const { return _deviceId; }
@@ -706,12 +550,6 @@
             std::string & displayName( )       { return _displayName; }
       void  displayName( const std::string &  __displayName ) {  _displayName = __displayName; }
       void  displayName( const std::string && __displayName ) {  _displayName = __displayName; }
-      const dds::core::optional<struct ClockInfo> & clockInfo( ) const { return _clockInfo; }
-            dds::core::optional<struct ClockInfo> & clockInfo( )       { return _clockInfo; }
-      void  clockInfo( const dds::core::optional<struct ClockInfo> & __clockInfo ) {  _clockInfo = __clockInfo; }
-      const dds::core::optional<struct ButtonInfo> & buttonInfo( ) const { return _buttonInfo; }
-            dds::core::optional<struct ButtonInfo> & buttonInfo( )       { return _buttonInfo; }
-      void  buttonInfo( const dds::core::optional<struct ButtonInfo> & __buttonInfo ) {  _buttonInfo = __buttonInfo; }
 
       typedef dds::sub::DataReader<DeviceInfo>  DataReader;
       typedef dds::pub::DataWriter<DeviceInfo>  DataWriter;
@@ -859,43 +697,6 @@ inline std::ostream & operator<< (std::ostream &out, ButtonData const& data ) {
 CDX_TOPIC_TRAITS( ButtonData );
 REGISTER_TOPIC_TYPE( ButtonData );
 
-inline std::ostream & operator<< (std::ostream &out, ClockInfo const& data ) {
-  (void)data;
-  out << "topicName: ";
-  out << "\"" << data.topicName() << "\"";
-  out << std::endl;
-  out << "deviceId: ";
-  out << "\"" << data.deviceId() << "\"";
-  out << std::endl;
-  out << "digits: ";
-  out <<  data.digits();
-  out << std::endl;
-  out << "hasGears: ";
-  out <<  data.hasGears();
-  out << std::endl;
-  return out;
-}
-// ClockInfo support 
-CDX_TOPIC_TRAITS( ClockInfo );
-REGISTER_TOPIC_TYPE( ClockInfo );
-
-inline std::ostream & operator<< (std::ostream &out, ButtonInfo const& data ) {
-  (void)data;
-  out << "topicName: ";
-  out << "\"" << data.topicName() << "\"";
-  out << std::endl;
-  out << "deviceId: ";
-  out << "\"" << data.deviceId() << "\"";
-  out << std::endl;
-  out << "color: ";
-  out <<  data.color();
-  out << std::endl;
-  return out;
-}
-// ButtonInfo support 
-CDX_TOPIC_TRAITS( ButtonInfo );
-REGISTER_TOPIC_TYPE( ButtonInfo );
-
 inline std::ostream & operator<< (std::ostream &out, DeviceInfo const& data ) {
   (void)data;
   out << "deviceId: ";
@@ -909,22 +710,6 @@ inline std::ostream & operator<< (std::ostream &out, DeviceInfo const& data ) {
   out << std::endl;
   out << "displayName: ";
   out << "\"" << data.displayName() << "\"";
-  out << std::endl;
-  out << "clockInfo: ";
-  if (data.clockInfo()) {
-  out << std::endl << "/----------------------------" << std::endl;
-  out << (*data.clockInfo());
-  out << "\\----------------------------" << std::endl;
-  } else
-    out << "NULL";
-  out << std::endl;
-  out << "buttonInfo: ";
-  if (data.buttonInfo()) {
-  out << std::endl << "/----------------------------" << std::endl;
-  out << (*data.buttonInfo());
-  out << "\\----------------------------" << std::endl;
-  } else
-    out << "NULL";
   out << std::endl;
   return out;
 }

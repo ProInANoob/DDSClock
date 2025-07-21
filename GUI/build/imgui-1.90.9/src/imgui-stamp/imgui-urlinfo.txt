@@ -3,10 +3,10 @@
 # No other meaning or use of this file is supported.
 
 method=url
-command=C:/Program Files/CMake/bin/cmake.exe;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/download-imgui.cmake;COMMAND;C:/Program Files/CMake/bin/cmake.exe;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/verify-imgui.cmake;COMMAND;C:/Program Files/CMake/bin/cmake.exe;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/extract-imgui.cmake
+command=C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/download-imgui.cmake;COMMAND;C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/verify-imgui.cmake;COMMAND;C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-P;C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/extract-imgui.cmake
 source_dir=C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui
 work_dir=C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src
 url(s)=https://github.com/ocornut/imgui/archive/refs/tags/v1.90.9.tar.gz
 hash=
-      no_extract=
+no_extract=
 

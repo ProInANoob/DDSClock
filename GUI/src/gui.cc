@@ -270,10 +270,11 @@ void gui::draw_dashboard(int domain_id)
               ImGui::Text("some instruciton I gusss.");
               ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
               if(ImGui::Button("send SysChange")){
-                SysName msg;
+                SysName &msg = SysName();
                 msg.init();
                 msg.deviceId(*it);
                 msg.sysName(newSys);
+                std::cout << "write new SysName";
                 roboClock::control.writeSysName(msg);
               }
               if (ImGui::Button("Close"))

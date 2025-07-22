@@ -19,7 +19,7 @@ public:
     init(   Context                          & context,
             const std::string                & deviceId )
     {
-      auto topic = dds::topic::Topic<SysName>( context.participant(), "SetSysName" );
+      auto topic = dds::topic::Topic<SysName>( context.participant(), "SysName" );
       dw = dds::pub::DataWriter<SysName>( context.publisher(), topic );
       devId = deviceId;
 
@@ -38,6 +38,7 @@ public:
     // -------------------------------------------------------
     void publish(SysName & command) {
       this->dw.write( command );
+      std::cout << "got here \n" ;
     }
 
 

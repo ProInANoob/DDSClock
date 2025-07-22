@@ -79,6 +79,7 @@ public:
   {
     auto result = known_devices.insert(std::make_pair(devinfo.deviceId(), devinfo));
     // const auto [it, added] =
+    std::cout << "hi! deviceInfo??\n";
     auto it = result.first;
     auto added = result.second;
     if (!added)

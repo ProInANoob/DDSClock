@@ -16,7 +16,7 @@ void Controller::handle_button_data(const ButtonData & data){
         if(data.mainPressed() != 0){
             // switch over this system state..
             switch(systemStates[data.sysName()]){
-                // 0: idle, 1: orangReady, 2: blueReady, 3: goTime/Running, 4: doneIdle, 5: orangeWInn, 6: BlueWin
+                // 0: idle, 
                 case 0:
                     if(known_devices.get_device_role(data.deviceId( )) == DeviceRole::ROLE_BUTTON_BLUE){
                         systemStates[data.sysName()] = 2; 
@@ -47,6 +47,8 @@ void Controller::handle_button_data(const ButtonData & data){
                     break;
                 case 5:
                 case 6:
+                case 7:
+                case 8:
                     //dont care
                     break;
                 default:
@@ -63,9 +65,11 @@ void Controller::handle_button_data(const ButtonData & data){
                     // and here
                     break;
                 case 2:
+                case 3:
+
                     // and here
                     break;
-                case 3:
+                case 5:
                     if(known_devices.get_device_role(data.deviceId( )) == DeviceRole::ROLE_BUTTON_BLUE){
                         systemStates[data.sysName()] = 5; 
                     } else {
@@ -76,8 +80,10 @@ void Controller::handle_button_data(const ButtonData & data){
                 case 4:
                     //ignoreing here too.
                     break;
-                case 5:
+                
                 case 6:
+                case 7:
+                case 8:
                     //and here... 
                     break;
                 default:

@@ -298,6 +298,15 @@ void gui::draw_dashboard(int domain_id)
           if (ImGui::BeginPopupModal("Modal window"))
           {
               ImGui::Text("some instruciton I gusss.");
+              ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+              if(ImGui::Button("send SysChange")){
+                SysName &msg = SysName();
+                msg.init();
+                msg.deviceId(*it);
+                msg.sysName(newSys);
+                std::cout << "write new SysName";
+                roboClock::control.writeSysName(msg);
+              }
               if (ImGui::Button("Close"))
                   ImGui::CloseCurrentPopup();
               ImGui::EndPopup();
@@ -320,6 +329,15 @@ void gui::draw_dashboard(int domain_id)
           if (ImGui::BeginPopupModal("Modal window"))
           {
               ImGui::Text("some instruciton I gusss.");
+              ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+              if(ImGui::Button("send SysChange")){
+                SysName &msg = SysName();
+                msg.init();
+                msg.deviceId(*it);
+                msg.sysName(newSys);
+                std::cout << "write new SysName";
+                roboClock::control.writeSysName(msg);
+              }
               if (ImGui::Button("Close"))
                   ImGui::CloseCurrentPopup();
               ImGui::EndPopup();

@@ -5,7 +5,7 @@
 #include "robobrawl.hh"
 #include "context.hh"
 
-class SetSysName{
+class SetSysName : public dds::pub::NoOpDataWriterListener<SysName>{
 public:
     SetSysName() :
       dw( dds::core::null ) { }
@@ -21,6 +21,7 @@ public:
     {
       auto topic = dds::topic::Topic<SysName>( context.participant(), "SysName" );
       dw = dds::pub::DataWriter<SysName>( context.publisher(), topic );
+      dw.listener(this, dds::core::status::StatusMask::publication_matched() | dds::core::status::StatusMask::offered_incompatible_qos() );
       devId = deviceId;
 
       dds::pub::qos::DataWriterQos dw_qos = dw.qos();
@@ -31,6 +32,7 @@ public:
 
     // -------------------------------------------------------
     void clear() {
+      dw.listener(NULL, dds::core::status::StatusMask::all());
       dw = dds::core::null;
     }
   
@@ -42,9 +44,21 @@ public:
     }
 
 
+    virtual void on_publication_matched(
+        dds::pub::DataWriter<SysName>* writer,
+        const dds::core::status::PublicationMatchedStatus& status)  {
+        std::cout << "Publication matched. Total count: " << status.total_count() << std::endl;
+    }
+
+    virtual void on_offered_incompatible_qos(
+        dds::pub::DataWriter<SysName>* writer,
+        const dds::core::status::OfferedIncompatibleQosStatus& status)  {
+        std::cout << "Offered incompatible QoS. Total count: " << status.total_count() << std::endl;
+    }
+
 
 protected:
-    dds::pub::DataWriter< SysName >      dw;
+    dds::pub::DataWriter< SysName >           dw;
     std::string                               devId;
 
 };

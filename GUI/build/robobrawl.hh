@@ -33,12 +33,13 @@
 
 
   enum class Colors  {
-  /* enum TypeId: [ C_79b7fd7902d048dd194ec0e21d2f :: M_d462bdc04a413578c705d3f99445 ] */
+  /* enum TypeId: [ C_f2ca62a29c5759907a748489ff92 :: M_1abc790c86a3c693d201775f80da ] */
     COLOR_GREEN = 0, 
     COLOR_ORANGE = 1, 
     COLOR_BLUE = 2, 
     COLOR_YELLOW = 3, 
-    COLOR_RED = 4
+    COLOR_RED = 4, 
+    COLOR_BLACK = 5
   };
 
   struct COREDX_TS_STRUCT_EXPORT Heartbeat {
@@ -260,7 +261,7 @@
       bool operator==( const ClockCommand & other) const;
       bool operator!=( const ClockCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_d2f15c8fbf0a1dd92960181b8493 :: M_b02a0bc0e7dcc16b0beb0a56e8bb ] */
+      /* TypeId: [ C_20dc8b0c06163b3ac097fa119771 :: M_cbcf44a7700751fe7143defbaa11 ] */
       void   init();
       void   clear();
       int    copy( const ClockCommand * instance );
@@ -583,6 +584,7 @@ inline std::ostream & operator<< (std::ostream &out, Colors const& data ) {
     case Colors::COLOR_BLUE: out <<"COLOR_BLUE"; break;
     case Colors::COLOR_YELLOW: out <<"COLOR_YELLOW"; break;
     case Colors::COLOR_RED: out <<"COLOR_RED"; break;
+    case Colors::COLOR_BLACK: out <<"COLOR_BLACK"; break;
     default: out << static_cast<int32_t>(data);
   }
   return out;

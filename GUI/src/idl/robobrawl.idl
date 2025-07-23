@@ -17,6 +17,7 @@ enum Colors{
     COLOR_BLUE,
     COLOR_YELLOW,
     COLOR_RED,
+    COLOR_BLACK, // off
 };
 
 

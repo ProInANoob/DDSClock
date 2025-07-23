@@ -45,13 +45,13 @@ public:
 
 
     virtual void on_publication_matched(
-        dds::pub::DataWriter<SysName>* writer,
+        dds::pub::DataWriter<SysName>& writer,
         const dds::core::status::PublicationMatchedStatus& status)  {
         std::cout << "Publication matched. Total count: " << status.total_count() << std::endl;
     }
 
     virtual void on_offered_incompatible_qos(
-        dds::pub::DataWriter<SysName>* writer,
+        dds::pub::DataWriter<SysName>& writer,
         const dds::core::status::OfferedIncompatibleQosStatus& status)  {
         std::cout << "Offered incompatible QoS. Total count: " << status.total_count() << std::endl;
     }

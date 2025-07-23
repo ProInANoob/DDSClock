@@ -47,7 +47,7 @@ public:
 
         buttonData.init( this, context );
 
-        heartbeat.init( this, context, deviceId);
+        //heartbeat.init( this, context, deviceId);
 
         buttonWriter.init( context, devId );
         clockWriter.init( context, devId );

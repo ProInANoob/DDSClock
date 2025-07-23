@@ -29,7 +29,9 @@ void roboClock::main_loop()
   timer_01hz.start();
   timer_1hz.start();
   timer_10hz.start();
-
+  SysName &temp = SysName();
+  temp.deviceId( "hi " );
+  temp.sysName ( "hp2" );
   while (!done)
   {
 
@@ -47,7 +49,8 @@ void roboClock::main_loop()
       timer_1hz.start();
       // heartbeat.
       std::cout << "Tick....\n";
-      control.writeHeartbeat();
+      control.writeSysName(temp);
+      //control.writeHeartbeat();
     }
 
     // every 10 sec:

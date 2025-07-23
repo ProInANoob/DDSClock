@@ -32,6 +32,9 @@
 
   static const char *TAG = "example";
   // static const char *payload = "Message from ESP32 ";
+  #define READY_BUTTON_PIN 1
+  #define TAPOUT_BUTTON_PIN 2
+
 
   /*************************************************************/
   #define CDX_HEAP_SIZE (1024 * 1024) /* 1 MB */
@@ -41,6 +44,8 @@
   // unsigned char cdx_heap[CDX_HEAP_SIZE];
 
   /*************************************************************/
+
+
 
   DDS_DomainParticipant dp = NULL;
   DDS_DomainParticipantQos dp_qos;
@@ -179,8 +184,7 @@
     }
     else
     {
-      printf("ERROR (%s) taking samples from DataReader\n",
-            DDS_error(retval));
+      printf("ERROR (%s) taking samples from DataReader\n", DDS_error(retval));
     }
   }
 
@@ -216,11 +220,12 @@
         DeviceInfoTypeSupport_register_type(dp, "DeviceInfo");
         DeviceInfo_topic = DDS_DomainParticipant_create_topic(dp, "DeviceInfo", "DeviceInfo", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
         di_dw = DDS_Publisher_create_datawriter(pub, DeviceInfo_topic, &dw_qos, NULL, 0);
-
+        ESP_LOGI(TAG, "Created DeviceInfo dataWriter...");
 
         ButtonDataTypeSupport_register_type(dp, "ButtonData");
         ButtonData_topic = DDS_DomainParticipant_create_topic(dp, "ButtonData", "ButtonData", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
         bd_dw = DDS_Publisher_create_datawriter(pub, ButtonData_topic, &dw_qos, NULL, 0);
+        ESP_LOGI(TAG, "Created ButtonData DataWriter...");
 
         DDS_DataWriterQos_clear(&dw_qos);
       }
@@ -232,10 +237,13 @@
         SysNameTypeSupport_register_type(dp, "SysName");
         SysName_topic = DDS_DomainParticipant_create_topic(dp, "SysName", "SysName", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
         sn_dr = DDS_Subscriber_create_datareader(sub, DDS_Topic_TopicDescription(SysName_topic), &dr_qos, NULL, 0);
+        ESP_LOGI(TAG, "Created SysName DataReader...");
 
         ButtonCommandTypeSupport_register_type(dp, "ButtonCommand");
         ButtonCommand_topic = DDS_DomainParticipant_create_topic(dp, "ButtonCommand", "ButtonCommand", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
         bc_dr = DDS_Subscriber_create_datareader(sub, DDS_Topic_TopicDescription(ButtonCommand_topic), &dr_qos, NULL, 0);
+        ESP_LOGI(TAG, "Created ButtonCommand DataReader...");
+
         DDS_DataReaderQos_clear(&dr_qos);
       }
       if (di_dw) // probably made all of them....
@@ -248,20 +256,23 @@
         msg.sysName = "TEST";
         dds_work(dp, 500); 
 
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; i < 5; i++){
           DeviceInfoDataWriter_write(di_dw, &msg, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
           dds_work(dp, 100); 
           
         }
-        printf("Finnished writing 50? deviecinfos\n");
-
+        printf("Finnished writing 5? deviecinfos\n");
+        DDS_SubscriptionMatchedStatus  status;
         while (1)
-
         {
           // so heres my const / loop for dds side, Ill have button polling and writing elsewhere... (main loop)
           // write a message, every time through (roughly every 100ms)
 
           // reading polling -
+          readSysName();
+          DDS_DataReader_get_subscription_matched_status(sn_dr, &status);
+          printf("Subscition matched count: %ld\n", status.total_count);
+
 
           // write and increment hearbeat.
 
@@ -295,16 +306,8 @@
 
     xTaskCreate(dds_example_task, "dds_example", 16384, NULL, 5, NULL);
 
-    while(!dp){
 
-    }
-    dds_work(dp, 3000); // 3 seconds of work
-    printf("app_main stating loop\n");
-    while(1){
-      readSysName();
-      //dds_work(dp, 100); // 3 seconds of work
-      vTaskDelay(100 / portTICK_PERIOD_MS);
-    } 
+
           
     
   }

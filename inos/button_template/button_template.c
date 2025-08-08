@@ -61,6 +61,7 @@
   ButtonCommandDataReader bc_dr = NULL;
   DDS_DataWriterQos dw_qos;
   DDS_DataReaderQos dr_qos;
+  DeviceInfo devInfo; 
 
   static uint
   coredx_logio_routine(const char *cbuf, size_t size)
@@ -167,8 +168,18 @@
         * and, accessing any member from this sample
         * would be invalid.
         */
-        if (si->valid_data)
+        if (si->valid_data){
           printf("Sample Received:  msg %d = %s\n", i, smsg->sysName);
+
+          if(strcmp(smsg->sysName, devInfo.sysName) != 0){
+            // new sys Name.. 
+            devInfo.sysName = smsg->sysName; 
+            DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // update network of new sys namem.
+            dds_work(dp, 100); 
+          }
+
+
+        }
       }
       //fflush(stdout);
 
@@ -184,7 +195,7 @@
     }
     else
     {
-      printf("ERROR (%s) taking samples from DataReader\n", DDS_error(retval));
+      //printf("ERROR (%s) taking samples from DataReader\n", DDS_error(retval));
     }
   }
 
@@ -250,22 +261,26 @@
       }
       if (di_dw) // probably made all of them....
       {
-        DeviceInfo msg;
-        DeviceInfo_init(&msg);
-        msg.deviceId = "TEST_DEVICE";
-        msg.role = ROLE_BUTTON_BLUE;
-        msg.displayName = "TEST_DEVICE";
-        msg.sysName = "TEST";
+        
+        DeviceInfo_init(&devInfo);
+        devInfo.deviceId = "TEST_DEVICE";
+        devInfo.role = ROLE_BUTTON_BLUE;
+        devInfo.displayName = "TEST_DEVICE";
+        devInfo.sysName = "TEST";
+        dds_work(dp, 1000); 
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
 
+
+
         
         for(int i = 0; i < 15; i++){
-          DeviceInfoDataWriter_write(di_dw, &msg, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
+
+          DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
           dds_work(dp, 100); 
-          
         }
-        printf("Finnished writing 5? deviecinfos\n");
+          
+        printf("Finnished writing deviecinfos\n");
         DDS_SubscriptionMatchedStatus  status;
         while (1)
         {

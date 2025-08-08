@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui"
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build"
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9"
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/tmp"
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp"
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src"
-  "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/tmp"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src"
+  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp${cfgdir}") # cfgdir has leading slash
 endif()

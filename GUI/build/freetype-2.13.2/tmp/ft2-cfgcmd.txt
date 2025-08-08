@@ -1,1 +1,1 @@
-cmd='C:/Users/Ethan/Downloads/cmake-3.29.4-windows-x86_64/cmake-3.29.4-windows-x86_64/bin/cmake.exe;-DCMAKE_BUILD_TYPE=Debug;-DCMAKE_INSTALL_PREFIX=C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2;-DFT_DISABLE_HARFBUZZ=1;-DFT_DISABLE_BROTLI=1;-GNMake Makefiles;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+cmd='/usr/bin/cmake;-DCMAKE_BUILD_TYPE=;-DCMAKE_INSTALL_PREFIX=/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2;-DFT_DISABLE_HARFBUZZ=1;-DFT_DISABLE_BROTLI=1;-GUnix Makefiles;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'

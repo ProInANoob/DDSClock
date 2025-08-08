@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.5)
 
 # Make file names absolute:
 #
-get_filename_component(filename "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" ABSOLUTE)
-get_filename_component(directory "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2" ABSOLUTE)
+get_filename_component(filename "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" ABSOLUTE)
+get_filename_component(directory "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

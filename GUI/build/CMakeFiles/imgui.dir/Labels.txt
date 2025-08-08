@@ -1,13 +1,13 @@
 # Target labels
  imgui
 # Source files and their labels
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui-complete.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-build.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-configure.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-download.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-install.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-mkdir.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-patch.rule
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-update.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/imgui
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/imgui.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/imgui-complete.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-build.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-configure.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-download.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-install.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-mkdir.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-patch.rule
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-update.rule

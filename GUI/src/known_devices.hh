@@ -27,7 +27,11 @@ public:
   init(Context &context)
   {
     auto topic = dds::topic::Topic<DeviceInfo>(context.participant(), "DeviceInfo");
-    dr = dds::sub::DataReader<DeviceInfo>(context.subscriber(), topic);
+    dds::sub::qos::DataReaderQos dr_qos;
+    context.subscriber().default_datareader_qos(dr_qos); // Get default QoS
+    dr_qos.policy<dds::core::policy::Reliability>(dds::core::policy::ReliabilityKind::RELIABLE); // Apply the Durability QoS
+    dr = dds::sub::DataReader<DeviceInfo>(context.subscriber(), topic, dr_qos);
+    
     dr.listener(this, dds::core::status::StatusMask::all());
   }
 

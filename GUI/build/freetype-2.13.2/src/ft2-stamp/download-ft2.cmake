@@ -22,14 +22,14 @@ function(check_file_hash has_hash hash_is_good)
   set("${has_hash}" TRUE PARENT_SCOPE)
 
   message(STATUS "verifying file...
-       file='C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'")
+       file='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'")
 
-  file("" "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" actual_value)
+  file("" "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" actual_value)
 
   if(NOT "${actual_value}" STREQUAL "")
     set("${hash_is_good}" FALSE PARENT_SCOPE)
     message(STATUS " hash of
-    C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz
+    /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz
   does not match expected value
     expected: ''
       actual: '${actual_value}'")
@@ -71,32 +71,40 @@ function(sleep_before_download attempt)
   execute_process(COMMAND "${CMAKE_COMMAND}" -E sleep "${sleep_seconds}")
 endfunction()
 
-if(EXISTS "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+if("/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" STREQUAL "")
+  message(FATAL_ERROR "LOCAL can't be empty")
+endif()
+
+if("https://sourceforge.net/projects/freetype/files/freetype2/2.13.2/freetype-2.13.2.tar.xz" STREQUAL "")
+  message(FATAL_ERROR "REMOTE can't be empty")
+endif()
+
+if(EXISTS "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
   check_file_hash(has_hash hash_is_good)
   if(has_hash)
     if(hash_is_good)
       message(STATUS "File already exists and hash match (skip download):
-  file='C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
+  file='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
   =''"
       )
       return()
     else()
       message(STATUS "File already exists but hash mismatch. Removing...")
-      file(REMOVE "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+      file(REMOVE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
     endif()
   else()
     message(STATUS "File already exists but no hash specified (use URL_HASH):
-  file='C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
+  file='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
 Old file will be removed and new file downloaded from URL."
     )
-    file(REMOVE "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+    file(REMOVE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
   endif()
 endif()
 
 set(retry_number 5)
 
 message(STATUS "Downloading...
-   dst='C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
+   dst='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
    timeout='none'
    inactivity timeout='none'"
 )
@@ -107,7 +115,7 @@ foreach(i RANGE ${retry_number})
   if(status_code IN_LIST download_retry_codes)
     sleep_before_download(${i})
   endif()
-  foreach(url IN ITEMS [====[https://sourceforge.net/projects/freetype/files/freetype2/2.13.2/freetype-2.13.2.tar.xz]====])
+  foreach(url https://sourceforge.net/projects/freetype/files/freetype2/2.13.2/freetype-2.13.2.tar.xz)
     if(NOT url IN_LIST skip_url_list)
       message(STATUS "Using src='${url}'")
 
@@ -118,7 +126,7 @@ foreach(i RANGE ${retry_number})
 
       file(
         DOWNLOAD
-        "${url}" "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz"
+        "${url}" "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz"
         SHOW_PROGRESS
         # no TIMEOUT
         # no INACTIVITY_TIMEOUT
@@ -135,7 +143,7 @@ foreach(i RANGE ${retry_number})
         check_file_hash(has_hash hash_is_good)
         if(has_hash AND NOT hash_is_good)
           message(STATUS "Hash mismatch, removing...")
-          file(REMOVE "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+          file(REMOVE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
         else()
           message(STATUS "Downloading... done")
           return()

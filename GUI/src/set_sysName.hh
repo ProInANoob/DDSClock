@@ -40,7 +40,6 @@ public:
     // -------------------------------------------------------
     void publish(SysName & command) {
       this->dw.write( command );
-      std::cout << "got here \n" ;
     }
 
 

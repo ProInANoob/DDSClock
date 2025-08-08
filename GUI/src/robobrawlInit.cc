@@ -24,7 +24,7 @@ install_sig_handlers()
 void handle_sig(int sig)
 {
     if (sig == SIGINT)
-        MD::done = 1;
+        roboClock::done = 1;
 }
 
 // ---------------------------------------------------------------
@@ -95,7 +95,7 @@ void roboClock::init(int argc, char *argv[]){
     control.init(context, deviceId);
 
 
-    gui::init_backend("MLS TMG Dashboard");
+    gui::init_backend("Robobrawl Control");
     gui::init_imgui();
 
     gui::init_renderer();

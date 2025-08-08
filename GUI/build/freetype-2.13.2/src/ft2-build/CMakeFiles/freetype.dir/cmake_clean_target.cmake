@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "freetyped.lib"
+  "libfreetype.a"
 )

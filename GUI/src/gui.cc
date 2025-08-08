@@ -7,7 +7,7 @@
 #include <string>
 #include <array>
 
-#define USE_DX11 // remove befreo compileing ( cmake handles os specific backend, vs is ignorant of that )
+#define USE_GLFW // remove befreo compileing ( cmake handles os specific backend, vs is ignorant of that )
 
 #if defined(USE_SDL2)
 #include "sdl2.cc"
@@ -270,7 +270,7 @@ void gui::draw_dashboard(int domain_id)
               ImGui::Text("some instruciton I gusss.");
               ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
               if(ImGui::Button("send SysChange")){
-                SysName &msg = SysName();
+                SysName msg = SysName();
                 msg.init();
                 msg.deviceId(*it);
                 msg.sysName(newSys);
@@ -300,7 +300,7 @@ void gui::draw_dashboard(int domain_id)
               ImGui::Text("some instruciton I gusss.");
               ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
               if(ImGui::Button("send SysChange")){
-                SysName &msg = SysName();
+                SysName msg = SysName();
                 msg.init();
                 msg.deviceId(*it);
                 msg.sysName(newSys);
@@ -331,7 +331,7 @@ void gui::draw_dashboard(int domain_id)
               ImGui::Text("some instruciton I gusss.");
               ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
               if(ImGui::Button("send SysChange")){
-                SysName &msg = SysName();
+                SysName msg = SysName();
                 msg.init();
                 msg.deviceId(*it);
                 msg.sysName(newSys);

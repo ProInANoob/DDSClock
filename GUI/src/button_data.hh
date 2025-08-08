@@ -36,6 +36,8 @@ public:
 
     topic = dds::topic::Topic<ButtonData>(context.participant(), "ButtonData");
     dds::sub::qos::DataReaderQos dr_qos;
+    context.subscriber().default_datareader_qos(dr_qos); // Get default QoS
+    dr_qos.policy<dds::core::policy::Reliability>(dds::core::policy::ReliabilityKind::RELIABLE); // Apply the Durability QoS
 
     dr = dds::sub::DataReader(context.subscriber(), topic, dr_qos /*, listener, DDS_DATA_AVAILABLE_STATUS */);
     dr.listener(this, dds::core::status::StatusMask::all());

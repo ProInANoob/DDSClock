@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/ft2"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/ft2.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2-complete.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/ft2-complete.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-build.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-build.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-configure.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-configure.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-download.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-download.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-install.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-install.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-mkdir.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-mkdir.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-patch.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-patch.rule"
 		},
 		{
-			"file" : "C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-update.rule"
+			"file" : "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-update.rule"
 		}
 	],
 	"target" : 

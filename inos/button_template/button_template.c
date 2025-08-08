@@ -234,6 +234,8 @@
       {
         DDS_Subscriber_get_default_datareader_qos(sub, &dr_qos);
 
+        dr_qos.reliability.kind = DDS_RELIABLE_RELIABILITY_QOS;
+
         SysNameTypeSupport_register_type(dp, "SysName");
         SysName_topic = DDS_DomainParticipant_create_topic(dp, "SysName", "SysName", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
         sn_dr = DDS_Subscriber_create_datareader(sub, DDS_Topic_TopicDescription(SysName_topic), &dr_qos, NULL, 0);
@@ -254,9 +256,11 @@
         msg.role = ROLE_BUTTON_BLUE;
         msg.displayName = "TEST_DEVICE";
         msg.sysName = "TEST";
-        dds_work(dp, 500); 
+        dds_work(dp, 1000); 
+        dds_work(dp, 1000); 
 
-        for(int i = 0; i < 5; i++){
+        
+        for(int i = 0; i < 15; i++){
           DeviceInfoDataWriter_write(di_dw, &msg, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
           dds_work(dp, 100); 
           
@@ -270,13 +274,13 @@
 
           // reading polling -
           readSysName();
-          DDS_DataReader_get_subscription_matched_status(sn_dr, &status);
-          printf("Subscition matched count: %ld\n", status.total_count);
+          //DDS_DataReader_get_subscription_matched_status(sn_dr, &status);
+          //printf("Subscition matched count: %ld\n", status.total_count);
 
 
           // write and increment hearbeat.
 
-          dds_work(dp, 100); // do DDS work for 100ms -> ~10 per sec
+          dds_work(dp, 200); // do DDS work for 100ms -> ~10 per sec
         }
       }
       else

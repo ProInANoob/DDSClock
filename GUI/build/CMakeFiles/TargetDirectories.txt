@@ -1,5 +1,5 @@
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/imgui.dir
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/ft2.dir
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/Robobrawl_Clock.dir
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/edit_cache.dir
-C:/Users/Ethan/Documents/GitHub/DDSClock/GUI/build/CMakeFiles/rebuild_cache.dir
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/imgui.dir
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/ft2.dir
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/Robobrawl_Clock.dir
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/edit_cache.dir
+/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/rebuild_cache.dir

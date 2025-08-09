@@ -115,10 +115,11 @@ public:
       // no sysname of hta found
       std::map<DeviceRole, std::vector<std::string>> tempMap;
       // inset vevctors into it??
+      std::cout << "WHAT\n";
       tempMap[DeviceRole::ROLE_BUTTON_BLUE] = {};
       tempMap[DeviceRole::ROLE_BUTTON_ORANGE] = {};
       tempMap[DeviceRole::ROLE_CLOCK] = {};
-
+      std::cout << "OOTHER HERER??\n";
 
       tempMap[devinfo.role()].push_back(devinfo.deviceId());
       org.insert(std::make_pair(devinfo.sysName(), tempMap));
@@ -126,13 +127,15 @@ public:
 
     // so how do I remove the device ( by devId ) from that system, and then check for the uh empty sytem... and where. 
     // uh looop and checlk in all systems != curr sys, and if devId in that roole, tthen remove, then check that tlist when I do that to see if removal.... I think 
+    std::cout << "HERE???";
     for(auto sysPair : org){
       // have [sysName, map<role, vect<dedvIds>> ] I think
       //so 
-
+      std::cout << "searchinng\n";
       for( auto it = sysPair.second[devinfo.role()].begin(); it != sysPair.second[devinfo.role()].end(); ){
         if( sysPair.first != devinfo.sysName() && *it == devinfo.deviceId()){
           // this one is in the wroong place..... 
+          std::cout << "erase\n";
           sysPair.second[devinfo.role()].erase(it);
         } else {
           ++it;
@@ -144,7 +147,9 @@ public:
       + sysPair.second[DeviceRole::ROLE_CLOCK].size() 
       + sysPair.second[DeviceRole::ROLE_UNKNOWN].size() == 0){
         //mothing in that stystem. 
+        std::cout << "empty sys erase\n";
         org.erase(sysPair.first);
+        break;
       }
     }
 

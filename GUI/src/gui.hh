@@ -20,6 +20,8 @@ namespace gui {
   const ImU32 white_col      = IM_COL32(250, 250, 250, 255);
   const ImU32 yellow_col     = IM_COL32(250, 200, 0, 255);
   const ImU32 bluegrey_col   = IM_COL32(1, 30, 50, 255);
+  const ImU32 blue_col       = IM_COL32(80, 80, 250, 255);
+
 
 
 

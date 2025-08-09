@@ -1,0 +1,35 @@
+
+APP :
+ 
+    GUI:
+        ADD MOOAR BUTTONS UNDER CLOCK AND BUTTON LIST. 
+
+
+
+
+    STATES:
+        ADD LIOOGHT STATES (?)
+        ADD SETTING CLOOCK DURATION 
+
+
+
+    OTEHRFUNCT:
+        NOO CLUE??? 
+
+
+
+INOS : 
+
+    - add data writes
+    - add command reader. 
+    - add color / state loogic / wriitnjgn. 
+    - see if yoou cann pub devInfoo on new participant, could have listener on devInfo foor role::coonntroll...... 
+
+    - update clock to match progress of buttoon. 
+    - have anuva write clock / just steal from the last stuffff.... that wsas kinda jank tho. 
+
+IDL
+    ADD ARENA LIGHT ROLE, AND MESSAAGE. 
+
+
+

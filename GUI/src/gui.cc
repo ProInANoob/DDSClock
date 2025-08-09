@@ -114,11 +114,10 @@ void gui::set_icon()
 }
 
 // -----------------------------------------------------------------------------
-void gui::add_system(std::string sysName){
+void gui::add_system(std::string sysName)
+{
   controlWindows.insert(std::make_pair(sysName, false));
-  // and hother things that I need to do I guess.. 
-
-
+  // and hother things that I need to do I guess..
 }
 
 // -----------------------------------------------------------------------------
@@ -226,142 +225,152 @@ void putTextInBox(ImDrawList *drawlist, ImVec2 pMin, ImVec2 pMax, const char tex
 
 void gui::draw_dashboard(int domain_id)
 {
-  //std::vector<std::string> ids = roboClock::known_devices.known_device_ids();
+  // std::vector<std::string> ids = roboClock::known_devices.known_device_ids();
 
-  //for(std::vector<std::string>::iterator it = ids.begin(); it != ids.end(); it++){
-  //  std::cout << "AHHHHHH";
-  //  ImGui::Text((*it).c_str());
-  //}
-  //std::cout << "\n";
+  // for(std::vector<std::string>::iterator it = ids.begin(); it != ids.end(); it++){
+  //   std::cout << "AHHHHHH";
+  //   ImGui::Text((*it).c_str());
+  // }
+  // std::cout << "\n";
 
   // I dont have any devices tooo test this against so imma start on the sesps.
-  // i Think im gonna do this wiht beins 
+  // i Think im gonna do this wiht beins
   std::map<std::string, std::map<DeviceRole, std::vector<std::string>>> org = roboClock::control.known_devices.getOrg();
   ImGui::Begin("Systems");
   {
-    
-    for(auto & pair : org){
+
+    for (auto &pair : org)
+    {
       ImGui::Text(pair.first.c_str());
       ImGui::SameLine();
       std::string buttonText = pair.first + " control";
-      if(ImGui::Button(buttonText.c_str())){
+      if (ImGui::Button(buttonText.c_str()))
+      {
         controlWindows[pair.first] = !controlWindows[pair.first];
       }
-
     }
-  
-
-    for(auto & pair : controlWindows){
-      if(pair.second){
-        // window is open 
-        
-        //list items
-        ImGui::Text("\n - BUTTONS: ");
-        int i = 0;
-        for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].end(); it++){
-          ImGui::Text((*it).c_str());
-          ImGui::SameLine();
-          ImGui::PushID( i );
-          if(ImGui::Button("Button Settings")){
-                ImGui::OpenPopup((*it).c_str());
-          }
-          if (ImGui::BeginPopupModal((*it).c_str()))
-          {
-              ImGui::Text("some instruciton I gusss.");
-              ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
-              if(ImGui::Button("send SysChange")){
-                SysName msg = SysName();
-                msg.init();
-                msg.deviceId(*it);
-                msg.sysName(newSys);
-                std::cout << "write new SysName";
-                roboClock::control.writeSysName(msg);
-              }
-              if (ImGui::Button("Close"))
-                  ImGui::CloseCurrentPopup();
-              ImGui::EndPopup();
-          }
-          
-          ImGui::PopID();
-          // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
-
-
-          i++;
-        }
-        i = 0;
-        for(auto it = org[pair.first][DeviceRole::ROLE_BUTTON_ORANGE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_ORANGE].end(); it++){
-          ImGui::Text((*it).c_str());
-          ImGui::PushID( i );
-          if(ImGui::Button("Button Settings")){
-                ImGui::OpenPopup("Modal window");
-          }
-          if (ImGui::BeginPopupModal("Modal window"))
-          {
-              ImGui::Text("some instruciton I gusss.");
-              ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
-              if(ImGui::Button("send SysChange")){
-                SysName msg = SysName();
-                msg.init();
-                msg.deviceId(*it);
-                msg.sysName(newSys);
-                std::cout << "write new SysName";
-                roboClock::control.writeSysName(msg);
-              }
-              if (ImGui::Button("Close"))
-                  ImGui::CloseCurrentPopup();
-              ImGui::EndPopup();
-          }
-          
-          ImGui::PopID();
-          // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
-
-
-          i++;
-        }
-        ImGui::Text("\n - CLOCKS:");
-        i = 0;
-        for(auto it = org[pair.first][DeviceRole::ROLE_CLOCK].begin(); it != org[pair.first][DeviceRole::ROLE_CLOCK].end(); it++){
-          ImGui::Text((*it).c_str());
-          ImGui::PushID( i );
-          if(ImGui::Button("Clock Settings")){
-                ImGui::OpenPopup("Modal window");
-          }
-          if (ImGui::BeginPopupModal("Modal window"))
-          {
-              ImGui::Text("some instruciton I gusss.");
-              ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
-              if(ImGui::Button("send SysChange")){
-                SysName msg = SysName();
-                msg.init();
-                msg.deviceId(*it);
-                msg.sysName(newSys);
-                std::cout << "write new SysName";
-                roboClock::control.writeSysName(msg);
-              }
-              if (ImGui::Button("Close"))
-                  ImGui::CloseCurrentPopup();
-              ImGui::EndPopup();
-          }
-          
-          ImGui::PopID();
-          // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
-
-
-          i++;
-        } 
-
-
-        ImGui::Text("\n\n");
-        if(ImGui::Button("Close")){
-          pair.second = false; // not sure this will stay in the map. 
-        }
-      }
-    }
-
   }
   ImGui::End();
 
+  for (auto &pair : controlWindows)
+  {
+    if (pair.second)
+    {
+      // window is open
+      ImGui::Begin("SystemControol");
+      // list items
+      if (ImGui::CollapsingHeader(" BUTTONS "))
+      {
+        int i = 0;
+        for (auto it = org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_BLUE].end(); it++)
+        {
+          ImGui::Text((*it).c_str());
+          ImGui::SameLine();
+          ImGui::PushID(i);
+          ImGui::PushStyleColor(ImGuiCol_Button, blue_col);
+          if (ImGui::Button("Button Settings"))
+          {
+            ImGui::OpenPopup((*it).c_str());
+          }
+          ImGui::PopStyleColor();
+          if (ImGui::BeginPopupModal((*it).c_str()))
+          {
+            ImGui::Text("some instruciton I gusss.");
+            ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+            if (ImGui::Button("send SysChange"))
+            {
+              SysName msg = SysName();
+              msg.init();
+              msg.deviceId(*it);
+              msg.sysName(newSys);
+              std::cout << "write new SysName";
+              roboClock::control.writeSysName(msg);
+            }
+            if (ImGui::Button("Close"))
+              ImGui::CloseCurrentPopup();
+            ImGui::EndPopup();
+          }
 
-  
+          ImGui::PopID();
+          // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
 
+          i++;
+        }
+        i = 0;
+        for (auto it = org[pair.first][DeviceRole::ROLE_BUTTON_ORANGE].begin(); it != org[pair.first][DeviceRole::ROLE_BUTTON_ORANGE].end(); it++)
+        {
+          ImGui::Text((*it).c_str());
+          ImGui::PushID(i);
+          if (ImGui::Button("Button Settings"))
+          {
+            ImGui::OpenPopup("Modal window");
+          }
+          if (ImGui::BeginPopupModal("Modal window"))
+          {
+            ImGui::Text("some instruciton I gusss.");
+            ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+            if (ImGui::Button("send SysChange"))
+            {
+              SysName msg = SysName();
+              msg.init();
+              msg.deviceId(*it);
+              msg.sysName(newSys);
+              std::cout << "write new SysName";
+              roboClock::control.writeSysName(msg);
+            }
+            if (ImGui::Button("Close"))
+              ImGui::CloseCurrentPopup();
+            ImGui::EndPopup();
+          }
+
+          ImGui::PopID();
+          // add buttons and stuff for the buttons. ( to send sys change message at least.. nick probably too.)
+
+          i++;
+        }
+      }
+
+      if (ImGui::CollapsingHeader("CLOCKS"))
+      {
+        int i = 0;
+        for (auto it = org[pair.first][DeviceRole::ROLE_CLOCK].begin(); it != org[pair.first][DeviceRole::ROLE_CLOCK].end(); it++)
+        {
+          ImGui::Text((*it).c_str());
+          ImGui::PushID(i);
+          if (ImGui::Button("Clock Settings"))
+          {
+            ImGui::OpenPopup("Modal window");
+          }
+          if (ImGui::BeginPopupModal("Modal window"))
+          {
+            ImGui::Text("some instruciton I gusss.");
+            ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+            if (ImGui::Button("send SysChange"))
+            {
+              SysName msg = SysName();
+              msg.init();
+              msg.deviceId(*it);
+              msg.sysName(newSys);
+              std::cout << "write new SysName";
+              roboClock::control.writeSysName(msg);
+            }
+            if (ImGui::Button("Close"))
+              ImGui::CloseCurrentPopup();
+            ImGui::EndPopup();
+          }
+
+          ImGui::PopID();
+          // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
+
+          i++;
+        }
+      }
+      ImGui::Text("\n\n");
+      if (ImGui::Button("Close"))
+      {
+        pair.second = false; // not sure this will stay in the map.
+      }
+      ImGui::End();
+    }
+  }
 }

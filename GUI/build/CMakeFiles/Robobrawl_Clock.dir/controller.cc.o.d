@@ -528,4 +528,6 @@ CMakeFiles/Robobrawl_Clock.dir/controller.cc.o: \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/clock_command.hh \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/heartbeat.hh \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
- /home/ethan/RobobrawlClock/DDSClock/GUI/src/known_devices.hh
+ /home/ethan/RobobrawlClock/DDSClock/GUI/src/known_devices.hh \
+ /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
+ /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh

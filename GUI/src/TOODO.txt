@@ -4,12 +4,19 @@ APP :
     GUI:
         ADD MOOAR BUTTONS UNDER CLOCK AND BUTTON LIST. 
 
+        In conntrool button  - add send button coommand open popup fro specs. ( same for clock. )
+
 
 
 
     STATES:
         ADD LIOOGHT STATES (?)
         ADD SETTING CLOOCK DURATION 
+        refoormat tthe system stes into a mapp of [sys, StateStruct]
+        sttate Struct : 
+            duration
+            state var
+            settings -> uint32 encoded with defs I gues. 
 
 
 
@@ -20,9 +27,11 @@ APP :
 
 INOS : 
 
-    - add data writes
-    - add command reader. 
-    - add color / state loogic / wriitnjgn. 
+    - refactor to be dual core... do all the reading of dr on one core with the ooother doing button listening / writng / cloock management /  wjaatever.. ( NEED TO DO DDS WORK ON BOTH.... I HTIN K. need some kind of delay thing, dds_work is doing stuff in the meantime so.)
+
+    - add data writes - im just gonna add a writte function, do button calling in illinois
+    - add command reader. - global color var - noo just reset on reception I think..... 
+    - add color / state loogic / wriitnjgn. ^^^
     - see if yoou cann pub devInfoo on new participant, could have listener on devInfo foor role::coonntroll...... 
 
     - update clock to match progress of buttoon. 
@@ -31,5 +40,7 @@ INOS :
 IDL
     ADD ARENA LIGHT ROLE, AND MESSAAGE. 
 
+
+    MAKE THE BUTTON COMMAND A MORE TARGETED??? JUST TINK ABOUT IS A LITTLE....
 
 

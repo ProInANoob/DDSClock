@@ -32,7 +32,6 @@ public:
     // some kind of doneIdle -> at 0000 no decition tho (diff than Idle? )
     // winner states.  
     // 0: idle, 1: orangReady, 2: blueReady, 3: goTime/Running, 4: doneIdle, 5: orangeWInn, 6: BlueWin
-    std::map<std::string, int> systemStates;
     KnownDevices known_devices;
 
     Controller(/* args */){};

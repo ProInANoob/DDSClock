@@ -539,6 +539,7 @@ CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/heartbeat.hh \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/known_devices.hh \
+ /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
  /usr/include/GLFW/glfw3.h /usr/include/GL/gl.h /usr/include/GL/glext.h \
  /usr/include/KHR/khrplatform.h \
  /home/ethan/RobobrawlClock/DDSClock/GUI/src/icon.hh \

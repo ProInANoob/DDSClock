@@ -5,6 +5,7 @@
 
 #include <map>
 #include "robobrawl.hh"
+#include "system_info.hh"
 #include "context.hh"
 
 class KnownDevices : public dds::sub::NoOpDataReaderListener<DeviceInfo>
@@ -73,7 +74,7 @@ public:
       return DeviceRole::ROLE_UNKNOWN;
   }
 
-  std::map<std::string, std::map<DeviceRole, std::vector<std::string>>> getOrg()
+  std::map<std::string, SystemInfo> getOrg()
   {
     return (org);
   }
@@ -103,55 +104,58 @@ public:
     {
 
       // has System. ??
-      if(std::find(org[devinfo.sysName()][devinfo.role()].begin(), org[devinfo.sysName()][devinfo.role()].end(), devinfo.deviceId()) == org[devinfo.sysName()][devinfo.role()].end()){
-        org[devinfo.sysName()][devinfo.role()].push_back(devinfo.deviceId());
+      if(std::find(org[devinfo.sysName()].devices[devinfo.role()].begin(), org[devinfo.sysName()].devices[devinfo.role()].end(), devinfo.deviceId()) == org[devinfo.sysName()].devices[devinfo.role()].end()){
+        org[devinfo.sysName()].devices[devinfo.role()].push_back(devinfo.deviceId());
       } 
 
     }
     else
     {
 
-      std::cout << "new SSystem\n";
       // no sysname of hta found
       std::map<DeviceRole, std::vector<std::string>> tempMap;
       // inset vevctors into it??
-      std::cout << "WHAT\n";
       tempMap[DeviceRole::ROLE_BUTTON_BLUE] = {};
       tempMap[DeviceRole::ROLE_BUTTON_ORANGE] = {};
       tempMap[DeviceRole::ROLE_CLOCK] = {};
-      std::cout << "OOTHER HERER??\n";
 
       tempMap[devinfo.role()].push_back(devinfo.deviceId());
-      org.insert(std::make_pair(devinfo.sysName(), tempMap));
+
+      SystemInfo tempInfo;
+      tempInfo.devices = tempMap;
+      tempInfo.durationSec = 180; // default 3 minuetts. 
+      tempInfo.settings = 0; // nothing enabled I guesss... I may add a defualt one. 
+      tempInfo.state = 0; // I htink is default Idle state... 
+      tempInfo.timer = NewTimer();
+
+      org.insert(std::make_pair(devinfo.sysName(), tempInfo));
     }
 
     // so how do I remove the device ( by devId ) from that system, and then check for the uh empty sytem... and where. 
     // uh looop and checlk in all systems != curr sys, and if devId in that roole, tthen remove, then check that tlist when I do that to see if removal.... I think 
-    std::cout << "HERE???";
     for(auto sysPair : org){
       // have [sysName, map<role, vect<dedvIds>> ] I think
       //so 
-      std::cout << "searchinng\n";
-      for( auto it = sysPair.second[devinfo.role()].begin(); it != sysPair.second[devinfo.role()].end(); ){
+      for( auto it = sysPair.second.devices[devinfo.role()].begin(); it != sysPair.second.devices[devinfo.role()].end(); ){
         if( sysPair.first != devinfo.sysName() && *it == devinfo.deviceId()){
           // this one is in the wroong place..... 
-          std::cout << "erase\n";
-          sysPair.second[devinfo.role()].erase(it);
+          sysPair.second.devices[devinfo.role()].erase(it);
         } else {
           ++it;
         }
       }
     
-      if(sysPair.second[DeviceRole::ROLE_BUTTON_BLUE].size() +
-       sysPair.second[DeviceRole::ROLE_BUTTON_ORANGE].size() 
-      + sysPair.second[DeviceRole::ROLE_CLOCK].size() 
-      + sysPair.second[DeviceRole::ROLE_UNKNOWN].size() == 0){
+      if(sysPair.second.devices[DeviceRole::ROLE_BUTTON_BLUE].size() +
+       sysPair.second.devices[DeviceRole::ROLE_BUTTON_ORANGE].size() 
+      + sysPair.second.devices[DeviceRole::ROLE_CLOCK].size() 
+      + sysPair.second.devices[DeviceRole::ROLE_UNKNOWN].size() == 0){
         //mothing in that stystem. 
         std::cout << "empty sys erase\n";
         org.erase(sysPair.first);
         break;
       }
     }
+    
 
 
 
@@ -185,7 +189,7 @@ protected:
   dds::sub::DataReader<DeviceInfo> dr;
   std::map<std::string, DeviceInfo> known_devices;
 
-  std::map<std::string, std::map<DeviceRole, std::vector<std::string>>> org;
+  std::map<std::string, SystemInfo> org;
   // so org[sysName][deviceRole] -> list of those device's ids in that system to then look at known devices fro more info if needed;
 };
 

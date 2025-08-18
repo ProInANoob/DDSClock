@@ -12,7 +12,10 @@ namespace gui {
   extern ImVec4  clear_color;
   extern float   m_fixedH;
   extern float   m_fixedW;
+  char           newSys[256];
+
   
+
   const ImU32 cyan_col       = IM_COL32( 80, 230, 230, 255);
   const ImU32 green_col      = IM_COL32(150, 250, 150, 255);
   const ImU32 gray_col       = IM_COL32(150, 150, 150, 255);

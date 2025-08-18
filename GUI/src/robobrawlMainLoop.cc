@@ -15,9 +15,7 @@ std::string roboClock::deviceId = "";
 int roboClock::domain_id = 0;
 
 // state encoding : -1 retain whatever was going on before. 0 is off- nothing. 1 - to zeros, 2 - full time, 3 - start run, 4 running, 5 paused, 6 resume,- 7 orange win - 8 blue win - 9 red for just in case. 
-std::map<std::string, int> roboClock::clockStates;
-std::map<std::string, float> roboClock::clockLengthSec;
-std::map<std::string, NewTimer> roboClock::clockTimers;
+
 
 static Timer timer_01hz; //  0.1 Hz
 static Timer timer_1hz;  //  1   Hz
@@ -32,6 +30,11 @@ void roboClock::main_loop()
   SysName temp = SysName();
   temp.deviceId( "hi " );
   temp.sysName ( "hp2" );
+
+  // org 
+  auto org = roboClock::control.known_devices.getOrg();
+
+
   while (!done)
   {
 
@@ -64,12 +67,16 @@ void roboClock::main_loop()
 
 
 
-    for( auto & pair : roboClock::control.systemStates){
+    for( auto & pair : org){
       ClockCommand comm;
       timeValue time;
       float timeNum;
       std::cout << "start\n";
-      switch(pair.second){
+
+      std::string system = pair.first;
+      SystemInfo info = pair.second;
+
+      switch(info.state){
           case -1: // do nothing 
             
             break;
@@ -96,7 +103,7 @@ void roboClock::main_loop()
             time.seconds( 0 );
             comm.time( time );
 
-            comm.sysName(pair.first);
+            comm.sysName(system);
             control.writeToClock(comm);
 
 
@@ -112,7 +119,7 @@ void roboClock::main_loop()
             time.seconds( 0 );
             comm.time( time );
 
-            comm.sysName(pair.first);
+            comm.sysName(system);
             control.writeToClock(comm);
 
 
@@ -129,28 +136,14 @@ void roboClock::main_loop()
             time.seconds( 0 );
             comm.time( time );
 
-            comm.sysName(pair.first);
+            comm.sysName(system);
             control.writeToClock(comm);
 
 
-          /*
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_GREEN);
-
-            time.seconds( fmod(roboClock::clockLengthSec[pair.first], 60) );
-            time.minutes( int(roboClock::clockLengthSec[pair.first] / 60) );
-            comm.time( time );
-            control.writeToClock(comm);
-
-            roboClock::clockTimers[pair.first].start();
-            
-            roboClock::clockStates[pair.first] = 4; // claock timeer started, and clock inited to top time, transition into the running state. 
-            */
             break;
           case 4: // ui for 3? sec countdown
 
-            timeNum = roboClock::clockLengthSec[pair.first] - (roboClock::clockTimers[pair.first].elapsedMsec() / 1000); // division cause ms.
+            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             comm.mainColor( Colors::COLOR_YELLOW);
@@ -161,40 +154,20 @@ void roboClock::main_loop()
             control.writeToClock(comm);
 
             if(timeNum <= 0 ){
-              roboClock::control.systemStates[pair.first] = 5;
+              info.state = 5;
             }
 
 
-          /*
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            
-            // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = roboClock::clockLengthSec[pair.first] - (roboClock::clockTimers[pair.first].elapsedMsec() / 1000); // division cause ms.
-
-            if(timeNum <= 0){
-              roboClock::clockStates[pair.first] = 1; // or solid color... isk where to direct this. 
-              timeNum = 0;
-            }
-
-            time.seconds( fmod(timeNum, 60) );
-            time.minutes( int(timeNum / 60) );
-            comm.time( time );
-            control.writeToClock(comm);
-            
-            //color check ( do by portiaon left? 10% -> yello kinda thing, or just 1min -> 10sec.)
-            // also need a zero check.. 
-*/
             break;
 
           case 5: // pause.
 
-            roboClock::clockTimers[pair.first].pause();
+            info.timer.pause();
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             
             // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = roboClock::clockLengthSec[pair.first] - (roboClock::clockTimers[pair.first].elapsedMsec() / 1000); // division cause ms.
+            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
             time.seconds( fmod(timeNum, 60) );
             time.minutes( int(timeNum / 60) );
@@ -233,7 +206,7 @@ void roboClock::main_loop()
             comm.time( time );
             control.writeToClock( comm );
 
-            roboClock::clockStates[pair.first] = -1;
+            info.state = -1;
             break;
           case 8:
             time.seconds( 0 );
@@ -252,12 +225,12 @@ void roboClock::main_loop()
             break;
 
           case 9:
-            roboClock::clockTimers[pair.first].pause();
+            info.timer.pause();
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             
             // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = roboClock::clockLengthSec[pair.first] - (roboClock::clockTimers[pair.first].elapsedMsec() / 1000); // division cause ms.
+            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
             time.seconds( fmod(timeNum, 60) );
             time.minutes( int(timeNum / 60) );
@@ -267,7 +240,7 @@ void roboClock::main_loop()
 
 
           case 10:
-            timeNum = 3 - (roboClock::clockTimers[pair.first].elapsedMsec() / 1000); // division cause ms.
+            timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             comm.mainColor( Colors::COLOR_YELLOW);
@@ -277,19 +250,19 @@ void roboClock::main_loop()
             comm.time( time );
             control.writeToClock(comm);
 
-            roboClock::clockTimers[pair.first].start();
-            roboClock::control.systemStates[pair.first] = 4;
+            info.timer.start();
+            info.state = 4;
 
 
             break;
           case 11:
             
-            roboClock::clockTimers[pair.first].start();
+            info.timer.start();
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             
             // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = roboClock::clockLengthSec[pair.first] - (roboClock::clockTimers[pair.first].elapsedMsec() / 1000); // division cause ms.
+            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
             time.seconds( fmod(timeNum, 60) );
             time.minutes( int(timeNum / 60) );
@@ -299,8 +272,8 @@ void roboClock::main_loop()
 
             break;
           case 12:
-            roboClock::clockTimers[pair.first].resume();
-            roboClock::clockStates[pair.first] = 5; // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5) 
+            info.timer.resume();
+            info.state = 5; // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5) 
             control.writeToClock(comm);
             break;
 

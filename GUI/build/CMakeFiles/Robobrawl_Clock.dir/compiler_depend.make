@@ -11,6 +11,8 @@ CMakeFiles/Robobrawl_Clock.dir/controller.cc.o: /home/ethan/RobobrawlClock/DDSCl
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/known_devices.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_udp_transport.h \
@@ -603,6 +605,7 @@ CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/stb_image.h \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \
@@ -2599,6 +2602,7 @@ CMakeFiles/Robobrawl_Clock.dir/main.cc.o: /home/ethan/RobobrawlClock/DDSClock/GU
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \
@@ -7016,10 +7020,6 @@ imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp:
 
 /usr/include/GL/glext.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmavlintrin.h:
-
-/home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh:
-
 /home/ethan/RobobrawlClock/DDSClock/GUI/src/stb_image.h:
 
 /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh:
@@ -7100,17 +7100,11 @@ imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmiintrin.h:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/ddstopic.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/TopicTraits.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/domain/qos/detail/DomainParticipantFactoryQos.hpp:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/TopicListener.hpp:
-
-/usr/include/c++/13/bits/stl_uninitialized.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/TopicInstance.hpp:
 
@@ -7238,11 +7232,11 @@ freetype-2.13.2/include/freetype2/freetype/ftglyph.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/LoanedSamples.hpp:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/TBuiltinTopicTypes.hpp:
-
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/detail/SampleInfo.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/detail/LoanedSample.hpp:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/TBuiltinTopicTypes.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/DataReaderListener.hpp:
 
@@ -7322,10 +7316,6 @@ freetype-2.13.2/include/freetype2/freetype/ftglyph.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/status/detail/TStatusImpl.hpp:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/detail/TInstanceHandleImpl.hpp:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/org/toc/coredx/core/cond/GuardCondition.hpp:
-
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/dds.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/detail/PrimitiveTypes.hpp:
@@ -7350,9 +7340,9 @@ freetype-2.13.2/include/freetype2/freetype/ftglyph.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/detail/TopicDescription.hpp:
 
-/usr/include/c++/13/bits/new_allocator.h:
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/pub/PublisherListener.hpp:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/domain/DomainParticipant.hpp:
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/TMemberType.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/detail/conformance.hpp:
 
@@ -7416,28 +7406,6 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/xcdr2.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/BuiltinTopicTypes.hpp:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/TDataReader.hpp:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/EnumMember.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/TStatusCondition.hpp:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/detail/ref_traits.hpp:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/detail/AnyTopic.hpp:
-
-/usr/include/endian.h:
-
-/usr/include/stdint.h:
-
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/policy/detail/TCorePolicyImpl.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/TInstanceHandle.hpp:
@@ -7451,6 +7419,44 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/StructType.hpp:
 
 /usr/include/c++/13/bits/functional_hash.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/TopicListener.hpp:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/domain/DomainParticipant.hpp:
+
+/usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmavlintrin.h:
+
+/home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/usr/include/c++/13/ext/aligned_buffer.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/TGuardCondition.hpp:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/detail/DynamicType.hpp:
+
+/home/ethan/RobobrawlClock/DDSClock/GUI/src/heartbeat.hh:
+
+/usr/include/c++/13/exception:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/dds_stats.h:
+
+/home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
+
+/usr/include/c++/13/bits/char_traits.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/Time.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/detail/StatusCondition.hpp:
 
 /usr/include/c++/13/memory:
 
@@ -7472,10 +7478,6 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
-/usr/include/c++/13/ext/aligned_buffer.h:
-
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/dds_consts.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
@@ -7493,6 +7495,10 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/detail/InstanceHandle.hpp:
 
 /usr/include/pthread.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/detail/ref_traits.hpp:
+
+/usr/include/stdint.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/status/DataState.hpp:
 
@@ -7512,12 +7518,6 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /usr/include/strings.h:
 
-/usr/include/c++/13/bits/localefwd.h:
-
-/home/ethan/RobobrawlClock/DDSClock/GUI/src/button_data.hh:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/dds_stats.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/AnyDataReaderListener.hpp:
@@ -7532,9 +7532,27 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/pub/find.hpp:
 
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/CollectionTypes.hpp:
+
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/Reference.hpp:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/CollectionTypes.hpp:
+/usr/include/c++/13/bits/localefwd.h:
+
+/home/ethan/RobobrawlClock/DDSClock/GUI/src/button_data.hh:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/BuiltinTopicTypes.hpp:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/TDataReader.hpp:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/EnumMember.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/TStatusCondition.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/domain/detail/TDomainParticipantImpl.hpp:
 
@@ -7596,15 +7614,15 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/13/set:
+
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/xtypes_typeobject_v2.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/13/set:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/domain/TDomainId.hpp:
 
@@ -7632,12 +7650,6 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /usr/include/c++/13/bits/string_view.tcc:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/detail/DynamicType.hpp:
-
-/home/ethan/RobobrawlClock/DDSClock/GUI/src/heartbeat.hh:
-
-/usr/include/c++/13/exception:
-
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/dds.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
@@ -7656,8 +7668,6 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/policy/TQosPolicyCount.hpp:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/TGuardCondition.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitxintrin.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/detail/Condition.hpp:
@@ -7667,18 +7677,6 @@ freetype-2.13.2/include/freetype2/freetype/config/integer-types.h:
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/detail/GuardCondition.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
-
-/usr/include/c++/13/bits/char_traits.h:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/Time.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/cond/detail/StatusCondition.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/domain/qos/DomainParticipantQos.hpp:
 
@@ -7742,6 +7740,14 @@ freetype-2.13.2/include/freetype2/freetype/ftsystem.h:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/policy/CorePolicy.hpp:
 
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/detail/TInstanceHandleImpl.hpp:
+
+/usr/include/endian.h:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/detail/AnyTopic.hpp:
+
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/org/toc/coredx/core/cond/GuardCondition.hpp:
+
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/refmacros.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/org/toc/coredx/topic/TopicDescription.hpp:
@@ -7796,9 +7802,9 @@ freetype-2.13.2/include/freetype2/freetype/ftsystem.h:
 
 /usr/include/c++/13/algorithm:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/pub/PublisherListener.hpp:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmiintrin.h:
 
-/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/core/xtypes/TMemberType.hpp:
+/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/topic/ddstopic.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/dds/sub/detail/LoanedSamples.hpp:
 
@@ -7853,6 +7859,10 @@ imgui-1.90.9/src/imgui/imgui_draw.cpp:
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/org/toc/coredx/core/EntityDelegate.hpp:
 
 /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx/org/toc/coredx/core/InstanceHandle.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/c++/13/tuple:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
@@ -8355,7 +8365,3 @@ robobrawlTypeSupport.cc:
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
-/usr/include/c++/13/tuple:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:

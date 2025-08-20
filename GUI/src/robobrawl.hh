@@ -338,19 +338,17 @@
     public:
       ButtonCommand();
       ~ButtonCommand();
-      ButtonCommand( const std::string __sysName,
-                     const int32_t __orangeState,
-                     const int32_t __blueState ) :
-        _sysName( __sysName ),
-        _orangeState( __orangeState ),
-        _blueState( __blueState ){ }
+      ButtonCommand( const std::string __deviceId,
+                     const Colors __buttonState ) :
+        _deviceId( __deviceId ),
+        _buttonState( __buttonState ){ }
       ButtonCommand( const ButtonCommand & other );
       ButtonCommand& operator=( const ButtonCommand & other);
 
       bool operator==( const ButtonCommand & other) const;
       bool operator!=( const ButtonCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_1b4700b7c738f8cfe82cfc6402ff :: M_8611c646fe0cd6dcf9852e2d6b31 ] */
+      /* TypeId: [ C_08bd40230ed12e181cb39422b193 :: M_93e319762fae198b5c99b1ba9a95 ] */
       void   init();
       void   clear();
       int    copy( const ButtonCommand * instance );
@@ -380,21 +378,17 @@
       static unsigned char get_field_def(const char  * fieldname, 
                                          CoreDX_FieldDef_t * field_def);
     protected:
-      std::string  _sysName;    /* ID: 0x00000000 */
-      int32_t  _orangeState;    /* ID: 0x00000001 */
-      int32_t  _blueState;    /* ID: 0x00000002 */
+      std::string  _deviceId;    /* ID: 0x00000000 */
+      Colors  _buttonState;    /* ID: 0x00000001 */
 
     public:
-      const std::string & sysName( ) const { return _sysName; }
-            std::string & sysName( )       { return _sysName; }
-      void  sysName( const std::string &  __sysName ) {  _sysName = __sysName; }
-      void  sysName( const std::string && __sysName ) {  _sysName = __sysName; }
-            int32_t   orangeState( ) const { return _orangeState; }
-            int32_t & orangeState( )       { return _orangeState; }
-      void orangeState( const int32_t __orangeState ) { _orangeState = __orangeState; }
-            int32_t   blueState( ) const { return _blueState; }
-            int32_t & blueState( )       { return _blueState; }
-      void blueState( const int32_t __blueState ) { _blueState = __blueState; }
+      const std::string & deviceId( ) const { return _deviceId; }
+            std::string & deviceId( )       { return _deviceId; }
+      void  deviceId( const std::string &  __deviceId ) {  _deviceId = __deviceId; }
+      void  deviceId( const std::string && __deviceId ) {  _deviceId = __deviceId; }
+            Colors   buttonState( ) const { return _buttonState; }
+            Colors & buttonState( )       { return _buttonState; }
+      void buttonState( const Colors __buttonState ) { _buttonState = __buttonState; }
 
       typedef dds::sub::DataReader<ButtonCommand>  DataReader;
       typedef dds::pub::DataWriter<ButtonCommand>  DataWriter;
@@ -738,14 +732,11 @@ REGISTER_TOPIC_TYPE( ClockCommand );
 
 inline std::ostream & operator<< (std::ostream &out, ButtonCommand const& data ) {
   (void)data;
-  out << "sysName: ";
-  out << "\"" << data.sysName() << "\"";
+  out << "deviceId: ";
+  out << "\"" << data.deviceId() << "\"";
   out << std::endl;
-  out << "orangeState: ";
-  out <<  data.orangeState();
-  out << std::endl;
-  out << "blueState: ";
-  out <<  data.blueState();
+  out << "buttonState: ";
+  out <<  data.buttonState();
   out << std::endl;
   return out;
 }

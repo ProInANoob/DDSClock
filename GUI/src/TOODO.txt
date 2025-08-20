@@ -21,14 +21,14 @@ APP :
 
 
     OTEHRFUNCT:
-        NOO CLUE??? 
+        make sure dead device removes it from the list in systems / gui whatever. 
 
 
 
 INOS : 
 
     - refactor to be dual core... do all the reading of dr on one core with the ooother doing button listening / writng / cloock management /  wjaatever.. ( NEED TO DO DDS WORK ON BOTH.... I HTIN K. need some kind of delay thing, dds_work is doing stuff in the meantime so.)
-
+        - nwill probably be nessisary for the clocks.... so ill doo It on  both,,  might not call dds_work in the other core, jusst some other yeild  / wait thing.... I have a  feeling  that dds_work is haveing  issueess,  cvould also be  the  other reader messingg  stufff Illl have to test motre as I buld the code back up ....
     - add data writes - im just gonna add a writte function, do button calling in illinois
     - add command reader. - global color var - noo just reset on reception I think..... 
     - add color / state loogic / wriitnjgn. ^^^
@@ -44,3 +44,8 @@ IDL
     MAKE THE BUTTON COMMAND A MORE TARGETED??? JUST TINK ABOUT IS A LITTLE....
 
 
+
+okay so the martial thiing seems to happen only in the multithread, could be a dds_work in twwo cores thing,  and 
+NEW BUG??? - esp recieves the xyx change but the gui dosent update, no deviceinnfo sent / reciieved or gui bug idk....
+
+... I  cant duplicate it now..... wellll iDK.... could be esp thought it wwas the same name for some reason... and didnt update I hjave no idea...  

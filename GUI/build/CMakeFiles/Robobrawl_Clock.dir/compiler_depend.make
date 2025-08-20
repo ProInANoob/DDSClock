@@ -3794,6 +3794,7 @@ CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o: /home/ethan/RobobrawlClock
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \
@@ -4383,6 +4384,7 @@ CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o: /home/ethan/RobobrawlClock/DD
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \
@@ -5006,6 +5008,7 @@ CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o: /home/ethan/RobobrawlCloc
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \
@@ -5622,6 +5625,7 @@ CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o: /home/ethan/RobobrawlClock
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlClock.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/set_sysName.hh \
+  /home/ethan/RobobrawlClock/DDSClock/GUI/src/system_info.hh \
   /home/ethan/RobobrawlClock/DDSClock/GUI/src/timer.hh \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_logging.h \
   /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds/coredx_transport.h \

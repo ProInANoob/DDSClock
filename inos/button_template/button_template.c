@@ -1,11 +1,6 @@
-  /* BSD Socket API Example
 
-    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
-    Unless required by applicable law or agreed to in writing, this
-    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-    CONDITIONS OF ANY KIND, either express or implied.
-  */
+
   #include <string.h>
   #include <sys/param.h>
   #include "freertos/FreeRTOS.h"
@@ -62,6 +57,17 @@
   DDS_DataWriterQos dw_qos;
   DDS_DataReaderQos dr_qos;
   DeviceInfo devInfo; 
+
+
+  //dev  Config.
+  char * deviceId = "TEST_DEVICE";
+  int devRole = ROLE_BUTTON_ORANGE;
+  char * displayName = "TEST_DEVICE"; //not  implemented on gui  probably
+  char * sysName_default  = "TEST";
+  char sysName[100];
+
+
+  bool dds_created = false; 
 
   static uint
   coredx_logio_routine(const char *cbuf, size_t size)
@@ -169,11 +175,12 @@
         * would be invalid.
         */
         if (si->valid_data){
-          printf("Sample Received:  msg %d = %s\n", i, smsg->sysName);
+          printf("Sample Received (SN):  msg %d = %s\n", i, smsg->sysName);
 
-          if(strcmp(smsg->sysName, devInfo.sysName) != 0){
+          if(strcmp(smsg->sysName, sysName) != 0){
             // new sys Name.. 
-            devInfo.sysName = smsg->sysName; 
+            strcpy( sysName, smsg->sysName); 
+
             DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // update network of new sys namem.
             dds_work(dp, 100); 
           }
@@ -198,6 +205,71 @@
       //printf("ERROR (%s) taking samples from DataReader\n", DDS_error(retval));
     }
   }
+
+  void readButtonCommand(){
+    ButtonCommandPtrSeq samples;
+    DDS_SampleInfoSeq samples_info;
+    DDS_ReturnCode_t retval;
+    DDS_SampleStateMask ss = DDS_ANY_SAMPLE_STATE;
+    DDS_ViewStateMask vs = DDS_ANY_VIEW_STATE;
+    DDS_InstanceStateMask is = DDS_ANY_INSTANCE_STATE;
+
+    INIT_SEQ(samples);
+    INIT_SEQ(samples_info);
+
+    retval = ButtonCommandDataReader_take(bc_dr, &samples, &samples_info,
+                                    DDS_LENGTH_UNLIMITED,
+                                    ss,
+                                    vs,
+                                    is);
+
+    if (retval == DDS_RETCODE_OK)
+    {
+      unsigned int i;
+
+      /* iterrate through the samples */
+      for (i = 0; i < samples._length; i++)
+      {
+        ButtonCommand *smsg = samples._buffer[i];
+        DDS_SampleInfo *si = samples_info._buffer[i];
+
+        /* If this sample does not contain valid data,
+        * it is a dispose or other non-data command,
+        * and, accessing any member from this sample
+        * would be invalid.
+        */
+        if (si->valid_data){
+          printf("Sample Received (BC):  msg %d = %s || %ld\n", i, smsg->deviceId, smsg->buttonState);
+          // do things.... 
+
+
+        }
+      }
+      //fflush(stdout);
+
+      /* read() and take() always "loan" the data, we need to
+      * return it so CoreDX can release resources associated
+      * with it.
+      */
+      retval = ButtonCommandDataReader_return_loan(bc_dr,
+                                              &samples, &samples_info);
+      if (retval != DDS_RETCODE_OK)
+        printf("ERROR (%s): unable to return loan of samples\n",
+              DDS_error(retval));
+    }
+    else
+    {
+      //printf("ERROR (%s) taking samples from DataReader\n", DDS_error(retval));
+    }
+  }
+
+
+  void writeButtonState(){
+    // basiucaly just do dw.write I think.... noothiing to set here.... 
+  }
+
+// no need for a deviceinfo writer, justwriting the once as of now...
+
 
   static void dds_example_task(void *pvParameters)
   {
@@ -263,10 +335,10 @@
       {
         
         DeviceInfo_init(&devInfo);
-        devInfo.deviceId = "TEST_DEVICE";
-        devInfo.role = ROLE_BUTTON_BLUE;
-        devInfo.displayName = "TEST_DEVICE";
-        devInfo.sysName = "TEST";
+        devInfo.deviceId = deviceId;
+        devInfo.role = devRole;
+        devInfo.displayName = displayName;
+        devInfo.sysName = sysName;
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
@@ -281,21 +353,30 @@
         }
           
         printf("Finnished writing deviecinfos\n");
-        DDS_SubscriptionMatchedStatus  status;
+        
+        dds_created = true;
+        
+        //DDS_SubscriptionMatchedStatus  status;
         while (1)
         {
           // so heres my const / loop for dds side, Ill have button polling and writing elsewhere... (main loop)
-          // write a message, every time through (roughly every 100ms)
 
           // reading polling -
+          
           readSysName();
+          readButtonCommand();
+
+
+          devInfo.sysName = sysName;
+
+          DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); 
           //DDS_DataReader_get_subscription_matched_status(sn_dr, &status);
           //printf("Subscition matched count: %ld\n", status.total_count);
 
 
           // write and increment hearbeat.
 
-          dds_work(dp, 200); // do DDS work for 100ms -> ~10 per sec
+          dds_work(dp, 1000); // do DDS work for 100ms -> ~10 per sec
         }
       }
       else
@@ -311,11 +392,25 @@
     vTaskDelete(NULL);
   }
 
+
+  static void device_task(void *pvParameters){
+      //while (!dds_created){
+      //  vTaskDelay(100 / portTICK_PERIOD_MS);
+      //} // wooait for other task to signal dds okay.... 
+      // do device things....... . 
+      while( 1 ){
+        vTaskDelay(500 / portTICK_PERIOD_MS);
+        // read buttons, write mexssages if nessisary..... nee mutexes on this stufffff probbaly...... ( ask dad about the dds cals in multiple cores.... shoulednt overlap using them at the same time but just in case..... )
+      }
+  }
+
+
   void app_main(void)
   {
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
+    strcpy(sysName, sysName_default);
 
     /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
     * Read "Establishing Wi-Fi or Ethernet Connection" section in
@@ -323,10 +418,9 @@
     */
     ESP_ERROR_CHECK(example_connect());
 
-    xTaskCreate(dds_example_task, "dds_example", 16384, NULL, 5, NULL);
+    xTaskCreatePinnedToCore(dds_example_task, "dds_readers", 16384, NULL, 5, NULL, 1);
+    xTaskCreatePinnedToCore(device_task, "device_stuff", 16384, NULL, 5, NULL, 0);
 
 
-
-          
     
   }

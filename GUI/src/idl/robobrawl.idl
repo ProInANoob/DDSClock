@@ -59,12 +59,10 @@ struct ClockCommand{
 
 struct ButtonCommand{
 
-    string sysName;
+    string deviceId;
 
-    // need state vals for these
-    Colors orangeState;
+    Colors buttonState;
 
-    Colors blueState;
 
 };
 

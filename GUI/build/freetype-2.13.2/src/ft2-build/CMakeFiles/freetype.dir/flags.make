@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DFT2_BUILD_LIBRARY
 
-C_INCLUDES = -I/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/include -I/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include -I/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/include/freetype/config
+C_INCLUDES = -I/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/include -I/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include -I/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build/include/freetype/config
 
 C_FLAGS = -fvisibility=hidden
 

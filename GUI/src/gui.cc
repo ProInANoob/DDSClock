@@ -507,4 +507,9 @@ void gui::draw_dashboard(int domain_id)
       ImGui::End();
     }
   }
+
+  if(roboClock::done){
+    backend::close_renderer();
+    backend::close_backend();
+  }
 }

@@ -9,7 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "CMakeFiles/3.28.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
-  "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2/CMakeLists.txt"
+  "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/CMakeLists.txt"
   "/usr/share/cmake-3.28/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/usr/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c"

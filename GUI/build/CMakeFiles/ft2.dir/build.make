@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ethan/RobobrawlClock/DDSClock/GUI/src
+CMAKE_SOURCE_DIR = /home/ethan/Robobrawl/DDSClock/GUI/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ethan/RobobrawlClock/DDSClock/GUI/build
+CMAKE_BINARY_DIR = /home/ethan/Robobrawl/DDSClock/GUI/build
 
 # Utility rule file for ft2.
 
@@ -76,52 +76,52 @@ CMakeFiles/ft2-complete: freetype-2.13.2/src/ft2-stamp/ft2-patch
 CMakeFiles/ft2-complete: freetype-2.13.2/src/ft2-stamp/ft2-configure
 CMakeFiles/ft2-complete: freetype-2.13.2/src/ft2-stamp/ft2-build
 CMakeFiles/ft2-complete: freetype-2.13.2/src/ft2-stamp/ft2-install
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'ft2'"
-	/usr/bin/cmake -E make_directory /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/ft2-complete
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-done
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'ft2'"
+	/usr/bin/cmake -E make_directory /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles/ft2-complete
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-done
 
 freetype-2.13.2/src/ft2-stamp/ft2-build: freetype-2.13.2/src/ft2-stamp/ft2-configure
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Performing build step for 'ft2'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && $(MAKE)
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Performing build step for 'ft2'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && $(MAKE)
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-build
 
 freetype-2.13.2/src/ft2-stamp/ft2-configure: freetype-2.13.2/tmp/ft2-cfgcmd.txt
 freetype-2.13.2/src/ft2-stamp/ft2-configure: freetype-2.13.2/src/ft2-stamp/ft2-patch
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Performing configure step for 'ft2'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -DCMAKE_BUILD_TYPE= -DCMAKE_INSTALL_PREFIX=/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2 -DFT_DISABLE_HARFBUZZ=1 -DFT_DISABLE_BROTLI=1 "-GUnix Makefiles" -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2 -B /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-configure
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Performing configure step for 'ft2'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -DCMAKE_BUILD_TYPE= -DCMAKE_INSTALL_PREFIX=/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2 -DFT_DISABLE_HARFBUZZ=1 -DFT_DISABLE_BROTLI=1 "-GUnix Makefiles" -S /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2 -B /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-configure
 
 freetype-2.13.2/src/ft2-stamp/ft2-download: freetype-2.13.2/src/ft2-stamp/download-ft2.cmake
 freetype-2.13.2/src/ft2-stamp/ft2-download: freetype-2.13.2/src/ft2-stamp/ft2-urlinfo.txt
 freetype-2.13.2/src/ft2-stamp/ft2-download: freetype-2.13.2/src/ft2-stamp/ft2-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (download, verify and extract) for 'ft2'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/download-ft2.cmake
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/verify-ft2.cmake
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/extract-ft2.cmake
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-download
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (download, verify and extract) for 'ft2'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -P /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/download-ft2.cmake
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -P /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/verify-ft2.cmake
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -P /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/extract-ft2.cmake
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-download
 
 freetype-2.13.2/src/ft2-stamp/ft2-install: freetype-2.13.2/src/ft2-stamp/ft2-build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Performing install step for 'ft2'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && $(MAKE) install
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-install
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Performing install step for 'ft2'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && $(MAKE) install
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-build && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-install
 
 freetype-2.13.2/src/ft2-stamp/ft2-mkdir:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'ft2'"
-	/usr/bin/cmake -Dcfgdir= -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/tmp/ft2-mkdirs.cmake
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-mkdir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'ft2'"
+	/usr/bin/cmake -Dcfgdir= -P /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/tmp/ft2-mkdirs.cmake
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-mkdir
 
 freetype-2.13.2/src/ft2-stamp/ft2-patch: freetype-2.13.2/src/ft2-stamp/ft2-patch-info.txt
 freetype-2.13.2/src/ft2-stamp/ft2-patch: freetype-2.13.2/src/ft2-stamp/ft2-update
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'ft2'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'ft2'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-patch
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-patch
 
 freetype-2.13.2/src/ft2-stamp/ft2-update: freetype-2.13.2/src/ft2-stamp/ft2-update-info.txt
 freetype-2.13.2/src/ft2-stamp/ft2-update: freetype-2.13.2/src/ft2-stamp/ft2-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No update step for 'ft2'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No update step for 'ft2'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-update
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2-stamp/ft2-update
 
 ft2: CMakeFiles/ft2
 ft2: CMakeFiles/ft2-complete
@@ -144,6 +144,6 @@ CMakeFiles/ft2.dir/clean:
 .PHONY : CMakeFiles/ft2.dir/clean
 
 CMakeFiles/ft2.dir/depend:
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ethan/RobobrawlClock/DDSClock/GUI/src /home/ethan/RobobrawlClock/DDSClock/GUI/src /home/ethan/RobobrawlClock/DDSClock/GUI/build /home/ethan/RobobrawlClock/DDSClock/GUI/build /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/ft2.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ethan/Robobrawl/DDSClock/GUI/src /home/ethan/Robobrawl/DDSClock/GUI/src /home/ethan/Robobrawl/DDSClock/GUI/build /home/ethan/Robobrawl/DDSClock/GUI/build /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles/ft2.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/ft2.dir/depend
 

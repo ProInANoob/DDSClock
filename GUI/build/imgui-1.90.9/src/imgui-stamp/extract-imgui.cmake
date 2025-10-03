@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.5)
 
 # Make file names absolute:
 #
-get_filename_component(filename "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/v1.90.9.tar.gz" ABSOLUTE)
-get_filename_component(directory "/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui" ABSOLUTE)
+get_filename_component(filename "/home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/v1.90.9.tar.gz" ABSOLUTE)
+get_filename_component(directory "/home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

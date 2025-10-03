@@ -22,14 +22,14 @@ function(check_file_hash has_hash hash_is_good)
   set("${has_hash}" TRUE PARENT_SCOPE)
 
   message(STATUS "verifying file...
-       file='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'")
+       file='/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'")
 
-  file("" "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" actual_value)
+  file("" "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" actual_value)
 
   if(NOT "${actual_value}" STREQUAL "")
     set("${hash_is_good}" FALSE PARENT_SCOPE)
     message(STATUS " hash of
-    /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz
+    /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz
   does not match expected value
     expected: ''
       actual: '${actual_value}'")
@@ -71,7 +71,7 @@ function(sleep_before_download attempt)
   execute_process(COMMAND "${CMAKE_COMMAND}" -E sleep "${sleep_seconds}")
 endfunction()
 
-if("/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" STREQUAL "")
+if("/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz" STREQUAL "")
   message(FATAL_ERROR "LOCAL can't be empty")
 endif()
 
@@ -79,32 +79,32 @@ if("https://sourceforge.net/projects/freetype/files/freetype2/2.13.2/freetype-2.
   message(FATAL_ERROR "REMOTE can't be empty")
 endif()
 
-if(EXISTS "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+if(EXISTS "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
   check_file_hash(has_hash hash_is_good)
   if(has_hash)
     if(hash_is_good)
       message(STATUS "File already exists and hash match (skip download):
-  file='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
+  file='/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
   =''"
       )
       return()
     else()
       message(STATUS "File already exists but hash mismatch. Removing...")
-      file(REMOVE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+      file(REMOVE "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
     endif()
   else()
     message(STATUS "File already exists but no hash specified (use URL_HASH):
-  file='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
+  file='/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
 Old file will be removed and new file downloaded from URL."
     )
-    file(REMOVE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+    file(REMOVE "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
   endif()
 endif()
 
 set(retry_number 5)
 
 message(STATUS "Downloading...
-   dst='/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
+   dst='/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz'
    timeout='none'
    inactivity timeout='none'"
 )
@@ -126,7 +126,7 @@ foreach(i RANGE ${retry_number})
 
       file(
         DOWNLOAD
-        "${url}" "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz"
+        "${url}" "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz"
         SHOW_PROGRESS
         # no TIMEOUT
         # no INACTIVITY_TIMEOUT
@@ -143,7 +143,7 @@ foreach(i RANGE ${retry_number})
         check_file_hash(has_hash hash_is_good)
         if(has_hash AND NOT hash_is_good)
           message(STATUS "Hash mismatch, removing...")
-          file(REMOVE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
+          file(REMOVE "/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/freetype-2.13.2.tar.xz")
         else()
           message(STATUS "Downloading... done")
           return()

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ethan/RobobrawlClock/DDSClock/GUI/src
+CMAKE_SOURCE_DIR = /home/ethan/Robobrawl/DDSClock/GUI/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ethan/RobobrawlClock/DDSClock/GUI/build
+CMAKE_BINARY_DIR = /home/ethan/Robobrawl/DDSClock/GUI/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Robobrawl_Clock.dir/depend.make
@@ -69,258 +69,258 @@ include CMakeFiles/Robobrawl_Clock.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Robobrawl_Clock.dir/flags.make
 
-/home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc: /home/ethan/RobobrawlClock/DDSClock/GUI/src/idl/robobrawl.idl
-/home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc: /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/host/Linux_2.6_x86_64_gcc11/bin/coredx_ddl
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc, robobrawlTypeSupport.cc, /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh, robobrawlTypeSupport.hh"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/src && /usr/bin/cmake -E make_directory /home/ethan/RobobrawlClock/DDSClock/GUI/build/../src/
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/src && /home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/host/Linux_2.6_x86_64_gcc11/bin/coredx_ddl -l cpp11 -d /home/ethan/RobobrawlClock/DDSClock/GUI/build/../src/ -Wno-1093 -F -s -f ../src/idl/robobrawl.idl
+/home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc: /home/ethan/Robobrawl/DDSClock/GUI/src/idl/robobrawl.idl
+/home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc: /home/ethan/dds/coredx-6.5.0-Evaluation/host/Linux_2.6_x86_64_gcc11/bin/coredx_ddl
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc, robobrawlTypeSupport.cc, /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.hh, robobrawlTypeSupport.hh"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/src && /usr/bin/cmake -E make_directory /home/ethan/Robobrawl/DDSClock/GUI/build/../src/
+	cd /home/ethan/Robobrawl/DDSClock/GUI/src && /home/ethan/dds/coredx-6.5.0-Evaluation/host/Linux_2.6_x86_64_gcc11/bin/coredx_ddl -l cpp11 -d /home/ethan/Robobrawl/DDSClock/GUI/build/../src/ -Wno-1093 -F -s -f ../src/idl/robobrawl.idl
 
-robobrawlTypeSupport.cc: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc
+robobrawlTypeSupport.cc: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc
 	@$(CMAKE_COMMAND) -E touch_nocreate robobrawlTypeSupport.cc
 
-/home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc
-	@$(CMAKE_COMMAND) -E touch_nocreate /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh
+/home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.hh: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.hh
 
-robobrawlTypeSupport.hh: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc
+robobrawlTypeSupport.hh: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc
 	@$(CMAKE_COMMAND) -E touch_nocreate robobrawlTypeSupport.hh
 
 CMakeFiles/Robobrawl_Clock.dir/main.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/main.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/main.cc
+CMakeFiles/Robobrawl_Clock.dir/main.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/main.cc
 CMakeFiles/Robobrawl_Clock.dir/main.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/main.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/main.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/main.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/main.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/main.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/main.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/main.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/main.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/main.cc
 
 CMakeFiles/Robobrawl_Clock.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/main.cc > CMakeFiles/Robobrawl_Clock.dir/main.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/main.cc > CMakeFiles/Robobrawl_Clock.dir/main.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/main.cc -o CMakeFiles/Robobrawl_Clock.dir/main.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/main.cc -o CMakeFiles/Robobrawl_Clock.dir/main.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/gui.cc
+CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/gui.cc
 CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/gui.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/gui.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/gui.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/gui.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/gui.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/gui.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/gui.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/gui.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/gui.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/gui.cc
 
 CMakeFiles/Robobrawl_Clock.dir/gui.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/gui.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/gui.cc > CMakeFiles/Robobrawl_Clock.dir/gui.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/gui.cc > CMakeFiles/Robobrawl_Clock.dir/gui.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/gui.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/gui.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/gui.cc -o CMakeFiles/Robobrawl_Clock.dir/gui.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/gui.cc -o CMakeFiles/Robobrawl_Clock.dir/gui.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/controller.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/controller.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/controller.cc
+CMakeFiles/Robobrawl_Clock.dir/controller.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/controller.cc
 CMakeFiles/Robobrawl_Clock.dir/controller.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/controller.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/controller.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/controller.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/controller.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/controller.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/controller.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/controller.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/controller.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/controller.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/controller.cc
 
 CMakeFiles/Robobrawl_Clock.dir/controller.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/controller.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/controller.cc > CMakeFiles/Robobrawl_Clock.dir/controller.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/controller.cc > CMakeFiles/Robobrawl_Clock.dir/controller.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/controller.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/controller.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/controller.cc -o CMakeFiles/Robobrawl_Clock.dir/controller.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/controller.cc -o CMakeFiles/Robobrawl_Clock.dir/controller.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlInit.cc
+CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlInit.cc
 CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlInit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlInit.cc
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlInit.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlInit.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlInit.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlInit.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlInit.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlStartup.cc
+CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlStartup.cc
 CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlStartup.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlStartup.cc
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlStartup.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlStartup.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlStartup.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlStartup.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlStartup.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlMainLoop.cc
+CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlMainLoop.cc
 CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlMainLoop.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlMainLoop.cc
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlMainLoop.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlMainLoop.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlMainLoop.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlMainLoop.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlMainLoop.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlCleanup.cc
+CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlCleanup.cc
 CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlCleanup.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlCleanup.cc
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlCleanup.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlCleanup.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawlCleanup.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawlCleanup.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlCleanup.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o: imgui-1.90.9/src/imgui/imgui.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o: imgui-1.90.9/src/imgui/imgui_draw.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_draw.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_draw.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_draw.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_draw.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_draw.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_draw.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o: imgui-1.90.9/src/imgui/imgui_tables.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_tables.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_tables.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_tables.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_tables.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_tables.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_tables.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_tables.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o: imgui-1.90.9/src/imgui/imgui_widgets.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_widgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_widgets.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_widgets.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_widgets.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_widgets.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_widgets.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_widgets.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o: imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o: imgui-1.90.9/src/imgui/imgui_demo.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o: imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o: imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o -MF CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o.d -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp > CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.i
 
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp -o CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_opengl2.cpp.s
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
-CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc
+CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc
 CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.s
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o: CMakeFiles/Robobrawl_Clock.dir/flags.make
 CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o: robobrawlTypeSupport.cc
 CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o: CMakeFiles/Robobrawl_Clock.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o -c /home/ethan/RobobrawlClock/DDSClock/GUI/build/robobrawlTypeSupport.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o -MF CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o.d -o CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o -c /home/ethan/Robobrawl/DDSClock/GUI/build/robobrawlTypeSupport.cc
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/RobobrawlClock/DDSClock/GUI/build/robobrawlTypeSupport.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethan/Robobrawl/DDSClock/GUI/build/robobrawlTypeSupport.cc > CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.i
 
 CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/RobobrawlClock/DDSClock/GUI/build/robobrawlTypeSupport.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethan/Robobrawl/DDSClock/GUI/build/robobrawlTypeSupport.cc -o CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.s
 
 # Object files for target Robobrawl_Clock
 Robobrawl_Clock_OBJECTS = \
@@ -364,7 +364,7 @@ Robobrawl_Clock: CMakeFiles/Robobrawl_Clock.dir/robobrawl.cc.o
 Robobrawl_Clock: CMakeFiles/Robobrawl_Clock.dir/robobrawlTypeSupport.cc.o
 Robobrawl_Clock: CMakeFiles/Robobrawl_Clock.dir/build.make
 Robobrawl_Clock: CMakeFiles/Robobrawl_Clock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable Robobrawl_Clock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable Robobrawl_Clock"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Robobrawl_Clock.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -377,8 +377,8 @@ CMakeFiles/Robobrawl_Clock.dir/clean:
 
 CMakeFiles/Robobrawl_Clock.dir/depend: robobrawlTypeSupport.cc
 CMakeFiles/Robobrawl_Clock.dir/depend: robobrawlTypeSupport.hh
-CMakeFiles/Robobrawl_Clock.dir/depend: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc
-CMakeFiles/Robobrawl_Clock.dir/depend: /home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ethan/RobobrawlClock/DDSClock/GUI/src /home/ethan/RobobrawlClock/DDSClock/GUI/src /home/ethan/RobobrawlClock/DDSClock/GUI/build /home/ethan/RobobrawlClock/DDSClock/GUI/build /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/Robobrawl_Clock.dir/DependInfo.cmake "--color=$(COLOR)"
+CMakeFiles/Robobrawl_Clock.dir/depend: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc
+CMakeFiles/Robobrawl_Clock.dir/depend: /home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.hh
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ethan/Robobrawl/DDSClock/GUI/src /home/ethan/Robobrawl/DDSClock/GUI/src /home/ethan/Robobrawl/DDSClock/GUI/build /home/ethan/Robobrawl/DDSClock/GUI/build /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles/Robobrawl_Clock.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Robobrawl_Clock.dir/depend
 

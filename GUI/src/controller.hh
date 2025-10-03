@@ -5,6 +5,7 @@
 #include "button_data.hh"
 #include "button_command.hh"
 #include "clock_command.hh"
+#include "arena_command.hh"
 #include "heartbeat.hh"
 #include "set_sysName.hh"
 #include "known_devices.hh"
@@ -19,6 +20,7 @@ protected:
 
     ButtonCommandWriter buttonWriter;
     ClockCommandWriter clockWriter;
+    ArenaCommandWriter arenaWriter;
     HeartbeatWriter heartbeat;
     SetSysName setSysName;
 
@@ -50,7 +52,8 @@ public:
 
         buttonWriter.init( context, devId );
         clockWriter.init( context, devId );
-        setSysName.init( context, deviceId);
+        arenaWriter.init( context, deviceId) ;
+        setSysName.init( context, deviceId );
 
 
     };
@@ -67,6 +70,10 @@ public:
         buttonWriter.publish( command );
     }
 
+    void writeToArena( ArenaCommand & command ){
+        arenaWriter.publish( command );
+    }
+    
     void writeSysName( SysName & command ){
         setSysName.publish( command );
     }
@@ -74,6 +81,12 @@ public:
     void writeHeartbeat( ){
         heartbeat.publish( );
     }
+
+    void clear(){
+        buttonWriter.clear();
+        clockWriter.clear();
+        known_devices.clear();
+    };
 
     
     virtual void handle_button_data ( const ButtonData & data );

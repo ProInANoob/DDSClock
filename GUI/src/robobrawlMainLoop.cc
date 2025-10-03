@@ -77,10 +77,12 @@ void roboClock::main_loop()
       SystemInfo info = pair.second;
 
       switch(info.state){
-          case -1: // do nothing 
-            
+          case -1: // pure waiting - arena white.  - do buttons  in gui for idel the system  and remove from idle. 
+            // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet. 
+
+
             break;
-          case 0: // idle state... 
+          case 0: // waiting for readys.. - arena  off ? ( add a start for idle and before match I think..... )
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             comm.mainColor( Colors::COLOR_GREEN ); // red???/ green? idk man
@@ -93,7 +95,7 @@ void roboClock::main_loop()
 
 
             break;
-          case 1: // one is ready... orange
+          case 1: // one is ready... orange - half orange / green???
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
             comm.mainColor( Colors::COLOR_RED);
@@ -108,7 +110,7 @@ void roboClock::main_loop()
 
 
             break;
-          case 2: // blue is ready, not orange. 
+          case 2: // blue is ready, - half colored ( gree / blue )
             
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
@@ -125,7 +127,7 @@ void roboClock::main_loop()
 
 
             break;
-          case 3: // both ready
+          case 3: // both ready - green ? off ? white ? I think off - turn on at 
 
             comm.isOff( 0 );
             comm.doDisplayTime( 1 );
@@ -290,4 +292,5 @@ void roboClock::main_loop()
 
     std::this_thread::sleep_for(std::chrono::milliseconds(5));
   }
+  std::cout << "end of this stufff";
 }

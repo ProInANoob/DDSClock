@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ethan/RobobrawlClock/DDSClock/GUI/src
+CMAKE_SOURCE_DIR = /home/ethan/Robobrawl/DDSClock/GUI/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ethan/RobobrawlClock/DDSClock/GUI/build
+CMAKE_BINARY_DIR = /home/ethan/Robobrawl/DDSClock/GUI/build
 
 # Utility rule file for imgui.
 
@@ -76,52 +76,52 @@ CMakeFiles/imgui-complete: imgui-1.90.9/src/imgui-stamp/imgui-patch
 CMakeFiles/imgui-complete: imgui-1.90.9/src/imgui-stamp/imgui-configure
 CMakeFiles/imgui-complete: imgui-1.90.9/src/imgui-stamp/imgui-build
 CMakeFiles/imgui-complete: imgui-1.90.9/src/imgui-stamp/imgui-install
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'imgui'"
-	/usr/bin/cmake -E make_directory /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/imgui-complete
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-done
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'imgui'"
+	/usr/bin/cmake -E make_directory /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles/imgui-complete
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-done
 
 imgui-1.90.9/src/imgui-stamp/imgui-build: imgui-1.90.9/src/imgui-stamp/imgui-configure
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'imgui'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E echo_append
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'imgui'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E echo_append
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-build
 
 imgui-1.90.9/src/imgui-stamp/imgui-configure: imgui-1.90.9/tmp/imgui-cfgcmd.txt
 imgui-1.90.9/src/imgui-stamp/imgui-configure: imgui-1.90.9/src/imgui-stamp/imgui-patch
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'imgui'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E echo_append
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-configure
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'imgui'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E echo_append
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-configure
 
 imgui-1.90.9/src/imgui-stamp/imgui-download: imgui-1.90.9/src/imgui-stamp/download-imgui.cmake
 imgui-1.90.9/src/imgui-stamp/imgui-download: imgui-1.90.9/src/imgui-stamp/imgui-urlinfo.txt
 imgui-1.90.9/src/imgui-stamp/imgui-download: imgui-1.90.9/src/imgui-stamp/imgui-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (download, verify and extract) for 'imgui'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/download-imgui.cmake
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/verify-imgui.cmake
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/extract-imgui.cmake
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-download
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (download, verify and extract) for 'imgui'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -P /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/download-imgui.cmake
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -P /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/verify-imgui.cmake
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -P /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/extract-imgui.cmake
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-download
 
 imgui-1.90.9/src/imgui-stamp/imgui-install: imgui-1.90.9/src/imgui-stamp/imgui-build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'imgui'"
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E echo_append
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-install
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'imgui'"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E echo_append
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-build && /usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-install
 
 imgui-1.90.9/src/imgui-stamp/imgui-mkdir:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'imgui'"
-	/usr/bin/cmake -Dcfgdir= -P /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/tmp/imgui-mkdirs.cmake
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-mkdir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'imgui'"
+	/usr/bin/cmake -Dcfgdir= -P /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/tmp/imgui-mkdirs.cmake
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-mkdir
 
 imgui-1.90.9/src/imgui-stamp/imgui-patch: imgui-1.90.9/src/imgui-stamp/imgui-patch-info.txt
 imgui-1.90.9/src/imgui-stamp/imgui-patch: imgui-1.90.9/src/imgui-stamp/imgui-update
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'imgui'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'imgui'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-patch
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-patch
 
 imgui-1.90.9/src/imgui-stamp/imgui-update: imgui-1.90.9/src/imgui-stamp/imgui-update-info.txt
 imgui-1.90.9/src/imgui-stamp/imgui-update: imgui-1.90.9/src/imgui-stamp/imgui-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No update step for 'imgui'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No update step for 'imgui'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-update
+	/usr/bin/cmake -E touch /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui-stamp/imgui-update
 
 imgui: CMakeFiles/imgui
 imgui: CMakeFiles/imgui-complete
@@ -144,6 +144,6 @@ CMakeFiles/imgui.dir/clean:
 .PHONY : CMakeFiles/imgui.dir/clean
 
 CMakeFiles/imgui.dir/depend:
-	cd /home/ethan/RobobrawlClock/DDSClock/GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ethan/RobobrawlClock/DDSClock/GUI/src /home/ethan/RobobrawlClock/DDSClock/GUI/src /home/ethan/RobobrawlClock/DDSClock/GUI/build /home/ethan/RobobrawlClock/DDSClock/GUI/build /home/ethan/RobobrawlClock/DDSClock/GUI/build/CMakeFiles/imgui.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ethan/Robobrawl/DDSClock/GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ethan/Robobrawl/DDSClock/GUI/src /home/ethan/Robobrawl/DDSClock/GUI/src /home/ethan/Robobrawl/DDSClock/GUI/build /home/ethan/Robobrawl/DDSClock/GUI/build /home/ethan/Robobrawl/DDSClock/GUI/build/CMakeFiles/imgui.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/imgui.dir/depend
 

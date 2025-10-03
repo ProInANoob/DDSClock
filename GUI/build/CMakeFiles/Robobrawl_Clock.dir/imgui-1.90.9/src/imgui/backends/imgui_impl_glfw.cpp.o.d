@@ -1,8 +1,8 @@
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp.o: \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.cpp \
  /usr/include/stdc-predef.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/string.h \
@@ -17,7 +17,7 @@ CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.c
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h /usr/include/assert.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends/imgui_impl_glfw.h \
  /usr/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \

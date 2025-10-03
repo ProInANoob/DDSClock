@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.cc"
-  "/home/ethan/RobobrawlClock/DDSClock/GUI/src/robobrawl.hh"
+  "/home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.cc"
+  "/home/ethan/Robobrawl/DDSClock/GUI/src/robobrawl.hh"
   "CMakeFiles/Robobrawl_Clock.dir/controller.cc.o"
   "CMakeFiles/Robobrawl_Clock.dir/controller.cc.o.d"
   "CMakeFiles/Robobrawl_Clock.dir/gui.cc.o"

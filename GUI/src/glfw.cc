@@ -101,8 +101,10 @@ namespace backend {
   poll_events()
   {
     glfwPollEvents();
-    if ( glfwWindowShouldClose(window) )
+    if ( glfwWindowShouldClose(window) ){
+      std::cout << "Close";
       roboClock::done = true;
+    }
   }
 
   // -----------------------------------------------------------------------------

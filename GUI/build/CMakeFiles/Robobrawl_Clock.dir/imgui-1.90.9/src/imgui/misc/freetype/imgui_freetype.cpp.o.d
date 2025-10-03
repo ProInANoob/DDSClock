@@ -1,8 +1,8 @@
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp.o: \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.cpp \
  /usr/include/stdc-predef.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/string.h \
@@ -17,8 +17,8 @@ CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freety
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h /usr/include/assert.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_internal.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/misc/freetype/imgui_freetype.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_internal.h \
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -204,29 +204,29 @@ CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/misc/freetype/imgui_freety
  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchwintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imstb_textedit.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imstb_textedit.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/ft2build.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftheader.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/freetype.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftconfig.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftoption.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftstdlib.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/ft2build.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftheader.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/freetype.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftconfig.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftoption.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/ftstdlib.h \
  /usr/include/setjmp.h /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/integer-types.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/public-macros.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/mac-support.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/fttypes.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftsystem.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftimage.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/fterrors.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftmoderr.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/fterrdef.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftmodapi.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftglyph.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftsynth.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imstb_rectpack.h
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/integer-types.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/public-macros.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/config/mac-support.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/fttypes.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftsystem.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftimage.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/fterrors.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftmoderr.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/fterrdef.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftmodapi.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftglyph.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2/freetype/ftsynth.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imstb_rectpack.h

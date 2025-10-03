@@ -2859,34 +2859,34 @@ ButtonData::get_field_def( const char        * fieldname,
 }
 
 /******************************************************************
- * ArenaData Default Constructor
+ * ArenaCommand Default Constructor
  ******************************************************************/
-ArenaData::ArenaData()
+ArenaCommand::ArenaCommand()
 {
   init();
 }
 
 /******************************************************************
- * ArenaData Copy Constructor
+ * ArenaCommand Copy Constructor
  ******************************************************************/
-ArenaData::ArenaData( const ArenaData & other )
+ArenaCommand::ArenaCommand( const ArenaCommand & other )
 {
   init();
   copy( &other );
 }
 
 /******************************************************************
- * ArenaData Destructor
+ * ArenaCommand Destructor
  ******************************************************************/
-ArenaData::~ArenaData()
+ArenaCommand::~ArenaCommand()
 {
   clear();
 }
 
 /******************************************************************
- * ArenaData Assignment Operator
+ * ArenaCommand Assignment Operator
  ******************************************************************/
-ArenaData& ArenaData::operator=( const ArenaData & other )
+ArenaCommand& ArenaCommand::operator=( const ArenaCommand & other )
 {
   if (this == &other)
       return *this;
@@ -2900,20 +2900,20 @@ ArenaData& ArenaData::operator=( const ArenaData & other )
 }
 
 bool
-ArenaData::ArenaData::operator==( const ArenaData & other) const {
+ArenaCommand::ArenaCommand::operator==( const ArenaCommand & other) const {
   return (_deviceId == other._deviceId) &&
     (_sysName == other._sysName) &&
     (_color == other._color);
 }
 /******************************************************************
- * ::ArenaData Ops
+ * ::ArenaCommand Ops
  *****************************************************************/
 
 
 /******************************************************************
- * ArenaData init()
+ * ArenaCommand init()
  ******************************************************************/
-void ArenaData::init()
+void ArenaCommand::init()
 {
   _deviceId = std::string();
   _sysName = std::string();
@@ -2921,9 +2921,9 @@ void ArenaData::init()
 }
 
 /******************************************************************
- * ArenaData clear()
+ * ArenaCommand clear()
  ******************************************************************/
-void ArenaData::clear()
+void ArenaCommand::clear()
 {
   _deviceId = std::string();
   _sysName = std::string();
@@ -2931,11 +2931,11 @@ void ArenaData::clear()
 }
 
 /******************************************************************
- *  ArenaData copy()
+ *  ArenaCommand copy()
  ******************************************************************/
-int ArenaData::copy( const ArenaData * copy_from )
+int ArenaCommand::copy( const ArenaCommand * copy_from )
 {
-  ArenaData * copy_to = this;
+  ArenaCommand * copy_to = this;
   if ( ! copy_from ) return -1;
 
   /* copy deviceId */
@@ -2951,9 +2951,9 @@ int ArenaData::copy( const ArenaData * copy_from )
 }
 
 /******************************************************************
- *  ArenaData::marshal_cdr()
+ *  ArenaCommand::marshal_cdr()
  ******************************************************************/
-int ArenaData::marshal_cdr( CDX_XcdrEncoder_t * cdr,
+int ArenaCommand::marshal_cdr( CDX_XcdrEncoder_t * cdr,
                    int             _just_keys) const 
 {
   int32_t _rval = 0;
@@ -2980,7 +2980,7 @@ int ArenaData::marshal_cdr( CDX_XcdrEncoder_t * cdr,
   return CDX_XcdrEncoder_get_position( cdr );
 }
 
-int ArenaData::get_marshal_size( int   offset,
+int ArenaCommand::get_marshal_size( int   offset,
                    int   _just_keys) const
 {
   int _rval;
@@ -2995,7 +2995,7 @@ int ArenaData::get_marshal_size( int   offset,
   CDX_Xcdr1Encoder_clear( &xcdr1 );
   return _rval;
 }
-int ArenaData::marshal_cdr( unsigned char * buf,
+int ArenaCommand::marshal_cdr( unsigned char * buf,
                    int             offset,
                    int             stream_len,
                    unsigned char   swap,
@@ -3016,9 +3016,9 @@ int ArenaData::marshal_cdr( unsigned char * buf,
   return _rval;
 }
 /******************************************************************
- *  ArenaData::marshal_key_hash()
+ *  ArenaCommand::marshal_key_hash()
  ******************************************************************/
-int ArenaData::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
+int ArenaCommand::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const 
 {
   int32_t _rval      = 0;
   int32_t _just_keys = 1;
@@ -3044,14 +3044,14 @@ int ArenaData::marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const
 }
 
 /******************************************************************
- *  ArenaData::unmarshal_cdr()
+ *  ArenaCommand::unmarshal_cdr()
  ******************************************************************/
-int ArenaData::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
+int ArenaCommand::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
                    int             _just_keys)
 {
   int32_t _rval = 0;
   this->init( );
-  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "ArenaData" );
+  _rval = CDX_XcdrDecoder_aggregate_pre( cdr, XCDR_APPENDABLE, "ArenaCommand" );
   if ( _rval < 0 ) return _rval;
   if (_just_keys)
     {
@@ -3153,13 +3153,13 @@ int ArenaData::unmarshal_cdr( CDX_XcdrDecoder_t * cdr,
         }
       }
     }
-  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "ArenaData" );
+  CDX_XcdrDecoder_aggregate_post( cdr, XCDR_APPENDABLE, "ArenaCommand" );
   if ( _rval >= 0 ) 
     _rval = CDX_XcdrDecoder_get_position( cdr );
   return _rval;
 }
 
-int ArenaData::unmarshal_cdr( unsigned char * buf,
+int ArenaCommand::unmarshal_cdr( unsigned char * buf,
                    int             offset,
                    int             stream_len,
                    unsigned char   swap,
@@ -3180,9 +3180,9 @@ int ArenaData::unmarshal_cdr( unsigned char * buf,
   return _rval;
 }
 /******************************************************************
- *  ArenaData::unmarshal_key_hash()
+ *  ArenaCommand::unmarshal_key_hash()
  ******************************************************************/
-int ArenaData::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
+int ArenaCommand::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
 {
   int32_t _rval = 0;
   uint32_t _just_keys = 1;
@@ -3239,22 +3239,22 @@ int ArenaData::unmarshal_key_hash( CDX_XcdrDecoder_t * cdr )
   return _rval;
 }
 
-void ArenaData::gen_typeid_v2( unsigned char * buf,
+void ArenaCommand::gen_typeid_v2( unsigned char * buf,
                    int32_t          * buf_len )
 {
   static unsigned char data[15] = { 
-    0xf2, 0xfb, 0xf7, 0x81, 0x70, 0x81, 0x1e, 0xe3, 0x9e, 0x40, 0x80, 0x8d, 0xd0, 0xa6, 0x2b  }; 
+    0xf2, 0xb7, 0xcb, 0x6f, 0x80, 0x91, 0x5f, 0x8e, 0xe6, 0x69, 0x4b, 0xb5, 0x3f, 0x0e, 0xd2  }; 
   if (buf && buf_len && (*buf_len >= 15))
     {
        memcpy(buf, data, 15);
     }
   if (buf_len) *buf_len = 15;
 }
-int ArenaData::gen_typeobj_v2( unsigned char * buf,
-                                 int32_t     * buf_len )
+int ArenaCommand::gen_typeobj_v2( unsigned char * buf,
+                                    int32_t     * buf_len )
 {
-  static unsigned char data[684] = { 
-    0xa8, 0x02, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0xf1, 0x1a, 0xbc, 0x79, 0x0c, 0x86, 0xa3, 0xc6, 
+  static unsigned char data[688] = { 
+    0xac, 0x02, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0xf1, 0x1a, 0xbc, 0x79, 0x0c, 0x86, 0xa3, 0xc6, 
     0x93, 0xd2, 0x01, 0x77, 0x5f, 0x80, 0xda, 0x00, 0x8a, 0x00, 0x00, 0x00, 0xf1, 0x40, 0x02, 0x00, 
     0x02, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x7a, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 
     0x0e, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x18, 0x0a, 
@@ -3287,17 +3287,17 @@ int ArenaData::gen_typeobj_v2( unsigned char * buf,
     0x0a, 0x00, 0x00, 0x00, 0x43, 0x4f, 0x4c, 0x4f, 0x52, 0x5f, 0x52, 0x45, 0x44, 0x00, 0x00, 0x00, 
     0x1e, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
     0x0c, 0x00, 0x00, 0x00, 0x43, 0x4f, 0x4c, 0x4f, 0x52, 0x5f, 0x42, 0x4c, 0x41, 0x43, 0x4b, 0x00, 
-    0x00, 0x00, 0xf2, 0xfb, 0xf7, 0x81, 0x70, 0x81, 0x1e, 0xe3, 0x9e, 0x40, 0x80, 0x8d, 0xd0, 0xa6, 
-    0x2b, 0x00, 0x00, 0x00, 0x84, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x12, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x41, 0x72, 0x65, 0x6e, 0x61, 0x44, 0x61, 0x74, 
-    0x61, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x69, 
-    0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 
-    0x01, 0x00, 0x70, 0x00, 0x08, 0x00, 0x00, 0x00, 0x73, 0x79, 0x73, 0x4e, 0x61, 0x6d, 0x65, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x24, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0xf2, 0xf2, 
-    0xca, 0x62, 0xa2, 0x9c, 0x57, 0x59, 0x90, 0x7a, 0x74, 0x84, 0x89, 0xff, 0x92, 0x00, 0x00, 0x00, 
-    0x06, 0x00, 0x00, 0x00, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00  }; 
-  int32_t _rlen    = 684;
+    0x00, 0x00, 0xf2, 0xb7, 0xcb, 0x6f, 0x80, 0x91, 0x5f, 0x8e, 0xe6, 0x69, 0x4b, 0xb5, 0x3f, 0x0e, 
+    0xd2, 0x00, 0x00, 0x00, 0x88, 0x00, 0x00, 0x00, 0xf2, 0x51, 0x02, 0x00, 0x15, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x00, 0x00, 0x0d, 0x00, 0x00, 0x00, 0x41, 0x72, 0x65, 0x6e, 0x61, 0x43, 0x6f, 0x6d, 
+    0x6d, 0x61, 0x6e, 0x64, 0x00, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 
+    0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x09, 0x00, 0x00, 0x00, 
+    0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x49, 0x64, 0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x70, 0x00, 0x08, 0x00, 0x00, 0x00, 0x73, 0x79, 0x73, 0x4e, 
+    0x61, 0x6d, 0x65, 0x00, 0x00, 0x00, 0x00, 0x00, 0x24, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 
+    0x01, 0x00, 0xf2, 0xf2, 0xca, 0x62, 0xa2, 0x9c, 0x57, 0x59, 0x90, 0x7a, 0x74, 0x84, 0x89, 0xff, 
+    0x92, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x00, 0x00, 0x00  }; 
+  int32_t _rlen    = 688;
   if ( buf_len == NULL )                return -1;
   if ( buf && ( *buf_len < _rlen + 4) ) return -1;
   *buf_len = _rlen + 4;
@@ -3311,10 +3311,10 @@ int ArenaData::gen_typeobj_v2( unsigned char * buf,
   return 0;
 }
 /******************************************************************
- *  ArenaData get_field_def()
+ *  ArenaCommand get_field_def()
  ******************************************************************/
 unsigned char
-ArenaData::get_field_def( const char        * fieldname,
+ArenaCommand::get_field_def( const char        * fieldname,
                        CoreDX_FieldDef_t * field_def)
 {
   CDX_UNUSED(fieldname);
@@ -3326,9 +3326,9 @@ ArenaData::get_field_def( const char        * fieldname,
     field_def->elem_count = 0;
     if (field_def->user) {
       CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
-      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ArenaData,_deviceId);
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ArenaCommand,_deviceId);
     } else
-      field_def->offset  += s_offsetof(struct ArenaData,_deviceId);
+      field_def->offset  += s_offsetof(struct ArenaCommand,_deviceId);
     field_def->key        = 0;
     field_def->access     = CoreDX_fielddef_access;
     field_def->clear      = CoreDX_fielddef_clear;
@@ -3340,9 +3340,9 @@ ArenaData::get_field_def( const char        * fieldname,
     field_def->elem_count = 0;
     if (field_def->user) {
       CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
-      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ArenaData,_sysName);
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ArenaCommand,_sysName);
     } else
-      field_def->offset  += s_offsetof(struct ArenaData,_sysName);
+      field_def->offset  += s_offsetof(struct ArenaCommand,_sysName);
     field_def->key        = 0;
     field_def->access     = CoreDX_fielddef_access;
     field_def->clear      = CoreDX_fielddef_clear;
@@ -3354,9 +3354,9 @@ ArenaData::get_field_def( const char        * fieldname,
     field_def->elem_count = 0;
     if (field_def->user) {
       CoreDX_FieldDef_OffsetTable * _offsetTable = (CoreDX_FieldDef_OffsetTable*)field_def->user;
-      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ArenaData,_color);
+      _offsetTable->_buffer[_offsetTable->_length-1] += s_offsetof(struct ArenaCommand,_color);
     } else
-      field_def->offset  += s_offsetof(struct ArenaData,_color);
+      field_def->offset  += s_offsetof(struct ArenaCommand,_color);
     field_def->key        = 0;
     field_def->access     = CoreDX_fielddef_access;
     field_def->clear      = CoreDX_fielddef_clear;

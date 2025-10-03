@@ -477,26 +477,26 @@
   typedef dds::sub::DataReader<ButtonData>  ButtonDataDataReader;
   typedef dds::pub::DataWriter<ButtonData>  ButtonDataDataWriter;
 
-  struct COREDX_TS_STRUCT_EXPORT ArenaData {
+  struct COREDX_TS_STRUCT_EXPORT ArenaCommand {
     public:
-      ArenaData();
-      ~ArenaData();
-      ArenaData( const std::string __deviceId,
-                 const std::string __sysName,
-                 const Colors __color ) :
+      ArenaCommand();
+      ~ArenaCommand();
+      ArenaCommand( const std::string __deviceId,
+                    const std::string __sysName,
+                    const Colors __color ) :
         _deviceId( __deviceId ),
         _sysName( __sysName ),
         _color( __color ){ }
-      ArenaData( const ArenaData & other );
-      ArenaData& operator=( const ArenaData & other);
+      ArenaCommand( const ArenaCommand & other );
+      ArenaCommand& operator=( const ArenaCommand & other);
 
-      bool operator==( const ArenaData & other) const;
-      bool operator!=( const ArenaData & other) const { return !operator==(other); }
+      bool operator==( const ArenaCommand & other) const;
+      bool operator!=( const ArenaCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_fbf78170811ee39e40808dd0a62b :: M_22ab1636961487bb07e44f119595 ] */
+      /* TypeId: [ C_b7cb6f80915f8ee6694bb53f0ed2 :: M_22ab1636961487bb07e44f119595 ] */
       void   init();
       void   clear();
-      int    copy( const ArenaData * instance );
+      int    copy( const ArenaCommand * instance );
 
       int  marshal_cdr( CDX_XcdrEncoder_t *cdr, int just_keys) const ;
       int  marshal_key_hash( CDX_XcdrEncoder_t * cdr ) const;
@@ -507,15 +507,15 @@
       int  marshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys) const ;
       int  unmarshal_cdr( unsigned char * buf, int offset, int stream_len, unsigned char swap, int just_keys);
 
-      static void * alloc() { return new ArenaData; }
+      static void * alloc() { return new ArenaCommand; }
       static int    marshal_cdr( const void * instance, CDX_XcdrEncoder_t *cdr, int just_keys) 
-                         { return ((ArenaData*)instance)->marshal_cdr( cdr, just_keys ); }
+                         { return ((ArenaCommand*)instance)->marshal_cdr( cdr, just_keys ); }
       static int    marshal_key_hash( const void * instance, CDX_XcdrEncoder_t *cdr) 
-                         { return ((ArenaData*)instance)->marshal_key_hash( cdr ); }
+                         { return ((ArenaCommand*)instance)->marshal_key_hash( cdr ); }
       static int    unmarshal_cdr( void * instance, CDX_XcdrDecoder_t * cdr, int just_keys) 
-                         { return ((ArenaData*)instance)->unmarshal_cdr( cdr, just_keys ); }
+                         { return ((ArenaCommand*)instance)->unmarshal_cdr( cdr, just_keys ); }
       static int    unmarshal_key_hash( void * instance, CDX_XcdrDecoder_t * cdr) 
-                         { return ((ArenaData*)instance)->unmarshal_key_hash( cdr ); }
+                         { return ((ArenaCommand*)instance)->unmarshal_key_hash( cdr ); }
 
       static void      gen_typeid_v2 ( unsigned char * buf, int * buf_len );
       static int       gen_typeobj_v2 ( unsigned char * buf, int * buf_len );
@@ -540,14 +540,14 @@
             Colors & color( )       { return _color; }
       void color( const Colors __color ) { _color = __color; }
 
-      typedef dds::sub::DataReader<ArenaData>  DataReader;
-      typedef dds::pub::DataWriter<ArenaData>  DataWriter;
+      typedef dds::sub::DataReader<ArenaCommand>  DataReader;
+      typedef dds::pub::DataWriter<ArenaCommand>  DataWriter;
 
     private:
 
-  }; //ArenaData
-  typedef dds::sub::DataReader<ArenaData>  ArenaDataDataReader;
-  typedef dds::pub::DataWriter<ArenaData>  ArenaDataDataWriter;
+  }; //ArenaCommand
+  typedef dds::sub::DataReader<ArenaCommand>  ArenaCommandDataReader;
+  typedef dds::pub::DataWriter<ArenaCommand>  ArenaCommandDataWriter;
 
   struct COREDX_TS_STRUCT_EXPORT DeviceInfo {
     public:
@@ -764,7 +764,7 @@ inline std::ostream & operator<< (std::ostream &out, ButtonData const& data ) {
 CDX_TOPIC_TRAITS( ButtonData );
 REGISTER_TOPIC_TYPE( ButtonData );
 
-inline std::ostream & operator<< (std::ostream &out, ArenaData const& data ) {
+inline std::ostream & operator<< (std::ostream &out, ArenaCommand const& data ) {
   (void)data;
   out << "deviceId: ";
   out << "\"" << data.deviceId() << "\"";
@@ -777,9 +777,9 @@ inline std::ostream & operator<< (std::ostream &out, ArenaData const& data ) {
   out << std::endl;
   return out;
 }
-// ArenaData support 
-CDX_TOPIC_TRAITS( ArenaData );
-REGISTER_TOPIC_TYPE( ArenaData );
+// ArenaCommand support 
+CDX_TOPIC_TRAITS( ArenaCommand );
+REGISTER_TOPIC_TYPE( ArenaCommand );
 
 inline std::ostream & operator<< (std::ostream &out, DeviceInfo const& data ) {
   (void)data;

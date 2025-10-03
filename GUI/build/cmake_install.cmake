@@ -1,4 +1,4 @@
-# Install script for directory: /home/ethan/RobobrawlClock/DDSClock/GUI/src
+# Install script for directory: /home/ethan/Robobrawl/DDSClock/GUI/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ethan/RobobrawlClock/DDSClock/GUI/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ethan/Robobrawl/DDSClock/GUI/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

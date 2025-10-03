@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ethan/RobobrawlClock/DDSClock/GUI/build -I/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include/dds_cxx -I/home/ethan/RobobrawlClock/coredx-6.5.0-Evaluation/target/include -I/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui -I/home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends -I/home/ethan/RobobrawlClock/DDSClock/GUI/build/freetype-2.13.2/include/freetype2
+CXX_INCLUDES = -I/home/ethan/Robobrawl/DDSClock/GUI/build -I/home/ethan/dds/coredx-6.5.0-Evaluation/target/include/dds_cxx -I/home/ethan/dds/coredx-6.5.0-Evaluation/target/include -I/home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui -I/home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/backends -I/home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/include/freetype2
 
 CXX_FLAGS = -std=c++17 -DUSE_GLFW -Wall
 

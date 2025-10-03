@@ -1,8 +1,8 @@
 CMakeFiles/Robobrawl_Clock.dir/imgui-1.90.9/src/imgui/imgui_demo.cpp.o: \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui_demo.cpp \
  /usr/include/stdc-predef.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h \
- /home/ethan/RobobrawlClock/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imgui.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/imgui-1.90.9/src/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/string.h \

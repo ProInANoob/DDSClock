@@ -57,6 +57,9 @@
   DDS_DataWriterQos dw_qos;
   DDS_DataReaderQos dr_qos;
   DeviceInfo devInfo; 
+  ButtonData buttonData;
+
+
 
 
   //dev  Config.
@@ -266,6 +269,9 @@
 
   void writeButtonState(){
     // basiucaly just do dw.write I think.... noothiing to set here.... 
+    ButtonStateDataWriter_write(bd_dw, &butt);
+
+
   }
 
 // no need for a deviceinfo writer, justwriting the once as of now...
@@ -339,6 +345,11 @@
         devInfo.role = devRole;
         devInfo.displayName = displayName;
         devInfo.sysName = sysName;
+
+        // create other strucs
+        ButtonData_init(&buttonData);
+        
+
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
@@ -401,6 +412,7 @@
       while( 1 ){
         vTaskDelay(500 / portTICK_PERIOD_MS);
         // read buttons, write mexssages if nessisary..... nee mutexes on this stufffff probbaly...... ( ask dad about the dds cals in multiple cores.... shoulednt overlap using them at the same time but just in case..... )
+        
       }
   }
 

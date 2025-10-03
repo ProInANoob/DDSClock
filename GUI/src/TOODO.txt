@@ -12,16 +12,15 @@ APP :
     STATES:
         ADD LIOOGHT STATES (?)
         ADD SETTING CLOOCK DURATION 
-        refoormat tthe system stes into a mapp of [sys, StateStruct]
-        sttate Struct : 
-            duration
-            state var
-            settings -> uint32 encoded with defs I gues. 
+        refoormat tthe system stes into a mapp of [sys, StateStruct] - done I think. 
+
+        want main press in match to be unstick untill we redo the buttons to have that button. 
 
 
 
     OTEHRFUNCT:
         make sure dead device removes it from the list in systems / gui whatever. 
+        Make it not segfault when it exits. huh. I dont know why it does this .... 
 
 
 
@@ -29,23 +28,14 @@ INOS :
 
     - refactor to be dual core... do all the reading of dr on one core with the ooother doing button listening / writng / cloock management /  wjaatever.. ( NEED TO DO DDS WORK ON BOTH.... I HTIN K. need some kind of delay thing, dds_work is doing stuff in the meantime so.)
         - nwill probably be nessisary for the clocks.... so ill doo It on  both,,  might not call dds_work in the other core, jusst some other yeild  / wait thing.... I have a  feeling  that dds_work is haveing  issueess,  cvould also be  the  other reader messingg  stufff Illl have to test motre as I buld the code back up ....
-    - add data writes - im just gonna add a writte function, do button calling in illinois
+
     - add command reader. - global color var - noo just reset on reception I think..... 
     - add color / state loogic / wriitnjgn. ^^^
     - see if yoou cann pub devInfoo on new participant, could have listener on devInfo foor role::coonntroll...... 
 
-    - update clock to match progress of buttoon. 
     - have anuva write clock / just steal from the last stuffff.... that wsas kinda jank tho. 
 
-IDL
-    ADD ARENA LIGHT ROLE, AND MESSAAGE. 
 
 
-    MAKE THE BUTTON COMMAND A MORE TARGETED??? JUST TINK ABOUT IS A LITTLE....
-
-
-
-okay so the martial thiing seems to happen only in the multithread, could be a dds_work in twwo cores thing,  and 
-NEW BUG??? - esp recieves the xyx change but the gui dosent update, no deviceinnfo sent / reciieved or gui bug idk....
-
-... I  cant duplicate it now..... wellll iDK.... could be esp thought it wwas the same name for some reason... and didnt update I hjave no idea...  
+Later thing:::
+    add devids to all the command messages so I can handle multiple controlers on a network ( or I could just domain it but that hard coded.... )

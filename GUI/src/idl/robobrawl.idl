@@ -76,7 +76,7 @@ struct ButtonData{
     long tapoutPressed;
 };
 
-struct ArenaData{
+struct ArenaCommand{
     string deviceId;
 
     string sysName;

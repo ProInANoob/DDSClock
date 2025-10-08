@@ -41,6 +41,8 @@ char gui::newSys[256] = "";
 float gui::buffer = 5;
 
 int button_cammand_state_item_number = 0;
+int clock_cammand_state_item_number = 0;
+
 
 std::map<std::string, Colors> state_names_to_color_class = {
     {"BLACK", Colors::COLOR_BLACK},
@@ -468,28 +470,76 @@ void gui::draw_dashboard(int domain_id)
           ImGui::PushID(i);
           if (ImGui::Button("Clock Settings"))
           {
-            ImGui::OpenPopup("Modal window");
+            ImGui::OpenPopup("ClockSettings");
           }
-          if (ImGui::BeginPopupModal("Modal window"))
+          if (ImGui::BeginPopupModal("ClockSettings"))
           {
-            ImGui::Text("some instruciton I gusss.");
-            ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+            // --------------------- Sys Change --------------------------
             if (ImGui::Button("send SysChange"))
-            {
-              SysName msg = SysName();
-              msg.init();
-              msg.deviceId(*it);
-              msg.sysName(newSys);
-              std::cout << "write new SysName";
-              roboClock::control.writeSysName(msg);
-            }
+              {
+                ImGui::OpenPopup("SystemName");
+              }
+              if (ImGui::BeginPopupModal("SystemName"))
+              {
+                ImGui::InputText("New Sys Name", newSys, IM_ARRAYSIZE(newSys));
+
+                if (ImGui::Button("Send & Close"))
+                {
+                  SysName msg = SysName();
+                  msg.init();
+                  msg.deviceId(deviceId);
+                  msg.sysName(newSys);
+                  std::cout << "write new SysName";
+                  roboClock::control.writeSysName(msg);
+                  ImGui::CloseCurrentPopup();
+                }
+                if (ImGui::Button("Close"))
+                {
+                  ImGui::CloseCurrentPopup();
+                }
+                ImGui::EndPopup();
+              }
+              // ---------------------- Clock Command --------------------------
+              if (ImGui::Button("Send ClockComand"))
+              {
+                ImGui::OpenPopup("ClockCommand");
+              }
+              if (ImGui::BeginPopupModal("ClockCommand"))
+              {
+                ImGui::Text("Set values for ClockCommand");
+                // DO THIS STUFFFFFFF TODO
+                ImGui::Combo("State", &clock_cammand_state_item_number, state_names_list, IM_ARRAYSIZE(state_names_list)); // this is for color... 
+                // need all of ther otehr  things, time, is on, ect.... 
+                // 
+                // do that here
+                if (ImGui ::Button("Close and Send"))
+                {
+
+                  ClockCommand comm = ClockCommand();
+                  comm.deviceId(deviceId);
+                  std::string color_name = state_names_list[button_cammand_state_item_number];
+                  comm.mainColor(state_names_to_color_class[color_name]);
+                  roboClock::control.writeToClock(comm);
+                  ImGui::CloseCurrentPopup();
+                }
+                if (ImGui::Button("Close"))
+                  ImGui::CloseCurrentPopup();
+                ImGui::EndPopup();
+              }
+
+              // -------------------- CLock Dur ------------------------------------
+              if(ImGui::Button("Set Clock Duration")){
+                ImGui::OpenPopup("SetDuration");
+              }
+              if(ImGui::BeginPopupModal("SetDuration")){
+                ImGui::InputInt("Clock Duration: (sec) ", *(org[pair.first].durationSec));
+              }
             if (ImGui::Button("Close"))
               ImGui::CloseCurrentPopup();
             ImGui::EndPopup();
           }
 
           ImGui::PopID();
-          // add button fro clock control ( like sysname nick, not start stop stuf. thats in this sys control menu.)
 
           i++;
         }

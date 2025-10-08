@@ -19,8 +19,26 @@ enum Colors{
     COLOR_YELLOW,
     COLOR_RED,
     COLOR_BLACK, // off
+    COLOR_WHITE,
 };
 
+enum ArenaState{ // im gona use these as state numbers,,, so just like fade blue on, fade orange on, fadeorangeandblue on or somehting..... 
+// ahhhh have the pi run some cored subroutines for each of these things that changes the map of vaalues (4 x 4), and ense state out ever so ocy6j7ften .
+    ARENA_STATIC,
+    ARENA_OFF,
+    ARENA_WHITE,
+    ARENA_ORANGE_READYS,
+    ARENA_BLUE_READYS,
+    ARENA_ORANGE_WIN,
+    ARENA_BLUE_WIN,
+    ARENA_321,
+    ARENA_IN_MATCH,
+    ARENA_TIME_EXPIRE,
+    ARENA_EMERGENCY,
+    ARENA_UNSTICK, 
+
+
+}
 
 struct Heartbeat{
     string deviceId;
@@ -75,6 +93,10 @@ struct ButtonData{
 
     long tapoutPressed;
 };
+
+
+
+
 
 struct ArenaCommand{
     string deviceId;

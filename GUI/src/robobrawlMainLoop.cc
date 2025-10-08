@@ -44,30 +44,9 @@ void roboClock::main_loop()
       timer_01hz.start();
       // for gui frames.
       gui::loop(domain_id);
-    }
 
-    // every 1 sec:
-    if (timer_1hz.elapsed().count() >= 1000)
-    {
-      timer_1hz.start();
-      // heartbeat.
-      std::cout << "Tick....\n";
-      //control.writeSysName(temp);
-      //control.writeHeartbeat();
-    }
-
-    // every 10 sec:
-    if (timer_10hz.elapsed().count() >= 10000)
-    {
-      timer_10hz.start();
-      // check for dead heartbeats.
-    }
-
-
-
-
-
-    for( auto & pair : org){
+      for( auto & pair : org){
+      ArenaCommand arena;
       ClockCommand comm;
       timeValue time;
       float timeNum;
@@ -76,11 +55,13 @@ void roboClock::main_loop()
       std::string system = pair.first;
       SystemInfo info = pair.second;
 
+      comm.sysName(system);
+      arena.sysName(system);
       switch(info.state){
           case -1: // pure waiting - arena white.  - do buttons  in gui for idel the system  and remove from idle. 
             // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet. 
-
-
+            arena.color( Colors::COLOR_WHITE);
+            control.writeToArena( arena );
             break;
           case 0: // waiting for readys.. - arena  off ? ( add a start for idle and before match I think..... )
             comm.isOff( 0 );
@@ -93,6 +74,8 @@ void roboClock::main_loop()
             comm.time( time );
             control.writeToClock( comm ); // ill be writing this ALOT... but for timeing ill do it anyway? just be good at cleanup on esp... 
 
+            arena.color( Colors::COLOR_BLACK );
+            control.writeToArena( arena );
 
             break;
           case 1: // one is ready... orange - half orange / green???
@@ -105,9 +88,8 @@ void roboClock::main_loop()
             time.seconds( 0 );
             comm.time( time );
 
-            comm.sysName(system);
             control.writeToClock(comm);
-
+          
 
             break;
           case 2: // blue is ready, - half colored ( gree / blue )
@@ -290,6 +272,30 @@ void roboClock::main_loop()
 
     }
 
+    }
+
+    // every 1 sec:
+    if (timer_1hz.elapsed().count() >= 1000)
+    {
+      timer_1hz.start();
+      // heartbeat.
+      std::cout << "Tick....\n";
+      //control.writeSysName(temp);
+      //control.writeHeartbeat();
+    }
+
+    // every 10 sec:
+    if (timer_10hz.elapsed().count() >= 10000)
+    {
+      timer_10hz.start();
+      // check for dead heartbeats.
+    }
+
+
+
+
+
+    
     std::this_thread::sleep_for(std::chrono::milliseconds(5));
   }
   std::cout << "end of this stufff";

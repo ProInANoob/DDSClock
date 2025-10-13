@@ -25,10 +25,12 @@
   #include "exampleDataWriter.h"
   #include "exampleDataReader.h"
 
+  #include "driver/gpio.h"
+
   static const char *TAG = "example";
   // static const char *payload = "Message from ESP32 ";
-  #define READY_BUTTON_PIN 1
-  #define TAPOUT_BUTTON_PIN 2
+  #define READY_BUTTON_PIN GPIO_NUM_11
+  #define TAPOUT_BUTTON_PIN GPIO_NUM_10
 
 
   /*************************************************************/
@@ -269,7 +271,7 @@
 
   void writeButtonState(){
     // basiucaly just do dw.write I think.... noothiing to set here.... 
-    ButtonStateDataWriter_write(bd_dw, &butt);
+    ButtonStateDataWriter_write(bd_dw, &buttonData);
 
 
   }
@@ -349,6 +351,7 @@
         // create other strucs
         ButtonData_init(&buttonData);
         
+        buttonData.
 
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
@@ -410,7 +413,17 @@
       //} // wooait for other task to signal dds okay.... 
       // do device things....... . 
       while( 1 ){
-        vTaskDelay(500 / portTICK_PERIOD_MS);
+        vTaskDelay(50 / portTICK_PERIOD_MS);
+
+        if( gpio_get_level(READY_BUTTON_PIN) ){
+          // send a ready update. 
+          buttonData.
+        }
+
+        if( gpio_get_level(TAPOUT_BUTTON_PIN) ){
+          //send tapout update.. 
+        }
+
         // read buttons, write mexssages if nessisary..... nee mutexes on this stufffff probbaly...... ( ask dad about the dds cals in multiple cores.... shoulednt overlap using them at the same time but just in case..... )
         
       }

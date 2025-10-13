@@ -74,9 +74,13 @@ public:
       return DeviceRole::ROLE_UNKNOWN;
   }
 
-  std::map<std::string, SystemInfo> getOrg()
+  std::map<std::string, SystemInfo>* getOrg()
   {
-    return (org);
+    return (&org);
+  }
+
+  void setOrgState(std::string sysName, int state){
+    org[sysName].state = state;
   }
 
   // -------------------------------------------------------

@@ -38,7 +38,7 @@ enum ArenaState{ // im gona use these as state numbers,,, so just like fade blue
     ARENA_UNSTICK, 
 
 
-}
+};
 
 struct Heartbeat{
     string deviceId;

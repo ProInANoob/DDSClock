@@ -14,8 +14,7 @@ Context roboClock::context;
 std::string roboClock::deviceId = "";
 int roboClock::domain_id = 0;
 
-// state encoding : -1 retain whatever was going on before. 0 is off- nothing. 1 - to zeros, 2 - full time, 3 - start run, 4 running, 5 paused, 6 resume,- 7 orange win - 8 blue win - 9 red for just in case. 
-
+// state encoding : -1 retain whatever was going on before. 0 is off- nothing. 1 - to zeros, 2 - full time, 3 - start run, 4 running, 5 paused, 6 resume,- 7 orange win - 8 blue win - 9 red for just in case.
 
 static Timer timer_01hz; //  0.1 Hz
 static Timer timer_1hz;  //  1   Hz
@@ -28,12 +27,11 @@ void roboClock::main_loop()
   timer_1hz.start();
   timer_10hz.start();
   SysName temp = SysName();
-  temp.deviceId( "hi " );
-  temp.sysName ( "hp2" );
+  temp.deviceId("hi ");
+  temp.sysName("hp2");
 
-  // org 
-  auto org = roboClock::control.known_devices.getOrg();
-
+  // org
+  auto org = *roboClock::control.known_devices.getOrg();
 
   while (!done)
   {
@@ -44,234 +42,226 @@ void roboClock::main_loop()
       timer_01hz.start();
       // for gui frames.
       gui::loop(domain_id);
+      for (auto &pair : org)
+      {
+        printf("main, but likek every liitle fasst \n");
 
-      for( auto & pair : org){
-      ArenaCommand arena;
-      ClockCommand comm;
-      timeValue time;
-      float timeNum;
-      std::cout << "start\n";
+        ArenaCommand arena;
+        ClockCommand comm;
+        timeValue time;
+        float timeNum;
+        std::cout << "start\n";
 
-      std::string system = pair.first;
-      SystemInfo info = pair.second;
+        std::string system = pair.first;
+        SystemInfo info = pair.second;
 
-      comm.sysName(system);
-      arena.sysName(system);
-      switch(info.state){
-          case -1: // pure waiting - arena white.  - do buttons  in gui for idel the system  and remove from idle. 
-            // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet. 
-            arena.color( Colors::COLOR_WHITE);
-            control.writeToArena( arena );
-            break;
-          case 0: // waiting for readys.. - arena  off ? ( add a start for idle and before match I think..... )
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_GREEN ); // red???/ green? idk man
-            comm.blueGearColor( Colors::COLOR_BLACK ); //off
-            comm.orangeGearColor( Colors::COLOR_BLACK ); //off
-            time.minutes( 0 );
-            time.seconds( 0 );
-            comm.time( time );
-            control.writeToClock( comm ); // ill be writing this ALOT... but for timeing ill do it anyway? just be good at cleanup on esp... 
+        comm.sysName(system);
+        arena.sysName(system);
+        switch (info.state)
+        {
+        case -1: // pure waiting - arena white.  - do buttons  in gui for idel the system  and remove from idle.
+          // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet.
+          arena.color(Colors::COLOR_WHITE);
+          control.writeToArena(arena);
+          break;
+        case 0: // waiting for readys.. - arena  off ? ( add a start for idle and before match I think..... )
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+          comm.mainColor(Colors::COLOR_GREEN);       // red???/ green? idk man
+          comm.blueGearColor(Colors::COLOR_BLACK);   // off
+          comm.orangeGearColor(Colors::COLOR_BLACK); // off
+          time.minutes(0);
+          time.seconds(0);
+          comm.time(time);
+          control.writeToClock(comm); // ill be writing this ALOT... but for timeing ill do it anyway? just be good at cleanup on esp...
 
-            arena.color( Colors::COLOR_BLACK );
-            control.writeToArena( arena );
+          arena.color(Colors::COLOR_BLACK);
+          control.writeToArena(arena);
 
-            break;
-          case 1: // one is ready... orange - half orange / green???
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_RED);
-            comm.blueGearColor( Colors::COLOR_BLACK ); //off
-            comm.orangeGearColor( Colors::COLOR_ORANGE); // trun this one on
-            time.minutes( 0 );
-            time.seconds( 0 );
-            comm.time( time );
+          break;
+        case 1: // one is ready... orange - half orange / green???
+          printf("In Main Loop, state is 1 \n");
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+          comm.mainColor(Colors::COLOR_RED);
+          comm.blueGearColor(Colors::COLOR_BLACK);    // off
+          comm.orangeGearColor(Colors::COLOR_ORANGE); // trun this one on
+          time.minutes(0);
+          time.seconds(0);
+          comm.time(time);
 
-            control.writeToClock(comm);
-          
+          control.writeToClock(comm);
 
-            break;
-          case 2: // blue is ready, - half colored ( gree / blue )
-            
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_RED);
-            comm.blueGearColor( Colors::COLOR_BLUE ); //off
-            comm.orangeGearColor( Colors::COLOR_BLACK); // trun this one on
-            time.minutes( 0 );
-            time.seconds( 0 );
-            comm.time( time );
+          break;
+        case 2: // blue is ready, - half colored ( gree / blue )
 
-            comm.sysName(system);
-            control.writeToClock(comm);
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+          comm.mainColor(Colors::COLOR_RED);
+          comm.blueGearColor(Colors::COLOR_BLUE);    // off
+          comm.orangeGearColor(Colors::COLOR_BLACK); // trun this one on
+          time.minutes(0);
+          time.seconds(0);
+          comm.time(time);
 
+          comm.sysName(system);
+          control.writeToClock(comm);
 
+          break;
+        case 3: // both ready - green ? off ? white ? I think off - turn on at
 
-            break;
-          case 3: // both ready - green ? off ? white ? I think off - turn on at 
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+          comm.mainColor(Colors::COLOR_RED);
+          comm.blueGearColor(Colors::COLOR_BLUE);     // off
+          comm.orangeGearColor(Colors::COLOR_ORANGE); // trun this one on
+          time.minutes(0);
+          time.seconds(0);
+          comm.time(time);
 
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_RED);
-            comm.blueGearColor( Colors::COLOR_BLUE ); //off
-            comm.orangeGearColor( Colors::COLOR_ORANGE); // trun this one on
-            time.minutes( 0 );
-            time.seconds( 0 );
-            comm.time( time );
+          comm.sysName(system);
+          control.writeToClock(comm);
 
-            comm.sysName(system);
-            control.writeToClock(comm);
+          break;
+        case 4: // ui for 3? sec countdown
 
+          timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+          comm.mainColor(Colors::COLOR_YELLOW);
 
-            break;
-          case 4: // ui for 3? sec countdown
+          time.seconds(int(timeNum) * 11); // shoudld go 33::33 -> 22:22 -> 11:11 -. start.
+          time.minutes(int(timeNum) * 11);
+          comm.time(time);
+          control.writeToClock(comm);
 
-            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_YELLOW);
+          if (timeNum <= 0)
+          {
+            known_devices.setOrgState(system, 5); 
+          }
 
-            time.seconds( int(timeNum) * 11  ); // shoudld go 33::33 -> 22:22 -> 11:11 -. start. 
-            time.minutes( int(timeNum) * 11  );
-            comm.time( time );
-            control.writeToClock(comm);
+          break;
 
-            if(timeNum <= 0 ){
-              info.state = 5;
-            }
+        case 5: // pause.
 
+          info.timer.pause();
+          comm.isOff(0);
+          comm.doDisplayTime(1);
 
-            break;
+          // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display.
+          timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
-          case 5: // pause.
+          time.seconds(fmod(timeNum, 60));
+          time.minutes(int(timeNum / 60));
+          comm.time(time);
+          control.writeToClock(comm); // should just work probaly.... need a resume state tho.
 
-            info.timer.pause();
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            
-            // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
+          break;
+        case 6:
+          time.seconds(88);
+          time.minutes(88);
 
-            time.seconds( fmod(timeNum, 60) );
-            time.minutes( int(timeNum / 60) );
-            comm.time( time );
-            control.writeToClock(comm); // should just work probaly.... need a resume state tho. 
-            
+          comm.isOff(0);
+          comm.blueGearColor(Colors::COLOR_BLUE);
+          comm.orangeGearColor(Colors::COLOR_BLUE);
+          comm.mainColor(Colors::COLOR_BLUE);
 
-            break;
-          case 6:
-            time.seconds( 88 );
-            time.minutes( 88 );
+          comm.doDisplayTime(1);
 
-            comm.isOff( 0 );
-            comm.blueGearColor( Colors::COLOR_BLUE );
-            comm.orangeGearColor( Colors::COLOR_BLUE );
-            comm.mainColor( Colors::COLOR_BLUE );
+          comm.time(time);
+          control.writeToClock(comm);
 
-            comm.doDisplayTime( 1 );
+          break;
+        case 7:
+          time.seconds(88);
+          time.minutes(88);
 
-            comm.time( time );
-            control.writeToClock( comm );
+          comm.isOff(0);
+          comm.blueGearColor(Colors::COLOR_ORANGE);
+          comm.orangeGearColor(Colors::COLOR_ORANGE);
+          comm.mainColor(Colors::COLOR_ORANGE);
 
-            
-            break;
-          case 7:
-            time.seconds( 88 );
-            time.minutes( 88 );
+          comm.doDisplayTime(1);
 
-            comm.isOff( 0 );
-            comm.blueGearColor( Colors::COLOR_ORANGE );
-            comm.orangeGearColor( Colors::COLOR_ORANGE );
-            comm.mainColor( Colors::COLOR_ORANGE );
+          comm.time(time);
+          control.writeToClock(comm);
 
-            comm.doDisplayTime( 1 );
+          known_devices.setOrgState(system, -1); 
 
-            comm.time( time );
-            control.writeToClock( comm );
+          break;
+        case 8:
+          time.seconds(0);
+          time.minutes(0);
 
-            info.state = -1;
-            break;
-          case 8:
-            time.seconds( 0 );
-            time.minutes( 0 );
+          comm.isOff(0);
+          comm.blueGearColor(Colors::COLOR_RED);
+          comm.orangeGearColor(Colors::COLOR_RED);
+          comm.mainColor(Colors::COLOR_RED);
 
-            comm.isOff( 0 );
-            comm.blueGearColor( Colors::COLOR_RED );
-            comm.orangeGearColor( Colors::COLOR_RED );
-            comm.mainColor( Colors::COLOR_RED );
+          comm.doDisplayTime(1);
 
-            comm.doDisplayTime( 1 );
+          comm.time(time);
+          control.writeToClock(comm);
 
-            comm.time( time );
-            control.writeToClock( comm );
+          break;
 
-            break;
+        case 9:
+          info.timer.pause();
+          comm.isOff(0);
+          comm.doDisplayTime(1);
 
-          case 9:
-            info.timer.pause();
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            
-            // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
+          // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display.
+          timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
-            time.seconds( fmod(timeNum, 60) );
-            time.minutes( int(timeNum / 60) );
-            comm.time( time );
-            control.writeToClock(comm); // should just work probaly.... need a resume state tho. (12)
-            break;
+          time.seconds(fmod(timeNum, 60));
+          time.minutes(int(timeNum / 60));
+          comm.time(time);
+          control.writeToClock(comm); // should just work probaly.... need a resume state tho. (12)
+          break;
 
+        case 10:
+          timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+          comm.mainColor(Colors::COLOR_YELLOW);
 
-          case 10:
-            timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            comm.mainColor( Colors::COLOR_YELLOW);
+          time.seconds(int(timeNum) * 11); // shoudld go 33::33 -> 22:22 -> 11:11 -. start.
+          time.minutes(int(timeNum) * 11);
+          comm.time(time);
+          control.writeToClock(comm);
 
-            time.seconds( int(timeNum) * 11  ); // shoudld go 33::33 -> 22:22 -> 11:11 -. start. 
-            time.minutes( int(timeNum) * 11  );
-            comm.time( time );
-            control.writeToClock(comm);
+          info.timer.start();
+          known_devices.setOrgState(system, 4); 
 
-            info.timer.start();
-            info.state = 4;
+          break;
+        case 11:
 
+          info.timer.start();
+          comm.isOff(0);
+          comm.doDisplayTime(1);
 
-            break;
-          case 11:
-            
-            info.timer.start();
-            comm.isOff( 0 );
-            comm.doDisplayTime( 1 );
-            
-            // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display. 
-            timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
+          // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display.
+          timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
-            time.seconds( fmod(timeNum, 60) );
-            time.minutes( int(timeNum / 60) );
-            comm.time( time );
-            control.writeToClock(comm); // should just work probaly.... need a resume state tho. (12)
+          time.seconds(fmod(timeNum, 60));
+          time.minutes(int(timeNum / 60));
+          comm.time(time);
+          control.writeToClock(comm); // should just work probaly.... need a resume state tho. (12)
 
+          break;
+        case 12:
+          info.timer.resume();
+          known_devices.setOrgState(system, 5); // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5)
+          control.writeToClock(comm);
+          break;
 
-            break;
-          case 12:
-            info.timer.resume();
-            info.state = 5; // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5) 
-            control.writeToClock(comm);
-            break;
+        default:
+          std::cout << "unknown Clock state in: " << pair.first << std::endl;
+          break;
+        }
 
-          default:
-            std::cout << "unknown Clock state in: " << pair.first << std::endl;
-            break;
+        std::cout << "end\n";
       }
-      
-      std::cout << "end\n";
-
-
-
-    }
-
     }
 
     // every 1 sec:
@@ -280,8 +270,8 @@ void roboClock::main_loop()
       timer_1hz.start();
       // heartbeat.
       std::cout << "Tick....\n";
-      //control.writeSysName(temp);
-      //control.writeHeartbeat();
+      // control.writeSysName(temp);
+      // control.writeHeartbeat();
     }
 
     // every 10 sec:
@@ -291,11 +281,6 @@ void roboClock::main_loop()
       // check for dead heartbeats.
     }
 
-
-
-
-
-    
     std::this_thread::sleep_for(std::chrono::milliseconds(5));
   }
   std::cout << "end of this stufff";

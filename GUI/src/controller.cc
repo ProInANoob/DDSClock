@@ -12,29 +12,32 @@ void Controller::handle_button_data(const ButtonData & data){
     else
     {
         // I have system and devId - so look at blue / orange, need a system state I think... so I can change that and update the clock state
-        auto org = known_devices.getOrg();
+        auto org = *known_devices.getOrg();
         if(data.mainPressed() != 0){
             // switch over this system state..
             switch(org[data.sysName()].state){
                 // 0: idle, 
                 case 0:
+                printf("should be here\n");
                     if(known_devices.get_device_role(data.deviceId( )) == DeviceRole::ROLE_BUTTON_BLUE){
-                        org[data.sysName()].state = 2; 
+                        known_devices.setOrgState(data.sysName(), 2); 
                     } else {
                         //orange button
-                        org[data.sysName()].state = 1; 
+                        known_devices.setOrgState(data.sysName(), 1); 
                     }
                     break;
                 case 1:
                     if(known_devices.get_device_role(data.deviceId( )) == DeviceRole::ROLE_BUTTON_BLUE){
-                        org[data.sysName()].state = 3;
+                        known_devices.setOrgState(data.sysName(), 3); 
+
                     } else{
                         //orange repeat press...
                     }
                     break;
                 case 2:
                     if(known_devices.get_device_role(data.deviceId( )) == DeviceRole::ROLE_BUTTON_ORANGE){
-                        org[data.sysName()].state = 3;
+                        known_devices.setOrgState(data.sysName(), 3); 
+
                     } else{
                         //blue repeat press...
                     }
@@ -55,6 +58,8 @@ void Controller::handle_button_data(const ButtonData & data){
                     //unknown state???????? wth. 
                     break;
             } 
+
+            printf("New State %d\n", org[data.sysName()].state);
         } else if( data.tapoutPressed() != 0){
             switch(org[data.sysName()].state){
                 // 0: idle, 1: orangReady, 2: blueReady, 3: goTime/Running, 4: doneIdle, 5: orangeWInn, 6: BlueWin
@@ -71,10 +76,10 @@ void Controller::handle_button_data(const ButtonData & data){
                     break;
                 case 5:
                     if(known_devices.get_device_role(data.deviceId( )) == DeviceRole::ROLE_BUTTON_BLUE){
-                        org[data.sysName()].state = 5; 
+                        known_devices.setOrgState(data.sysName(), 5); 
                     } else {
                         //orange button
-                        org[data.sysName()].state = 6; 
+                        known_devices.setOrgState(data.sysName(), 6); 
                     }
                     break;
                 case 4:

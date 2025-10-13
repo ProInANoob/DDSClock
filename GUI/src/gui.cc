@@ -260,7 +260,7 @@ void gui::draw_dashboard(int domain_id)
 
   // I dont have any devices tooo test this against so imma start on the sesps.
   // i Think im gonna do this wiht beins
-  std::map<std::string, SystemInfo> org = roboClock::control.known_devices.getOrg();
+  std::map<std::string, SystemInfo> org = *roboClock::control.known_devices.getOrg();
   ImGui::Begin("Systems");
   {
 
@@ -285,9 +285,13 @@ void gui::draw_dashboard(int domain_id)
       // window is open
       ImGui::Begin("SystemControol");
       // list items
+      
+
       if (ImGui::CollapsingHeader(" BUTTONS "))
       {
         int i = 0;
+        ImGui::Text("hihihihih");
+        ImGui::Text("%d", org[system_name].state);
 
         // ------------------------- BLUE BUTTONSS -------------------------------------------
 
@@ -304,10 +308,10 @@ void gui::draw_dashboard(int domain_id)
           }
           ImGui::PopStyleColor();
           ImGui::SetNextWindowSize(ImVec2(400, 400));
+          std::string deviceId = *it;
           // -------------------- BUTTON SETTINGS -----------------------------------------------
           if (ImGui::BeginPopupModal((*it).c_str(), nullptr, ImGuiWindowFlags_NoResize))
           {
-            std::string deviceId = *it;
 
             {
               // -------------------- SYS CHANGE WINDOW -------------------------------------
@@ -390,9 +394,10 @@ void gui::draw_dashboard(int domain_id)
           }
           ImGui::PopStyleColor();
           ImGui::SetNextWindowSize(ImVec2(400, 400));
+          std::string deviceId = *it;
           if (ImGui::BeginPopupModal((*it).c_str(), nullptr, ImGuiWindowFlags_NoResize))
           {
-            std::string deviceId = *it;
+
             { // all teh windows inn a space
               // -------------------- SYS CHANGE WINDOW -------------------------------------
               if (ImGui::Button("send SysChange"))
@@ -467,6 +472,7 @@ void gui::draw_dashboard(int domain_id)
         for (auto it = org[pair.first].devices[DeviceRole::ROLE_CLOCK].begin(); it != org[pair.first].devices[DeviceRole::ROLE_CLOCK].end(); it++)
         {
           ImGui::Text((*it).c_str());
+          std::string deviceId = *it;
           ImGui::PushID(i);
           if (ImGui::Button("Clock Settings"))
           {
@@ -516,7 +522,6 @@ void gui::draw_dashboard(int domain_id)
                 {
 
                   ClockCommand comm = ClockCommand();
-                  comm.deviceId(deviceId);
                   std::string color_name = state_names_list[button_cammand_state_item_number];
                   comm.mainColor(state_names_to_color_class[color_name]);
                   roboClock::control.writeToClock(comm);
@@ -532,7 +537,7 @@ void gui::draw_dashboard(int domain_id)
                 ImGui::OpenPopup("SetDuration");
               }
               if(ImGui::BeginPopupModal("SetDuration")){
-                ImGui::InputInt("Clock Duration: (sec) ", *(org[pair.first].durationSec));
+                ImGui::InputFloat("Clock Duration: (sec) ", &(org[pair.first].durationSec));
               }
             if (ImGui::Button("Close"))
               ImGui::CloseCurrentPopup();

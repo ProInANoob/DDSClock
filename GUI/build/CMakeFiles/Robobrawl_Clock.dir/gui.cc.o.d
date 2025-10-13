@@ -535,6 +535,7 @@ CMakeFiles/Robobrawl_Clock.dir/gui.cc.o: \
  /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
  /home/ethan/Robobrawl/DDSClock/GUI/src/button_command.hh \
  /home/ethan/Robobrawl/DDSClock/GUI/src/clock_command.hh \
+ /home/ethan/Robobrawl/DDSClock/GUI/src/arena_command.hh \
  /home/ethan/Robobrawl/DDSClock/GUI/src/heartbeat.hh \
  /home/ethan/Robobrawl/DDSClock/GUI/src/set_sysName.hh \
  /home/ethan/Robobrawl/DDSClock/GUI/src/known_devices.hh \

@@ -21,7 +21,7 @@ public:
     {
       auto topic = dds::topic::Topic<ArenaCommand>( context.participant(), "ArenaCommand" );
       dw = dds::pub::DataWriter<ArenaCommand>( context.publisher(), topic );
-      devId = deviceId;
+      
 
       dds::pub::qos::DataWriterQos dw_qos = dw.qos();
       dw_qos <<  dds::core::policy::UserData(dds::core::ByteSeq( deviceId.begin(), deviceId.end() ) );

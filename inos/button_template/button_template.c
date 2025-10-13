@@ -27,10 +27,11 @@
 
   #include "driver/gpio.h"
 
+
   static const char *TAG = "example";
   // static const char *payload = "Message from ESP32 ";
-  #define READY_BUTTON_PIN GPIO_NUM_11
-  #define TAPOUT_BUTTON_PIN GPIO_NUM_10
+  #define READY_BUTTON_PIN 11
+  #define TAPOUT_BUTTON_PIN 10  
 
 
   /*************************************************************/
@@ -69,10 +70,11 @@
   int devRole = ROLE_BUTTON_ORANGE;
   char * displayName = "TEST_DEVICE"; //not  implemented on gui  probably
   char * sysName_default  = "TEST";
-  char sysName[100];
-
+  char * sysName = "TEST";
+  unsigned long long writeTime;
 
   bool dds_created = false; 
+  Colors currentColor;
 
   static uint
   coredx_logio_routine(const char *cbuf, size_t size)
@@ -185,7 +187,8 @@
           if(strcmp(smsg->sysName, sysName) != 0){
             // new sys Name.. 
             strcpy( sysName, smsg->sysName); 
-
+            devInfo.sysName = sysName; 
+            buttonData.sysName = sysName; 
             DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // update network of new sys namem.
             dds_work(dp, 100); 
           }
@@ -269,9 +272,18 @@
   }
 
 
-  void writeButtonState(){
-    // basiucaly just do dw.write I think.... noothiing to set here.... 
-    ButtonStateDataWriter_write(bd_dw, &buttonData);
+  void writeButtonData(){
+    // basiucaly just do dw.write I think.... noothiing to set here....
+    
+    //if(writeTime - timer_gettime() > 300){
+      ButtonDataDataWriter_write(bd_dw, &buttonData, DDS_HANDLE_NIL);
+    //  writeTime = timer_gettime();
+    //}
+    //else{
+    //  ESP_LOGI(TAG, "Too Fast Of A Write... ");
+    //}
+    
+
 
 
   }
@@ -350,17 +362,19 @@
 
         // create other strucs
         ButtonData_init(&buttonData);
+        buttonData.deviceId = deviceId;
+        buttonData.sysName = sysName;
+        buttonData.mainPressed = 0;
+        buttonData.tapoutPressed = 0; 
         
-        buttonData.
 
-        dds_work(dp, 1000); 
         dds_work(dp, 1000); 
         dds_work(dp, 1000); 
 
 
 
         
-        for(int i = 0; i < 15; i++){
+        for(int i = 0; i <50; i++){
 
           DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
           dds_work(dp, 100); 
@@ -383,14 +397,13 @@
 
           devInfo.sysName = sysName;
 
-          DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); 
           //DDS_DataReader_get_subscription_matched_status(sn_dr, &status);
           //printf("Subscition matched count: %ld\n", status.total_count);
 
 
           // write and increment hearbeat.
 
-          dds_work(dp, 1000); // do DDS work for 100ms -> ~10 per sec
+          dds_work(dp, 100); // do DDS work for 100ms -> ~10 per sec
         }
       }
       else
@@ -411,22 +424,32 @@
       //while (!dds_created){
       //  vTaskDelay(100 / portTICK_PERIOD_MS);
       //} // wooait for other task to signal dds okay.... 
-      // do device things....... . 
+      // do device things....... .
+      currentColor = COLOR_BLACK; 
       while( 1 ){
         vTaskDelay(50 / portTICK_PERIOD_MS);
 
         if( gpio_get_level(READY_BUTTON_PIN) ){
           // send a ready update. 
-          buttonData.
+          buttonData.mainPressed = 1;
+          buttonData.tapoutPressed = 0;
+          writeButtonData();
+          ESP_LOGI(TAG, "READYYYYYY");
         }
 
         if( gpio_get_level(TAPOUT_BUTTON_PIN) ){
-          //send tapout update.. 
+          //send tapout update..
+          buttonData.mainPressed = 0;
+          buttonData.tapoutPressed = 1;
+          writeButtonData();
+
         }
 
-        // read buttons, write mexssages if nessisary..... nee mutexes on this stufffff probbaly...... ( ask dad about the dds cals in multiple cores.... shoulednt overlap using them at the same time but just in case..... )
+
+        
         
       }
+      // read buttons, write mexssages if nessisary..... nee mutexes on this stufffff probbaly...... ( ask dad about the dds cals in multiple cores.... shoulednt overlap using them at the same time but just in case..... )
   }
 
 
@@ -435,13 +458,17 @@
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
-    strcpy(sysName, sysName_default);
+    //strcpy(sysName, sysName_default);
 
     /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
     * Read "Establishing Wi-Fi or Ethernet Connection" section in
     * examples/protocols/README.md for more information about this function.
     */
     ESP_ERROR_CHECK(example_connect());
+
+    gpio_set_direction(READY_BUTTON_PIN, GPIO_MODE_INPUT);
+    gpio_set_direction(TAPOUT_BUTTON_PIN, GPIO_MODE_INPUT);
+    
 
     xTaskCreatePinnedToCore(dds_example_task, "dds_readers", 16384, NULL, 5, NULL, 1);
     xTaskCreatePinnedToCore(device_task, "device_stuff", 16384, NULL, 5, NULL, 0);

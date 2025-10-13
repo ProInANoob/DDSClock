@@ -31,14 +31,14 @@ void roboClock::main_loop()
   temp.sysName("hp2");
 
   // org
-  auto org = *roboClock::control.known_devices.getOrg();
-
+  
   while (!done)
   {
-
+    
     // every 0.1 sec:
-    if (timer_01hz.elapsed().count() >= 10)
+    if (timer_01hz.elapsed().count() >= 500)
     {
+      auto org = *roboClock::control.known_devices.getOrg();
       timer_01hz.start();
       // for gui frames.
       gui::loop(domain_id);
@@ -48,6 +48,9 @@ void roboClock::main_loop()
 
         ArenaCommand arena;
         ClockCommand comm;
+        ButtonCommand orangeButton;
+        ButtonCommand blueButton;
+
         timeValue time;
         float timeNum;
         std::cout << "start\n";
@@ -61,10 +64,21 @@ void roboClock::main_loop()
         {
         case -1: // pure waiting - arena white.  - do buttons  in gui for idel the system  and remove from idle.
           // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet.
+          control.WriteToBlueButtons(system, Colors::COLOR_BLACK);
+          control.WriteToOrangeButtons(system, Colors::COLOR_BLACK);
+
+          //buttons off
+          
           arena.color(Colors::COLOR_WHITE);
           control.writeToArena(arena);
           break;
         case 0: // waiting for readys.. - arena  off ? ( add a start for idle and before match I think..... )
+
+          // buttons on orange / blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
+
+        //
           comm.isOff(0);
           comm.doDisplayTime(1);
           comm.mainColor(Colors::COLOR_GREEN);       // red???/ green? idk man
@@ -80,6 +94,14 @@ void roboClock::main_loop()
 
           break;
         case 1: // one is ready... orange - half orange / green???
+
+
+
+          // buttons on Orange: green / Blue:blue. 
+          printf("state1, should write\n");
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_GREEN);
+
           printf("In Main Loop, state is 1 \n");
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -94,6 +116,11 @@ void roboClock::main_loop()
 
           break;
         case 2: // blue is ready, - half colored ( gree / blue )
+
+
+          // buttons on Orange: Orange / Blue:Green. 
+          control.WriteToBlueButtons(system, Colors::COLOR_GREEN);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
 
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -110,6 +137,10 @@ void roboClock::main_loop()
           break;
         case 3: // both ready - green ? off ? white ? I think off - turn on at
 
+          // buttons on Orange: green / Blue:Green. 
+          control.WriteToBlueButtons(system, Colors::COLOR_GREEN);
+          control.WriteToOrangeButtons(system, Colors::COLOR_GREEN);
+
           comm.isOff(0);
           comm.doDisplayTime(1);
           comm.mainColor(Colors::COLOR_RED);
@@ -125,6 +156,10 @@ void roboClock::main_loop()
           break;
         case 4: // ui for 3? sec countdown
 
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_BLACK);
+          control.WriteToOrangeButtons(system, Colors::COLOR_BLACK);
+
           timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -137,12 +172,16 @@ void roboClock::main_loop()
 
           if (timeNum <= 0)
           {
-            known_devices.setOrgState(system, 5); 
+            control.known_devices.setOrgState(system, 5); 
           }
 
           break;
 
         case 5: // pause.
+
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_RED);
+          control.WriteToOrangeButtons(system, Colors::COLOR_RED);
 
           info.timer.pause();
           comm.isOff(0);
@@ -158,6 +197,11 @@ void roboClock::main_loop()
 
           break;
         case 6:
+
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_BLUE);
+
           time.seconds(88);
           time.minutes(88);
 
@@ -173,6 +217,11 @@ void roboClock::main_loop()
 
           break;
         case 7:
+
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_ORANGE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
+
           time.seconds(88);
           time.minutes(88);
 
@@ -186,10 +235,15 @@ void roboClock::main_loop()
           comm.time(time);
           control.writeToClock(comm);
 
-          known_devices.setOrgState(system, -1); 
+          control.known_devices.setOrgState(system, -1); 
 
           break;
         case 8:
+
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_RED);
+          control.WriteToOrangeButtons(system, Colors::COLOR_RED);
+
           time.seconds(0);
           time.minutes(0);
 
@@ -206,6 +260,11 @@ void roboClock::main_loop()
           break;
 
         case 9:
+
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
+
           info.timer.pause();
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -220,6 +279,10 @@ void roboClock::main_loop()
           break;
 
         case 10:
+
+      
+
+
           timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -231,10 +294,15 @@ void roboClock::main_loop()
           control.writeToClock(comm);
 
           info.timer.start();
-          known_devices.setOrgState(system, 4); 
+          control.known_devices.setOrgState(system, 4); 
 
           break;
         case 11:
+
+          // buttons on Orange: green / Blue:blue. 
+          control.WriteToBlueButtons(system, Colors::COLOR_YELLOW);
+          control.WriteToOrangeButtons(system, Colors::COLOR_YELLOW);
+
 
           info.timer.start();
           comm.isOff(0);
@@ -251,7 +319,7 @@ void roboClock::main_loop()
           break;
         case 12:
           info.timer.resume();
-          known_devices.setOrgState(system, 5); // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5)
+          control.known_devices.setOrgState(system, 5); // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5)
           control.writeToClock(comm);
           break;
 

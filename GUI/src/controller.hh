@@ -70,6 +70,26 @@ public:
         buttonWriter.publish( command );
     }
 
+    void WriteToBlueButtons( std::string sysName, Colors color){
+        auto org = *known_devices.getOrg();
+        ButtonCommand command;
+        for(auto id : org[sysName].devices[DeviceRole::ROLE_BUTTON_BLUE]){
+            command.deviceId(id);
+            command.buttonState( color);
+            buttonWriter.publish( command ); 
+        }
+    }
+
+    void WriteToOrangeButtons( std::string sysName, Colors color){
+        auto org = *known_devices.getOrg();
+        ButtonCommand command;
+        for(auto id : org[sysName].devices[DeviceRole::ROLE_BUTTON_ORANGE]){
+            command.deviceId( id);
+            command.buttonState ( color);
+            buttonWriter.publish( command ); 
+        }   
+    }
+
     void writeToArena( ArenaCommand & command ){
         arenaWriter.publish( command );
     }

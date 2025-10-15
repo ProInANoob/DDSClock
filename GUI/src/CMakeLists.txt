@@ -106,7 +106,7 @@ set( FT2_LIB_PATH ${CMAKE_CURRENT_BINARY_DIR}/freetype-2.13.2/lib )
 if ( WIN32 )
   set( FT2_LIBS     freetype$<$<CONFIG:Debug>:d> )
 else()
-  set( FT2_LIBS     freetype png z )
+  set( FT2_LIBS     freetype bz2 png z )
 endif()  
 
 #######################################################################

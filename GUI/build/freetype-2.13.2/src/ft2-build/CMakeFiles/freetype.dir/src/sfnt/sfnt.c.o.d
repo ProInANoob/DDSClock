@@ -97,19 +97,24 @@ CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o: \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/ftcalc.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftincrem.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/tttags.h \
- /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/sfdriver.c \
- /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/sfnt.h \
+ /usr/include/png.h /usr/include/pnglibconf.h /usr/include/pngconf.h \
+ /usr/include/time.h /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/pngshim.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttload.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/tttypes.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/tttables.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftcolor.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftmm.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/t1tables.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/sferrors.h \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/sfdriver.c \
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/sfnt.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/wofftypes.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ttnameid.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/sfdriver.h \
- /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttload.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/sfobjs.h \
- /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/sferrors.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttsbit.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttcolr.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttcpal.h \
@@ -152,5 +157,4 @@ CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o: \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttpost.c \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttsbit.c \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftbitmap.h \
- /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/pngshim.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/woff2tags.c

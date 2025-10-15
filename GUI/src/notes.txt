@@ -1,4 +1,4 @@
 need command line options to change some things, will put into code later:
 
-set COREDX_UDP_MAX_TX_SIZE=1400      << for preventing ip fragmentation that the esp cant reconstruct
-set COREDX_IP_ADDR=192.168.0.16      << just to make it a little easier on the esp -> only send to the one addrss were using ( needs to be corrct address.)
+export COREDX_UDP_MAX_TX_SIZE=1400      << for preventing ip fragmentation that the esp cant reconstruct
+export COREDX_IP_ADDR=192.168.0.191      << just to make it a little easier on the esp -> only send to the one addrss were using ( needs to be corrct address.)

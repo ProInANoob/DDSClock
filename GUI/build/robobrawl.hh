@@ -34,13 +34,31 @@
 
 
   enum class Colors  {
-  /* enum TypeId: [ C_f2ca62a29c5759907a748489ff92 :: M_1abc790c86a3c693d201775f80da ] */
+  /* enum TypeId: [ C_b7a447c6f863d7d81d4e056029ed :: M_94044857f9c989ff4c7843962d58 ] */
     COLOR_GREEN = 0, 
     COLOR_ORANGE = 1, 
     COLOR_BLUE = 2, 
     COLOR_YELLOW = 3, 
     COLOR_RED = 4, 
-    COLOR_BLACK = 5
+    COLOR_BLACK = 5, 
+    COLOR_WHITE = 6
+  };
+
+
+  enum class ArenaState  {
+  /* enum TypeId: [ C_3d1c2cd86b16e9ef21df999da5dd :: M_280a0073b136b01ed5021366b447 ] */
+    ARENA_STATIC = 0, 
+    ARENA_OFF = 1, 
+    ARENA_WHITE = 2, 
+    ARENA_ORANGE_READYS = 3, 
+    ARENA_BLUE_READYS = 4, 
+    ARENA_ORANGE_WIN = 5, 
+    ARENA_BLUE_WIN = 6, 
+    ARENA_321 = 7, 
+    ARENA_IN_MATCH = 8, 
+    ARENA_TIME_EXPIRE = 9, 
+    ARENA_EMERGENCY = 10, 
+    ARENA_UNSTICK = 11
   };
 
   struct COREDX_TS_STRUCT_EXPORT Heartbeat {
@@ -262,7 +280,7 @@
       bool operator==( const ClockCommand & other) const;
       bool operator!=( const ClockCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_20dc8b0c06163b3ac097fa119771 :: M_cbcf44a7700751fe7143defbaa11 ] */
+      /* TypeId: [ C_70b05f2347bae5f87189962f8460 :: M_d9613485095e1388d0b5ff694996 ] */
       void   init();
       void   clear();
       int    copy( const ClockCommand * instance );
@@ -348,7 +366,7 @@
       bool operator==( const ButtonCommand & other) const;
       bool operator!=( const ButtonCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_08bd40230ed12e181cb39422b193 :: M_93e319762fae198b5c99b1ba9a95 ] */
+      /* TypeId: [ C_9e66ccf006bae8221f430b39da2e :: M_96bcc2cf58979692ff25ababd0d3 ] */
       void   init();
       void   clear();
       int    copy( const ButtonCommand * instance );
@@ -493,7 +511,7 @@
       bool operator==( const ArenaCommand & other) const;
       bool operator!=( const ArenaCommand & other) const { return !operator==(other); }
 
-      /* TypeId: [ C_b7cb6f80915f8ee6694bb53f0ed2 :: M_22ab1636961487bb07e44f119595 ] */
+      /* TypeId: [ C_66a2c148c5fe4fda042a0907d569 :: M_4a7d08ff7d1e4cec00942e647a88 ] */
       void   init();
       void   clear();
       int    copy( const ArenaCommand * instance );
@@ -653,6 +671,26 @@ inline std::ostream & operator<< (std::ostream &out, Colors const& data ) {
     case Colors::COLOR_YELLOW: out <<"COLOR_YELLOW"; break;
     case Colors::COLOR_RED: out <<"COLOR_RED"; break;
     case Colors::COLOR_BLACK: out <<"COLOR_BLACK"; break;
+    case Colors::COLOR_WHITE: out <<"COLOR_WHITE"; break;
+    default: out << static_cast<int32_t>(data);
+  }
+  return out;
+}
+inline std::ostream & operator<< (std::ostream &out, ArenaState const& data ) {
+  (void)data;
+  switch(data) { 
+    case ArenaState::ARENA_STATIC: out <<"ARENA_STATIC"; break;
+    case ArenaState::ARENA_OFF: out <<"ARENA_OFF"; break;
+    case ArenaState::ARENA_WHITE: out <<"ARENA_WHITE"; break;
+    case ArenaState::ARENA_ORANGE_READYS: out <<"ARENA_ORANGE_READYS"; break;
+    case ArenaState::ARENA_BLUE_READYS: out <<"ARENA_BLUE_READYS"; break;
+    case ArenaState::ARENA_ORANGE_WIN: out <<"ARENA_ORANGE_WIN"; break;
+    case ArenaState::ARENA_BLUE_WIN: out <<"ARENA_BLUE_WIN"; break;
+    case ArenaState::ARENA_321: out <<"ARENA_321"; break;
+    case ArenaState::ARENA_IN_MATCH: out <<"ARENA_IN_MATCH"; break;
+    case ArenaState::ARENA_TIME_EXPIRE: out <<"ARENA_TIME_EXPIRE"; break;
+    case ArenaState::ARENA_EMERGENCY: out <<"ARENA_EMERGENCY"; break;
+    case ArenaState::ARENA_UNSTICK: out <<"ARENA_UNSTICK"; break;
     default: out << static_cast<int32_t>(data);
   }
   return out;

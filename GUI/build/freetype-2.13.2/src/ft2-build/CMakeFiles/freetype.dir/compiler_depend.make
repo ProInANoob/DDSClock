@@ -2487,6 +2487,7 @@ CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o: /home/ethan/Robobrawl/DDSClock/GU
   /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/ftstream.h \
   /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/ft2build.h \
   /usr/include/alloca.h \
+  /usr/include/bzlib.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
@@ -4127,12 +4128,16 @@ CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o: /home/ethan/Robobrawl/DDSClock/GUI/bu
   /usr/include/features.h \
   /usr/include/limits.h \
   /usr/include/linux/limits.h \
+  /usr/include/png.h \
+  /usr/include/pngconf.h \
+  /usr/include/pnglibconf.h \
   /usr/include/setjmp.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/time.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -4156,6 +4161,7 @@ CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o: /home/ethan/Robobrawl/DDSClock/GUI/bu
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
   /usr/include/x86_64-linux-gnu/bits/timesize.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
@@ -4173,8 +4179,10 @@ CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o: /home/ethan/Robobrawl/DDSClock/GUI/bu
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
   /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -4983,6 +4991,12 @@ CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o: /home/ethan/Robobrawl/DDSClock/
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/smooth/smooth.c:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/pngconf.h:
+
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttsvg.h:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttsvg.c:
@@ -5237,6 +5251,8 @@ CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o: /home/ethan/Robobrawl/DDSClock/
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/cache/ftcache.c:
 
+/usr/include/bzlib.h:
+
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/truetype/ttinterp.c:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sdf/ftsdfrend.c:
@@ -5310,6 +5326,8 @@ CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o: /home/ethan/Robobrawl/DDSClock/
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/truetype/ttgxvar.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
@@ -5463,6 +5481,8 @@ include/freetype/config/ftconfig.h:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/builds/unix/ftsystem.c:
 
+/usr/include/png.h:
+
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/fthash.h:
 
 /usr/include/strings.h:
@@ -5587,6 +5607,8 @@ include/freetype/config/ftoption.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
+/usr/include/pnglibconf.h:
+
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/sfnt/ttcpal.c:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftpfr.h:
@@ -5614,6 +5636,8 @@ include/freetype/config/ftoption.h:
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/services/svpfr.h:
+
+/usr/include/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 

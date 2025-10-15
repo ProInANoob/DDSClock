@@ -36,15 +36,23 @@ void roboClock::main_loop()
   {
     
     // every 0.1 sec:
-    if (timer_01hz.elapsed().count() >= 500)
+    if (timer_01hz.elapsed().count() >= 50)
     {
-      auto org = *roboClock::control.known_devices.getOrg();
+      
       timer_01hz.start();
       // for gui frames.
       gui::loop(domain_id);
+      
+    }
+
+    // every 1 sec:
+    if (timer_1hz.elapsed().count() >= 100)
+    {
+      timer_1hz.start();
+      // heartbeat.
+      auto org = *roboClock::control.known_devices.getOrg();
       for (auto &pair : org)
       {
-        printf("main, but likek every liitle fasst \n");
 
         ArenaCommand arena;
         ClockCommand comm;
@@ -53,7 +61,6 @@ void roboClock::main_loop()
 
         timeValue time;
         float timeNum;
-        std::cout << "start\n";
 
         std::string system = pair.first;
         SystemInfo info = pair.second;
@@ -98,11 +105,9 @@ void roboClock::main_loop()
 
 
           // buttons on Orange: green / Blue:blue. 
-          printf("state1, should write\n");
           control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
           control.WriteToOrangeButtons(system, Colors::COLOR_GREEN);
 
-          printf("In Main Loop, state is 1 \n");
           comm.isOff(0);
           comm.doDisplayTime(1);
           comm.mainColor(Colors::COLOR_RED);
@@ -328,16 +333,7 @@ void roboClock::main_loop()
           break;
         }
 
-        std::cout << "end\n";
       }
-    }
-
-    // every 1 sec:
-    if (timer_1hz.elapsed().count() >= 1000)
-    {
-      timer_1hz.start();
-      // heartbeat.
-      std::cout << "Tick....\n";
       // control.writeSysName(temp);
       // control.writeHeartbeat();
     }
@@ -351,5 +347,4 @@ void roboClock::main_loop()
 
     std::this_thread::sleep_for(std::chrono::milliseconds(5));
   }
-  std::cout << "end of this stufff";
 }

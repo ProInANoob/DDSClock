@@ -8,6 +8,7 @@
   #include "freertos/event_groups.h"
   #include "esp_system.h"
   #include "esp_event.h"
+  #include "esp_wifi.h"
   #include "esp_log.h"
   #include "nvs_flash.h"
   #include "esp_netif.h"
@@ -215,6 +216,7 @@
   }
 
   void readButtonCommand(){
+    printf("check command\n");
     ButtonCommandPtrSeq samples;
     DDS_SampleInfoSeq samples_info;
     DDS_ReturnCode_t retval;
@@ -318,6 +320,11 @@
       pub = DDS_DomainParticipant_create_publisher(dp, DDS_PUBLISHER_QOS_DEFAULT, NULL, 0);
       if (pub)
       {
+
+        DDS_Publisher_get_default_datawriter_qos(pub, &dw_qos);
+
+        dw_qos.reliability.kind = DDS_RELIABLE_RELIABILITY_QOS;
+
         DDS_Publisher_get_default_datawriter_qos(pub, &dw_qos);
         
         DeviceInfoTypeSupport_register_type(dp, "DeviceInfo");
@@ -374,7 +381,7 @@
 
 
         
-        for(int i = 0; i <50; i++){
+        for(int i = 0; i <10; i++){
 
           DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
           dds_work(dp, 100); 
@@ -421,10 +428,12 @@
 
 
   static void device_task(void *pvParameters){
-      //while (!dds_created){
-      //  vTaskDelay(100 / portTICK_PERIOD_MS);
-      //} // wooait for other task to signal dds okay.... 
+    printf("AHHHHHHHHHH\n");
+      while (!dds_created){
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+      } // wooait for other task to signal dds okay.... 
       // do device things....... .
+      ESP_LOGI(TAG, "Start Device Task");
       currentColor = COLOR_BLACK; 
       while( 1 ){
         vTaskDelay(50 / portTICK_PERIOD_MS);
@@ -442,7 +451,7 @@
           buttonData.mainPressed = 0;
           buttonData.tapoutPressed = 1;
           writeButtonData();
-
+          ESP_LOGI(TAG, "TapOut");
         }
 
 
@@ -466,12 +475,14 @@
     */
     ESP_ERROR_CHECK(example_connect());
 
+    esp_wifi_set_ps(WIFI_PS_NONE);
+
     gpio_set_direction(READY_BUTTON_PIN, GPIO_MODE_INPUT);
     gpio_set_direction(TAPOUT_BUTTON_PIN, GPIO_MODE_INPUT);
     
 
-    xTaskCreatePinnedToCore(dds_example_task, "dds_readers", 16384, NULL, 5, NULL, 1);
     xTaskCreatePinnedToCore(device_task, "device_stuff", 16384, NULL, 5, NULL, 0);
+    xTaskCreatePinnedToCore(dds_example_task, "dds_readers", 16384, NULL, 5, NULL, 1);
 
 
     

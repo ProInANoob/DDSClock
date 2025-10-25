@@ -3,7 +3,7 @@
 
 void Controller::handle_button_data(const ButtonData & data){
     // update button states. 
-    std::cout << " oohohoh a button data" << std::endl;
+    //std::cout << " oohohoh a button data" << std::endl;
 
     //oka soooooooo 
     if(!data.mainPressed() && !data.tapoutPressed() ){

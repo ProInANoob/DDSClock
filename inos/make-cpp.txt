@@ -1,0 +1,5 @@
+uh 
+
+rename the file, then add teh extern "C" before the main and mabey one of the dds functions? 
+
+then go into the cmake in main and make it set_target or whatever with the cpp file. then that should work? 

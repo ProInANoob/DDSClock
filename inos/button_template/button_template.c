@@ -25,18 +25,21 @@
   #include "exampleTypeSupport.h"
   #include "exampleDataWriter.h"
   #include "exampleDataReader.h"
+  
+  
 
   #include "driver/gpio.h"
 
 
   static const char *TAG = "example";
   // static const char *payload = "Message from ESP32 ";
-  #define READY_BUTTON_PIN 11
-  #define TAPOUT_BUTTON_PIN 10  
+  #define READY_BUTTON_PIN GPIO_NUM_11
+  #define TAPOUT_BUTTON_PIN GPIO_NUM_10
 
 
   /*************************************************************/
   #define CDX_HEAP_SIZE (1024 * 1024) /* 1 MB */
+
   // ESP has 160K limit on DRAM (global variables)
   // however, we can use malloc() to get a larger buffer...
 
@@ -69,9 +72,10 @@
   //dev  Config.
   char * deviceId = "TEST_DEVICE";
   int devRole = ROLE_BUTTON_ORANGE;
-  char * displayName = "TEST_DEVICE"; //not  implemented on gui  probably
+  char * displayName = "TEST_DEVICE"; //not  implemented on gui  probabl
   char * sysName_default  = "TEST";
-  char * sysName = "TEST";
+  char sysName[50];
+  
   unsigned long long writeTime;
 
   bool dds_created = false; 
@@ -90,11 +94,11 @@
   }
 
   /*************************************************************/
-  int device_coredx_init(uint32_t ticks_per_sec)
+  extern "C" int device_coredx_init(uint32_t ticks_per_sec)
   {
     toc_set_logio_routine(coredx_logio_routine);
     // CoreDX_DDS_set_ipaddr( (unsigned char *)&ipaddr); /* 4 byte IPv4 addr */
-    unsigned char *cdx_heap = malloc(CDX_HEAP_SIZE);
+    unsigned char *cdx_heap = (unsigned char *)malloc(CDX_HEAP_SIZE);
     if (cdx_heap != NULL)
     {
       CoreDX_DDS_heap_init(cdx_heap, CDX_HEAP_SIZE);
@@ -104,7 +108,7 @@
       ESP_LOGE(TAG, "Unable to allocate heap for CoreDX DDS...");
     }
 
-    toc_set_ticks_per_sec(ticks_per_sec);
+    //toc_set_ticks_per_sec(ticks_per_sec);
     return 0;
   }
 
@@ -284,10 +288,11 @@
     //else{
     //  ESP_LOGI(TAG, "Too Fast Of A Write... ");
     //}
-    
 
+  }
 
-
+  void writeDeviceInfo(){
+    DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL);
   }
 
 // no need for a deviceinfo writer, justwriting the once as of now...
@@ -438,6 +443,10 @@
       while( 1 ){
         vTaskDelay(50 / portTICK_PERIOD_MS);
 
+        if( gpio_get_level(READY_BUTTON_PIN) && gpio_get_level(TAPOUT_BUTTON_PIN)){
+          writeDeviceInfo();
+        }
+
         if( gpio_get_level(READY_BUTTON_PIN) ){
           // send a ready update. 
           buttonData.mainPressed = 1;
@@ -462,12 +471,14 @@
   }
 
 
-  void app_main(void)
+  extern "C" void app_main(void)
   {
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
-    //strcpy(sysName, sysName_default);
+    strcpy(sysName, sysName_default);
+
+    
 
     /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
     * Read "Establishing Wi-Fi or Ethernet Connection" section in

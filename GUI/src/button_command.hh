@@ -37,7 +37,6 @@ public:
   
     // -------------------------------------------------------
     void publish(ButtonCommand & command) {
-      std::cout << "ButtonCommand  Sent. \n";
       this->dw.write( command );
     }
 

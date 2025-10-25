@@ -40,6 +40,8 @@ float gui::m_fixedW = 0.0f;
 char gui::newSys[256] = "";
 float gui::buffer = 5;
 
+float dummyDur;
+
 int button_cammand_state_item_number = 0;
 int clock_cammand_state_item_number = 0;
 
@@ -282,10 +284,37 @@ void gui::draw_dashboard(int domain_id)
     if (pair.second)
     {
       std::string system_name = pair.first;
+      // ----------- SYSTEM WINDOW ----------------------------------
       // window is open
+
       ImGui::Begin("SystemControol");
-      // list items
       
+      if(ImGui::CollapsingHeader("Settings:")){
+        ImGui::Text("Info: ");
+
+        // Num Orange buttons
+        ImGui::Text(" - Number of Orange Buttons: %d", org[system_name].devices[DeviceRole::ROLE_BUTTON_ORANGE].size());
+
+        // Num Blue
+        ImGui::Text(" - Number of Blue Buttons: %d", org[system_name].devices[DeviceRole::ROLE_BUTTON_BLUE].size());
+
+        // Num clock
+        ImGui::Text(" - Number of Clocks: %d\n", org[system_name].devices[DeviceRole::ROLE_CLOCK].size());
+
+        // Clock Time
+        ImGui::Text(" - Clock Duration: "  );
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(100);
+        ImGui::InputFloat("##duration", &(org[system_name].durationSec));
+
+        roboClock::control.known_devices.setOrgDuration(system_name, org[system_name].durationSec);
+        
+        
+
+
+      }
+      
+
 
       if (ImGui::CollapsingHeader(" BUTTONS "))
       {
@@ -553,6 +582,10 @@ void gui::draw_dashboard(int domain_id)
 
       // next : sett systtem duratuiion ?, start, write states, indicatiooon oof buttons ready. reset to state... popup/window on start with pause / sttoop butttons?
       // enable 3 - secoond cooountdown?
+
+      if( ImGui::Button( "Reset" )){
+        roboClock::control.known_devices.setOrgState(system_name, 0);
+      }
 
       if (ImGui::Button("Close"))
       {

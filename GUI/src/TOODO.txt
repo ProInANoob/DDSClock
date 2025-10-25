@@ -26,15 +26,9 @@ APP :
 
 INOS : 
 
-    - refactor to be dual core... do all the reading of dr on one core with the ooother doing button listening / writng / cloock management /  wjaatever.. ( NEED TO DO DDS WORK ON BOTH.... I HTIN K. need some kind of delay thing, dds_work is doing stuff in the meantime so.)
-        - nwill probably be nessisary for the clocks.... so ill doo It on  both,,  might not call dds_work in the other core, jusst some other yeild  / wait thing.... I have a  feeling  that dds_work is haveing  issueess,  cvould also be  the  other reader messingg  stufff Illl have to test motre as I buld the code back up ....
-
     - add command reader. - global color var - noo just reset on reception I think..... 
     - add color / state loogic / wriitnjgn. ^^^
     - see if yoou cann pub devInfoo on new participant, could have listener on devInfo foor role::coonntroll...... 
-
-    - have anuva write clock / just steal from the last stuffff.... that wsas kinda jank tho. 
-
 
 
 Later thing:::

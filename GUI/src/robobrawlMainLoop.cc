@@ -334,7 +334,6 @@ void roboClock::main_loop()
         }
 
       }
-      // control.writeSysName(temp);
       // control.writeHeartbeat();
     }
 

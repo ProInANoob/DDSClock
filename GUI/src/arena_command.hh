@@ -37,7 +37,6 @@ public:
   
     // -------------------------------------------------------
     void publish(ArenaCommand & command) {
-      std::cout << "ArenaCommand Sent. \n";
       this->dw.write( command );
     }
 

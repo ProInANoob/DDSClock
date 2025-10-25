@@ -83,12 +83,16 @@ public:
     org[sysName].state = state;
   }
 
+  void setOrgDuration(std::string sysName, float duration){
+    org[sysName].durationSec = duration;
+  }
+
   // -------------------------------------------------------
   void handle_deviceinfo(const DeviceInfo &devinfo)
   {
     auto result = known_devices.insert(std::make_pair(devinfo.deviceId(), devinfo));
     // const auto [it, added] =
-    std::cout << "hi! deviceInfo??\n";
+    std::cout << "Got:  DeviceInfo\n";
     auto it = result.first;
     auto added = result.second;
     if (!added)
@@ -129,7 +133,7 @@ public:
       tempInfo.devices = tempMap;
       tempInfo.durationSec = 180; // default 3 minuetts. 
       tempInfo.settings = 0; // nothing enabled I guesss... I may add a defualt one. 
-      tempInfo.state = 0; // I htink is default Idle state... 
+      tempInfo.state = 0; // set to Idle / wait for ready 
       tempInfo.timer = NewTimer();
 
       org.insert(std::make_pair(devinfo.sysName(), tempInfo));

@@ -286,9 +286,12 @@ void gui::draw_dashboard(int domain_id)
       std::string system_name = pair.first;
       // ----------- SYSTEM WINDOW ----------------------------------
       // window is open
+      
+ 
 
       ImGui::Begin("SystemControol");
       
+      // -------------- SETTINGS ------------------------------------
       if(ImGui::CollapsingHeader("Settings:")){
         ImGui::Text("Info: ");
 
@@ -300,6 +303,9 @@ void gui::draw_dashboard(int domain_id)
 
         // Num clock
         ImGui::Text(" - Number of Clocks: %d\n", org[system_name].devices[DeviceRole::ROLE_CLOCK].size());
+        
+        //state
+        ImGui::Text(" - State: %d", org[system_name].state);
 
         // Clock Time
         ImGui::Text(" - Clock Duration: "  );
@@ -309,13 +315,12 @@ void gui::draw_dashboard(int domain_id)
 
         roboClock::control.known_devices.setOrgDuration(system_name, org[system_name].durationSec);
         
-        
 
 
       }
       
 
-
+      // --------------------------- BUTTONS -------------------------------
       if (ImGui::CollapsingHeader(" BUTTONS "))
       {
         int i = 0;
@@ -495,6 +500,8 @@ void gui::draw_dashboard(int domain_id)
         }
       }
 
+
+      // ---------------------------- CLOCKS -------------------------------
       if (ImGui::CollapsingHeader("CLOCKS"))
       {
         int i = 0;
@@ -582,6 +589,9 @@ void gui::draw_dashboard(int domain_id)
 
       // next : sett systtem duratuiion ?, start, write states, indicatiooon oof buttons ready. reset to state... popup/window on start with pause / sttoop butttons?
       // enable 3 - secoond cooountdown?
+
+      // aadd buttons here - start (3-2-1), panic, winner?, unstick? - grey out when not in the state we consider to be "right"
+      
 
       if( ImGui::Button( "Reset" )){
         roboClock::control.known_devices.setOrgState(system_name, 0);

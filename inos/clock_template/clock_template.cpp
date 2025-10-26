@@ -3,6 +3,9 @@
 
   #include <string.h>
   #include <sys/param.h>
+  #include <string> 
+  #include <vector> 
+  #include <map> 
   #include "freertos/FreeRTOS.h"
   #include "freertos/task.h"
   #include "freertos/event_groups.h"
@@ -25,23 +28,25 @@
   #include "exampleDataWriter.h"
   #include "exampleDataReader.h"
 
+  #include "led_strip.h"
+
   static const char *TAG = "example";
   // static const char *payload = "Message from ESP32 ";
-  #define READY_BUTTON_PIN 1
-  #define TAPOUT_BUTTON_PIN 2
+  
+  // How many leds in your strip?
+  #define NUM_LEDS 95 
 
-
+  
   /*************************************************************/
   #define CDX_HEAP_SIZE (1024 * 1024) /* 1 MB */
   // ESP has 160K limit on DRAM (global variables)
   // however, we can use malloc() to get a larger buffer...
-
+  
   // unsigned char cdx_heap[CDX_HEAP_SIZE];
-
+  
   /*************************************************************/
-
-
-
+  
+  
   DDS_DomainParticipant dp = NULL;
   DDS_DomainParticipantQos dp_qos;
   DDS_Publisher pub = NULL;
@@ -49,16 +54,38 @@
   DDS_Topic DeviceInfo_topic;    // discovery data
   DDS_Topic SysName_topic;       // sub, for cheinging system allocaiton
   DDS_Topic ClockCommand_topic; // sub, for commands, duh
-  DDS_Topic ClockData_topic;    // pub, for button presses
   DeviceInfoDataWriter di_dw = NULL;
-  ClockDataDataWriter bd_dw = NULL;
   SysNameDataReader sn_dr = NULL;
   ClockCommandDataReader bc_dr = NULL;
   DDS_DataWriterQos dw_qos;
   DDS_DataReaderQos dr_qos;
   DeviceInfo devInfo; 
-  ClockData clockData;
+  ClockCommand clockState; 
 
+
+  // leds config
+  // LED strip common configuration
+  led_strip_config_t strip_config = {
+      .strip_gpio_num = BLINK_GPIO,  // The GPIO that connected to the LED strip's data line
+      .max_leds = 1,                 // The number of LEDs in the strip,
+      .led_model = LED_MODEL_WS2812, // LED strip model, it determines the bit timing
+      .color_component_format = LED_STRIP_COLOR_COMPONENT_FMT_GRB, // The color component format is G-R-B
+      .flags = {
+          .invert_out = false, // don't invert the output signal
+      }
+  };
+  
+  /// RMT backend specific configuration
+  led_strip_rmt_config_t rmt_config = {
+      .clk_src = RMT_CLK_SRC_DEFAULT,    // different clock source can lead to different power consumption
+      .resolution_hz = 10 * 1000 * 1000, // RMT counter clock frequency: 10MHz
+      .mem_block_symbols = 64,           // the memory size of each RMT channel, in words (4 bytes)
+      .flags = {
+          .with_dma = true, // DMA feature is available on chips like ESP32-S3/P4
+      }
+  };
+
+  led_strip_handle_t led_strip;
 
 
 
@@ -85,11 +112,11 @@
   }
 
   /*************************************************************/
-  int device_coredx_init(uint32_t ticks_per_sec)
+  extern "C" int device_coredx_init(uint32_t ticks_per_sec)
   {
     toc_set_logio_routine(coredx_logio_routine);
     // CoreDX_DDS_set_ipaddr( (unsigned char *)&ipaddr); /* 4 byte IPv4 addr */
-    unsigned char *cdx_heap = malloc(CDX_HEAP_SIZE);
+    unsigned char *cdx_heap = (unsigned char *)malloc(CDX_HEAP_SIZE);
     if (cdx_heap != NULL)
     {
       CoreDX_DDS_heap_init(cdx_heap, CDX_HEAP_SIZE);
@@ -99,7 +126,7 @@
       ESP_LOGE(TAG, "Unable to allocate heap for CoreDX DDS...");
     }
 
-    toc_set_ticks_per_sec(ticks_per_sec);
+    //toc_set_ticks_per_sec(ticks_per_sec);
     return 0;
   }
 
@@ -184,7 +211,6 @@
             // new sys Name.. 
             strcpy( sysName, smsg->sysName); 
             devInfo.sysName = sysName; 
-            buttonData.sysName = sysName; 
             DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // update network of new sys namem.
             dds_work(dp, 100); 
           }
@@ -243,8 +269,9 @@
         * would be invalid.
         */
         if (si->valid_data){
-          printf("Sample Received (BC):  msg %d  || %ld\n", i, smsg->deviceId);
+          printf("Sample Received (BC):  msg %d  \n", i);
           // do things.... 
+          ClockCommand_copy(clockState, smsg);
 
 
         }
@@ -268,14 +295,64 @@
   }
 
 
-  void writeClockData(){
-    // basiucaly just do dw.write I think.... noothiing to set here.... 
-    ClockDataDataWriter_write(bd_dw, &buttonData, DDS_HANDLE_NIL);
+  // CLOCK stuff ----------------------------------------------
 
+  std::vector<std::string> mapNames = {"dig1", "dig2", "dig3", "dig4", "colonUp", "colonDown", "decimal", "gear1", "gear2" }; 
+  std::map<Colors, std::tuple<int>> colorToRgb;
+
+  void initMap() {
+                        // 6, 1, 2, 4, 5, 7, 3
+    TEST_MAP["dig1"] = {20, 5, 8, 14, 17, 23, 11};
+    TEST_MAP["dig2"] = {41, 26, 29, 35, 38, 44, 32};
+    TEST_MAP["dig3"] = {65, 50, 53, 59, 62, 68, 56};
+    TEST_MAP["dig4"] = {86, 71, 74, 80, 83, 89, 77};
+    TEST_MAP["colonUp"] = {48}; //upper colon
+    TEST_MAP["colonDown"] = {47}; //lower colon
+    TEST_MAP["decimal"] = {46}; //period 
+    TEST_MAP["gear1"] = {0, 1, 2, 3};
+    TEST_MAP["gear2"] = {92, 93, 94, 95};
+
+    colorToRgb[Colors::COLOR_RED] = std::make_tuple(225, 0, 0);
+    colorToRgb[Colors::COLOR_GREEN] = std::make_tuple(0, 255, 0);
+    colorToRgb[Colors::COLOR_BLUE] = std::make_tuple(0, 0, 255);
+    colorToRgb[Colors::COLOR_BLACK] = std::make_tuple(0, 0, 0);
+    colorToRgb[Colors::COLOR_YELLOW] = std::make_tuple(225, 0xC4, 0);
+    colorToRgb[Colors::COLOR_ORANGE] = std::make_tuple(0xF3, 0x80, 0x22);
 
   }
 
-// no need for a deviceinfo writer, justwriting the once as of now...
+  // Color to RGB 
+
+
+  void writeSolid(Colors color){
+
+    auto colorVals = colorToRgb[color];
+
+    for(std::string name : mapNames ){
+        if(name != "gear1" && name != "gear2"){ // let the grars be probably... 
+          for(auto num : TEST_MAP[name]){
+            led_strip_set_pixel(led_strip, num, std::get<0>(colorVals), std::get<0>(colorVals), std::get<0>(colorVals) );
+          }
+        }
+       
+    }
+  }
+
+  void writeGear(Colors color, bool leftGear){
+    auto colorVals = colorToRgb[color];
+    std::string gear = "gear1"; // no clue witch one is left / right, or blue / orange. 
+    if(leftGear){
+      gear = "gear2";
+    }
+    for(auto num : TEST_MAP[gear]){
+      led_strip_set_pixel(led_strip, num, std::get<0>(colorVals), std::get<0>(colorVals), std::get<0>(colorVals) );
+    }
+  }
+
+
+
+
+
 
 
   static void dds_example_task(void *pvParameters)
@@ -312,10 +389,7 @@
         di_dw = DDS_Publisher_create_datawriter(pub, DeviceInfo_topic, &dw_qos, NULL, 0);
         ESP_LOGI(TAG, "Created DeviceInfo dataWriter...");
 
-        ClockDataTypeSupport_register_type(dp, "ClockData");
-        ClockData_topic = DDS_DomainParticipant_create_topic(dp, "ClockData", "ClockData", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
-        cd_dw = DDS_Publisher_create_datawriter(pub, ClockData_topic, &dw_qos, NULL, 0);
-        ESP_LOGI(TAG, "Created ClockData DataWriter...");
+        
 
         DDS_DataWriterQos_clear(&dw_qos);
       }
@@ -331,8 +405,8 @@
         sn_dr = DDS_Subscriber_create_datareader(sub, DDS_Topic_TopicDescription(SysName_topic), &dr_qos, NULL, 0);
         ESP_LOGI(TAG, "Created SysName DataReader...");
 
-        ButtonCommandTypeSupport_register_type(dp, "ClockCommand");
-        ButtonCommand_topic = DDS_DomainParticipant_create_topic(dp, "ClockCommand", "ClockCommand", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
+        ClockCommandTypeSupport_register_type(dp, "ClockCommand");
+        ClockCommand_topic = DDS_DomainParticipant_create_topic(dp, "ClockCommand", "ClockCommand", DDS_TOPIC_QOS_DEFAULT, NULL, 0);
         bc_dr = DDS_Subscriber_create_datareader(sub, DDS_Topic_TopicDescription(ClockCommand_topic), &dr_qos, NULL, 0);
         ESP_LOGI(TAG, "Created ClockCommand DataReader...");
 
@@ -406,25 +480,36 @@
 
 
   static void device_task(void *pvParameters){
-      //while (!dds_created){
-      //  vTaskDelay(100 / portTICK_PERIOD_MS);
-      //} // wooait for other task to signal dds okay.... 
-      // do device things....... . 
-      while( 1 ){
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-        // read buttons, write mexssages if nessisary..... nee mutexes on this stufffff probbaly......  
+    initMap();
+    while( 1 ){
+      vTaskDelay(200 / portTICK_PERIOD_MS);
 
-        
-
-
-
-
+      //TODO: 
+      //  FILLCOLOR(Colors color)
+      //  SetGears / set GRaer Left or someithng. 
+      //  Write Time
+      //  others? 
+      
+      if(!clockState.isOff){
+        if(clockState.doDisplayTime){
+          // run some code to display a time some kinda displayTime{int, int, color}     
+          
+        }else{
+          // solid color Was the intentaion I believe.
+          
+        }
+      }
+      else {
+        //clock is off. 
+        writeSolid(Colors::COLOR_BLACK);
 
       }
+
+    }
   }
 
 
-  void app_main(void)
+  extern "C" void app_main(void)
   {
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());

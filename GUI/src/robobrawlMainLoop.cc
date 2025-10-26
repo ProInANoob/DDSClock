@@ -159,13 +159,13 @@ void roboClock::main_loop()
           control.writeToClock(comm);
 
           break;
-        case 4: // ui for 3? sec countdown
+        case 4: // 3 - 2 - 1 
 
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_BLACK);
           control.WriteToOrangeButtons(system, Colors::COLOR_BLACK);
 
-          timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
+          timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
           comm.isOff(0);
           comm.doDisplayTime(1);
           comm.mainColor(Colors::COLOR_YELLOW);
@@ -182,13 +182,12 @@ void roboClock::main_loop()
 
           break;
 
-        case 5: // pause.
+        case 5: // runnun.
 
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_RED);
           control.WriteToOrangeButtons(system, Colors::COLOR_RED);
 
-          info.timer.pause();
           comm.isOff(0);
           comm.doDisplayTime(1);
 
@@ -201,7 +200,7 @@ void roboClock::main_loop()
           control.writeToClock(comm); // should just work probaly.... need a resume state tho.
 
           break;
-        case 6:
+        case 6: // blue win 
 
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
@@ -221,7 +220,7 @@ void roboClock::main_loop()
           control.writeToClock(comm);
 
           break;
-        case 7:
+        case 7: // Orange Win
 
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_ORANGE);
@@ -243,9 +242,8 @@ void roboClock::main_loop()
           control.known_devices.setOrgState(system, -1); 
 
           break;
-        case 8:
+        case 8: // AHHHHHHH i think 
 
-          // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_RED);
           control.WriteToOrangeButtons(system, Colors::COLOR_RED);
 
@@ -264,7 +262,7 @@ void roboClock::main_loop()
 
           break;
 
-        case 9:
+        case 9: // pause it..... 
 
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
@@ -281,9 +279,11 @@ void roboClock::main_loop()
           time.minutes(int(timeNum / 60));
           comm.time(time);
           control.writeToClock(comm); // should just work probaly.... need a resume state tho. (12)
+          // set state to 5
+          control.known_devices.setOrgState(system, 5);
           break;
 
-        case 10:
+        case 10: // 3-2-1 -  the starrt 
 
       
 
@@ -302,7 +302,7 @@ void roboClock::main_loop()
           control.known_devices.setOrgState(system, 4); 
 
           break;
-        case 11:
+        case 11: // run?
 
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_YELLOW);
@@ -319,10 +319,13 @@ void roboClock::main_loop()
           time.seconds(fmod(timeNum, 60));
           time.minutes(int(timeNum / 60));
           comm.time(time);
-          control.writeToClock(comm); // should just work probaly.... need a resume state tho. (12)
+          control.writeToClock(comm);
+          
+          control.known_devices.setOrgState(system, 5); 
+
 
           break;
-        case 12:
+        case 12: // resume
           info.timer.resume();
           control.known_devices.setOrgState(system, 5); // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5)
           control.writeToClock(comm);

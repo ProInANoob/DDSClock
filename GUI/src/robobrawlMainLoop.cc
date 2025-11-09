@@ -167,7 +167,7 @@ void roboClock::main_loop()
           // buttons on Orange: green / Blue:blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_BLACK);
           control.WriteToOrangeButtons(system, Colors::COLOR_BLACK);
-          printf("elspased: %d\n", info.timer.elapsedMsec() / 1000);
+
           timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -256,6 +256,7 @@ void roboClock::main_loop()
 
           control.WriteToBlueButtons(system, Colors::COLOR_RED);
           control.WriteToOrangeButtons(system, Colors::COLOR_RED);
+          control.known_devices.pauseTimer(system); // just in case..
 
           time.seconds(0);
           time.minutes(0);
@@ -296,7 +297,6 @@ void roboClock::main_loop()
         case 10: // 3-2-1 -  the starrt 
 
       
-          printf("elapese: %d\n", info.timer.elapsedMsec() / 1000 );
           control.known_devices.startTimer(system);
 
           timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.

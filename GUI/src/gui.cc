@@ -587,8 +587,15 @@ void gui::draw_dashboard(int domain_id)
 
       // next : sett systtem duratuiion ?, start, write states, indicatiooon oof buttons ready. reset to state... popup/window on start with pause / sttoop butttons?
       // enable 3 - secoond cooountdown?
-      ImGui::Text("Timer Elapsed (Msec): %d", org[system_name].timer.elapsedMsec() );
       ImGui::Text("Timer Runninig: %d", org[system_name].timer.isRunning());
+      if(org[system_name].timer.isRunning()){
+        if(org[system_name].state == 4){
+          ImGui::Text("Time Remaining: %d", (3 - org[system_name].timer.elapsedMsec()/1000));
+        } else {
+          ImGui::Text("Time Remaining: %f", (org[system_name].durationSec - org[system_name].timer.elapsedMsec()/1000));
+        }
+      }
+      
       
 
 

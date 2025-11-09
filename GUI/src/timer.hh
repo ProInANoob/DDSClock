@@ -61,7 +61,6 @@ public:
     NewTimer() : _start(Clock::now()), _elapsed(Duration::zero()), _running(false) {}
 
     void start() {
-        printf("start a timer --------------\n");
         _start = Clock::now();
         _elapsed = Duration::zero();
         _running = true;

@@ -324,8 +324,6 @@ void gui::draw_dashboard(int domain_id)
       if (ImGui::CollapsingHeader(" BUTTONS "))
       {
         int i = 0;
-        ImGui::Text("hihihihih");
-        ImGui::Text("%d", org[system_name].state);
 
         // ------------------------- BLUE BUTTONSS -------------------------------------------
 
@@ -589,15 +587,113 @@ void gui::draw_dashboard(int domain_id)
 
       // next : sett systtem duratuiion ?, start, write states, indicatiooon oof buttons ready. reset to state... popup/window on start with pause / sttoop butttons?
       // enable 3 - secoond cooountdown?
+      ImGui::Text("uh this: %d", org[system_name].timer.elapsedMsec() / 1000);
 
-      // aadd buttons here - start (3-2-1), panic, winner?, unstick? - grey out when not in the state we consider to be "right"
-      
 
-      if( ImGui::Button( "Reset" )){
-        roboClock::control.known_devices.setOrgState(system_name, 0);
+      // Start Button. -------------------------
+      if(org[system_name].state == 3){
+        ImGui::PushStyleColor(ImGuiCol_Button, green_col);
+      } else {
+        ImGui::PushStyleColor(ImGuiCol_Button, grey_col);
       }
 
-      if (ImGui::Button("Close"))
+      if(ImGui::Button("START", ImVec2(200,100))){
+        if(org[system_name].doCountdown){
+          roboClock::control.known_devices.setOrgState(system_name, 10); // ?
+        }
+        else{
+          roboClock::control.known_devices.setOrgState(system_name, 11); // ?
+        }
+      }
+      ImGui::PopStyleColor();
+
+      // do countdown: --------------------------
+      ImGui::SameLine();
+      if(org[system_name].doCountdown){
+        // green button, than will make it off. 
+        ImGui::PushStyleColor(ImGuiCol_Button, green_col);
+
+        if(ImGui::Button(" [ 3-2-1 ON ] ", ImVec2(200,100))){
+          roboClock::control.known_devices.setDoCountdown(system_name, false);
+
+        }
+      } else{
+        ImGui::PushStyleColor(ImGuiCol_Button, grey_col);
+
+        if(ImGui::Button(" [ 3-2-1 OFF ] ", ImVec2(200,100))){
+          roboClock::control.known_devices.setDoCountdown(system_name, true);
+        }
+
+      }
+      ImGui::PopStyleColor();
+
+      // Declare Winner: 
+      if(org[system_name].state == 5){  // may add other ones to this
+        // green button, than will make it off. 
+        ImGui::PushStyleColor(ImGuiCol_Button, blue_col);
+
+      } else{
+        ImGui::PushStyleColor(ImGuiCol_Button, grey_col);
+
+      }
+      if(ImGui::Button(" BLUE WIN ", ImVec2(200,100))){
+        roboClock::control.known_devices.setOrgState(system_name, 6);
+      }
+      ImGui::PopStyleColor(1);
+      ImGui::SameLine();
+      if(org[system_name].state == 5){  // may add other ones to this
+        // green button, than will make it off. 
+        ImGui::PushStyleColor(ImGuiCol_Button, orange_col);
+
+      } else{
+        ImGui::PushStyleColor(ImGuiCol_Button, grey_col);
+
+      }
+      if(ImGui::Button(" ORANGE WIN ", ImVec2(200,100))){
+        roboClock::control.known_devices.setOrgState(system_name, 7);
+      }
+
+      ImGui::PopStyleColor();
+
+      //Pause.
+      if(org[system_name].timer._running){
+        // green button, than will make it off. 
+        ImGui::PushStyleColor(ImGuiCol_Button, grey_col);
+
+      } else{
+        ImGui::PushStyleColor(ImGuiCol_Button, yellow_col);
+
+      }
+      if(ImGui::Button(" Pause ", ImVec2(200,100))){
+        roboClock::control.known_devices.setOrgState(system_name, 9);
+      }
+      ImGui::PopStyleColor();
+
+      
+      // Panic
+      ImGui::SameLine();
+      if(org[system_name].state == 8){
+        // green button, than will make it off. 
+        ImGui::PushStyleColor(ImGuiCol_Button, green_col);
+
+      } else{
+        ImGui::PushStyleColor(ImGuiCol_Button, red_col);
+
+      }
+      if(ImGui::Button("AHHHHHHHH!!!!!", ImVec2(200,100))){
+        roboClock::control.known_devices.setOrgState(system_name, 8);
+      }
+      ImGui::PopStyleColor();
+
+      // aadd buttons here - start (3-2-1), panic, winner?, unstick? - grey out when not in the state we consider to be "right"
+
+
+      if( ImGui::Button( "Reset", ImVec2(200,100) )){
+        org[system_name].timer.stop();
+        roboClock::control.known_devices.setOrgState(system_name, 0);
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Close", ImVec2(200,100)))
       {
         pair.second = false; // not sure this will stay in the map.
       }

@@ -9,6 +9,6 @@ Description: A free, high-quality, and portable font engine.
 Version: 26.1.20
 Requires:  zlib, libpng
 Requires.private: 
-Libs: -L${libdir} -lfreetype -lbz2
+Libs: -L${libdir} -lfreetype 
 Libs.private: 
 Cflags: -I${includedir}/freetype2

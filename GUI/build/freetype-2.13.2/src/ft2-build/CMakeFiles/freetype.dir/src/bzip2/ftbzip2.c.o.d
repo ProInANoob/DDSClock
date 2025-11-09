@@ -95,5 +95,4 @@ CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o: \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/ftcalc.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftincrem.h \
  /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/ftdebug.h \
- /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftbzip2.h \
- /usr/include/bzlib.h
+ /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/ftbzip2.h

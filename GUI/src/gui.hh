@@ -25,6 +25,7 @@ namespace gui {
   const ImU32 bluegrey_col   = IM_COL32(1, 30, 50, 255);
   const ImU32 blue_col       = IM_COL32(80, 80, 250, 255);
   const ImU32 orange_col     = IM_COL32(250, 160, 30, 255);
+  const ImU32 grey_col       = IM_COL32(160, 160, 160, 255);
 
 
 

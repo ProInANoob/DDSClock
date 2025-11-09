@@ -2487,7 +2487,6 @@ CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o: /home/ethan/Robobrawl/DDSClock/GU
   /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/freetype/internal/ftstream.h \
   /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/include/ft2build.h \
   /usr/include/alloca.h \
-  /usr/include/bzlib.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
@@ -5250,8 +5249,6 @@ CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o: /home/ethan/Robobrawl/DDSClock/
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/cache/ftcbasic.c:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/cache/ftcache.c:
-
-/usr/include/bzlib.h:
 
 /home/ethan/Robobrawl/DDSClock/GUI/build/freetype-2.13.2/src/ft2/src/truetype/ttinterp.c:
 

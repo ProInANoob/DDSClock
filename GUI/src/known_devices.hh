@@ -87,6 +87,10 @@ public:
     org[sysName].durationSec = duration;
   }
 
+  void setDoCountdown(std::string sysName, bool doCountdown){
+    org[sysName].doCountdown = doCountdown;
+  }
+
   // -------------------------------------------------------
   void handle_deviceinfo(const DeviceInfo &devinfo)
   {
@@ -135,6 +139,7 @@ public:
       tempInfo.settings = 0; // nothing enabled I guesss... I may add a defualt one. 
       tempInfo.state = 0; // set to Idle / wait for ready 
       tempInfo.timer = NewTimer();
+      tempInfo.doCountdown = 1; 
 
       org.insert(std::make_pair(devinfo.sysName(), tempInfo));
     }

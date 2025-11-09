@@ -17,6 +17,7 @@ struct SystemInfo
     NewTimer timer;
     uint32_t settings;
     int state;
+    bool doCountdown; 
 
 
     /* data */

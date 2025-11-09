@@ -11,6 +11,7 @@
 #define TIMER_HH
 
 #include <chrono>
+#include <stdio.h>
 
 class Timer
 {
@@ -52,12 +53,15 @@ class NewTimer {
 
     TimePoint _start;
     Duration _elapsed;
+    
+public:
+
     bool _running;
 
-public:
     NewTimer() : _start(Clock::now()), _elapsed(Duration::zero()), _running(false) {}
 
     void start() {
+        printf("start a timer --------------\n");
         _start = Clock::now();
         _elapsed = Duration::zero();
         _running = true;
@@ -87,8 +91,12 @@ public:
     bool isRunning() const { return _running; }
 
     Duration elapsed() const {
+        
         if (_running) {
-            return _elapsed + std::chrono::duration_cast<Duration>(Clock::now() - _start);
+            std::chrono::steady_clock::time_point _end;
+            _end = std::chrono::steady_clock::now();
+             
+            return _elapsed + std::chrono::duration_cast<std::chrono::milliseconds>(_end - _start);
         } else {
             return _elapsed;
         }

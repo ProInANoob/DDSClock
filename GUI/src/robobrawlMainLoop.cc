@@ -73,6 +73,7 @@ void roboClock::main_loop()
           // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet.
           control.WriteToBlueButtons(system, Colors::COLOR_BLACK);
           control.WriteToOrangeButtons(system, Colors::COLOR_BLACK);
+          control.known_devices.stopTimer(system);
 
           //buttons off
           
@@ -84,6 +85,7 @@ void roboClock::main_loop()
           // buttons on orange / blue. 
           control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
           control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
+          control.known_devices.stopTimer(system);
 
         //
           comm.isOff(0);
@@ -145,6 +147,7 @@ void roboClock::main_loop()
           // buttons on Orange: green / Blue:Green. 
           control.WriteToBlueButtons(system, Colors::COLOR_GREEN);
           control.WriteToOrangeButtons(system, Colors::COLOR_GREEN);
+          control.known_devices.stopTimer(system); // just makign sure.
 
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -177,16 +180,17 @@ void roboClock::main_loop()
 
           if (timeNum <= 0)
           {
-            control.known_devices.setOrgState(system, 5); 
+            control.known_devices.setOrgState(system, 11); 
+            control.known_devices.stopTimer(system);
+
           }
 
           break;
 
         case 5: // runnun.
 
-          // buttons on Orange: green / Blue:blue. 
-          control.WriteToBlueButtons(system, Colors::COLOR_RED);
-          control.WriteToOrangeButtons(system, Colors::COLOR_RED);
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
 
           comm.isOff(0);
           comm.doDisplayTime(1);
@@ -194,9 +198,15 @@ void roboClock::main_loop()
           // so duration - clock timer -> get elapsed = remaining time in seconds, then do color check and display.
           timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
 
+          if(timeNum <= 0 ){
+            // go to a 000 match over state, dont know if I have.
+            control.known_devices.setOrgState(system, 13); 
+          }
+
           time.seconds(fmod(timeNum, 60));
           time.minutes(int(timeNum / 60));
           comm.time(time);
+          
           control.writeToClock(comm); // should just work probaly.... need a resume state tho.
 
           break;
@@ -268,7 +278,7 @@ void roboClock::main_loop()
           control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
           control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
 
-          info.timer.pause();
+          control.known_devices.pauseTimer(system);
           comm.isOff(0);
           comm.doDisplayTime(1);
 
@@ -287,7 +297,7 @@ void roboClock::main_loop()
 
       
           printf("elapese: %d\n", info.timer.elapsedMsec() / 1000 );
-          info.timer.start();
+          control.known_devices.startTimer(system);
 
           timeNum = 3 - (info.timer.elapsedMsec() / 1000); // division cause ms.
           comm.isOff(0);
@@ -304,12 +314,11 @@ void roboClock::main_loop()
           break;
         case 11: // run?
 
-          // buttons on Orange: green / Blue:blue. 
-          control.WriteToBlueButtons(system, Colors::COLOR_YELLOW);
-          control.WriteToOrangeButtons(system, Colors::COLOR_YELLOW);
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
 
 
-          info.timer.start();
+          control.known_devices.startTimer(system);
           comm.isOff(0);
           comm.doDisplayTime(1);
 
@@ -326,10 +335,32 @@ void roboClock::main_loop()
 
           break;
         case 12: // resume
-          info.timer.resume();
+          control.known_devices.resumeTimer(system);
           control.known_devices.setOrgState(system, 5); // put back into running but with a resumed timer. - can ony beapaused in the 3:00 state (5)
           control.writeToClock(comm);
           break;
+
+        case 13: // match over. 
+
+          //lights red, buttons stay( whatever I made them when running.), clock to red 0000 
+
+          control.WriteToBlueButtons(system, Colors::COLOR_BLUE);
+          control.WriteToOrangeButtons(system, Colors::COLOR_ORANGE);
+
+          control.known_devices.stopTimer(system);
+
+          comm.isOff(0);
+          comm.doDisplayTime(1);
+
+          timeNum = info.durationSec - (info.timer.elapsedMsec() / 1000); // division cause ms.
+
+          time.seconds(fmod(timeNum, 60));
+          time.minutes(int(timeNum / 60));
+          comm.time(time);
+          control.writeToClock(comm);
+
+          break;
+
 
         default:
           std::cout << "unknown Clock state in: " << pair.first << std::endl;

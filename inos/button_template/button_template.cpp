@@ -76,7 +76,7 @@
   char * sysName_default  = "TEST";
   char sysName[50];
   
-  unsigned long long writeTime;
+  int deviceInfoMatchCount = 0;
 
   bool dds_created = false; 
   Colors currentColor;
@@ -280,15 +280,8 @@
 
   void writeButtonData(){
     // basiucaly just do dw.write I think.... noothiing to set here....
+    ButtonDataDataWriter_write(bd_dw, &buttonData, DDS_HANDLE_NIL);
     
-    //if(writeTime - timer_gettime() > 300){
-      ButtonDataDataWriter_write(bd_dw, &buttonData, DDS_HANDLE_NIL);
-    //  writeTime = timer_gettime();
-    //}
-    //else{
-    //  ESP_LOGI(TAG, "Too Fast Of A Write... ");
-    //}
-
   }
 
   void writeDeviceInfo(){
@@ -385,7 +378,7 @@
 
 
 
-        
+        // burst on startup.... not great but eh. 
         for(int i = 0; i <10; i++){
 
           DeviceInfoDataWriter_write(di_dw, &devInfo, DDS_HANDLE_NIL); // write inint message, would prefer nto to do this on loop but..
@@ -396,7 +389,7 @@
         
         dds_created = true;
         
-        //DDS_SubscriptionMatchedStatus  status;
+        DDS_PublicationMatchedStatus  status;
         while (1)
         {
           // so heres my const / loop for dds side, Ill have button polling and writing elsewhere... (main loop)
@@ -409,7 +402,13 @@
 
           devInfo.sysName = sysName;
 
-          //DDS_DataReader_get_subscription_matched_status(sn_dr, &status);
+          DDS_DataWriter_get_publication_matched_status(di_dw, &status);
+          if ( deviceInfoMatchCount != status.total_count){
+            // write DI and also fix that... 
+            ESP_LOGI(TAG, "matched: %ld\n", status.total_count);
+            writeDeviceInfo();
+            deviceInfoMatchCount = status.total_count;
+          }
           //printf("Subscition matched count: %ld\n", status.total_count);
 
 
@@ -493,7 +492,7 @@
     
 
     xTaskCreatePinnedToCore(device_task, "device_stuff", 16384, NULL, 5, NULL, 0);
-    xTaskCreatePinnedToCore(dds_example_task, "dds_readers", 16384, NULL, 5, NULL, 1);
+    xTaskCreatePinnedToCore(dds_example_task, "dds_things", 16384, NULL, 5, NULL, 1);
 
 
     

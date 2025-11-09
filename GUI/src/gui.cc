@@ -587,7 +587,9 @@ void gui::draw_dashboard(int domain_id)
 
       // next : sett systtem duratuiion ?, start, write states, indicatiooon oof buttons ready. reset to state... popup/window on start with pause / sttoop butttons?
       // enable 3 - secoond cooountdown?
-      ImGui::Text("uh this: %d", org[system_name].timer.elapsedMsec() / 1000);
+      ImGui::Text("Timer Elapsed (Msec): %d", org[system_name].timer.elapsedMsec() );
+      ImGui::Text("Timer Runninig: %d", org[system_name].timer.isRunning());
+      
 
 
       // Start Button. -------------------------
@@ -628,7 +630,7 @@ void gui::draw_dashboard(int domain_id)
       ImGui::PopStyleColor();
 
       // Declare Winner: 
-      if(org[system_name].state == 5){  // may add other ones to this
+      if(org[system_name].state == 5 || org[system_name].state == 13){  // may add other ones to this
         // green button, than will make it off. 
         ImGui::PushStyleColor(ImGuiCol_Button, blue_col);
 
@@ -641,7 +643,7 @@ void gui::draw_dashboard(int domain_id)
       }
       ImGui::PopStyleColor(1);
       ImGui::SameLine();
-      if(org[system_name].state == 5){  // may add other ones to this
+      if(org[system_name].state == 5 || org[system_name].state == 13 ){  // may add other ones to this
         // green button, than will make it off. 
         ImGui::PushStyleColor(ImGuiCol_Button, orange_col);
 
@@ -658,7 +660,7 @@ void gui::draw_dashboard(int domain_id)
       //Pause.
       if(org[system_name].timer._running){
         // green button, than will make it off. 
-        ImGui::PushStyleColor(ImGuiCol_Button, grey_col);
+        ImGui::PushStyleColor(ImGuiCol_Button, green_col);
 
       } else{
         ImGui::PushStyleColor(ImGuiCol_Button, yellow_col);

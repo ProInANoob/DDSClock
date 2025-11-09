@@ -91,6 +91,26 @@ public:
     org[sysName].doCountdown = doCountdown;
   }
 
+  void startTimer(std::string sysName){
+    org[sysName].timer.start();
+  }
+
+  void pauseTimer(std::string sysName){
+    org[sysName].timer.pause();
+  }
+
+  void stopTimer(std::string sysName){
+    org[sysName].timer.stop();
+  }
+
+  void resumeTimer(std::string sysName){
+    org[sysName].timer.resume();
+  }
+
+  int64_t getTimerElapsedMsec(std::string sysName){
+    return org[sysName].timer.elapsedMsec();
+  }
+
   // -------------------------------------------------------
   void handle_deviceinfo(const DeviceInfo &devinfo)
   {

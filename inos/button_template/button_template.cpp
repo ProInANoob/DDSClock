@@ -21,10 +21,10 @@
 
   #include <dds/dds.h>
   #include <dds/toc_util.h>
-  #include "example.h"
-  #include "exampleTypeSupport.h"
-  #include "exampleDataWriter.h"
-  #include "exampleDataReader.h"
+  #include "Robobrawl.h"
+  #include "RobobrawlTypeSupport.h"
+  #include "RobobrawlDataWriter.h"
+  #include "RobobrawlDataReader.h"
   
   
 
@@ -432,7 +432,6 @@
 
 
   static void device_task(void *pvParameters){
-    printf("AHHHHHHHHHH\n");
       while (!dds_created){
         vTaskDelay(100 / portTICK_PERIOD_MS);
       } // wooait for other task to signal dds okay.... 

@@ -2,25 +2,21 @@
 APP :
  
     GUI:
-        ADD MOOAR BUTTONS UNDER CLOCK AND BUTTON LIST. 
 
-        In conntrool button  - add send button coommand open popup fro specs. ( same for clock. )
-
+        make good? 
 
 
 
     STATES:
-        ADD LIOOGHT STATES (?)
-        ADD SETTING CLOOCK DURATION 
-        refoormat tthe system stes into a mapp of [sys, StateStruct] - done I think. 
+        ADD LIOOGHT STATES (?) - dont think I need, jsut think about some kinda like transition animation for the arena - like a quick button on thing, 3-2-1. 
 
-        want main press in match to be unstick untill we redo the buttons to have that button. 
+        want main press in match to be unstick untill we redo the buttons to have that button. .AH.
 
 
 
     OTEHRFUNCT:
-        make sure dead device removes it from the list in systems / gui whatever. 
-        Make it not segfault when it exits. huh. I dont know why it does this .... 
+        make sure dead device removes it from the list in systems / gui whatever. oh uh I think id does but test. 
+        Make it not segfault when it exits. huh. I dont know why it does this .... its still an issue. 
 
 
 
@@ -28,8 +24,7 @@ INOS :
 
     - add command reader. - global color var - noo just reset on reception I think..... 
     - add color / state loogic / wriitnjgn. ^^^
-    - see if yoou cann pub devInfoo on new participant, could have listener on devInfo foor role::coonntroll...... 
-
+    Do CLOCKKKKCKCKCKCKKCKCKCLKLKCKLKCKCKOCOKCOKCCKOOKCOK
 
 Later thing:::
     add devids to all the command messages so I can handle multiple controlers on a network ( or I could just domain it but that hard coded.... )

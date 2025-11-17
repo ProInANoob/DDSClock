@@ -70,6 +70,9 @@ void roboClock::main_loop()
         switch (info.state)
         {
         case -1: // pure waiting - arena white.  - do buttons  in gui for idel the system  and remove from idle.
+
+        
+
           // not going to send messages - other than ambient I guess cause im gonna make that a ras pi... but I dont have those writers yet.
           control.WriteToBlueButtons(system, Colors::COLOR_BLACK);
           control.WriteToOrangeButtons(system, Colors::COLOR_BLACK);
